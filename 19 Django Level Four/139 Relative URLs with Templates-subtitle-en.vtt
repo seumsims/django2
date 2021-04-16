@@ -1,0 +1,256 @@
+WEBVTT
+
+00:04.950 --> 00:09.540
+Hello everyone and welcome to relative your Elswyth templates and this lecture will discuss how to use
+
+00:09.540 --> 00:14.370
+template tagging to create relative your calls and we'll also have a quick side discussion on future
+
+00:14.370 --> 00:15.600
+releases of Django.
+
+00:15.600 --> 00:16.570
+Let's get started.
+
+00:17.900 --> 00:23.780
+As we mentioned so far we had to use an anchor tab and Atra we've usually pass any hard coded path to
+
+00:23.780 --> 00:29.960
+the file meaning we either pasand the entire file path to actually get to the HTL file or we write a
+
+00:29.960 --> 00:32.150
+file path to the actual view.
+
+00:32.180 --> 00:33.830
+In general this is poor practice.
+
+00:33.860 --> 00:39.170
+If we want a jingle project to work on any system and be scalable we want to really focus on relative
+
+00:39.170 --> 00:41.810
+file paths not hard coded ones.
+
+00:42.810 --> 00:47.650
+In this lecture in the next one we will show you how to use various methods to pass relative your Elswyth
+
+00:47.650 --> 00:52.090
+template tags and at the end we're going to show you the preferred method that will be the main method
+
+00:52.090 --> 00:54.610
+used when future versions of Jinggoy are released.
+
+00:55.420 --> 00:56.690
+Let's talk about for a second.
+
+00:56.710 --> 00:59.150
+A quick side note on Django and future releases.
+
+00:59.230 --> 01:04.900
+Since we are going to be focusing on the end of this lecture Django in general has a really good roadmap
+
+01:04.900 --> 01:10.960
+for future releases an every two years they release what is known as an Ltd's or long term support version
+
+01:11.020 --> 01:16.990
+of Django which support guaranteed of at least three years now for a lot of people who work at enterprise
+
+01:16.990 --> 01:21.790
+companies long term support usually means something like 10 years not just three years but please keep
+
+01:21.790 --> 01:24.240
+in mind that jingoes an open source project.
+
+01:24.250 --> 01:27.460
+It's really just a bunch of volunteers donating their time.
+
+01:27.460 --> 01:34.510
+So three years is a pretty long term support for such an open source project but definitely check out
+
+01:34.900 --> 01:41.290
+the release notes and documentation on roadmaps for Django to get a better idea and better understanding
+
+01:41.320 --> 01:43.790
+of what the future of Gengel really looks like.
+
+01:43.790 --> 01:48.600
+And as a quick note usually new releases involve better features and easier methods.
+
+01:48.610 --> 01:53.980
+There are not huge paradigm shifts in the way you actually work with Django and the views the models
+
+01:53.980 --> 01:55.070
+the templates etc..
+
+01:55.120 --> 02:00.730
+So think of it more as improvements in regards to what you can expect in future releases of Django.
+
+02:00.760 --> 02:04.530
+Don't be nervous or worried that all the knowledge you're learning right now is only going to vanish
+
+02:04.530 --> 02:05.280
+if the next release.
+
+02:05.290 --> 02:07.090
+It really usually doesn't work that way.
+
+02:07.360 --> 02:09.950
+OK so back to the topic at hand.
+
+02:10.060 --> 02:15.040
+How can we replace a hard coded path in an A-Trak with a your old template instead.
+
+02:15.040 --> 02:16.950
+Let's see a few examples.
+
+02:16.950 --> 02:20.720
+All right so we can easily fix that problem with ds of your Alzner templates.
+
+02:20.740 --> 02:26.200
+So for example usually you may have something that looks like that first darker example you have a trick
+
+02:26.290 --> 02:27.230
+basic app.
+
+02:27.250 --> 02:27.970
+Thank you.
+
+02:28.090 --> 02:28.550
+And then.
+
+02:28.570 --> 02:28.950
+Thanks.
+
+02:28.990 --> 02:34.040
+That's just an anchor exults if you want to use template tags you can change that to look like this.
+
+02:34.060 --> 02:39.580
+You have the template tagged with the percent signs you have the keyword your all inside of that and
+
+02:39.580 --> 02:41.070
+then and usually single quotes.
+
+02:41.080 --> 02:48.160
+You have the actual name or you have name is equal to thank you in the Urals that high file of re-application.
+
+02:48.160 --> 02:53.360
+That's one way to do this you could also just directly reference the view itself.
+
+02:53.360 --> 02:58.850
+So for example the previous method we were referencing the name in the Urals PI file but you could also
+
+02:58.850 --> 03:03.700
+do this if you have an eighth ref in an acre like basic apps Lesch thank you.
+
+03:03.860 --> 03:09.690
+You could just change that to be in your old template tagged in single quotes that says basic app views.
+
+03:09.710 --> 03:10.990
+Thank you and that will go.
+
+03:11.030 --> 03:16.460
+The basic app find a view for thank you and then return that link so that when you click on things or
+
+03:16.460 --> 03:21.970
+whatever that text and they grotesque happens to be on your web page it will take use that view however
+
+03:22.040 --> 03:26.080
+this method is actually eventually going to go away with Django 2.0 in the future.
+
+03:26.150 --> 03:31.100
+At this point in time at the recording of this lecture right now the latest release Django 1.1 0.
+
+03:31.130 --> 03:36.590
+The next one it's going to be 1 point 1 1 and after that we should see Django 2.0 further along.
+
+03:36.590 --> 03:40.470
+That's about one and a half to two years away from being released at this point in time.
+
+03:40.580 --> 03:45.170
+But let's focus on how we can actually feature proof our method since that method is going to work right
+
+03:45.170 --> 03:45.510
+now.
+
+03:45.530 --> 03:50.720
+And in fact I believe it's a better and simpler method to understand so the suggested a must feature
+
+03:50.720 --> 03:55.160
+proof method is to do all of this with the or else that py file.
+
+03:55.160 --> 03:59.930
+So inside the euro's up PI file you add in the variable app underscore name.
+
+04:00.050 --> 04:04.890
+You'd then set this variable equal to a string that is the same name as your application name.
+
+04:04.970 --> 04:07.970
+And so this is currently the best way to use your old templates.
+
+04:08.000 --> 04:12.440
+This most future proof example and I believe the simplest example of the way to use this looks like
+
+04:12.440 --> 04:17.030
+this you're going to be changing something that looks like a ref equal to basic app slash thank you
+
+04:17.510 --> 04:22.340
+to change to look like this year your old template tagging and then quotes the name of your application
+
+04:22.430 --> 04:24.210
+colon and then the name of that view.
+
+04:24.260 --> 04:29.060
+And remember that this method requires the app named variable to be created inside of you or else the
+
+04:29.090 --> 04:29.840
+PI file.
+
+04:29.840 --> 04:31.080
+Now one quick note.
+
+04:31.310 --> 04:36.740
+So far we've really only been working with a single application Django project and so you might be thinking
+
+04:36.740 --> 04:41.100
+What's the whole point of all this your template tagging since it's quite obvious to me.
+
+04:41.120 --> 04:43.110
+What view matches what application.
+
+04:43.130 --> 04:46.850
+I only have one application should be simple enough and I don't have to worry about the relative You
+
+04:46.850 --> 04:48.220
+are all about py files.
+
+04:48.410 --> 04:53.610
+Well later on especially if the clone projects were going to be building out multiplication Gengel projects
+
+04:53.610 --> 04:58.930
+so a single project with multiple applications and have things separated as applications.
+
+04:59.210 --> 05:04.310
+And with this sort of methodology the usual template tagging becomes really important and really helps
+
+05:04.310 --> 05:09.300
+you have a clear understanding and clear pathways to your relative links.
+
+05:09.320 --> 05:15.240
+So keep in mind everything we're talking about here is kind of overkill for a single application project.
+
+05:15.260 --> 05:19.400
+But in the real world we're going to have multi application projects so that's where this really comes
+
+05:19.400 --> 05:20.780
+in handy.
+
+05:20.780 --> 05:21.330
+All right.
+
+05:21.410 --> 05:25.130
+So again using templates for relative URLs big help multiplications.
+
+05:25.220 --> 05:28.460
+Let's work through a basic example in the next lecture.
+
+05:28.460 --> 05:29.940
+Thanks everyone and I'll see you there.

@@ -1,0 +1,463 @@
+WEBVTT
+
+00:05.050 --> 00:10.280
+Hello everyone and welcome to change a level to now that you've reached level two.
+
+00:10.290 --> 00:13.370
+Let's quickly review the previous topics from jingle level 1.
+
+00:13.590 --> 00:18.720
+Those topics for setting up projects and applications creating views and mapping your L's to those views
+
+00:18.990 --> 00:23.350
+using simple templates and tags and then serving static media files.
+
+00:23.520 --> 00:28.140
+In this lecture we will do a run through of the workflow aspects we've learned about so far to get a
+
+00:28.140 --> 00:32.430
+quick review on all those topics and we're going to be using that to project folders from Gengel level
+
+00:32.430 --> 00:34.350
+one more single level too.
+
+00:34.590 --> 00:38.790
+If you accidentally deleted those folders or don't have them anymore you can always get them from the
+
+00:38.790 --> 00:41.390
+downloaded notes OK.
+
+00:41.420 --> 00:45.450
+Level 2 will begin to discuss models and databases and how to use them with Django.
+
+00:45.480 --> 00:49.540
+We're also going to be discussing how to use the admin interface before we do that though.
+
+00:49.650 --> 00:53.840
+Let's get started with a quick overview of Gengel level 1 and then the next lecture will get started
+
+00:53.840 --> 00:57.290
+with the Gengel level two topics going to hop over to the editor now.
+
+00:57.350 --> 00:59.060
+All right here I am at the editor.
+
+00:59.070 --> 01:03.750
+I have a new folder called Django lectures that I've been working for and basically we're going to do
+
+01:03.750 --> 01:08.850
+here is just do a very quick run through of all the topics we did in a level one won't be doing a whole
+
+01:08.850 --> 01:12.120
+lot of explanation just kind of a general run through of the workflow.
+
+01:12.120 --> 01:13.740
+You should be used to by now.
+
+01:13.740 --> 01:22.630
+So first things first we want to start a project so I will say Django admin call start project and then
+
+01:22.690 --> 01:23.910
+name the actual project.
+
+01:23.950 --> 01:26.820
+I'm going to be using the same names we use in Gengel level 1.
+
+01:26.860 --> 01:28.730
+Feel free to change them here.
+
+01:28.750 --> 01:31.820
+I'll just call it like we did in the jingle of a one first project.
+
+01:32.050 --> 01:37.490
+So I say Gengel admins start project first project and then they get a new folder here with first project.
+
+01:37.570 --> 01:41.400
+The project folder settings Your else and then managed up-I great.
+
+01:41.530 --> 01:48.240
+Now the next thing we have to do is actually create the application to do that and go into CD into that
+
+01:48.260 --> 01:55.560
+first project file and then I will call Python called the managed up PI file and then after that I will
+
+01:55.560 --> 02:01.780
+call start up and I'll call my first application first app just like we did in a level one.
+
+02:01.950 --> 02:05.760
+Again you can change name and here we have first at.
+
+02:05.760 --> 02:11.490
+Great and then one is going to be doing is messing around the views up-I py file your Elle's up-I file
+
+02:11.490 --> 02:17.340
+and first project and then also I need to create a stop file for a first app and the last do some template
+
+02:17.340 --> 02:18.480
+folders etc..
+
+02:18.690 --> 02:21.210
+But let's continue on.
+
+02:21.310 --> 02:22.850
+Let's create a view.
+
+02:22.900 --> 02:28.040
+So I will open up the used up high and I have from Django without shortcuts import render.
+
+02:28.100 --> 02:34.690
+We initially started with the HTP response view but will use render here and I will call the f and we'll
+
+02:34.690 --> 02:36.380
+just do an index view.
+
+02:36.730 --> 02:42.890
+So at the request and let's put a dictionary here so we can also practice those template tags.
+
+02:42.940 --> 02:54.490
+I'll say my dictionary and then will say inserts content or whatever you want to call it and then say
+
+02:55.240 --> 03:04.880
+hello I'm from first at and then we will call return render and into the render function.
+
+03:04.880 --> 03:11.130
+I'll pass on that request and then I'm also going to pass in the first score app..
+
+03:11.150 --> 03:14.030
+Slash index the H T.M..
+
+03:14.030 --> 03:20.660
+I will need to set that up and then also call the actual context to be equal to that context dictionary
+
+03:21.560 --> 03:23.730
+which was that my dictionary file.
+
+03:23.750 --> 03:30.640
+So we'll save that and the next thing I have to do is set up the actual index that each team will file
+
+03:30.700 --> 03:34.440
+and then set up the URL mappings will do the WGL mappings.
+
+03:34.480 --> 03:39.570
+Basically create a URL mapping call in first project to go to the py file.
+
+03:39.590 --> 03:42.270
+Inside first that Selsey a new file.
+
+03:42.370 --> 03:45.350
+Inside first app call it your Elle's.
+
+03:45.380 --> 03:57.690
+Hi and then I'm going to say from Django configuration or N.C.O. NF you are else import your function
+
+03:58.390 --> 04:09.400
+and then I will say from first underscore at import views so that views that py file or create a list
+
+04:09.400 --> 04:16.370
+called your patterns and then inside of this list I'm going to have the Yoro function call and I'll
+
+04:16.370 --> 04:23.350
+use regular expressions just to indicate that this is essentially at the index and then we'll say the
+
+04:23.400 --> 04:26.790
+use index.
+
+04:26.970 --> 04:33.760
+So actually call that index and then we say name is equal to index or remember this view is that in
+
+04:33.760 --> 04:38.970
+the x ray here that's just if I go to use that PI that's this function call right here.
+
+04:38.970 --> 04:39.240
+OK.
+
+04:39.270 --> 04:42.780
+So have you are also a PI working inside an application.
+
+04:42.780 --> 04:47.670
+But then I need to fix my first project or I'll thought PI to make sure that's going to call it correctly
+
+04:48.800 --> 04:50.700
+so let's scroll all the way down here.
+
+04:50.810 --> 04:52.590
+And right now I have the basic admen.
+
+04:52.630 --> 04:57.180
+I'm going to add to this and I want to do it with the include function that we learned about.
+
+04:57.230 --> 05:06.050
+So I import that from jingoes that configuration that you URLs so I will say just comma include and
+
+05:06.050 --> 05:08.880
+then over here I'm going to add in.
+
+05:09.170 --> 05:13.670
+Will say your L and I can even do something like.
+
+05:14.090 --> 05:18.350
+First underscore app to take care of those file paths.
+
+05:18.350 --> 05:25.630
+Really you can kind of play around this and then we'll say include when I'll say first underscore app
+
+05:25.880 --> 05:27.830
+dot or else.
+
+05:28.920 --> 05:37.810
+So let's save that and then let's also just add in the view for the actual index page so say our.
+
+05:38.230 --> 05:42.000
+And then I will say regular expression those caret signs.
+
+05:43.500 --> 05:44.950
+And let's add in the single quote.
+
+05:44.970 --> 05:54.430
+There's that's all wrapped are called views index and then say name index.
+
+05:54.430 --> 05:57.190
+So that's kind of just showing what we did last time here.
+
+05:57.640 --> 05:59.810
+Let's put the comma there.
+
+06:00.070 --> 06:01.350
+Save this.
+
+06:01.350 --> 06:05.650
+You know what's nice about this is if you ever feel forgetful about these different methods here that
+
+06:05.650 --> 06:10.570
+I'm showing you can just scroll up and the Django the default you are also PI file actually has the
+
+06:10.570 --> 06:11.350
+instructions.
+
+06:11.440 --> 06:15.640
+So it tells you how to do the function view which we kind of showed this views the whole name is equal
+
+06:15.640 --> 06:16.100
+to home.
+
+06:16.120 --> 06:20.950
+That was the very first example here for the named main index page class based views we're going to
+
+06:20.950 --> 06:22.380
+talk about that later on.
+
+06:22.540 --> 06:26.460
+But then we also have the your L configuration which we just showed here.
+
+06:26.490 --> 06:27.700
+Would that include function.
+
+06:27.730 --> 06:33.820
+So anything at first that goes the first step but your else and the next what we want to do is set up
+
+06:33.820 --> 06:35.340
+those template files.
+
+06:35.410 --> 06:45.040
+So I'm going to create a new file under first projects so say new file you will call it templates and
+
+06:45.070 --> 06:47.080
+oh whoops I meant folder.
+
+06:47.110 --> 06:48.110
+My apologies here.
+
+06:48.130 --> 06:54.480
+Move that to trash create a new folder called templates enter.
+
+06:54.520 --> 06:59.200
+And then inside of this create another folder that shares your application name.
+
+06:59.230 --> 07:02.290
+In my case we'll cut the application in the same to the first.
+
+07:02.320 --> 07:04.920
+So expand templates expand first.
+
+07:04.960 --> 07:09.920
+That way I can start finding it and inside of this I'm going to create that actual index let each.
+
+07:10.180 --> 07:18.640
+So I will say new file here indexed h T.M. and there's my index studied him l file and we can also link
+
+07:18.640 --> 07:23.440
+it to see SS or those static images that we showed from jungle level 1.
+
+07:23.450 --> 07:25.870
+So let's walk through those very basic examples.
+
+07:25.880 --> 07:35.500
+I'm going to start typing HVM l will say hello for the title and then I'm going to leave this.
+
+07:35.660 --> 07:39.440
+And inside the body I put a heading one that says Hello.
+
+07:39.470 --> 07:46.750
+This is a test page and then let's actually show how we can import some stuff.
+
+07:47.630 --> 07:55.320
+And since it's just teks what I'm going to do is say inside of this we'll put it inside heading to create
+
+07:55.320 --> 07:58.920
+those template tags and then call whatever the actual key was.
+
+07:58.920 --> 08:03.740
+If I come back to use it was insert content.
+
+08:03.960 --> 08:05.140
+So I'll come back here.
+
+08:05.400 --> 08:09.000
+And then just put in inserts contents.
+
+08:09.050 --> 08:09.730
+Save it.
+
+08:09.740 --> 08:12.370
+Nice that Adam has helped me out there as well.
+
+08:12.500 --> 08:17.090
+And then the last thing we need to do to make sure this all actually works is we need to fix the settings
+
+08:17.090 --> 08:21.850
+file or not fix but add to the settings file so we have all the directories.
+
+08:21.950 --> 08:23.890
+So that way I know where my templates are.
+
+08:24.170 --> 08:25.970
+And we also created static.
+
+08:25.970 --> 08:31.100
+Their victory is earlier but we weren't sure how to do this static file since it's almost the same as
+
+08:31.100 --> 08:38.420
+the template files so I'll say it's going to be the base their victory and then we'll say templates
+
+08:38.420 --> 08:40.160
+and that's the name of our templates folder.
+
+08:40.970 --> 08:41.740
+OK.
+
+08:42.040 --> 08:42.670
+Save that.
+
+08:42.670 --> 08:43.580
+That looks good.
+
+08:43.870 --> 08:48.440
+And then let's scroll down and make sure it's the actual the IRS key.
+
+08:48.460 --> 09:00.480
+So if we scroll all the way down here we had the IRS let's say template DJR comma save OK.
+
+09:00.480 --> 09:05.340
+So now let's test this all out by actually saying Python managed up-I run server.
+
+09:05.340 --> 09:06.660
+So let's make sure this is saved.
+
+09:06.660 --> 09:13.270
+Come over here say Python managed up-I run server.
+
+09:13.300 --> 09:16.080
+Enter now we might get those errors on the migrations.
+
+09:16.120 --> 09:17.890
+Says use is not the find.
+
+09:18.090 --> 09:20.270
+Let's make sure everything's OK.
+
+09:20.640 --> 09:25.190
+OK that error actually makes sense because we forgot to just import over here and you are elsewhat pi.
+
+09:25.200 --> 09:29.790
+So I come to your Allsopp pie and I should have imported this so I will save from
+
+09:32.780 --> 09:36.850
+first app import buse.
+
+09:36.940 --> 09:38.220
+Save that.
+
+09:38.310 --> 09:40.570
+And now let's try again.
+
+09:40.620 --> 09:46.990
+For me a system check what's nice is kind of automatically keeps trying let's copy and paste this into
+
+09:46.990 --> 09:49.130
+our browser and make sure it works.
+
+09:49.180 --> 09:54.080
+Then bring my browser over and there it is says hello.
+
+09:54.080 --> 09:55.050
+This is a test page.
+
+09:55.070 --> 09:55.970
+Hello I'm from.
+
+09:55.970 --> 09:57.070
+First app.
+
+09:57.140 --> 09:57.470
+Great.
+
+09:57.470 --> 09:58.660
+Looks like it's all working.
+
+09:59.610 --> 10:03.420
+And what you will also notice is because we didn't actually change it in that content here.
+
+10:03.440 --> 10:09.170
+I also say if I say flash first app and I hit enter I get the same result Helo's test page Hello I'm
+
+10:09.170 --> 10:12.530
+from first that but the basic Waitstill is working the same.
+
+10:12.530 --> 10:19.130
+I was able to successfully connect first app and the index page to the first app or else it was basically
+
+10:19.130 --> 10:22.130
+only a view and that is this index request.
+
+10:22.140 --> 10:22.840
+OK.
+
+10:22.970 --> 10:28.370
+Hopefully that was pretty good for you as a review and you have a full understanding of everything we
+
+10:28.370 --> 10:29.200
+just did.
+
+10:29.230 --> 10:33.830
+Now I would expect you to kind of zoom through it just like we did right now but hopefully understand
+
+10:33.890 --> 10:35.030
+all the steps that we did.
+
+10:35.090 --> 10:40.510
+And you can see that even with myself running through it this fast I kind of slipped up on that forgetting
+
+10:40.520 --> 10:42.030
+to import the used up by.
+
+10:42.200 --> 10:45.710
+But other than that it should be kind of straightforward as far as your workflow.
+
+10:45.740 --> 10:50.750
+The very next chunk of all this is to actually connect the models and databases and then check out the
+
+10:50.810 --> 10:51.860
+admin.
+
+10:51.860 --> 10:54.470
+All right thanks everyone and I'll see you at the next lecture.

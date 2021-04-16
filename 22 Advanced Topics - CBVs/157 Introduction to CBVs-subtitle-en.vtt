@@ -1,0 +1,61 @@
+WEBVTT
+
+00:05.390 --> 00:09.800
+Hello everyone and welcome to an advanced jingoes section and this section will be discussing class
+
+00:09.800 --> 00:11.930
+based views.
+
+00:11.950 --> 00:14.070
+So this is your first advanced Gengel section.
+
+00:14.080 --> 00:18.640
+And basically what these advanced Shingo sections do is it take deeper dives into certain topics of
+
+00:18.640 --> 00:25.560
+Django and this particular section we're going to be discussing class based views or Seabee these previously
+
+00:25.560 --> 00:28.770
+we've created views using functions interviews that py file.
+
+00:28.770 --> 00:34.410
+However Gyngell provides really powerful tools to use object oriented programming or opii in Python
+
+00:34.410 --> 00:41.270
+classes to define views in your views that py file the class based view method offers great functionality
+
+00:41.510 --> 00:45.980
+and for most experienced users of Django it's actually their default choice for creating views.
+
+00:45.980 --> 00:50.110
+So while I am calling this an advanced topic if you go out into the real world.
+
+00:50.270 --> 00:54.730
+Most experienced users of Django actually use class based views as the default method.
+
+00:54.860 --> 01:00.410
+So if you ever look for other Django projects you're most likely to experience class based views instead
+
+01:00.410 --> 01:02.260
+of function based views.
+
+01:02.270 --> 01:06.830
+Now it's much easier to understand class based views after working with function views which is why
+
+01:06.830 --> 01:10.370
+I'm calling this an advance topic OK.
+
+01:10.500 --> 01:15.120
+We're going to start off with a simple example of a hello world class based view and then slowly build
+
+01:15.120 --> 01:18.930
+up to more complex examples and then talking about something called mixdowns.
+
+01:19.140 --> 01:20.390
+Ok hope you're excited.
+
+01:20.460 --> 01:21.460
+Let's get started.
+
+01:21.470 --> 01:22.370
+I'll see at the next lecture.

@@ -1,0 +1,733 @@
+WEBVTT
+
+00:05.320 --> 00:10.290
+Hello everyone and welcome to part five of the blog clone project.
+
+00:10.370 --> 00:15.740
+So we finished the blog post views and you or else that is the class based views that work of the actual
+
+00:15.740 --> 00:16.480
+blog post.
+
+00:16.490 --> 00:20.820
+But we still need to actually create the templates for the blog post class based views.
+
+00:20.870 --> 00:26.000
+That is the actual h team l files that link up to those views and after that we can create the function
+
+00:26.020 --> 00:28.410
+trees that are going to handle the comments.
+
+00:28.430 --> 00:29.420
+So let's get started.
+
+00:29.420 --> 00:32.410
+Hop over to the editor right here I am at the.
+
+00:32.430 --> 00:37.370
+Editor and what we're going to do is first create all the templates that will match up with the views
+
+00:37.370 --> 00:42.830
+that we created here in our classes and we'll create one extra template for the actual comments we already
+
+00:42.830 --> 00:45.110
+have are about page template that was actually quite easy.
+
+00:45.110 --> 00:50.150
+Remember those the very first thing we did and it's just linking to the actual base studies timeo which
+
+00:50.240 --> 00:51.760
+doesn't have much of anything right now.
+
+00:51.980 --> 00:57.890
+Let's create a couple of more templates going to right click on blog and create a new file and we're
+
+00:57.890 --> 01:02.120
+going to have this one be the post underscore detail.
+
+01:02.270 --> 01:07.820
+H T.M. and I do recommend that you follow along and named these html files.
+
+01:07.990 --> 01:09.900
+Exactly the same name that I'm doing here.
+
+01:09.910 --> 01:14.410
+Otherwise when you actually run the server you may see some errors that we saw and discussed where we
+
+01:14.410 --> 01:18.880
+talked about class based views that there's actually different names that jingle looks for.
+
+01:19.000 --> 01:20.760
+So there's a detail.
+
+01:20.920 --> 01:29.620
+Let's also create our post underscore form that each T.M. page and create another one and this one is
+
+01:29.620 --> 01:31.930
+going to be or post underscore list.
+
+01:31.960 --> 01:32.750
+That is Tim L..
+
+01:32.760 --> 01:39.700
+It's going to be our home page with all the lists of all the posts and create a draft list so same post
+
+01:39.770 --> 01:49.540
+underscore draft underscore list that each team will and then finally I want the delete for the post.
+
+01:49.630 --> 01:54.060
+So say new file and this one goes.
+
+01:54.060 --> 01:58.520
+Post underscore confirm underscore deletes.
+
+01:58.650 --> 02:02.460
+So usually when you click on the buttons you need some sort of confirmation page.
+
+02:02.460 --> 02:03.770
+So there it is.
+
+02:03.760 --> 02:08.600
+And what we're also going to add in here is a comment form that age HTML.
+
+02:08.640 --> 02:12.020
+So we haven't done any comment views but we will in just a second.
+
+02:12.040 --> 02:19.920
+Let's create a new file and say this is the comments underscore form that H T.M..
+
+02:20.000 --> 02:27.870
+OK so we have the about the base the comment form post confirmed delete post detail post-draft list
+
+02:27.990 --> 02:30.870
+post form and post list and then under registration.
+
+02:30.930 --> 02:36.320
+I'm going to do is create a new file called log in H T.M..
+
+02:36.540 --> 02:41.340
+And note that this is going underneath the registration subdirectory under templates and will discuss
+
+02:41.340 --> 02:46.440
+registration authorization all that later on we're going to do it a little differently because basically
+
+02:46.440 --> 02:51.630
+we're kind of piggy backing off the super users who can create at the command line since those super
+
+02:51.630 --> 02:54.990
+users are going to be people that are actually able to log in.
+
+02:55.590 --> 03:00.930
+OK I'm going to close all these HTL files and templates that I just made later on we're going to be
+
+03:00.960 --> 03:02.430
+working off those a lot more.
+
+03:02.490 --> 03:04.560
+But here you are Elle's.
+
+03:04.740 --> 03:07.640
+This is the sites your URLs will come back to that later.
+
+03:07.680 --> 03:10.170
+That's my about that a HTML page and here are my views.
+
+03:10.170 --> 03:12.830
+So since we're going to do what we did in the previous lecture.
+
+03:12.930 --> 03:16.010
+A bunch of views and then only a bunch of your ELSE to them.
+
+03:16.140 --> 03:20.070
+But in this case we'll do it for the comments to you already that everything that's due at the blog
+
+03:20.070 --> 03:20.600
+post.
+
+03:20.760 --> 03:23.770
+Let's continue on with the comments so scroll all the way down.
+
+03:24.000 --> 03:25.920
+And if you want to match up kind of the notes.
+
+03:26.150 --> 03:32.400
+I did some sort of comment or some hash tags here so there's a bunch of hash tags just so we can kind
+
+03:32.400 --> 03:36.810
+of get an idea of what's going on and separate everything else out.
+
+03:38.250 --> 03:45.540
+OK so first thing you need to do is have some sort of publication for the comment itself so we'll call
+
+03:45.540 --> 03:55.750
+this the IF and let's have this be something like add a comment to post add underscore comments underscore
+
+03:56.200 --> 03:58.510
+to underscore post.
+
+03:58.510 --> 04:04.930
+So this will allow us to add a comment to a post and I'm going to have this big request and take in
+
+04:04.930 --> 04:06.110
+a primary key.
+
+04:07.710 --> 04:11.880
+And what we do is actually import a couple of more things in order to make this all work.
+
+04:11.880 --> 04:16.970
+So what I want to do is get the object or four or four and then redirect and render.
+
+04:17.190 --> 04:24.400
+So coming all the way back up I will collapse a tree right now so we get a little more room is up here
+
+04:24.400 --> 04:33.530
+where it says Jingo that shortcuts not only will import render but it will also import object or 4 0
+
+04:33.540 --> 04:36.470
+4 and we'll talk about that later on.
+
+04:36.840 --> 04:43.880
+And then I also want the read direct and then I also want to make sure I have logging required since
+
+04:43.880 --> 04:50.900
+we'll be using that later on and then something else I probably want is time zone so will say from jingo
+
+04:50.990 --> 04:59.330
+da tills in poor time zone and that it looks kind of crazy if all these from import statements the very
+
+04:59.330 --> 05:03.370
+top so feel free to separate these comments or kind of chunks.
+
+05:03.380 --> 05:06.450
+However makes most sense to you.
+
+05:06.690 --> 05:08.600
+But let's continue on.
+
+05:08.610 --> 05:13.550
+Scroll all the way back down here and come back to add comment to post.
+
+05:13.680 --> 05:20.700
+So we're going to do is have the post object instead of this function equal to get object or four or
+
+05:20.700 --> 05:30.120
+four and it will take in a post model logic and have Piquet's will to the primary key provided with
+
+05:30.390 --> 05:35.130
+the request call and I want this to require being logged in.
+
+05:35.430 --> 05:41.900
+We don't have to have it require a log in just have anyone make a comment but we want to have the log
+
+05:41.900 --> 05:46.860
+in required just kind of get some practice with that decorator.
+
+05:47.440 --> 05:56.770
+So say if the request pop method is equal to equals equals to post then hopefully it's kind of jogging
+
+05:56.770 --> 05:57.460
+your memory.
+
+05:58.280 --> 06:13.060
+Will say form is equal to comment form and then we'll take request post and we'll see if that form is
+
+06:13.270 --> 06:14.650
+valid.
+
+06:15.490 --> 06:22.300
+Well we're going to end up doing is grabbing the comment saying form that save and I don't want to commit
+
+06:22.330 --> 06:25.540
+this quite yet so I'll say it is equal to false.
+
+06:25.540 --> 06:34.650
+What I want to do is connect that particular comment post to the post object and then I want to save
+
+06:34.660 --> 06:34.910
+it.
+
+06:36.910 --> 06:42.440
+And then once that's all done we're going to just return a read direct.
+
+06:42.560 --> 06:54.980
+So say redirect to the post detail page with primary key being equal to that post primary key and else.
+
+06:54.980 --> 06:57.860
+So let's say the request method it wasn't a post.
+
+06:57.860 --> 07:07.850
+Meaning someone hasn't actually filled out the comment form will say form physical to comment form and
+
+07:08.150 --> 07:11.360
+after all that will return loops.
+
+07:11.580 --> 07:20.040
+We need to render the actual pace we'll a request and I'm going to have a blog slash comments underscore
+
+07:20.040 --> 07:26.070
+form the H to him l and if I expand my the rectory I can confirm here it was called comment form that
+
+07:26.070 --> 07:26.800
+each team L.
+
+07:26.910 --> 07:29.030
+So that's what I'm putting in here.
+
+07:29.370 --> 07:36.360
+And then we're going to say Pessin a context dictionary for the form is for him.
+
+07:36.400 --> 07:40.810
+Hopefully this is more or less a little familiar to you given what we covered back we're talking about
+
+07:40.810 --> 07:42.650
+forms.
+
+07:42.740 --> 07:46.430
+OK so in case you're feeling a little fuzzy on this let's quickly go over the thing.
+
+07:46.570 --> 07:52.110
+We have this dick reader which is a convenience decorator to make this interview require being logged
+
+07:52.110 --> 07:52.620
+then.
+
+07:52.860 --> 07:58.510
+So in order to add a comment to a post we take in a request and the primary key that links the actual
+
+07:58.600 --> 07:59.910
+comment to the post.
+
+07:59.910 --> 08:03.520
+So if you're in a post the tail page and click OK I want to comment on this.
+
+08:03.520 --> 08:05.950
+There's a primary key that goes along with that post.
+
+08:05.950 --> 08:11.410
+And they were going to say all right either get that object the post object or the four or four page
+
+08:11.440 --> 08:18.070
+meaning you can find it in passen the post model and then Piquet's to Piquet.
+
+08:18.100 --> 08:23.610
+So if the request the method is to post meaning someone's actually filled in the form and enter something
+
+08:24.370 --> 08:29.180
+the form is equal to the comment form passing that request if the form is valid.
+
+08:29.200 --> 08:31.560
+Meaning they didn't miss anything up.
+
+08:31.630 --> 08:34.110
+We have the save of the form.
+
+08:34.150 --> 08:39.090
+However we said it false that we would have at least some sort of form in memory and we say comment
+
+08:39.090 --> 08:41.620
+that post is equal to the post object.
+
+08:41.680 --> 08:48.370
+And basically what this does is if we take a look back at our models remember that the actual comment
+
+08:48.460 --> 08:55.690
+has an attribute called Post which is connected by a foreign key which is the actual post over here
+
+08:56.000 --> 09:00.790
+and that's basically what's happening here we're saying OK that comment that post make it equal to the
+
+09:00.790 --> 09:06.400
+post itself and then save it once you're all done with that redirect to the post e-tail page with the
+
+09:06.400 --> 09:14.350
+primary key being equal to the post-up peaky which again is just the peak or primary key for that actual
+
+09:14.350 --> 09:16.510
+blog post otherwise.
+
+09:16.540 --> 09:22.050
+So if this whole thing has to happen else where the form is a sequel to the comment form and we'll just
+
+09:22.060 --> 09:28.240
+return the comment form that it's T.M. passing in the form for the context dictionary.
+
+09:28.240 --> 09:32.850
+So I want to actually come to this comment underscore form that HVM out page over here.
+
+09:32.890 --> 09:36.790
+This is where I'm going to inject that form contact's dictionary.
+
+09:36.790 --> 09:37.330
+All right.
+
+09:37.330 --> 09:38.100
+So that's it.
+
+09:38.110 --> 09:39.960
+Hopefully it feels pretty OK to you.
+
+09:40.090 --> 09:42.700
+But we still need to add that to our Urals that pi file.
+
+09:42.880 --> 09:43.970
+So let's do that now.
+
+09:44.790 --> 09:49.430
+Overhearing your calls that pi is going to have everything kind of has a bunch of long lines but that's
+
+09:49.430 --> 09:51.080
+OK for us.
+
+09:51.560 --> 09:58.430
+We'll say your L and I just created the add comment to post so we're going to do here is a regular expression
+
+09:58.520 --> 10:06.290
+I'm going to say the following carot post slash and then copy and paste this primary key regular expression
+
+10:09.150 --> 10:16.270
+and then when I'm going to do is say slash comments slash dollar sign for you.
+
+10:16.280 --> 10:17.420
+There it is.
+
+10:17.420 --> 10:21.100
+And then we'll say fuse dot add comments.
+
+10:21.110 --> 10:29.810
+Post and let's give it a name that just says give the same name at comment to post as a function.
+
+10:29.830 --> 10:30.430
+There it is.
+
+10:30.460 --> 10:34.420
+And then what I'm also going to do is add a comma there the very variant.
+
+10:34.460 --> 10:40.580
+So saving that let's come back to views that pi and we have one of them but not too many more.
+
+10:40.600 --> 10:47.260
+We just need to add any approval of the comment a removal of the common view and then we'll also use
+
+10:47.260 --> 10:50.770
+function based to be used to the actual publication.
+
+10:50.770 --> 10:55.450
+So let's finish off the comments and it's up to you whether you want to do a below or above this but
+
+10:55.640 --> 11:02.440
+we're going to do it below CTF and we're going to make one about comment approval.
+
+11:02.440 --> 11:05.330
+So you should have to be log in to approve a comment.
+
+11:05.330 --> 11:07.000
+So we'll just put that in now.
+
+11:07.500 --> 11:09.380
+Decorator log in.
+
+11:09.520 --> 11:14.220
+So we'll say log in required and we'll see comments.
+
+11:15.740 --> 11:24.860
+Approve and again it takes or question a P K primary key and then we'll say comments is equal to get
+
+11:25.500 --> 11:27.270
+object or four or four.
+
+11:28.030 --> 11:30.380
+And we're actually going to be grabbing the comma in this case
+
+11:33.470 --> 11:36.640
+and then we'll just say comment the proof.
+
+11:36.890 --> 11:39.570
+So if you come back to the models I should probably just open this.
+
+11:39.570 --> 11:41.450
+We're going to be referencing it.
+
+11:41.810 --> 11:46.610
+So if we come back to the models we have this approved comment method and if you have the comment you
+
+11:46.610 --> 11:48.550
+have this approved comment method here.
+
+11:48.560 --> 11:52.790
+So what happens is if you call that method you just say it's an approved comment.
+
+11:52.790 --> 11:55.980
+So you set this field equal to true when it's default was false.
+
+11:57.300 --> 12:01.560
+So we just called the approved method on that actual model object and that's all you have to do for
+
+12:01.560 --> 12:02.550
+the common approval.
+
+12:02.640 --> 12:11.710
+Which makes sense we'll see a return redirect and send it back to the post detail page with the primary
+
+12:11.710 --> 12:15.530
+key being the comment that post-up piqué.
+
+12:15.820 --> 12:17.270
+So what's actually happening here.
+
+12:17.440 --> 12:20.140
+Again come back to your model and it's all explained.
+
+12:20.260 --> 12:23.010
+The comment is connected to a particular post.
+
+12:23.110 --> 12:29.230
+And if I want to after approving that comment go to the post of that comment then I need the post.
+
+12:29.280 --> 12:29.710
+OK.
+
+12:29.800 --> 12:34.690
+So it's actually coming back up here and asking OK what's the primary key of the post that this comment
+
+12:34.750 --> 12:36.240
+was linked to.
+
+12:36.680 --> 12:38.330
+Well that's all there is there.
+
+12:38.380 --> 12:39.230
+So we'll save that.
+
+12:39.310 --> 12:45.130
+And let's add it to you or else again kind of a tedious process but it's not so bad considering that
+
+12:45.130 --> 12:49.710
+you're really building a website if not that much code.
+
+12:50.420 --> 12:50.720
+All right.
+
+12:50.740 --> 13:02.120
+So we have to do here is we just created the comment approval I'll say curat comments slash and copy
+
+13:02.120 --> 13:11.290
+this so that it links and they will say slash approve slash dollar sign we'll call views.
+
+13:11.550 --> 13:12.840
+And I think it's called common approve.
+
+13:12.850 --> 13:13.320
+Yeah.
+
+13:13.630 --> 13:17.120
+And let's give it the same name name as equal to comments.
+
+13:17.120 --> 13:20.950
+Approve the recall and note that I'm passing it in as a string.
+
+13:20.950 --> 13:25.540
+So kind of taking advantage of Adam's autocomplete for functions and then just using it for a string
+
+13:25.540 --> 13:26.440
+there.
+
+13:26.500 --> 13:32.750
+So we have to use our comment to post the come Proview will come to use that page again.
+
+13:32.950 --> 13:39.420
+And then what we're gonna do is create another function view and we'll have this one also be log in
+
+13:39.420 --> 13:40.250
+required.
+
+13:40.680 --> 13:45.780
+So I will say log in required and let me make a few more lines here just so you have more space to see
+
+13:45.780 --> 13:46.390
+this.
+
+13:46.680 --> 13:50.140
+Will say this is for removing a comment or say comments.
+
+13:50.160 --> 13:57.600
+Remove this takes in request and the piquet it's going to feel really similar to what we just did and
+
+13:57.660 --> 14:00.690
+we'll say the comments lips.
+
+14:01.240 --> 14:07.300
+The comment is equal to the object to four or four of that particular comments where the Piquet's the
+
+14:07.420 --> 14:15.940
+piquet and then we're gonna say is the post underscore Piquet is equal to comment.
+
+14:16.580 --> 14:19.580
+Post-up OK so linking that up.
+
+14:19.610 --> 14:25.580
+Basically what we did over here is setting a new variable and the reason for that is because I want
+
+14:25.580 --> 14:35.680
+to say comment that delete so I'm deleting that comment from my database and then I want to return redirect
+
+14:37.610 --> 14:39.300
+and go back to the post the tail
+
+14:42.610 --> 14:46.040
+and then say Piquet's equal to post-peak K..
+
+14:46.180 --> 14:50.330
+So you might be wondering well why didn't you just do the same thing you did here where he said common
+
+14:50.330 --> 14:51.380
+thought post-up.
+
+14:51.720 --> 14:57.460
+Well remember if I said delete by the time you get to return it's not going to remember what that post-up
+
+14:57.460 --> 14:58.420
+Piquet was.
+
+14:58.540 --> 15:02.270
+Which is why I need to save it as an extra variable before I delete this.
+
+15:02.300 --> 15:09.010
+So this approval and this remove are almost the exact same thing except I have to actually save that
+
+15:09.010 --> 15:11.710
+post primary key as a separate variable.
+
+15:11.710 --> 15:15.640
+So about the time I delete it I still remember over here.
+
+15:15.760 --> 15:16.010
+OK.
+
+15:16.060 --> 15:18.650
+So pretty simple logic as far as or doing.
+
+15:18.850 --> 15:22.010
+And as you get more experience these things will kind of come naturally to you.
+
+15:22.120 --> 15:26.920
+So as we move onto this purely class based views or for comments using some sort of outside library
+
+15:26.920 --> 15:31.930
+like discus But now we're kind of just grinding out the hard way to get review on everything we've ever
+
+15:31.930 --> 15:37.500
+covered in this course at least most of what we covered in this course and then what we're going to
+
+15:37.500 --> 15:41.440
+do here is wups set up that your link to it.
+
+15:41.680 --> 15:46.960
+So we'll have this be comment as well and I'm going to copy and paste this.
+
+15:46.960 --> 15:52.060
+It's almost going to be the exact same URL except instead of approving it we are going to remove it
+
+15:53.170 --> 16:01.840
+slash dollar sign and then we'll say comma views the comments remove and then we'll say name is equal
+
+16:01.840 --> 16:08.580
+to comments underscore remove.
+
+16:08.580 --> 16:13.980
+OK so coming back to views we have three functional views are related to the comments.
+
+16:14.050 --> 16:17.170
+I need one more function view in order to publish things.
+
+16:18.420 --> 16:19.810
+And that is the published post.
+
+16:20.230 --> 16:25.810
+So I'll make this also log in required and this will be our last view.
+
+16:25.840 --> 16:28.330
+I know you're probably tired of writing these views by now so we'll see.
+
+16:28.330 --> 16:35.530
+Post Polish request takes in a primary key and this one can look pretty similar to the ones you just
+
+16:35.530 --> 16:37.830
+made except now it's related to the post.
+
+16:38.020 --> 16:45.910
+So we say the post is equal to object or 4 or four of the post teacake with a K and then we're going
+
+16:45.910 --> 16:54.730
+to say postop publish and after that I'm going to return a redirect to the post detail page.
+
+16:54.730 --> 16:59.260
+So when you actually hit publish you go straight to the post detail page where the primary key is the
+
+16:59.260 --> 17:04.240
+primary key of the post you just made and once we finished this functional view we need to just come
+
+17:04.240 --> 17:07.070
+over to your Olsdorf pie and add it in.
+
+17:07.300 --> 17:13.020
+So again we'll say your L and we'll do regular expressions here.
+
+17:13.820 --> 17:20.120
+And we'll say this is post and we're kind of going to add this to whatever this is so essentially is.
+
+17:20.150 --> 17:21.120
+Same thing here.
+
+17:22.010 --> 17:27.390
+Except instead of remove let's copy this and just paste it and say results in typing.
+
+17:27.500 --> 17:29.680
+But we're not removing something for a post.
+
+17:29.690 --> 17:34.570
+We are going to be publishing that post so we'll say that publish or slash publish.
+
+17:34.580 --> 17:39.020
+Excuse me views and this should be called Post underscore.
+
+17:39.050 --> 17:49.910
+Publish in the name of this will just give it the same name post underscore publish save that and now
+
+17:50.030 --> 17:52.610
+all your real patterns are ready to go.
+
+17:52.730 --> 17:58.940
+So how about 10 year old patterns they believe 5 through 15 and we have our views ready to go.
+
+17:59.180 --> 18:01.130
+So you did a lot of work here.
+
+18:01.180 --> 18:06.200
+Eighty five lines of code if you count the white blank spaces or blank lines.
+
+18:06.200 --> 18:06.980
+Not bad.
+
+18:07.310 --> 18:12.290
+So we have a lot of use or euros ready to go and if we look at our templates we have all the blank templates
+
+18:12.320 --> 18:14.270
+that are ready to be filled out.
+
+18:14.300 --> 18:18.350
+Next thing you have to do is just fill out these templates to make sure everything works together.
+
+18:18.380 --> 18:22.550
+Set up the actual bootstrap and see SS and Javascript for everything.
+
+18:22.550 --> 18:27.520
+For those kind of special features and we should be pretty darn close to getting a full functional websites.
+
+18:27.680 --> 18:29.350
+Now just the simple templates.
+
+18:29.510 --> 18:32.380
+OK we'll set that up all in the next couple of ideas.
+
+18:32.390 --> 18:33.680
+Thanks and I'll see you there.

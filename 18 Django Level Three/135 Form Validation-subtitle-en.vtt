@@ -1,0 +1,838 @@
+WEBVTT
+
+00:05.110 --> 00:10.880
+Hello everyone and welcome to the forum validation lecture and this lecture are going to be discussing
+
+00:10.880 --> 00:16.640
+hidden fields and how we can use them for custom field validation that we or form is currently set up
+
+00:16.640 --> 00:18.110
+in our previous project.
+
+00:18.140 --> 00:24.200
+It's actually pretty open not only to users who maybe misused a form or give bad information but also
+
+00:24.200 --> 00:31.460
+potentially to bots that is automated scripting programs that come in and fill junk information into
+
+00:31.460 --> 00:37.550
+your form on your Web site Django has actually built in validators you can conveniently use to validate
+
+00:37.550 --> 00:43.580
+your forms not just for user misbehavior but also for bots and everything we do here is going to be
+
+00:43.580 --> 00:45.620
+limited to the forms that PI file.
+
+00:45.620 --> 00:50.110
+So instead of going through the concepts in slides we're going to jump straight into coding at all out
+
+00:51.130 --> 00:55.510
+and we'll use the basic app from the previous lecture so you can either just download that from the
+
+00:55.510 --> 00:59.640
+notes or if you work along to the previous solution lecture have it ready to go.
+
+00:59.990 --> 01:02.500
+OK we'll do three main tasks here.
+
+01:02.560 --> 01:08.620
+We'll add a check for empty fields we'll add a check for a bot and then we'll show you how to use a
+
+01:08.620 --> 01:10.860
+clean method for the entire form.
+
+01:10.900 --> 01:14.000
+OK let's hop over to the editor and let's get started.
+
+01:14.360 --> 01:14.680
+OK.
+
+01:14.680 --> 01:16.410
+Here you have the editor open.
+
+01:16.420 --> 01:20.950
+I have the forms that PI file that was under basic app for your application.
+
+01:20.950 --> 01:24.430
+Remember we have three basic inputs the name the e-mail and the text.
+
+01:24.430 --> 01:29.720
+And over here on the right I have a browser that's connected to my local host.
+
+01:29.770 --> 01:32.840
+Right now I'm actually not running the server so let's check it out.
+
+01:32.930 --> 01:43.190
+Going to say Python managed up PI runs server enter and I can see that servers here so let's refresh
+
+01:43.190 --> 01:46.850
+this page and then it says Welcome to the home page from last time.
+
+01:46.850 --> 01:50.980
+And let's type in slash form page go to it.
+
+01:51.020 --> 01:53.490
+Here you see the name email and text.
+
+01:53.720 --> 02:01.360
+So again remember if I type in a name type in some email type in some text and they hit submit actually
+
+02:01.360 --> 02:05.440
+get it printed out to the consul name email and text.
+
+02:05.440 --> 02:10.120
+Now let's start off by looking at how we can use hidden fields.
+
+02:10.330 --> 02:15.880
+Now a hidden field is something that remains in the HTML that is actually hidden from the user.
+
+02:15.910 --> 02:21.700
+And a lot of times we can actually use these to try to catch malicious bots on our Web site and I'm
+
+02:21.700 --> 02:23.310
+going to collapse the directory here.
+
+02:23.320 --> 02:31.440
+So we get a little more space and let's create a field called bot catcher we'll call forms.
+
+02:31.450 --> 02:40.460
+It'll be a character field and will pass in the requirements or required parameter to be false.
+
+02:40.610 --> 02:46.100
+And the reason we want to specify that required is equal to false is because when we actually have this
+
+02:46.160 --> 02:51.530
+field it's not going to show up on the page for the user it's only in the temple in the background so
+
+02:51.530 --> 02:55.310
+we actually need to inspect the page so you can see that bug catcher exists.
+
+02:55.340 --> 02:56.960
+Now we'll show that in just a moment.
+
+02:57.840 --> 03:02.540
+And then the next thing we want to do is find what widget we're using.
+
+03:02.750 --> 03:09.350
+So the widget parameter is going to be from forms and instead of a text area or a checkbox or something
+
+03:09.350 --> 03:16.190
+like that we're going to be using a hidden input and that's what is going to allow us to hide this from
+
+03:16.190 --> 03:18.090
+a typical human user.
+
+03:18.260 --> 03:20.090
+And you can also give a label here.
+
+03:20.090 --> 03:21.410
+We won't need to do that.
+
+03:21.440 --> 03:23.500
+So it's actually just close that off.
+
+03:24.730 --> 03:26.080
+Those are the only two parameters we need.
+
+03:26.080 --> 03:35.680
+So if I save this and my page reloads if I refresh and let's actually say ansible submit one more time
+
+03:36.310 --> 03:37.880
+refresh it continue.
+
+03:37.960 --> 03:45.220
+And I'm going to inspect the page and in the elements actually that need to check that the styles would
+
+03:45.230 --> 03:50.450
+collapse that I expand the body says fill out the form.
+
+03:50.650 --> 04:00.280
+I expand the form and I see not just my C S R F member that token but if I expand this I also see that
+
+04:00.280 --> 04:02.340
+I have this but Katcher input.
+
+04:02.560 --> 04:07.250
+So remember that the SRF that's also helping the security of your website.
+
+04:07.300 --> 04:12.580
+You can see it actually has this basically a random code value that's randomly generated for the user
+
+04:12.580 --> 04:15.670
+site and jiggles going to check that matches on the backend.
+
+04:15.700 --> 04:20.890
+And that's just an extra layer of security to make sure that the input you put on the form isn't going
+
+04:20.890 --> 04:23.520
+to some other web site or vice versa.
+
+04:24.560 --> 04:31.010
+Now the input that we just made was bug catcher which is given the I.D. automatically ID underscore
+
+04:31.160 --> 04:32.060
+ratcatcher.
+
+04:32.240 --> 04:37.010
+It's given the name back catcher and the type is hidden and basically it's going to going to happen
+
+04:37.010 --> 04:42.900
+here is if a bot visits your page they will not look at the actual Web site.
+
+04:43.010 --> 04:48.140
+What they're going to try to do is look directly into the T.M. and then they're going to try to automatically
+
+04:48.140 --> 04:52.400
+fill in value attributes and then submit the form that way.
+
+04:52.400 --> 05:00.770
+Now if I am actually acting like a bot I would say add an attribute actually add an attribute here and
+
+05:00.770 --> 05:03.530
+the bot would come in at a value and say
+
+05:05.980 --> 05:08.500
+hello friends.
+
+05:10.210 --> 05:12.010
+Maybe they give you that value.
+
+05:12.130 --> 05:13.050
+You hit submit.
+
+05:13.240 --> 05:15.990
+And right now the way it's working.
+
+05:16.060 --> 05:17.500
+Nothing is really happening here.
+
+05:17.500 --> 05:19.330
+So again bear that in.
+
+05:19.330 --> 05:19.900
+Hit submit.
+
+05:19.900 --> 05:22.530
+You can see my extra characters are being added.
+
+05:22.530 --> 05:29.080
+So just to prove that one more time if I type Z Z it shows up here the way we want to actually catch
+
+05:29.080 --> 05:32.100
+the bot is by validating this particular input.
+
+05:32.110 --> 05:37.850
+So let's show you how to do that now so I'll show you first the most basic method of validation which
+
+05:37.850 --> 05:42.620
+is using a clean function or a clean method inside of your class form and then later we'll show you
+
+05:42.620 --> 05:44.600
+the built in tools that Django has.
+
+05:44.600 --> 05:50.990
+You don't have to do this every time so every time you want to create your own custom validator using
+
+05:50.990 --> 05:53.830
+this default method you need to say d f.
+
+05:53.840 --> 05:55.510
+So a method inside this class.
+
+05:55.670 --> 06:00.270
+These are the keyword clean underscore and then whatever name of the field you're checking.
+
+06:00.290 --> 06:02.090
+In this case it's but catcher.
+
+06:02.090 --> 06:03.380
+So you can just copy and paste that.
+
+06:03.410 --> 06:09.260
+So then jingoes going to automatically look for methods inside this class that start with clean underscore
+
+06:09.410 --> 06:16.660
+and then see if this matches any of the fields there remembers a feel inside of a class so you self.
+
+06:16.850 --> 06:18.930
+And then this is what should be a colon.
+
+06:19.010 --> 06:19.390
+OK.
+
+06:19.390 --> 06:27.820
+So and So what I'm going to do first I will say but Katcher is equal to self dot and then I'm going
+
+06:27.820 --> 06:29.900
+to call the clean data.
+
+06:30.900 --> 06:38.020
+And actually grab what but Katcher return over here from my forms and then I'm going to check if the
+
+06:38.200 --> 06:40.380
+links.
+
+06:40.640 --> 06:44.780
+But Katcher is greater than zero.
+
+06:44.780 --> 06:49.970
+It could also just say if length by Katcher but this might be a little easier to read which means so
+
+06:49.970 --> 06:55.280
+if there's any actual length to the value that's a return and by catcher that they know some robot came
+
+06:55.280 --> 06:57.440
+in and scraped the page and fill the needs.
+
+06:57.440 --> 06:59.940
+Tim L A human would never actually do that.
+
+07:01.220 --> 07:08.110
+And then we're going to say raise an air and there's lots of different areas you can raise and you won't
+
+07:08.110 --> 07:12.220
+really have to worry about memorizing any of this because we'll move on to builtin validators.
+
+07:12.370 --> 07:16.840
+But just to give you an idea the most basic when you're going to raise is a validation.
+
+07:16.930 --> 07:18.310
+Kind of makes sense.
+
+07:18.550 --> 07:26.670
+And then we have something we can return which are reprinted the cons. And we'll say Gotcha.
+
+07:27.290 --> 07:31.610
+So I want to raise the air will return like Hatra itself.
+
+07:33.120 --> 07:36.970
+So we save that it's reloaded here since we made a change.
+
+07:37.170 --> 07:40.130
+And now let's try coming to this again.
+
+07:40.200 --> 07:45.270
+So go to the home page and then go to the Forum page.
+
+07:45.290 --> 07:46.980
+We're going to fill out the form.
+
+07:47.340 --> 07:54.230
+So the name will say Mr. Robot the e-mail can say it's Elliott.
+
+07:54.330 --> 07:55.360
+Evil core.
+
+07:55.590 --> 08:02.340
+And then we'll say hello is the text and then if you're a bot what you're going to do is you'll come
+
+08:02.340 --> 08:02.780
+to this.
+
+08:02.790 --> 08:06.530
+But catcher since Remember you're actually filling in all in three days Tim.
+
+08:06.660 --> 08:15.270
+And let's add an attribute here for the value no label it's sneaky since it's a sneaky bot trying to
+
+08:15.960 --> 08:17.030
+ruin your Web site.
+
+08:17.040 --> 08:21.300
+We hit submit and then we see what happens over here.
+
+08:21.510 --> 08:24.790
+Nothing actually got returned so we never actually printed anything.
+
+08:24.990 --> 08:32.340
+Because we end up raising that validation there so identify it submit here and actually end up returning
+
+08:32.350 --> 08:33.000
+anything.
+
+08:34.830 --> 08:38.850
+So again nothing's being printed out into the console because we're raising the validation error and
+
+08:38.850 --> 08:43.440
+if you actually look at the page the error has been out put it on the page it says hidden in field but
+
+08:43.440 --> 08:44.390
+catcher.
+
+08:44.440 --> 08:45.030
+Gotcha.
+
+08:45.060 --> 08:50.370
+So instead of actually printing out this user information name email and text we ended up actually grabbing
+
+08:50.370 --> 08:51.320
+that bot.
+
+08:51.420 --> 08:52.060
+Great.
+
+08:52.080 --> 08:57.900
+So that's the very basics of how you can use a clean underscore method instead of your form to do your
+
+08:57.900 --> 08:59.340
+own validation.
+
+08:59.370 --> 09:03.390
+But now let's show you how you would more realistically use validation once you're building your own
+
+09:03.390 --> 09:11.100
+web sites using jingoes built in validators OK let's continue by moving on to jingoes core builtin validators
+
+09:11.100 --> 09:13.590
+which will save you a lot of work in the future.
+
+09:13.590 --> 09:17.730
+So pretty much you'll never really do this clean underscore.
+
+09:17.850 --> 09:19.730
+But Katcher validation.
+
+09:19.990 --> 09:25.880
+Instead what you're going to and that do doing is using the jing of course I will say from Jingo that
+
+09:25.890 --> 09:28.290
+core import.
+
+09:28.380 --> 09:31.320
+And then you're going to import validators.
+
+09:31.620 --> 09:39.290
+So save that and then we are going to be doing is in your actual fields here you will passen a validators
+
+09:40.900 --> 09:43.960
+parameter so will say validators is equal to.
+
+09:44.240 --> 09:47.690
+And this is where we actually can pass in a list of validators.
+
+09:47.690 --> 09:52.390
+So what I'm doing is calling validators dots and then you can check the documentation.
+
+09:52.400 --> 09:58.250
+But there are a ton of already built in validators things like checking what's the maximum length of
+
+09:58.250 --> 10:02.820
+the input how many characters it has etc. and what we can do.
+
+10:02.810 --> 10:05.470
+Say you're one of the built in ones.
+
+10:05.540 --> 10:06.620
+So what are the built in ones.
+
+10:06.620 --> 10:09.930
+Is Max length validator.
+
+10:09.980 --> 10:12.770
+So that's a builtin method off of this validators.
+
+10:12.770 --> 10:16.910
+And what we can do is then just passen as a parameter a number here.
+
+10:16.940 --> 10:22.460
+And typically you'd want whatever the max length is a lot of times going to be 0 to check especially
+
+10:22.460 --> 10:22.970
+for a bot.
+
+10:23.000 --> 10:23.700
+Right.
+
+10:23.750 --> 10:29.750
+So basically we replaced all the work we just did with a simple import call import validators and then
+
+10:29.750 --> 10:35.050
+in all these fields you can always pasan a validators parameter and this can take in a list of alday.
+
+10:35.060 --> 10:37.940
+So it's not just limited to one can pass in more than one.
+
+10:38.060 --> 10:43.250
+So we can save that and then we're going to end up doing is running this again.
+
+10:43.610 --> 10:52.090
+So we'll come here and then I'm going to refresh the page so early that go back to the home page and
+
+10:52.090 --> 10:54.270
+then come back to form page.
+
+10:54.550 --> 10:56.790
+Fill out the form that really matter what we do.
+
+10:56.860 --> 11:03.050
+X x at gmail dot com x over here Athas matter.
+
+11:03.350 --> 11:05.540
+And then let's go in and do the bot again.
+
+11:05.540 --> 11:14.200
+So I will add an attribute value is equal to fulled.
+
+11:14.240 --> 11:18.450
+Make sure that matches hit enter and then Lisk hit submit.
+
+11:18.650 --> 11:24.080
+And no a Happens hit and field bug catcher and then we actually see jingoes built in validator message
+
+11:24.080 --> 11:28.360
+come back and sure this value has at most zero characters it has 6.
+
+11:28.370 --> 11:28.790
+Great.
+
+11:28.790 --> 11:33.860
+So you can see that Django already has even more information built in as a report back.
+
+11:34.280 --> 11:39.190
+OK so hopefully you see that this is way easier to use than that clean method we had.
+
+11:39.200 --> 11:39.460
+All right.
+
+11:39.470 --> 11:44.540
+Now that we've discussed jingoes builtin validators Let's talk about how you can make your own custom
+
+11:44.540 --> 11:50.750
+validators using the same sort of methodology of passing in a validators parameter.
+
+11:50.820 --> 11:56.710
+Imagine we wanted to check for the name field that it sort of started with a Z.
+
+11:56.720 --> 12:01.060
+We wanted to really make sure that for whatever reason the names had a start of a Z.
+
+12:01.370 --> 12:06.530
+Well maybe you didn't bother checking the documentation or can find anything for your specific validation
+
+12:06.530 --> 12:07.720
+of starting of a z.
+
+12:07.760 --> 12:10.020
+Or if a character starts for a certain letter.
+
+12:10.040 --> 12:11.410
+So we end up doing it.
+
+12:11.410 --> 12:16.700
+If you want to create your own pasan as a validators parameter you just create a function outside of
+
+12:16.700 --> 12:19.210
+the class and then you can name the function.
+
+12:19.220 --> 12:29.170
+So I will call this check for Z and the thing here is to make sure is that it takes in value and is
+
+12:29.380 --> 12:33.550
+the keywords going to help Django realize that this is going to act as a validator.
+
+12:33.790 --> 12:39.760
+All say if value whatever's returned here for this field in this case we're going to check for Zeese
+
+12:39.760 --> 12:51.250
+will say if value at 0 is not equal to the character Z and we can do further is do like lower here will
+
+12:51.250 --> 12:55.460
+raise and air raise forms.
+
+12:56.880 --> 13:06.700
+Validation error and say something like needs to start with the O.S. name.
+
+13:06.940 --> 13:10.680
+Just to make it clear save that and then inside this theme.
+
+13:10.700 --> 13:16.800
+What I can end up doing is saying validators is equal to and pass on a list and then just pass and my
+
+13:16.800 --> 13:22.170
+check receive function which since it takes in value Shingo knows it's a validator now so I will save
+
+13:22.170 --> 13:28.580
+this and let's make sure that my run server actually got real fast.
+
+13:28.660 --> 13:30.810
+I will refresh that.
+
+13:30.820 --> 13:31.730
+OK perfect.
+
+13:31.740 --> 13:32.950
+So now we're here.
+
+13:32.960 --> 13:38.790
+What I'm going to do save form page and then let's fill out the form first we'll fill out just Jose
+
+13:40.810 --> 13:48.930
+you Miller and some junk it submit and it says name to start wizzy perfect so we know our own custom
+
+13:48.930 --> 13:55.590
+validation is working let's make sure it is by passing and just Z here and then we'll say the same thing.
+
+13:55.590 --> 13:56.680
+And it took it in just fine.
+
+13:56.730 --> 13:58.440
+And it printed it out just fine.
+
+13:58.890 --> 13:59.340
+All right.
+
+13:59.340 --> 14:02.440
+So that is how you can make your own custom validation function.
+
+14:02.640 --> 14:08.220
+And this is usually a lot easier of an approach to take than that clean method we discussed earlier.
+
+14:09.040 --> 14:09.390
+OK.
+
+14:09.410 --> 14:14.430
+Now let's continue our discussion by talking about cleaning the entire form all at once.
+
+14:14.660 --> 14:21.100
+So we did see how we could create custom clean methods in our class for particular fields that we sometimes
+
+14:21.140 --> 14:22.000
+just want to do.
+
+14:22.000 --> 14:26.750
+One method that cleans the entire field and you don't want to worry about having to do something like
+
+14:26.750 --> 14:28.130
+an individual validator.
+
+14:28.130 --> 14:29.080
+So what do you do in that case.
+
+14:29.090 --> 14:32.240
+Well let's delete this check for Z.
+
+14:32.310 --> 14:35.200
+I'm going to remove this validator over here.
+
+14:36.030 --> 14:41.490
+We'll save that and we can check for but catcher that's fine actually you know we don't actually need
+
+14:41.490 --> 14:42.050
+that.
+
+14:42.330 --> 14:47.300
+Let's say we wanted to check something like a backup e-mail.
+
+14:47.340 --> 14:52.050
+So a lot of times when you go to a Web site you have to fill out your name and then fill out your email
+
+14:52.230 --> 14:56.310
+and then you have to verify your email you have to fill it in twice which makes sense because you don't
+
+14:56.310 --> 15:02.310
+want to have happen as you log into a page for the very first time or you're signing up that you mistype
+
+15:02.310 --> 15:02.820
+your email.
+
+15:02.820 --> 15:05.910
+Otherwise there's no way you'll ever get a message to that e-mail.
+
+15:05.970 --> 15:15.660
+So we can call what's a very common field as verify email and this is something you'll see often richer
+
+15:15.730 --> 15:17.040
+if you use the Internet.
+
+15:17.350 --> 15:25.000
+Once you've seen this and we'll have varify field and we're just going to give this a label to say something
+
+15:25.000 --> 15:27.320
+like Well that should be equal sorry.
+
+15:27.670 --> 15:28.630
+And I'll say
+
+15:31.970 --> 15:35.630
+to your e-mail again.
+
+15:35.660 --> 15:40.980
+So let's save that and let's refresh the page to make sure that actually works that continue.
+
+15:41.080 --> 15:47.150
+OK perfect so this field is required for e-mail again and you can use formatting and aged him to make
+
+15:47.150 --> 15:49.460
+this all look nice since I'm asking for paragraph.
+
+15:49.460 --> 15:51.590
+Everything is kind of going in there a line break.
+
+15:51.590 --> 15:55.110
+But again this would all be done with HTL or C styling.
+
+15:55.130 --> 16:00.190
+Right now what we really care about is how do we clean this entire form at once to actually grab the
+
+16:00.200 --> 16:04.200
+c.m. grab the second e-mail and make sure they actually match.
+
+16:04.220 --> 16:10.430
+Well just like we had the special clean method where you say clean underscore in the name of the field
+
+16:10.430 --> 16:12.880
+you want to check if you want to clean the entire form.
+
+16:12.890 --> 16:18.170
+All you do is just say clean and that will indicate the jingo that this is just a single clean method
+
+16:18.540 --> 16:20.400
+for the entire form at once.
+
+16:21.490 --> 16:25.920
+And what you can do here is call super.
+
+16:26.060 --> 16:29.710
+You know what this is going to do is grab all the clean data at once.
+
+16:29.710 --> 16:34.120
+So we'll type a new variable.
+
+16:34.130 --> 16:42.430
+Call it all clean data and then we call super close parentheses and then off of that you call the clean
+
+16:42.430 --> 16:45.860
+method and it's going to return all your clean data for the entire forms.
+
+16:45.880 --> 16:53.890
+You can deal it all at once and then off of this you can grab certain fields souls say email is equal
+
+16:53.890 --> 17:02.780
+to that all clean data and then say using Brecken notation because it's basically a dictionary grab
+
+17:02.790 --> 17:09.870
+the email field where this key comes from up here and then we also want to grab varify email so say
+
+17:10.500 --> 17:13.580
+well call it the email or verify email.
+
+17:13.650 --> 17:20.450
+Again it's the all clean data and I want to grab the varify email key and then what I am going to do
+
+17:20.450 --> 17:30.550
+is say if my email is not equal to my verify email I will raise an error so I'll raise a validation
+
+17:30.550 --> 17:42.890
+there forms validation for an error and say whatever so make sure emails match.
+
+17:42.920 --> 17:44.230
+Probably don't want to yell at the user.
+
+17:44.230 --> 17:47.600
+Not all uppercase but it's fine for our purposes.
+
+17:47.810 --> 17:50.920
+And in this case we don't actually need to return everything.
+
+17:51.140 --> 17:54.060
+If the clean runs and everything works that's totally fine.
+
+17:54.080 --> 17:55.100
+We don't need to return.
+
+17:55.340 --> 17:57.620
+OK so let's actually run this on our page.
+
+17:57.620 --> 18:04.850
+I'm going to run my server again because I cleared it here hear say Python managed up high run server
+
+18:05.090 --> 18:07.200
+enter make sure it's running here.
+
+18:07.220 --> 18:07.850
+Perfect.
+
+18:07.870 --> 18:13.230
+I'm going to refresh this page and then when I'm going to do is call the form page.
+
+18:13.400 --> 18:15.110
+So here you see my name email.
+
+18:15.140 --> 18:17.490
+Enter your email again is the label text.
+
+18:17.810 --> 18:22.970
+So I'll say my name is Jose and we're actually going to do a non-matching email first.
+
+18:22.970 --> 18:24.120
+So I'll say that.
+
+18:24.230 --> 18:31.750
+Well let's say a at gmail dot com and then B at gmail dot com.
+
+18:31.790 --> 18:35.330
+So two different e-mails enter some text here for hit submit.
+
+18:35.330 --> 18:37.130
+I get back make sure e-mails match.
+
+18:37.130 --> 18:40.520
+So it's cleaning the entire data form and you can do whatever you want.
+
+18:40.530 --> 18:43.240
+Walter Fields from data forms adults make sure these match.
+
+18:43.460 --> 18:50.120
+If I say Jose a and then hit it looks like it's good and it actually prints out my name my e-mail and
+
+18:50.120 --> 18:52.570
+text which means there were no errors.
+
+18:52.570 --> 18:53.100
+All right.
+
+18:53.390 --> 18:54.520
+That's the very basics.
+
+18:54.560 --> 18:59.030
+And some more advanced features of how to actually custom validate your forms.
+
+18:59.030 --> 19:05.150
+So again you can call your own custom clean underscore method to check just a simple field you can use
+
+19:05.150 --> 19:08.660
+the built in validators enjoying 0 which is what I would recommend you do.
+
+19:08.780 --> 19:13.480
+And if you ever want to clean the entire form at once and do all your operations there then you can
+
+19:13.480 --> 19:17.000
+use def clean and that will clean out the entire form.
+
+19:17.010 --> 19:20.960
+And remember whenever you're creating your own custom validators you want to make sure you passing the
+
+19:21.010 --> 19:23.200
+keyword value before you pass it.
+
+19:23.210 --> 19:24.980
+Here it's one of these fields.
+
+19:25.010 --> 19:25.430
+All right.
+
+19:25.430 --> 19:26.210
+Do you have any questions.
+
+19:26.210 --> 19:30.310
+Definitely post the Q&amp;A forums and I would definitely suggest if you plan on using this in the future
+
+19:30.480 --> 19:35.060
+to check out the documentation page for jingoes validators has a lot of useful information there as
+
+19:35.060 --> 19:37.970
+well as a ton of more examples in case you want to see more.
+
+19:37.970 --> 19:39.910
+Thanks everybody and I'll see you the next lecture.

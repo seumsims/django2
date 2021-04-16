@@ -1,0 +1,2 @@
+- b'Django-Level-Two-Slides'
+- b'https://docs.google.com/presentation/d/18egnjVGoDNn0dfbvVQmEVYMLZEGyBTkRgPP2IpTJ_y4/edit?usp=sharing'

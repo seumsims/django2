@@ -1,0 +1,538 @@
+WEBVTT
+
+00:05.080 --> 00:08.970
+Hello everyone and welcome to the template inheritance code examples lecture.
+
+00:09.040 --> 00:13.710
+We're going to be cutting through the topics we just previously discussed for a inheritance.
+
+00:13.720 --> 00:16.000
+Let's hop over to the editor and get started.
+
+00:16.390 --> 00:22.510
+All right so here I am using the learning underscore templates project we created in the previous coding
+
+00:22.510 --> 00:24.280
+lecture for the section of the course.
+
+00:24.280 --> 00:27.100
+Remember that we created this base team File.
+
+00:27.280 --> 00:32.610
+Let's show you how you can create some typical looking based thrist him code and then use it and extend
+
+00:32.610 --> 00:38.530
+it to the other HDMI files we have in this application such as this index file other HCM L and then
+
+00:38.530 --> 00:40.630
+even the relative u r l template.
+
+00:41.150 --> 00:51.640
+OK so in 0 all team files you always want to have this line of code be first and it's dot type T.M..
+
+00:51.810 --> 00:54.100
+So that always needs to come first.
+
+00:54.100 --> 00:59.000
+In an time I'll file and you can get it easily just by typing HTL and hitting enter.
+
+00:59.040 --> 01:02.930
+That will always be the first line no matter what kind of template tags are using.
+
+01:02.930 --> 01:05.220
+Again this should always be on line number one.
+
+01:05.220 --> 01:05.950
+OK.
+
+01:05.970 --> 01:11.040
+So let's make sure that we have bootstrap linked across our entire web site.
+
+01:11.250 --> 01:15.960
+The way to do this easily is instead of having that link and every single that a steam file we just
+
+01:15.960 --> 01:17.800
+put it in the base that each time l file.
+
+01:17.940 --> 01:19.650
+I want to copy and paste this.
+
+01:19.770 --> 01:23.230
+Either you can do either from the notes or from Bootstrap dot com.
+
+01:23.550 --> 01:23.890
+OK.
+
+01:23.910 --> 01:26.530
+So there's going to bootstrap there's my drift to it.
+
+01:26.730 --> 01:30.950
+And again this could also be a link to a local file underneath templates.
+
+01:31.020 --> 01:34.480
+You could have CSSA and then link it to bootstrap locally.
+
+01:34.650 --> 01:37.670
+Truly up to you whether you want to link it online or link it locally.
+
+01:37.750 --> 01:42.600
+It's a little faster if you link it locally specially when you begin to deploy your projects.
+
+01:42.770 --> 01:48.630
+Plus you can always make sure that you're not dependent on someone else hosting this all right now inside
+
+01:48.630 --> 01:53.960
+this body let's create a navigation bar so we do this by calling it now.
+
+01:54.180 --> 01:58.380
+And I'm going to pass in the classes and I don't have these memorized.
+
+01:58.380 --> 02:03.580
+I'm just copying and pasting these from the notes and also from the bootstrap bootstrap documentation.
+
+02:03.600 --> 02:08.850
+So I would not expect you to just knowingly know all the classes like I'm typing them here so feel free
+
+02:08.850 --> 02:13.800
+to just copy and paste from the notes or type along with me but the class from the nav bar that I'm
+
+02:13.800 --> 02:24.660
+using is nav bar space nav bar defaults and then nav bar static top and then I going to put this that
+
+02:24.660 --> 02:30.290
+comes next inside of a container class and then will have an unordered list.
+
+02:30.290 --> 02:32.970
+And this is the stuff that's actually inside that nav bar.
+
+02:33.050 --> 02:44.080
+So I will give this unordered list a class of NAV space nav bar nav and then inside the sort of list
+
+02:44.110 --> 02:49.240
+I go to have list items will be anchor tags and they're going to link to different parts of that page.
+
+02:49.260 --> 02:53.380
+But these are going to have a class of.
+
+02:53.660 --> 02:59.630
+And this first one is going to be the actual brand page so nav bar dash brands and pretty much just
+
+02:59.680 --> 03:01.880
+always takes you back to the home page.
+
+03:01.990 --> 03:04.880
+So we won't mess around with the references right now.
+
+03:04.930 --> 03:10.580
+We'll set up the template inheritance first and then we'll come back and review how to do template or
+
+03:10.600 --> 03:12.500
+else with these rough tags.
+
+03:12.610 --> 03:21.400
+But inside of this anger attack I'm just going to say brand save that and then create an other list
+
+03:21.610 --> 03:22.460
+item.
+
+03:22.720 --> 03:23.890
+In other a..
+
+03:23.980 --> 03:24.940
+And this.
+
+03:24.950 --> 03:29.820
+And let's actually instead of putting this class in the list item let's put it inside the anchor type.
+
+03:29.920 --> 03:31.620
+So a little cleaner.
+
+03:31.730 --> 03:33.330
+There we go.
+
+03:33.410 --> 03:39.050
+And then this anchor tag is also going to have a class and this class is going to be equal to a nav
+
+03:39.050 --> 03:49.830
+bar dash link class and we'll have this link to the admin page and let's copy and paste this create
+
+03:49.830 --> 03:55.770
+one more you know what we're gonna do here is have this link to the other page number we have that other
+
+03:55.770 --> 03:57.840
+that it's female file.
+
+03:57.870 --> 04:03.360
+Ok so that all goes inside this container div and all of that is going inside this nav bar.
+
+04:04.960 --> 04:07.260
+Perfect.
+
+04:07.280 --> 04:12.110
+And then since we're using bootstrap it would be nice is making sure anything else I put in the body
+
+04:12.140 --> 04:14.970
+is already inside a container so I don't need to call that.
+
+04:15.020 --> 04:19.740
+So what I'm going to do is create a DIV tag that says container.
+
+04:19.930 --> 04:23.470
+And again all this sort of styling and class thing that's really going to be up to you when you're creating
+
+04:23.470 --> 04:25.220
+your own project what you think looks good.
+
+04:25.230 --> 04:29.070
+You tested on mobile devices on tablets see what else looks good etc..
+
+04:29.080 --> 04:35.050
+So definitely don't take this as absolutely 100 percent must do really all of this stuff at a certain
+
+04:35.050 --> 04:39.250
+point becomes your own personal choice and personal styling depending on what your Web site is going
+
+04:39.250 --> 04:41.480
+to be used for.
+
+04:41.830 --> 04:47.380
+So right now I have everything that I want to display across every single page and every single page
+
+04:47.380 --> 04:53.230
+on my web site had this nav bar and have its body contained in a container and have the link to bootstrap
+
+04:53.980 --> 04:59.370
+which means I need to set up my actual template tags that will define this.
+
+04:59.550 --> 05:14.120
+So we'll call this block body underscore block and then we'll write a comment here anything outside
+
+05:14.120 --> 05:20.500
+of this will be inherit inherited if you extend.
+
+05:20.540 --> 05:24.290
+Typically you will have this comment but just typing in there you can get an idea.
+
+05:24.500 --> 05:30.550
+And then finally want to end the block so we use and block for this.
+
+05:30.550 --> 05:35.920
+And if we install some Django plugins for Adam text editor a lot of the stuff is syntax highlighted
+
+05:35.920 --> 05:38.140
+and done automatically for you.
+
+05:38.200 --> 05:46.270
+OK so basically we're seeing here is everything outside of this is going to be inherited when we call
+
+05:46.270 --> 05:47.020
+extend on it.
+
+05:47.020 --> 05:48.650
+So let's actually practice that.
+
+05:48.670 --> 05:53.400
+So I will come to my other large team M-file and this is where it gets really cool.
+
+05:54.470 --> 05:59.450
+Right now I have a bunch of stuff in this age Tim L file but really the only thing that's unique here
+
+05:59.450 --> 06:01.410
+is the fact that it says welcome to other.
+
+06:01.610 --> 06:07.850
+So all I need to do is make sure that the doctype HVM code is there I can delete everything else and
+
+06:07.850 --> 06:14.380
+then just extend my template so it will say appear on the second line.
+
+06:15.560 --> 06:21.860
+Extends and then pass in the file path to that template which is under templates.
+
+06:22.010 --> 06:27.500
+And then I call basic app slash based dot HTL.
+
+06:27.700 --> 06:33.560
+And so you know now that I could have various template files as my base template even across different
+
+06:33.560 --> 06:38.420
+applications across the template folder and I just need to make sure that I call the right one and extend
+
+06:38.420 --> 06:41.970
+the right one that we are not just limited to the one based on each team.
+
+06:42.530 --> 06:51.480
+OK so once we've done the extension there what I do is call this tag a call block
+
+06:54.900 --> 07:02.740
+body block and this matches basically what I had and based on each T.M. that's this guy.
+
+07:02.840 --> 07:07.500
+But now instead of everything being outside everything's going to be inside.
+
+07:07.550 --> 07:09.550
+So that says welcome to other.
+
+07:09.560 --> 07:19.240
+And then let's say this is an example of template inheritance inheritance and then finally I'm going
+
+07:19.240 --> 07:22.590
+to close this off with an end block.
+
+07:24.750 --> 07:25.350
+And that's it.
+
+07:25.350 --> 07:28.110
+Now this other than a stem cell file is ready to go.
+
+07:28.110 --> 07:34.310
+Key things to note here is doc type always line number one then call the extends on whatever base that
+
+07:34.310 --> 07:40.440
+each team M-file looking for then a call block the body block and then whatever content you want there
+
+07:40.680 --> 07:41.970
+and then you can end the block.
+
+07:41.970 --> 07:43.070
+And that's basically it.
+
+07:43.110 --> 07:44.390
+You can actually see that.
+
+07:44.430 --> 07:48.670
+Now the template tags when they were confusing at first we were first to learn jingo.
+
+07:48.690 --> 07:53.210
+Now they actually look way cleaner and more readable than the other HCM Ilja we had before.
+
+07:53.280 --> 07:56.230
+And this is really the power behind temple inheritance.
+
+07:56.310 --> 07:58.290
+So let's do this on another page.
+
+07:59.270 --> 08:02.780
+For example our home page which is index studies T.M..
+
+08:02.780 --> 08:08.730
+So again I can just get rid of all this other HTL code since that's already taken care of for me.
+
+08:08.760 --> 08:19.980
+I have doc type H T M L I need to extend from my actual base or a small file so I say extends that in
+
+08:19.980 --> 08:25.030
+quotes where it is under the template file which in this case it's basic app slash base.
+
+08:25.060 --> 08:25.800
+But each team L.
+
+08:25.830 --> 08:28.410
+So you can see you actually don't even need to call it baseline C.M..
+
+08:28.410 --> 08:31.770
+By convention it usually is called that but you could have named this whatever you wanted.
+
+08:33.000 --> 08:37.650
+Then again I pasan that body block.
+
+08:37.690 --> 08:44.650
+So here I call block body underscore block and the indentation is actually not necessary but it definitely
+
+08:44.650 --> 08:45.690
+helps with the readability.
+
+08:45.700 --> 08:50.860
+So I encourage you to try your best to try to keep formatted in readable code and then says welcome
+
+08:50.860 --> 08:51.760
+to index.
+
+08:51.760 --> 08:59.250
+And I'll say something like this is index that each T.M. page showing save that.
+
+08:59.270 --> 09:08.930
+And then we have that body block let's end the block so here we'll call and block save that and now
+
+09:08.930 --> 09:11.400
+it's actually run this and see what we get.
+
+09:11.420 --> 09:15.140
+So say Python managed up PI.
+
+09:15.660 --> 09:18.830
+We're on server and to make sure we didn't make any mistakes.
+
+09:18.850 --> 09:19.260
+OK.
+
+09:19.300 --> 09:24.870
+So I'm going to copy this and bring in over my browser and I can see here.
+
+09:24.930 --> 09:30.210
+I had this nice looking at bar and it says welcome to index index page html page showing.
+
+09:30.270 --> 09:31.020
+Perfect.
+
+09:31.020 --> 09:33.510
+Now let's check out the other page.
+
+09:33.510 --> 09:38.820
+So that was basic app slash other enter and out says welcome to other.
+
+09:38.820 --> 09:43.130
+This is an example of Temple inheritance SUNO here my web site looks really nice and clear.
+
+09:43.140 --> 09:46.460
+I have this nav bar showing across all the pages.
+
+09:46.510 --> 09:49.580
+But right now if I click on these links nothing's actually happening.
+
+09:49.590 --> 09:54.750
+Let's use the templates that we learned about in the previous lectures of the section to actually make
+
+09:54.870 --> 09:56.730
+these two different pages.
+
+09:56.730 --> 09:58.280
+So let's map brand to the home page.
+
+09:58.320 --> 10:02.270
+Adam into the admin page and then other to the other page.
+
+10:02.340 --> 10:04.870
+So we'll come back here and this is what we're going to do.
+
+10:04.870 --> 10:08.640
+We're going to come back to baseline age T.M. and appear where it's at.
+
+10:08.700 --> 10:12.580
+A riff on the brand abdomen and other will pasand those template tags.
+
+10:12.580 --> 10:15.590
+Those are all templates.
+
+10:15.700 --> 10:20.890
+So for the brand page will have the index one and this should feel just like review because we essentially
+
+10:20.890 --> 10:24.640
+already did all this in the relative your templates file.
+
+10:24.760 --> 10:31.650
+So say you are all here and then just pasand index as a single string for our home page then for Tref
+
+10:31.720 --> 10:35.060
+what I'm going to do is this links to the admin page.
+
+10:35.110 --> 10:41.710
+Remember I call your L and then admen colon index and Lumix for Helmick quotes in there.
+
+10:41.850 --> 10:45.850
+So this is all wrapped in single quotes member to be careful with spaces there.
+
+10:47.650 --> 10:55.030
+And then again we'll call your L and in this case this other page is under my basic app had a set that
+
+10:55.130 --> 10:59.680
+had a set that app name variable and then it's the name other.
+
+10:59.710 --> 11:02.020
+So let's save this.
+
+11:02.020 --> 11:07.480
+Bring back our browser and refresh it if I bring it in.
+
+11:07.490 --> 11:12.590
+Now I can click on the things to take me to brand take me to other and I can see as I'm clicking on
+
+11:12.590 --> 11:18.260
+it it's taking me and it really has the feel of a real Web site now where there's a nav bar that's taking
+
+11:18.260 --> 11:23.080
+me to all the pages across the Web site and is calling them using your old template tagging.
+
+11:23.090 --> 11:25.790
+And if I click on admin it's going to take me to the added and page.
+
+11:25.790 --> 11:32.810
+Now note that the nav bar goes away here because I didn't actually go into adman's h Tam l file and
+
+11:32.840 --> 11:33.460
+edit it.
+
+11:33.530 --> 11:35.180
+And honestly you shouldn't really be doing that.
+
+11:35.180 --> 11:38.140
+We'll talk about customizing the Django adamant interface.
+
+11:38.150 --> 11:42.200
+But as far as like styling of the abdomen and having a nav bar there that's really not necessary and
+
+11:42.200 --> 11:45.200
+that's not really the purpose of the jingo administration view.
+
+11:45.470 --> 11:48.350
+That's more for the ailing or for models but we'll talk about Django.
+
+11:48.470 --> 11:51.350
+Adam and customization and a feature section.
+
+11:51.350 --> 11:51.860
+OK.
+
+11:51.980 --> 11:53.940
+So that's really all we had to cover.
+
+11:53.940 --> 11:58.490
+Again the main thing to note here is you have a base that each team M-file always have this doctype
+
+11:58.590 --> 12:04.040
+HCM as the first line in your ace html files no matter if their base Steimle or their things that are
+
+12:04.040 --> 12:05.910
+extending that bassée smell.
+
+12:06.020 --> 12:12.770
+But then you have everything you want to be extended across all your pages outside of these two key
+
+12:12.770 --> 12:13.240
+tags.
+
+12:13.280 --> 12:16.070
+And that's the block body block and block.
+
+12:16.280 --> 12:21.410
+You can also have other blocks such as like a head block or whatever you want to call them.
+
+12:21.550 --> 12:23.860
+And then the relationship between base on each team.
+
+12:23.980 --> 12:26.030
+And the other pages is actually very clear.
+
+12:26.030 --> 12:30.240
+It's essentially just the reverse of one of the reliance on other Eastham mail you get rid of all the
+
+12:30.370 --> 12:30.740
+time.
+
+12:30.760 --> 12:35.800
+Besides the doctype you extend from whatever base that he's to himself file you want to reference.
+
+12:35.920 --> 12:40.720
+Then you call block in this case body block because you have body block here and then whatever you want
+
+12:40.720 --> 12:45.690
+inside of that and block and everything outside it's going to be extended just like the base e-mail
+
+12:45.700 --> 12:46.470
+here.
+
+12:46.510 --> 12:50.740
+Hopefully this is a pretty straightforward application of template inheritance.
+
+12:50.740 --> 12:53.230
+All right thanks everyone and I'll see you at the next lecture.

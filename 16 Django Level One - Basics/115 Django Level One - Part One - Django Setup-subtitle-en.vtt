@@ -1,0 +1,529 @@
+WEBVTT
+
+00:05.440 --> 00:07.510
+Hello everyone and welcome to this lecture.
+
+00:07.510 --> 00:10.280
+We're going to be getting started with Django.
+
+00:10.440 --> 00:15.030
+We finally reached the moment we've been waiting for throughout the whole course using our Python skills
+
+00:15.030 --> 00:21.240
+and all our front end skills along with the jayega web framework before we actually dive into the technical
+
+00:21.240 --> 00:22.460
+details of Django.
+
+00:22.620 --> 00:28.270
+Let's learn a little more about it than it's really interesting background Django is a free and open
+
+00:28.270 --> 00:30.030
+source web framework.
+
+00:30.040 --> 00:34.450
+And being a web framework it really allows us to solve two major problems.
+
+00:34.450 --> 00:41.230
+It allows us to map a requested your from a user to the code that's actually meant to handle it and
+
+00:41.230 --> 00:45.690
+then it also allows us to create that requested HVM dynamically.
+
+00:45.790 --> 00:51.610
+So using templates which we'll learn about later on we can actually inject calculated values or information
+
+00:52.060 --> 00:55.930
+from the database into an aged female page to show to the user.
+
+00:55.990 --> 01:00.190
+So we're going to be really connecting all the front end stuff to the backend stuff through this web
+
+01:00.190 --> 01:01.000
+framework.
+
+01:01.300 --> 01:07.380
+And Django is extremely popular it's used by many sites including things such as Pinterest PBS Instagram
+
+01:07.390 --> 01:10.600
+bit bucket Washington Times Mozilla and much more.
+
+01:10.600 --> 01:15.790
+You can check out the official Gengel Web site for a whole list of example web sites that operate using
+
+01:15.790 --> 01:22.760
+jingoes web framework Django was created in 2003 when the Web developers at the Lawrence Journal World
+
+01:22.760 --> 01:28.160
+newspaper started using Python for their development and the fact that it originated at a newspaper
+
+01:28.460 --> 01:33.290
+is actually really important to the culture that surrounds Django because the original developers were
+
+01:33.290 --> 01:39.030
+surrounded by those newspaper writers good written documentation is a key part of Django.
+
+01:39.080 --> 01:43.880
+And we're going to be exploring documentation as we go along through this part of the course and that
+
+01:43.880 --> 01:48.980
+also means that you have excellent references to check out on the official Django documentation pages
+
+01:50.160 --> 01:55.020
+jingo has its own excellent basic tutorial where you're basically walk through creating a basic pulling
+
+01:55.020 --> 01:56.400
+web application.
+
+01:56.400 --> 02:00.810
+And I would definitely suggest that you check out that polling tutorial later on throughout this course
+
+02:01.290 --> 02:05.480
+and also the reason it's a pull is because that also extends back to newspaper routes.
+
+02:05.640 --> 02:10.440
+If you're on a newspaper Web site you may want to pull your readers to see whether or not they agree
+
+02:10.440 --> 02:11.850
+with the topic of a story.
+
+02:13.240 --> 02:18.580
+So when encountering Django tutorials you're going to often read that you should use what's called a
+
+02:18.580 --> 02:22.750
+virtual environment or you'll sometimes also see it as V and V.
+
+02:23.050 --> 02:25.360
+Let's talk about what a virtual environment is.
+
+02:25.360 --> 02:29.650
+How do you use it and why it's so important to use one whenever you're working with Django for a large
+
+02:29.650 --> 02:30.620
+project.
+
+02:31.770 --> 02:38.430
+The virtual environment allows you to have a virtual installation of python and packages on your computer.
+
+02:38.450 --> 02:40.820
+So why would you ever actually want or need this.
+
+02:40.850 --> 02:42.260
+You've already installed Python.
+
+02:42.260 --> 02:44.420
+Why bother with a virtual environment.
+
+02:44.420 --> 02:51.320
+Python packages change and get updated often and there are changes that sometimes break backwards compatibility
+
+02:51.560 --> 02:54.490
+that your web application or web project made depend on.
+
+02:54.710 --> 03:00.020
+So what do you do if you want to test out the new features of a package update but you also don't want
+
+03:00.020 --> 03:01.850
+to break your current web application.
+
+03:01.880 --> 03:06.600
+After all you can't just take down your web site every time a package gets updated.
+
+03:07.040 --> 03:09.260
+Well that's where the virtual environment comes in.
+
+03:09.260 --> 03:14.780
+You can create a virtual environment that contains the newer version of the package or the virtual environment
+
+03:14.780 --> 03:16.620
+for your older version of the package.
+
+03:16.790 --> 03:19.610
+And luckily Anaconda makes this really easy for us.
+
+03:19.640 --> 03:22.690
+A virtual environment handler is already included.
+
+03:23.830 --> 03:28.060
+So to use this virtual environment with Conder you're going to use the following commands.
+
+03:28.090 --> 03:33.550
+Now we'll walk through this and just a little bit but the Kada create command initiated the virtual
+
+03:33.550 --> 03:34.240
+environment.
+
+03:34.240 --> 03:41.320
+So we say Konda create space dash dash name and then another space and you type in the name of your
+
+03:41.320 --> 03:41.950
+environment.
+
+03:41.950 --> 03:47.950
+So in this case I've called my environment my E and V there and then the last word there.
+
+03:47.980 --> 03:54.790
+Django is going to say well what package do I want to initiate this environment with an Konda requires
+
+03:54.790 --> 03:55.360
+that.
+
+03:55.420 --> 03:57.340
+So you'll say create dash dash.
+
+03:57.340 --> 04:02.650
+Name the name of your virtual environment and then the package that you want to start that environment
+
+04:02.650 --> 04:07.060
+with and later on you can specify a specific version for that package.
+
+04:07.060 --> 04:14.900
+So you can say Django something like equals equals 1.9 or 1.8 1.10 etc and then you could activate that
+
+04:14.900 --> 04:16.760
+environment with activate space.
+
+04:16.790 --> 04:20.190
+The name of the environment and this all happens at the command line.
+
+04:20.240 --> 04:25.820
+Now anything installed with Pitt or Khanda when this environment is activated will only really be installed
+
+04:25.820 --> 04:26.980
+for that environment.
+
+04:27.020 --> 04:32.780
+So that allows you to create separate versions of packages and pythons all on one computer with the
+
+04:32.780 --> 04:34.720
+use of these virtual environments.
+
+04:35.000 --> 04:40.230
+And then you can deactivate the environment with deactivate my envie or the name of the environment
+
+04:40.760 --> 04:45.440
+and it's highly encouraged to use virtual environments for your projects to keep them self-contained
+
+04:45.470 --> 04:48.610
+and not run into issues and packages are updated.
+
+04:48.620 --> 04:48.990
+All right.
+
+04:49.010 --> 04:54.290
+So let's jump to our command line and show you an example of actually creating a virtual environment.
+
+04:54.290 --> 05:00.380
+OK here I am at the Adam text editor and before we get started by walking through a virtual environment
+
+05:00.380 --> 05:06.410
+using Konda what I wanted to point out is that Konda itself has really good documentation on creating
+
+05:06.410 --> 05:11.000
+virtual environments or managing environments and it's linked to in the resource notes.
+
+05:11.000 --> 05:15.560
+But let me jump to that Web site real quick over here and show you what it looks like.
+
+05:15.620 --> 05:22.850
+Just go to the IO slash thok slash using slash and VS for Environment study CML or just google search
+
+05:22.850 --> 05:26.400
+Konda environments should take you to this page or just use the resource link.
+
+05:26.480 --> 05:29.130
+But this has a lot more details on what we're going to be showing here.
+
+05:29.330 --> 05:33.950
+Shows you how to create an environment change an environment clone an environment remove etc..
+
+05:34.040 --> 05:39.170
+So if you ever have any questions further than what we discuss here you have this documentation that
+
+05:39.170 --> 05:41.140
+will walk you through all of these steps.
+
+05:41.150 --> 05:46.450
+So we're going to be doing is creating an environment and there's an example here Conda create dash
+
+05:46.450 --> 05:47.460
+dash name.
+
+05:47.480 --> 05:51.620
+They're calling their environment snowflake's and it uses bio Python.
+
+05:51.620 --> 05:56.890
+So let's create a virtual environment that will create a virtual environment for Django for us.
+
+05:57.170 --> 06:01.930
+So I will come back to Adam klick plus here to open up my terminal.
+
+06:02.120 --> 06:14.540
+And then what I will do is say this Konda create a dash dash name and let's call this my Django E and
+
+06:14.560 --> 06:15.700
+the.
+
+06:15.860 --> 06:22.940
+And then I will type Django because that's the package I want to initiate my Django envy or environment
+
+06:22.940 --> 06:23.630
+with.
+
+06:23.930 --> 06:30.010
+I will hit enter and what it's going to do is download that Gengel package if I don't have it already
+
+06:30.470 --> 06:36.890
+and then apply it to that virtual environment and Conda is actually pretty smart and it will know that
+
+06:36.920 --> 06:42.860
+if you have already a similar version of Django somewhere install on your computer it may not need to
+
+06:42.860 --> 06:48.620
+copy it you just referenced it that way you don't need to download anything it'll just reference previous
+
+06:48.710 --> 06:49.670
+installations.
+
+06:49.670 --> 06:54.870
+I don't have Jeng on this computer yet so it will do is fetch that meta data and let me expand this
+
+06:54.880 --> 06:55.700
+shew what happens.
+
+06:55.700 --> 06:59.360
+And it will ask you hey these new packages are going to be installed.
+
+06:59.360 --> 07:00.550
+Is that OK with you.
+
+07:00.760 --> 07:06.180
+And I will say no right now because I actually don't want Python 2.7.
+
+07:06.320 --> 07:07.730
+I want Python 3.
+
+07:07.970 --> 07:19.500
+So what I'm going to do is say no on proceed and instead I will say this Conda creates name and let's
+
+07:19.500 --> 07:29.690
+say my Jingo and B and instead of starting with J go I'm going to start it with Python 3.
+
+07:29.720 --> 07:35.780
+And the reason I'm doing this is to show you an example of specifying a specific version of Python or
+
+07:35.800 --> 07:37.070
+a package.
+
+07:37.070 --> 07:40.150
+So it's a very similar process you say Konda create dash dash.
+
+07:40.160 --> 07:42.770
+Name the name of your actual environment.
+
+07:43.070 --> 07:48.830
+And in this case instead of a package I will say Python and then you say equals and then you type in
+
+07:48.830 --> 07:50.120
+the version number you want.
+
+07:50.120 --> 07:53.810
+So for instance I want Python 3.5.
+
+07:54.080 --> 07:59.700
+I'm going to enter it will fetch that packet's meta data again.
+
+08:02.380 --> 08:06.760
+It will show me the new packages that will be installed here I can see that I have the correct version
+
+08:06.760 --> 08:08.800
+of Python I want 3.5.
+
+08:08.800 --> 08:13.780
+You can also do a 3.6 depending on when you're actually viewing this course if that's been added to
+
+08:13.780 --> 08:14.450
+Khanda.
+
+08:14.620 --> 08:17.470
+But let's stick with something 3.4 or above.
+
+08:17.470 --> 08:19.800
+So 3.4 3.5 3.6.
+
+08:19.850 --> 08:22.030
+Those should all work fine for what we're going to be doing.
+
+08:22.300 --> 08:25.240
+I'm going to proceed on that select Y.
+
+08:25.450 --> 08:30.160
+And then I will jump forward in time for this to all being downloaded and installed.
+
+08:30.280 --> 08:31.570
+I'll see you there.
+
+08:31.570 --> 08:36.610
+All right so that has finished installing and now we actually get the instructions so to activate this
+
+08:36.610 --> 08:41.290
+environment we can use activate and then the name of the environment and then deactivate it once we're
+
+08:41.290 --> 08:45.340
+done using it we can say deactivate and that will deactivate the environment.
+
+08:45.340 --> 08:49.620
+And if we ever want to use it again we can easily just activate it with the activate command.
+
+08:49.750 --> 08:55.090
+And if you're on a Mac or Linux computer and you're using bash you probably have to use source.
+
+08:55.090 --> 08:56.810
+So keep that in mind.
+
+08:56.860 --> 08:57.310
+All right.
+
+08:57.310 --> 09:01.600
+Now that we've set up our actual environment it's time to activate it.
+
+09:01.610 --> 09:02.390
+A quick note.
+
+09:02.410 --> 09:07.000
+In case you forget what environments you have on your computer you can easily list them through this
+
+09:07.000 --> 09:15.580
+command Konda info dash dash E and V S and this will list all the environments you have here I just
+
+09:15.580 --> 09:21.700
+have my default Anaconda the root environment and then this environment I created my Django Ian V and
+
+09:21.700 --> 09:27.610
+depending on what Anaconda version you initially installed this may say Anaconda 3 instead of Anaconda's
+
+09:27.660 --> 09:30.850
+2 but lets actually activate this environment.
+
+09:31.030 --> 09:39.080
+If you're on Linux or Mac OS and you're using bash you will probably have to say Source activate and
+
+09:39.080 --> 09:40.660
+then the name of the environment.
+
+09:40.730 --> 09:42.240
+Django E and VI.
+
+09:42.350 --> 09:46.630
+Since I'm on a Windows computer right now I don't need to specify source.
+
+09:46.700 --> 09:50.880
+So let's bring that back down to just activate my Django E.A..
+
+09:51.170 --> 09:53.950
+I hit enter and it will activate the environment.
+
+09:53.990 --> 09:58.860
+And the way I can tell that the environment is activated is she should see here parentheses might Django
+
+09:59.140 --> 10:05.450
+envy and that means that everything I do right now in regards to Python is going to only take effect
+
+10:05.540 --> 10:11.480
+on this environment which means if I decide to install a Django in this environment it's only going
+
+10:11.480 --> 10:12.340
+to be installed.
+
+10:12.380 --> 10:15.660
+That specific version of Django for this virtual environment.
+
+10:15.710 --> 10:17.490
+In fact let's do that now.
+
+10:17.630 --> 10:24.980
+I will say Konda install Django enter and this will install the latest version of Django.
+
+10:25.160 --> 10:31.280
+And for this course basically any version of Django that's higher than 1.8 should work just fine.
+
+10:31.280 --> 10:38.970
+So 1.8 1.9 or at the time of this course 1.10 should be fine let's say proceed y.
+
+10:39.200 --> 10:45.620
+But I do encourage you to at least use 1.10 that way everything we do in this course matches up exactly
+
+10:45.620 --> 10:47.440
+with what's on your computer.
+
+10:47.760 --> 10:48.240
+OK.
+
+10:48.530 --> 10:53.010
+We're going to hop forward in time for this to finish installing and downloading.
+
+10:53.030 --> 10:53.380
+All right.
+
+10:53.390 --> 10:56.930
+So that finished installing Django to this virtual environment.
+
+10:56.930 --> 11:01.910
+And if I want to confirm this virtual environment is actually working correctly I can just type in Python
+
+11:02.120 --> 11:03.190
+into this command line.
+
+11:03.350 --> 11:07.780
+And I notice that the version of Python here matches the version of the environment.
+
+11:07.850 --> 11:16.080
+If I were to say quit and then deactivate this environment suffice just say de-activate notice I'm no
+
+11:16.080 --> 11:17.530
+longer in the virtual environment.
+
+11:17.550 --> 11:23.960
+So if I say Python now I'm back to my original installation of Python which happens to be this 2.70
+
+11:23.960 --> 11:24.620
+version.
+
+11:24.720 --> 11:29.010
+So that's a nice little confirmation that you're in the virtual environment and you're actually doing
+
+11:29.010 --> 11:30.780
+effects on that environment.
+
+11:31.110 --> 11:34.340
+Let's say quit and we're ready to go.
+
+11:34.580 --> 11:35.200
+OK.
+
+11:35.310 --> 11:40.200
+So we did a lot of housekeeping stuff in this lecture haven't actually dived into Django but a lot of
+
+11:40.200 --> 11:45.450
+this stuff is really important and it's going to clear you of headaches later on if you don't learn
+
+11:45.450 --> 11:48.280
+how to actually use virtual environments correctly.
+
+11:48.300 --> 11:54.360
+So by this lecture you should have a full understanding of virtual environment at least how to create
+
+11:54.360 --> 11:57.140
+them activate them and deactivate them.
+
+11:57.150 --> 12:02.540
+You can always reference that link in the resources if you want more information about the environments
+
+12:02.940 --> 12:06.240
+and you should have installed Django to your virtual environment.
+
+12:06.270 --> 12:09.370
+Coming up next we're actually going to get started with using Django.
+
+12:09.600 --> 12:11.570
+Thanks everyone and I'll see you in the next lecture.

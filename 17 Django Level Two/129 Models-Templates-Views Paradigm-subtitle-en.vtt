@@ -1,0 +1,613 @@
+WEBVTT
+
+00:04.920 --> 00:11.130
+Hello everyone and welcome to the models templates views lecture for Django Django operates on what
+
+00:11.130 --> 00:14.890
+is known as a model's templates and views paradigm.
+
+00:15.000 --> 00:19.440
+It's also called MTV for short and it encompasses the idea of how to connect everything we've talked
+
+00:19.440 --> 00:20.520
+about so far.
+
+00:20.550 --> 00:24.830
+So we've talked about models and databases we showed a little bit of templates and their tagging and
+
+00:24.840 --> 00:28.530
+we've talked about views as well how do we actually connect everything.
+
+00:28.530 --> 00:33.600
+There are a few basic steps to achieving the goal of serving dynamic content to a user based off the
+
+00:33.600 --> 00:35.880
+connection of those models we use and templates.
+
+00:35.880 --> 00:38.280
+Let's walk through these steps.
+
+00:38.400 --> 00:44.150
+The first step is that that views that PI file we import any models that we will need to use.
+
+00:44.190 --> 00:48.970
+The second step is to use a view to query the model for data that we will need.
+
+00:49.020 --> 00:53.510
+The third step is to pass results from the model to the template.
+
+00:53.530 --> 00:58.270
+The fourth step is to edit the template so that it's ready to accept and display the data from the model
+
+00:58.660 --> 01:01.940
+and then the fifth step is to map a L to that actual view.
+
+01:03.020 --> 01:07.580
+We can practice this methodology by changing what we display on the front index page.
+
+01:07.640 --> 01:12.410
+So to get our understanding of this entire process we're going to start by actually generating a table
+
+01:12.620 --> 01:14.780
+on that index page.
+
+01:14.780 --> 01:19.820
+The table will display all the web pages and access records from the Access record database we created
+
+01:19.820 --> 01:21.070
+and populated.
+
+01:21.350 --> 01:25.730
+Will also be using template tagging to connect the model to that age Tim Page.
+
+01:25.730 --> 01:30.320
+This entire process is going to be introducing a lot of new things so don't be intimidated.
+
+01:30.350 --> 01:33.620
+The template tagging especially can seem confusing at first.
+
+01:33.650 --> 01:38.870
+We've already seen a little bit of it with the static images that we use template tagging to inject
+
+01:38.870 --> 01:42.860
+into the HD M-L But again don't worry if the template tagging seems confusing.
+
+01:42.860 --> 01:47.760
+We're going to be getting tons of practice with this later on as we develop more clones of Web sites
+
+01:48.980 --> 01:51.330
+after we walk through all of this with some code.
+
+01:51.440 --> 01:55.240
+You will have a challenge to practice your own MTV skills on your own.
+
+01:55.250 --> 02:00.440
+Level 3 is going to focus a lot more on expanding this idea of MTV and the mapping or else step that
+
+02:00.480 --> 02:05.120
+step number five which we haven't really dived into yet and we won't focus too much on this particular
+
+02:05.120 --> 02:06.470
+section of the course.
+
+02:06.860 --> 02:08.380
+OK let's get started.
+
+02:08.380 --> 02:14.990
+No knowing to open up my editor to walk through this entire MTV paradigm OK let's get started showing
+
+02:14.990 --> 02:18.870
+an example of how to actually use MTV paradigm.
+
+02:18.950 --> 02:24.830
+So I'm going to come over here to first project first app and open up my views up py file and so far
+
+02:24.920 --> 02:31.050
+I have this simple index request that took this dictionary and then used that to actually inject with
+
+02:31.070 --> 02:33.100
+template tagging the actual content and taste.
+
+02:33.110 --> 02:38.850
+You know we're going to be expanding on this idea by connecting this to the database.
+
+02:39.080 --> 02:48.630
+So I would say from first app models import and then the three models we had a topic we had a web page
+
+02:48.690 --> 02:50.610
+and we had access record.
+
+02:50.940 --> 02:52.800
+And then here in this actual index.
+
+02:52.800 --> 02:55.590
+And I would change this if I wanted to do a different view.
+
+02:55.600 --> 02:59.060
+But right now we'll keep things simple everything on the home page.
+
+02:59.070 --> 03:07.110
+I'm going to make a variable called web pages list and this is going to be equal to access record.
+
+03:07.530 --> 03:14.900
+And then I'm going to call the objects and then I'm going to call the objects and say order by which
+
+03:14.900 --> 03:20.310
+is a method off of these objects and then order by the date field.
+
+03:20.690 --> 03:25.460
+So if you're a little confused by that order by it's a really common sequel command so you can if you're
+
+03:25.550 --> 03:30.500
+used to sequel that probably feels really natural but it basically just says order this by that date
+
+03:30.500 --> 03:32.140
+field or that date column.
+
+03:33.140 --> 03:36.620
+That is going to create a dictionary.
+
+03:36.710 --> 03:46.430
+So say dates underscore the T is equal to and then I'm going to call the key access record.
+
+03:48.640 --> 03:56.470
+All access records and then that web pages list is going to be the actual value for that.
+
+03:56.470 --> 03:58.260
+So let's get rid of this dictionary.
+
+03:58.480 --> 04:04.420
+And then finally going to return render first AB slash index let each symbol and then for the context
+
+04:04.450 --> 04:12.160
+it's going to be instead of that my dictionary will be that the dictionary date underscore the ICC OK.
+
+04:12.160 --> 04:17.230
+So the main thing is to get across here is that we are infused up high in that first I remember is we
+
+04:17.290 --> 04:23.920
+actually import the models and then here I'm going to use render to actually grab stuff from the model
+
+04:23.920 --> 04:29.380
+itself and then use template tagging later on to inject that into the H T.M..
+
+04:29.430 --> 04:35.280
+So so far we're done in steps 1 and 2 where we imported the models and use the view to query the model
+
+04:35.490 --> 04:37.050
+for the data we need.
+
+04:37.050 --> 04:43.570
+Now I'm going to come over to my actual HVM L and that's over here under templates.
+
+04:44.130 --> 04:50.210
+First app index that each T.M. and then go into I'm going to essentially clear all of this.
+
+04:50.250 --> 04:53.110
+This is now going to be the original index that each team L.
+
+04:53.130 --> 04:59.400
+So if you open up the Django level two files you'll notice that there's two HVM L's original index and
+
+04:59.400 --> 05:00.830
+then index.
+
+05:00.960 --> 05:06.230
+Right now I'm going to go with the index the original indexes just everything I deleted.
+
+05:08.130 --> 05:13.570
+All right so I said H Tim L and then if we're ever dealing of static files will want to load them.
+
+05:13.890 --> 05:19.500
+We may or may not have this time but it's always a good idea to say load static files in case you're
+
+05:19.500 --> 05:29.060
+going to have them and then we'll keep the title say title is Shingo level 2 and also in the head.
+
+05:29.060 --> 05:32.810
+Let's give the link to the CSSA file so we can get used to doing that.
+
+05:32.810 --> 05:34.400
+So I'll type and link.
+
+05:34.670 --> 05:41.510
+It's a stylesheet ref is going to be an injection here with template tagging.
+
+05:41.510 --> 05:42.380
+So I'll say
+
+05:44.860 --> 05:47.090
+static.
+
+05:47.290 --> 05:48.770
+And then here in quotes.
+
+05:48.790 --> 05:50.560
+And actually this whole thing needs to be in quotes.
+
+05:50.570 --> 05:52.100
+Let's make sure that's correct.
+
+05:57.600 --> 06:06.510
+And I'm going to say closing tech here static and then if another set of quotes see assess and then
+
+06:06.510 --> 06:15.110
+whatever happened to be I believe it was my style and we can add that in that SS So we'll save this
+
+06:15.460 --> 06:21.380
+in if I expand my static folder or I should CC SS and there's my style that that's SS.
+
+06:21.500 --> 06:23.180
+It only changes heading to color red.
+
+06:23.180 --> 06:25.200
+But we can work that later on.
+
+06:25.620 --> 06:32.170
+OK so so far I floated the static files and I was able to do that to link to actual CSSA.
+
+06:32.420 --> 06:38.540
+But what we really want to focus on here is using the template tagging to grab from the view the requested
+
+06:38.540 --> 06:39.930
+information from the models.
+
+06:39.940 --> 06:53.750
+So inside the body I'll say H-1 I will say Hi welcome to Gengel level 2 and then H-2 will say Here are
+
+06:53.750 --> 06:54.470
+your
+
+06:57.280 --> 07:03.260
+access records probably won't want to do something like this realistically on a Web site where you just
+
+07:03.260 --> 07:05.530
+display all the information from your model.
+
+07:05.540 --> 07:11.480
+But right now keeping things simple and I'm going to make a diff here and this class is going to just
+
+07:11.480 --> 07:13.620
+be Jeng too.
+
+07:13.910 --> 07:15.520
+Now I can grab it later on.
+
+07:15.830 --> 07:20.180
+OK and this is where he's going to look a little strange with the template tagging.
+
+07:20.220 --> 07:26.560
+I'm going to say here with the curly brackets and then the percent sign.
+
+07:26.610 --> 07:30.510
+If axis underscore records.
+
+07:30.540 --> 07:32.060
+So what does that actually mean.
+
+07:32.160 --> 07:35.680
+Here I'm just checking if I actually have the access records from.
+
+07:35.700 --> 07:38.270
+But go back to views that PI right here.
+
+07:38.280 --> 07:43.920
+So if I actually have this key then do some stuff so you can see it's a little bit like Python is not
+
+07:43.920 --> 07:49.100
+quite full Python as far as a syntax but it's similar.
+
+07:49.190 --> 07:57.250
+And then I'm going to create a table tag and then will create the head and then I'll say site name.
+
+07:59.630 --> 08:07.610
+And then here I will say they accessed.
+
+08:07.720 --> 08:14.530
+OK so those are the basics here and now I need to do is actually insert the table rows in the table
+
+08:14.530 --> 08:17.670
+rows are going to be connected to the actual model.
+
+08:17.800 --> 08:24.850
+So I need to somehow add in logic here that loops through every row in the access records and what that
+
+08:24.850 --> 08:25.960
+looks like is this.
+
+08:25.960 --> 08:34.690
+I say for some temporary variable name will say A.S.C. in and then access records.
+
+08:34.690 --> 08:37.600
+And this has to match in whatever you had over here.
+
+08:37.640 --> 08:40.050
+Views for the key.
+
+08:40.090 --> 08:45.580
+So what I'm saying is for this temporary variable in access records remember access records is going
+
+08:45.580 --> 08:49.920
+to be this list of web pages that's ordered by the date from the model.
+
+08:49.930 --> 08:55.000
+Hopefully here we can begin to see kind of that peak of the iceberg of that MTV how we're connecting
+
+08:55.000 --> 09:04.220
+all the moving pieces and then what I do is I create the table rotate TR And I'll create table cell
+
+09:04.220 --> 09:06.830
+tag tiddy and inside of this.
+
+09:06.830 --> 09:13.040
+Now I use this set of curly brackets of No percent sign because it's not actually logic is essentially
+
+09:13.040 --> 09:14.750
+just injecting text right now.
+
+09:14.940 --> 09:22.610
+I will say A.S.C. dot and then we actually call what we want so I'll say that name for the site name.
+
+09:23.840 --> 09:28.100
+And then again I'll call a CC and then the actual field I want.
+
+09:28.100 --> 09:31.550
+In this case the field is date because that's how I have it here.
+
+09:31.550 --> 09:37.130
+Site name and they accessed and then finally you have to make sure that whenever you have this for tag
+
+09:37.610 --> 09:39.550
+that for luteal you end it.
+
+09:39.720 --> 09:48.280
+So here I'm going to make sure that we end that by saying And for now that's a little different than
+
+09:48.280 --> 09:55.320
+anything we've seen in Python so keep that in mind and actually want this whole thing to be inside that
+
+09:55.320 --> 09:56.460
+closing table tag.
+
+09:57.780 --> 09:59.590
+So I will save that.
+
+09:59.790 --> 10:04.370
+And then since I have this if access records I need an else to go along with it.
+
+10:05.270 --> 10:08.910
+So let's add that in and that's going to be outside of the table.
+
+10:12.970 --> 10:27.900
+Well say else we'll print out a paragraph no access records founds and then since I have that if else
+
+10:27.960 --> 10:28.900
+I need to end it.
+
+10:30.070 --> 10:36.710
+So we say and if and then that's the end of the div tag.
+
+10:36.870 --> 10:38.720
+And that's really all we need here.
+
+10:39.030 --> 10:40.400
+So we'll save that.
+
+10:40.400 --> 10:43.880
+And let's check out the or else that PI file make sure that's all linked up.
+
+10:43.900 --> 10:46.820
+So on their first project they have your L's up high.
+
+10:46.860 --> 10:48.390
+Make sure that's OK.
+
+10:48.660 --> 10:50.220
+And that also looks good.
+
+10:50.250 --> 10:55.450
+Looks like I'm connecting views that index to the home page so that makes sense and if I look at my
+
+10:55.450 --> 10:58.890
+uro's up high fall at first that that also makes sense here.
+
+10:58.890 --> 10:59.240
+Great.
+
+10:59.280 --> 11:11.970
+So let's see if this actually worked and tried out going to say Python managed up PI run server enter.
+
+11:12.050 --> 11:17.280
+See if we get any errors here OK no errors it's a good sign.
+
+11:17.280 --> 11:21.660
+We're going to copy and paste this into my browser.
+
+11:21.940 --> 11:25.140
+Let's bring it over so bring it over.
+
+11:25.140 --> 11:26.060
+Get this.
+
+11:26.090 --> 11:27.920
+It says Hi welcome to jingle too.
+
+11:27.930 --> 11:33.610
+Here are your access records and embarrassingly I spelled your wrong but hopefully you forgive me.
+
+11:33.740 --> 11:36.030
+And here I can see that I have the actual table.
+
+11:36.530 --> 11:40.460
+So let's give a little bit of styling to this table so it's a little bit more readable.
+
+11:40.580 --> 11:43.170
+And I can do that simply by affecting the SS.
+
+11:43.220 --> 11:48.510
+So if I come over here to static remember I'm loading the sexual static.
+
+11:48.530 --> 11:52.270
+So let's change it up so we get a little bit of color on those table cells.
+
+11:53.960 --> 11:55.940
+So I will say here.
+
+11:55.940 --> 12:05.260
+Table and then it give it a border let's say two pixels solid black.
+
+12:05.480 --> 12:09.740
+And if I want to actually give border not just the outside of the table but to the table header and
+
+12:09.740 --> 12:12.590
+table rows I can put a comma here.
+
+12:12.590 --> 12:15.270
+Th comma CD.
+
+12:15.650 --> 12:18.740
+Or since I actually gave it a class if I remember correctly.
+
+12:18.740 --> 12:20.880
+Coming up here so is Django too.
+
+12:20.890 --> 12:25.290
+So let's actually grab this Jing to class and then added in.
+
+12:25.290 --> 12:29.540
+So I'll say that jingle to see if that actually works.
+
+12:30.240 --> 12:34.760
+Come back here bring back my actual age T.M. or excuse me refresh the page.
+
+12:35.050 --> 12:37.370
+And we're getting not found static.
+
+12:37.540 --> 12:40.040
+Let's come back here to index that smil.
+
+12:40.150 --> 12:45.890
+Make sure that was all correct and I missing the percent sign to close this so that should have matched
+
+12:46.550 --> 12:47.190
+OK.
+
+12:47.230 --> 12:50.670
+Now let's save this run this again.
+
+12:50.720 --> 12:51.670
+Control-C.
+
+12:51.790 --> 12:53.630
+My thumb is up I run server.
+
+12:53.800 --> 12:59.760
+Bring back my actual browser and if I bring it back here now I see that the heading is also connected
+
+12:59.760 --> 13:04.890
+so I probably should add those that last time and I can see here that I have the table of the border.
+
+13:04.890 --> 13:08.200
+So looks like I need to actually add in some more.
+
+13:08.190 --> 13:10.740
+So let's just make it table.
+
+13:10.740 --> 13:11.440
+Th.
+
+13:11.440 --> 13:19.090
+T The Save that will refresh the page and restart this and refresh on that page.
+
+13:19.090 --> 13:21.430
+Now I get these nice double borders.
+
+13:21.430 --> 13:21.720
+OK.
+
+13:21.730 --> 13:24.260
+So hopefully you can begin to see how you connect that.
+
+13:24.280 --> 13:25.650
+Everything OK.
+
+13:25.660 --> 13:30.760
+Now I wanted to take a little bit of time to discuss how Django can help you debug your code especially
+
+13:30.760 --> 13:32.110
+if template tagging.
+
+13:32.110 --> 13:33.820
+If you ever feel confused on it.
+
+13:34.060 --> 13:38.890
+So as you probably just notice like even I can confuse the tempo of tagging or actually accidentally
+
+13:38.890 --> 13:43.390
+make mistakes the error reporting is actually really good for this sort of thing.
+
+13:43.390 --> 13:48.010
+So if you come down you know you're doing a template tagging and you forgot to write.
+
+13:48.040 --> 13:51.930
+And if so your code is really long.
+
+13:51.960 --> 13:57.150
+You had the statement up here and you know typically in Python you know how to say and if so you just
+
+13:57.150 --> 13:58.240
+accidentally forget.
+
+13:58.530 --> 14:04.890
+Well if you take a look at what the refresh site looks like after you say and if I refresh it and here
+
+14:04.920 --> 14:10.520
+we already see that I have a template syntax error and bringing the page over look something like this
+
+14:10.530 --> 14:11.790
+it says unclose tag.
+
+14:11.800 --> 14:13.680
+If looking for one of.
+
+14:13.740 --> 14:18.750
+And if it actually reports back that it's looking for an end if and if you scroll down it will actually
+
+14:18.750 --> 14:21.150
+tell you what it's looking for as far as it's match.
+
+14:21.150 --> 14:27.090
+So it says hey this highlighted line if access records has no matching and if and you can see there's
+
+14:27.090 --> 14:28.670
+an entire traceback here.
+
+14:28.750 --> 14:29.910
+You can follow as well.
+
+14:29.910 --> 14:33.440
+So the error reporting is actually really good on the Web site.
+
+14:33.480 --> 14:35.140
+So definitely take advantage of that.
+
+14:35.220 --> 14:38.550
+Well essentially almost always tell you that correctly what it's looking for.
+
+14:38.550 --> 14:42.240
+Now if you don't actually know what this means then you can always google search it or search stack
+
+14:42.240 --> 14:44.760
+overflow and you'll probably find your answer there.
+
+14:45.030 --> 14:45.640
+OK.
+
+14:45.900 --> 14:51.210
+Hopefully now you have a better understanding of how to use the MTV paradigm to actually connect your
+
+14:51.210 --> 14:54.510
+models and inject content into the T.M..
+
+14:54.540 --> 14:56.570
+Thanks everyone and I'll see at the next lecture.

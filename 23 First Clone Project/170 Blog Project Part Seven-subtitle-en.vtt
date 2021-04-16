@@ -1,0 +1,937 @@
+WEBVTT
+
+00:05.610 --> 00:11.760
+Hill every want to walk up to part seven of the blog and project it's finally time to actually start
+
+00:11.790 --> 00:16.260
+filling up all those email templates that we've created in the previous lectures and we're going to
+
+00:16.260 --> 00:18.700
+start off with the base HTL templates.
+
+00:18.700 --> 00:23.190
+So that's the one we're going to be using by extending it to all the other templates and we'll also
+
+00:23.190 --> 00:25.950
+be setting up some of the C Ss and Javascript calls.
+
+00:25.950 --> 00:28.620
+We're going to be making through up to future lectures.
+
+00:28.620 --> 00:33.900
+Let's get started by helping the editor and also be showing you the resources in the browser so we're
+
+00:33.900 --> 00:35.930
+kind of back and forth between those.
+
+00:35.940 --> 00:36.980
+Let's get started.
+
+00:37.280 --> 00:37.680
+All right.
+
+00:37.680 --> 00:41.670
+Here I am at the editor and I opened up the base that each team l file.
+
+00:41.670 --> 00:43.860
+So far we don't really have anything in it.
+
+00:43.860 --> 00:50.610
+We just have this doc type H Tim L and I've gone ahead and added load static files that way I can reference
+
+00:50.610 --> 00:54.720
+things such as the blog CSSA file we did using template tagging.
+
+00:54.720 --> 00:56.960
+So I can say that static template tag.
+
+00:57.210 --> 01:01.530
+So coming back to the base that each team l we're going to add some stuff to this.
+
+01:01.530 --> 01:08.840
+So the things to add after adding a title is bootstrap saw type that in as comments so I want to add
+
+01:08.840 --> 01:10.220
+in Bootstrap.
+
+01:10.220 --> 01:16.880
+I also want to add in this medium style editor and that's going to be the thing that allows us to kind
+
+01:16.880 --> 01:21.900
+of mimic medium calm editing and we'll show you what that means in just a second.
+
+01:21.920 --> 01:27.930
+We also want to have some custom CSX and then probably some Google fonts as well.
+
+01:28.210 --> 01:30.190
+So we'll grab those as well.
+
+01:30.520 --> 01:36.880
+And then the other thing that I want is over here in the body will probably want a nav bar eventually
+
+01:37.470 --> 01:39.550
+so I'll be adding that in this lecture.
+
+01:39.730 --> 01:47.140
+And then since this is going to be the base likes him will probably also have some content so I'll have
+
+01:47.140 --> 01:49.090
+some sort of body block here.
+
+01:49.140 --> 01:53.980
+I believe you called it the concept block so we'll call it concept block.
+
+01:53.980 --> 01:58.990
+OK so let's say that and let's come back up here and show you the resources and how to grab the rethinks
+
+01:59.050 --> 01:59.950
+for bootstrap.
+
+01:59.950 --> 02:03.920
+We've done this a bunch of times before but just come over here to get bootstrapped back.
+
+02:04.240 --> 02:07.280
+And then I'm going to grab these CD ends.
+
+02:07.440 --> 02:10.520
+I will copy this and then I'm going to paste it here.
+
+02:13.490 --> 02:18.230
+And here we can see the latest bit if I see a SS and also an optional theme is what I've copied and
+
+02:18.230 --> 02:20.180
+pasted those are the only two lines we need.
+
+02:20.180 --> 02:23.610
+And then the collapse directory tree to get myself a little more room.
+
+02:23.660 --> 02:27.170
+Now the next thing we're going to add in is the medium style editor.
+
+02:27.170 --> 02:31.940
+So in case you're not familiar medium dot com Let me show you what that looks like and then we'll explore
+
+02:31.940 --> 02:36.760
+some hub libraries that are open source for us to use to mimic this song.
+
+02:36.770 --> 02:41.090
+Hop over to my browser here and close this get bootstrap.
+
+02:41.510 --> 02:44.830
+And here we can see a page if you go all the way atop.
+
+02:44.900 --> 02:45.760
+Check out these links.
+
+02:45.770 --> 02:53.150
+But it's just that the user Y A B W e slash and then the medium Ed. And you can see is actually a library
+
+02:53.150 --> 02:54.380
+that has a ton of commits.
+
+02:54.380 --> 02:57.570
+It's actually updated pretty recently as far as this feeling.
+
+02:57.580 --> 02:59.820
+At least a month ago it was updated.
+
+03:00.020 --> 03:04.220
+And if you keep scrolling down you'll see it it supports most major browsers but to actually get an
+
+03:04.220 --> 03:09.170
+understanding of what this is I'm going to go to medium dot com to kind of show you.
+
+03:09.210 --> 03:12.120
+So if you're go to medium com right now I'm logged then.
+
+03:12.120 --> 03:18.270
+So I can see particular articles that median dot com is basically where anyone can just write an article
+
+03:18.270 --> 03:21.870
+or a blog and everything has the same style and formatting.
+
+03:21.870 --> 03:25.720
+So if we click on one of these articles such as this one how machines make sense of big data.
+
+03:25.950 --> 03:30.270
+Obviously you can tell that I follow a lot of data science and technology articles you'll click on it
+
+03:30.360 --> 03:36.450
+then it looks something like this in every article or blog on a medium that basically has the same look
+
+03:36.450 --> 03:41.620
+and feel you have images and you have this text editor and you have kind of these wide margins.
+
+03:41.700 --> 03:45.630
+So it looks kind of like a blog post.
+
+03:45.860 --> 03:49.880
+And if you want to write your own story you click here and write story after you've logged in and then
+
+03:49.880 --> 03:55.550
+you have the sort of editor to say some stuff here and then you can highlight this and it gives you
+
+03:55.550 --> 04:02.870
+the option to either make it bolds make it a taluk head or one heading to where you can put a link here
+
+04:02.870 --> 04:09.170
+and then say I don't know Google dot com etc. and they can see it's underlined and now it's a link.
+
+04:09.170 --> 04:12.520
+So that's the kind of thing we want to mimic in our own blog posts.
+
+04:12.590 --> 04:17.210
+So if we come over here after some searching I was able to discover that a lot of people wanted the
+
+04:17.210 --> 04:21.730
+sort of functionality and it's already here for a client for us to use.
+
+04:21.800 --> 04:25.490
+And if you scroll all the way down you want to make sure that whenever you're working with open source
+
+04:25.490 --> 04:31.890
+files that you found online that there is some sort of license agreement so we check on the license
+
+04:31.890 --> 04:34.650
+make sure that we have permission to actually use this.
+
+04:34.660 --> 04:39.990
+Now I'm just using this for educational purposes so you can see that this is copyright but there's also
+
+04:39.990 --> 04:45.390
+a particular license so there's permission free of charge to any person obtaining a copy of the software
+
+04:45.690 --> 04:48.600
+to deal in the software or any sort of restrictions.
+
+04:48.600 --> 04:50.790
+And then is subject to the following conditions.
+
+04:50.940 --> 04:56.970
+Usually the conditions are for you just to source an attribute who you actually got this from.
+
+04:56.970 --> 05:01.970
+So here's the actual information here on this license we're just doing this for educational purposes.
+
+05:02.170 --> 05:06.000
+But whenever you're doing something in a production you should always make sure that you have the rights
+
+05:06.000 --> 05:07.710
+to this software.
+
+05:07.710 --> 05:12.390
+Obviously things are hosted on get hub in their open source things and get a little fuzzy if you ever
+
+05:12.390 --> 05:15.600
+have any doubt you'll get the message to the person directly.
+
+05:16.660 --> 05:19.970
+Coming back to the actual whoops let's go back here.
+
+05:19.970 --> 05:24.730
+Are you coming back to the actual medium Ed. home page here on the hub we can see that if you scroll
+
+05:24.730 --> 05:25.490
+down.
+
+05:25.960 --> 05:31.170
+It's essentially a javascript library that mimics exactly what the medium Viacom was doing.
+
+05:31.180 --> 05:36.850
+It has modern browser support which is good and it shows you some basic demos on basic usage.
+
+05:37.000 --> 05:41.620
+So we're going to be doing is using this for text area and eventually you click on the demos you'll
+
+05:41.620 --> 05:43.200
+find this demo.
+
+05:43.210 --> 05:48.580
+So this under medium Ed. demo text area h team L and you can see that after you've imported and linked
+
+05:48.580 --> 05:54.850
+everything the javascript in the CSSA you just have to create this script here to create a new editor
+
+05:54.850 --> 05:55.600
+object.
+
+05:55.600 --> 06:01.120
+And you also have to make sure that has this class this editable medium Ed. text area which we actually
+
+06:01.120 --> 06:07.030
+did back when we were creating that we just dictionary attribute in the forms classes and then coming
+
+06:07.030 --> 06:14.200
+down here we can see that there's various ways to actually add this in as a file in our project.
+
+06:14.320 --> 06:18.460
+And there's a service called JSE deliver which kind of acts like an external CDN.
+
+06:18.700 --> 06:23.710
+So if you don't actually want to download everything and link it up manually you can just copy and paste
+
+06:23.800 --> 06:25.180
+these two right here.
+
+06:25.240 --> 06:30.030
+So one is a javascript file and then one is the CSSA link file so I'm going to do that.
+
+06:30.070 --> 06:34.690
+The other option is if you're having trouble getting the CD ends to work then just do the manual installation
+
+06:35.080 --> 06:36.650
+which you just scroll down here.
+
+06:37.220 --> 06:41.810
+And then you click down where it says latest releases will take it to the latest release page and then
+
+06:41.810 --> 06:44.580
+I'll say OK is 5.2 3.0.
+
+06:44.870 --> 06:47.490
+And then we can do is find there all the information about that.
+
+06:47.510 --> 06:52.400
+And then just download the source code itself and then just use the linking which we already learned
+
+06:52.400 --> 06:56.390
+about HTL to link the javascript and CSSA files.
+
+06:56.390 --> 07:02.700
+So I'll come back here to my editor and I'm going to copy and paste that medium style editor.
+
+07:02.750 --> 07:04.960
+So there's only two things there is that javascript.
+
+07:05.090 --> 07:08.270
+And then there's this C Ss So coming back around here.
+
+07:08.510 --> 07:13.270
+Those are the two links I'm going to need to actually implement the medium style editing and later I
+
+07:13.280 --> 07:18.350
+will see the template tags I had to set up that widget class and then also call that script that we
+
+07:18.350 --> 07:19.610
+kind of just talked about.
+
+07:20.030 --> 07:26.930
+Then finally for some custom CSSA make sure that any custom C Ss goes after all these other CSSA calls
+
+07:27.370 --> 07:33.110
+and I'm going to link it here to this blog that si SS So luckily I've already inputted static files
+
+07:33.170 --> 07:37.040
+meaning I can just say add a link here.
+
+07:37.300 --> 07:41.860
+It's a style sheet and then from a trip on you use static template tagging which you've seen before
+
+07:42.980 --> 07:50.340
+and just say static and then call something like see SS blog about CSSA.
+
+07:50.360 --> 07:52.340
+Because if I look at her Churi that's where it is.
+
+07:52.340 --> 07:56.060
+We have static C S S log that t ss and right now.
+
+07:56.060 --> 08:01.760
+Our blog about C Ss is empty and if you remember back to what the blog actually looks like we have those
+
+08:02.060 --> 08:07.290
+sort of color changes that the text does and I'll show you how I discover that.
+
+08:07.730 --> 08:12.080
+So what's a really fun Web site to check out which we probably mentioned the very beginning in the course
+
+08:12.080 --> 08:16.060
+as a way to share your code for Front-End stuff is code Pendar.
+
+08:16.100 --> 08:19.030
+I know that c o d PTEN.
+
+08:19.110 --> 08:26.090
+I know and you can come here and there's lots of pens and essentially this is just really nice fun front
+
+08:26.090 --> 08:26.570
+end stuff.
+
+08:26.570 --> 08:33.170
+So using three Front-End technologies that's him LCAC us and Javascript and CSSA is actually really
+
+08:33.170 --> 08:33.680
+powerful.
+
+08:33.680 --> 08:38.040
+You can do a lot of C Ss that you would think would be limited to Javascript.
+
+08:38.170 --> 08:43.690
+So what I was doing I was just messing around code then I kind of wanted to add some nice CSSA this
+
+08:44.230 --> 08:46.530
+maybe something that was a little fun for the blog project.
+
+08:46.540 --> 08:51.760
+Eventually after searching these if you find something that interests you for instance maybe you want
+
+08:51.760 --> 08:52.230
+it.
+
+08:52.420 --> 08:55.400
+Well not the box solution that's all too crazy.
+
+08:55.420 --> 09:01.010
+Let's say you wanted to have this little guy this rainbow preload or so you click on this.
+
+09:01.110 --> 09:04.260
+You'll notice that it has noted it's only supported in Chrome.
+
+09:04.400 --> 09:10.670
+But if you wanted to add something like this to your site we could do just copy this VSS and then copy
+
+09:10.670 --> 09:11.500
+the same Elche.
+
+09:11.530 --> 09:16.720
+This is an example of how to use a CSSA and that would be an easy way to have that on your site.
+
+09:16.850 --> 09:21.460
+So I ended up doing is I discovered this little loading.
+
+09:21.510 --> 09:28.160
+So it's a simple loader and we can click on it and what it does is the background changes Hughes and
+
+09:28.160 --> 09:31.400
+I want it to instead of have the entire background change hues.
+
+09:31.490 --> 09:37.070
+I would have the letters themselves change hues and I didn't really care too much about these three
+
+09:37.070 --> 09:38.660
+dots that are loading.
+
+09:38.660 --> 09:44.420
+So basically what I want to grab is just the color changing and this was actually all done with SS So
+
+09:44.420 --> 09:46.440
+I'm going to copy and paste this.
+
+09:46.610 --> 09:50.020
+And since we're using this for educational purposes we don't have to worry too much.
+
+09:50.030 --> 09:54.500
+But the license but in case you want to use a file like this in production it's always a good idea to
+
+09:54.530 --> 09:57.500
+contact the creator and make sure that's OK with them.
+
+09:57.500 --> 10:01.520
+Obviously their hosting this all open source and there's no real license agreement here.
+
+10:01.580 --> 10:03.470
+We should always check and make sure.
+
+10:03.470 --> 10:07.720
+So all you do is copy this and note the class.
+
+10:07.720 --> 10:13.050
+It's the class loader and we're going to be kind of calling that on everything later on.
+
+10:13.170 --> 10:17.700
+So I'm going to come back here after copy and paste that and I'm just going to put that into our own
+
+10:17.700 --> 10:24.100
+blog about SS So will paste it here and then scroll back up.
+
+10:24.280 --> 10:28.520
+And I don't actually need the BE1 be to B-3 cetera.
+
+10:28.800 --> 10:32.880
+So all those were is if you kind of check out this.
+
+10:32.880 --> 10:39.290
+We had class B one B and B-3 that's for these three little loading bars.
+
+10:39.300 --> 10:43.940
+What I really want and am concerned with is just this loader and then these keyframes.
+
+10:44.220 --> 10:52.350
+So I'm going to get rid of these BE1 classes scroll all the way down and then kind of get rid of them
+
+10:52.770 --> 10:55.400
+just to simplify my CSSA script a little bit.
+
+10:55.770 --> 11:00.360
+And then what I want to do is last thing I don't want to change the background I just want to change
+
+11:00.360 --> 11:07.300
+the color and we'll be exploring this later on as we actually implement this OK.
+
+11:07.620 --> 11:14.340
+So there is my loader and we actually don't need this left right top either erroneous position or fix
+
+11:14.340 --> 11:16.020
+kind of simplifying this.
+
+11:16.020 --> 11:18.300
+These are the three things they only really care about.
+
+11:18.350 --> 11:24.770
+The hue rotates or it's actually coming from the linear gradient of the color and then the animation.
+
+11:24.830 --> 11:31.400
+So I will save this and then we'll see if we have this H-1 call which we can leave.
+
+11:31.410 --> 11:36.200
+We want it to but I'm actually going to get rid of it since we don't really need a heading one.
+
+11:36.270 --> 11:40.510
+So that was Felix over here this loading or somehow it's also changing.
+
+11:40.620 --> 11:43.050
+I don't really want that so going to say save it.
+
+11:43.260 --> 11:48.930
+So the main things I care about are loader and then keyframes if you keep the other stuff in you may
+
+11:48.930 --> 11:52.950
+get some different behavior than what we've seen in the blog so far.
+
+11:52.950 --> 11:57.630
+And after we've set up our blog about CSSA file with that extra code the last thing we have to do is
+
+11:57.630 --> 11:58.940
+set up Google fonts.
+
+11:59.130 --> 12:05.050
+So coming back to the browser I have Google fonts or Fahnestock Google dot com and I can search for
+
+12:05.050 --> 12:06.230
+the two fonts I used.
+
+12:06.240 --> 12:09.170
+Obviously have a lot of flexibility over which ones you want to use.
+
+12:09.210 --> 12:12.170
+I use one called The Russo one look kind of interesting to me.
+
+12:12.420 --> 12:17.770
+And then I also use one of my favorite fonts This maps Mazzara.
+
+12:17.810 --> 12:20.050
+And then we're going to add that as well.
+
+12:20.210 --> 12:25.390
+Two families are selected to open that up and then copy and paste the link here.
+
+12:26.430 --> 12:30.140
+So I'm going to copy that and insert that into fonts.
+
+12:30.240 --> 12:33.330
+And now I have the stylesheets OK.
+
+12:33.430 --> 12:34.130
+Perfect.
+
+12:34.150 --> 12:36.880
+And now we're going to do is set up our nav bar.
+
+12:37.450 --> 12:38.810
+So we'll come down here.
+
+12:40.210 --> 12:43.000
+And we're going to set up our nav bar.
+
+12:43.220 --> 12:44.410
+So there's our next.
+
+12:44.420 --> 12:48.060
+And let's set up the class calls and I would expect you to memorize these.
+
+12:48.200 --> 12:51.290
+I basically was just looking at the bootstrap documentation.
+
+12:51.290 --> 12:55.640
+In fact a lot of this was kind of just like copy and paste from Bootstrap documentation.
+
+12:55.730 --> 13:01.710
+So we use nav bar space nav bar dash default.
+
+13:02.210 --> 13:07.400
+And then I'm going to create another class called Tech fonts which is going to allow me if I go to blog
+
+13:07.400 --> 13:18.030
+about C Ss and that and now that's going to allow me to actually edit the fonts of the actual nav bar
+
+13:18.060 --> 13:19.040
+so that that.
+
+13:19.470 --> 13:23.280
+Going to say the font family of that is.
+
+13:23.380 --> 13:26.990
+Russo one that was the font from Google that we just got.
+
+13:27.360 --> 13:30.470
+And then it's also going to be sans serif.
+
+13:30.640 --> 13:38.660
+And then I'm also the font size to be I should say 1.5 E-M And then of course you have a lot of leeway.
+
+13:38.660 --> 13:45.380
+If however you want to do this and to give a little bit more margin here so I will save that.
+
+13:45.480 --> 13:48.180
+So coming back to base that is simple.
+
+13:48.420 --> 13:49.980
+So that's my tech funds.
+
+13:50.010 --> 13:57.600
+And then the other thing I want is custom nav bar so custom therefore is a class that I'm going to be
+
+13:57.600 --> 14:01.310
+using in case I ever want to customize anything else on my enough bar.
+
+14:01.320 --> 14:03.620
+I'll leave it blank for now on the blog about C Ss.
+
+14:03.630 --> 14:06.120
+I don't believe we actually ever really need it or use it.
+
+14:06.120 --> 14:11.130
+But sometimes a good idea to just add in another class while you're building at the base HTL template
+
+14:11.250 --> 14:13.360
+in case you ever want to mess around with it.
+
+14:13.740 --> 14:19.650
+So we'll save that and then we're gonna do have a div here and we're just going to give this a container
+
+14:19.650 --> 14:24.310
+div that way anything we put in the nav bar will actually be contained.
+
+14:24.390 --> 14:27.350
+So we're gonna have quite a few links here.
+
+14:27.360 --> 14:33.910
+First one is going to be effect let's give it a class Personal going to be our brand.
+
+14:33.910 --> 14:40.540
+So we'll call this nav bar dash brands and there's something else you can add in here we'll add another
+
+14:40.540 --> 14:47.800
+class big brand and that way we can link that to our CSSA file if necessary.
+
+14:47.800 --> 14:50.210
+And Big Brown is just something to make it a little bigger.
+
+14:50.530 --> 15:00.970
+So don't come over here and add an big brands class Elisha's have this be font size of 1.5 E-M.
+
+15:01.000 --> 15:05.380
+That way it looks a little larger than the rest of the text so if you notice back when we were running
+
+15:05.380 --> 15:12.360
+the blog project the brand font size of a little bit larger than the rest of it so that's what the big
+
+15:12.360 --> 15:14.880
+brand is for and then continuing on with this.
+
+15:14.880 --> 15:16.260
+What I want to do is set up the link.
+
+15:16.260 --> 15:20.520
+So if you go to the if you click on the brand I should take you back to the home page or remember the
+
+15:20.520 --> 15:26.970
+home page for us is the actual post lists also your all post list.
+
+15:27.280 --> 15:31.760
+And let's call this something like my blog OK.
+
+15:32.000 --> 15:33.680
+So I'm going to expand this.
+
+15:33.680 --> 15:35.960
+We don't really need to reference the browser anymore.
+
+15:36.820 --> 15:39.480
+And Addinall a little list item.
+
+15:40.030 --> 15:44.080
+And you can kind of fast forward for this if you don't want to watch me do all this just as a heads
+
+15:44.080 --> 15:44.450
+up.
+
+15:47.390 --> 15:52.110
+And then we went in about page either about yourself or the company.
+
+15:52.150 --> 15:56.930
+Now we'll just have to say about it can copy and paste all these links to make sure you get the spelling
+
+15:56.930 --> 16:05.140
+correct and then have two references so we'll have a reference outside reference that is to have dot
+
+16:05.140 --> 16:10.320
+com Maybe we're using this for your own portfolio site or your company's web page.
+
+16:10.510 --> 16:11.640
+We'll have something like that.
+
+16:13.150 --> 16:17.220
+And then let's have another one to link then
+
+16:20.180 --> 16:25.150
+and we'll have the say only then.
+
+16:25.300 --> 16:29.590
+And let's put this all in an unordered list.
+
+16:30.400 --> 16:43.790
+So on are list here and so be in their class loop's nav nav bar Sneath and all grab all these list items
+
+16:43.790 --> 16:45.520
+and put them into this an ordered list
+
+16:49.460 --> 16:50.710
+and I will save that.
+
+16:50.880 --> 16:57.410
+OK so now we have to make sure that if the user is logged into the Web site they see those other options
+
+16:57.470 --> 17:02.870
+and there's other options we're creating a new post drafts and then logging out and something that says
+
+17:02.870 --> 17:06.560
+something like welcome user welcome Jose cetera.
+
+17:07.640 --> 17:14.570
+So in order to do that I'm going to add in in other unordered list and I'm going to also give this class
+
+17:15.470 --> 17:25.650
+and will say nav bar actually nav nav bar dash nav nav bar dash right so everything's right aligned
+
+17:25.980 --> 17:27.940
+as far as the log in information.
+
+17:28.050 --> 17:34.090
+And here's we're going to add in some template tagging for some logic so we'll add an if statement and
+
+17:34.090 --> 17:44.380
+we'll say if the user is underscore authenticated which comes from our imports of the Auth. library
+
+17:44.560 --> 17:51.520
+in Jingo and whenever you have and if you always got to make sure you have an and if so have that as
+
+17:51.520 --> 17:52.020
+well.
+
+17:53.220 --> 17:55.360
+Now what kind of leave this towards the bottom.
+
+17:56.250 --> 17:58.070
+So if the user is authenticated what are we going to do.
+
+17:58.080 --> 17:59.970
+Well we should have a list item right.
+
+18:00.180 --> 18:10.860
+And that list item which is give it a anchor Ted and the anchor tag is going to be your template and
+
+18:10.860 --> 18:19.060
+the template is going to say oh blink to post-New and we'll have it say you post.
+
+18:19.160 --> 18:23.610
+So I'm going to copy and paste this because I want three more really similar things.
+
+18:26.470 --> 18:30.040
+I was sort of post-New to go to your draft page.
+
+18:30.040 --> 18:35.590
+So that is post draft list and associate new posts.
+
+18:35.640 --> 18:41.990
+We'll just have it say drafts to there's the unpublished blog post and then we also want some sort of
+
+18:41.990 --> 18:45.100
+log out button so I have log out.
+
+18:45.560 --> 18:49.770
+And then this will just say log out.
+
+18:50.170 --> 18:58.300
+And then finally after all that I want one more of these which is a little simpler that just says sexually.
+
+18:58.310 --> 18:59.800
+Sorry we're going to have a link.
+
+18:59.820 --> 19:07.460
+Just going to say Welcome saying welcome and we'll inject our name.
+
+19:07.470 --> 19:13.390
+So that's going to be user the user name save that.
+
+19:13.460 --> 19:16.760
+Now if you have an if statement you're probably going to have an else statement in order for this to
+
+19:16.760 --> 19:18.110
+all work correctly.
+
+19:18.110 --> 19:21.330
+So if we don't have any of that what is the right Bargen to look like.
+
+19:21.640 --> 19:22.370
+So we'll say
+
+19:24.940 --> 19:35.800
+else we'll have a list item or 10 give it's a link that says in which makes sense.
+
+19:35.800 --> 19:42.910
+So if you're not logged in you're going to want to log in and we'll say this template tag of your el
+
+19:44.170 --> 19:48.130
+log in and let's give this a class Alliance rights
+
+19:51.220 --> 19:55.560
+nav nav bar dash right.
+
+19:55.650 --> 20:00.600
+And if you can see here I believe it should fall under the unordered list class anyways but just because
+
+20:00.600 --> 20:03.930
+I'm a little paranoid add it to that particular item as well.
+
+20:03.980 --> 20:11.240
+And let's scroll over here and what we could do is just have something that says log in but instead
+
+20:11.270 --> 20:15.400
+we'll have a cliff icon which is essentially that little icon.
+
+20:15.570 --> 20:17.750
+And these are free icons that come with bootstrap.
+
+20:17.930 --> 20:25.050
+And in order to use them you just use the span and then give this band a class and the class name just
+
+20:25.050 --> 20:28.550
+matches up the actual icon you want to use.
+
+20:28.550 --> 20:33.410
+So in our case it's g l y glyph and then
+
+20:36.060 --> 20:43.280
+Sakal can dash user and that's a little kind of Facebook looking face that little profile.
+
+20:43.540 --> 20:44.030
+All right.
+
+20:44.230 --> 20:49.470
+So that should be it for our number so you can see here if we can review it.
+
+20:49.720 --> 20:55.630
+We have everything on the left hand side of my blog with the brand page about Herb Linked-In and then
+
+20:55.630 --> 20:56.620
+everything to the right.
+
+20:56.670 --> 20:58.000
+If the user is authenticated.
+
+20:58.120 --> 21:01.330
+We have these three links you post drafts log out.
+
+21:01.510 --> 21:07.780
+If they're not authenticated else or we're just going to have pay go to the logon page and it's a picture
+
+21:07.780 --> 21:13.500
+of someone it's not even some text now outside of the nav bar we're going to do is set up our actual
+
+21:13.500 --> 21:14.590
+content.
+
+21:14.790 --> 21:15.720
+So let's do that.
+
+21:16.690 --> 21:23.730
+Let's put all the content inside some sort of div and we can say have a class called content and then
+
+21:23.730 --> 21:26.380
+have another class called container in case we ever want to use it.
+
+21:27.330 --> 21:32.230
+And if we're interested in collapsing things like if it's on a mobile display this is where you could
+
+21:32.320 --> 21:34.080
+start adding and things like gross.
+
+21:34.260 --> 21:39.300
+So we don't really worry about this too much since we don't intend for people to really read or blog
+
+21:39.300 --> 21:40.670
+posts on immobile.
+
+21:41.340 --> 21:47.250
+But you would just have the Rosen here and then you can start saying well this class is going to be
+
+21:47.250 --> 21:56.210
+something like call medium A and then maybe have another class for the blog post that we can link it
+
+21:56.210 --> 21:58.540
+up to any CSSA that you want to affect.
+
+21:58.580 --> 22:03.420
+But eventually after you've done all your divs what you're going to want is the actual block itself.
+
+22:04.580 --> 22:07.680
+So it's going to be block and then contents
+
+22:10.540 --> 22:12.340
+or body block whatever you want to call it.
+
+22:14.040 --> 22:16.080
+And then we'll have an block here.
+
+22:16.520 --> 22:16.910
+OK.
+
+22:17.100 --> 22:23.010
+So basically you can add in a bunch of divs here that refer to the bootstrap ability to actually collapse
+
+22:23.010 --> 22:27.940
+things correctly according to whatever the grid system you worked out with.
+
+22:28.410 --> 22:28.880
+OK.
+
+22:28.980 --> 22:31.700
+So that is it for the base that each team M-file.
+
+22:31.710 --> 22:36.520
+It was a lot of typing but stuff like save us some time when we actually work with other templates.
+
+22:36.720 --> 22:42.630
+And that was hopefully a good enough explanation of where we got this medium style editor from as well
+
+22:42.630 --> 22:49.200
+as the Google fonts and as well as this custom CSSA if we go down here for the color changing and the
+
+22:49.200 --> 22:53.730
+key thing here to know is that we're going to be using this lower class at the very end to get everything
+
+22:53.730 --> 22:54.510
+done.
+
+22:55.040 --> 22:55.830
+OK.
+
+22:55.920 --> 23:02.100
+Make sure you copy and paste this from the notes if you're iffy on actually following along my coding
+
+23:02.100 --> 23:03.010
+here.
+
+23:03.030 --> 23:07.500
+Thanks and I will see at the next lecture where we begin to extend this to all the other templates.

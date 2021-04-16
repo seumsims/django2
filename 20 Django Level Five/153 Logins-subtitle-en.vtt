@@ -1,0 +1,949 @@
+WEBVTT
+
+00:05.020 --> 00:09.690
+Hello everyone and welcome to the logons lecture once a user is registered.
+
+00:09.690 --> 00:12.930
+We want to make sure that they can log in our site.
+
+00:12.930 --> 00:17.760
+This lecture we will go through the entire process of creating log in and log out functionality for
+
+00:17.760 --> 00:20.730
+users that are registered in your database.
+
+00:20.730 --> 00:26.190
+This process involves the following main criteria we need to set up special log interviews and also
+
+00:26.190 --> 00:31.210
+show you how you can create views for access and we can do that with built in decorator's.
+
+00:31.230 --> 00:34.380
+So a lot of that functionality Gengel makes really easy for you.
+
+00:34.410 --> 00:39.870
+Things like making sure certain views require a log in can all be done if a simple decorator call.
+
+00:40.140 --> 00:44.050
+Then we also need to make sure to add in the log in your l and settings up py file.
+
+00:44.130 --> 00:49.500
+We need to actually create the log in a page and then we want to edit the PI file to actually match
+
+00:49.500 --> 00:52.370
+to your L mappings to our log in that age T.M..
+
+00:52.670 --> 00:54.340
+OK let's get started.
+
+00:55.380 --> 01:01.170
+OK here I am at my Adam text editor and the first thing we need to do to actually set up logons is to
+
+01:01.170 --> 01:03.050
+set up our log in your l.
+
+01:03.150 --> 01:07.010
+So we want one dedicated page for the user to log in from.
+
+01:07.010 --> 01:11.660
+So what we're going to do is go to settings up-I and scroll all the way down on this.
+
+01:11.660 --> 01:17.370
+So I can actually go all the way down and at the bottom we're going to do it just like we added static
+
+01:17.420 --> 01:22.310
+or L and media are all going to add one more variable in here called loggin.
+
+01:22.310 --> 01:27.110
+Underscore your L and set it equal to the log in page.
+
+01:27.120 --> 01:34.500
+In our case that's going to go under the basic app folder under templates and then we'll call this user
+
+01:34.500 --> 01:35.920
+logon.
+
+01:36.010 --> 01:39.300
+So we will save that and file that under settings.
+
+01:39.350 --> 01:42.160
+The next thing we can do is set up or H-2 him l files.
+
+01:42.230 --> 01:47.840
+So coming back to that basic app we have our base studies T.M. and our logged in each T.M. and we're
+
+01:47.840 --> 01:49.350
+going to play around of both of these.
+
+01:49.400 --> 01:53.700
+The bassée seem to actually add in the logging and link and log out.
+
+01:53.960 --> 01:57.180
+But for the log in each team male we can start that right away.
+
+01:58.120 --> 02:00.020
+So first we want to actually extend.
+
+02:00.460 --> 02:12.080
+So we will say extents and this extends from basic app slash base but HDMI will and then will call the
+
+02:12.080 --> 02:22.940
+body block walk body block and then we also want to have an end block whenever we called it.
+
+02:23.070 --> 02:25.900
+So we'll say and block here.
+
+02:27.480 --> 02:30.720
+And then we're going to do is call a container.
+
+02:30.840 --> 02:34.810
+Actually I don't believe we need to do that because the base calls a container in the body itself.
+
+02:34.980 --> 02:42.320
+So we can go directly into a Jumbotron class and this is just going to be where the user can log in.
+
+02:42.600 --> 02:50.600
+So it's put a header in here that says Please log in and if you're doing this on your own web site you
+
+02:50.600 --> 02:55.760
+could add a button that takes you to the registration page that says something like register here.
+
+02:55.900 --> 02:57.090
+We'll start our WIPs.
+
+02:57.140 --> 03:02.750
+Let's create a form in the form we don't need to have a class for now.
+
+03:05.070 --> 03:09.440
+And we're going to do is actually show you how you can play around the action this time.
+
+03:09.570 --> 03:19.770
+So we're going to do is on the action a call a moral template to an ongoing passen basic app and then
+
+03:19.770 --> 03:27.900
+user underscore logon so that your template tag is going to go to basic app user logon and this will
+
+03:27.900 --> 03:30.320
+make more sense when we actually see in the views.
+
+03:30.540 --> 03:31.850
+But keep it in mind for now.
+
+03:31.860 --> 03:33.590
+We'll come back to this later.
+
+03:33.720 --> 03:44.640
+And then with any form remember we need the CSR token type and see SRF underscore tokin and then lets
+
+03:44.650 --> 03:46.060
+create some labels here.
+
+03:46.060 --> 03:52.170
+So this is going to use kind of more HVM style form because we dont actually create a form for the log
+
+03:52.170 --> 03:52.370
+in.
+
+03:52.390 --> 03:54.340
+At least we did it in our case.
+
+03:54.340 --> 03:58.870
+So lets create a user name and then will say user name.
+
+03:58.900 --> 04:00.310
+So thats the label for the user name.
+
+04:00.310 --> 04:04.870
+Hopefully it feels really familiar kind of like a blast from the past from the HCM l sections of the
+
+04:04.870 --> 04:05.620
+course.
+
+04:05.800 --> 04:11.680
+User name is just a text and then we'll give it the name usernames that matches up with that label and
+
+04:11.680 --> 04:19.140
+then it doesn't need a value but we can give it a placeholder the placeholder can say enter username
+
+04:21.320 --> 04:28.910
+and then we're going to do is create another entry for the actual passwords all say for password and
+
+04:28.910 --> 04:32.080
+then we'll have that person type in their password there
+
+04:35.940 --> 04:41.080
+and then we'll give it an input password.
+
+04:41.250 --> 04:46.810
+Call it password and it doesn't need a value and it doesn't get a placeholder because it's a password
+
+04:48.010 --> 04:51.550
+and it finally will have an input for submit.
+
+04:51.670 --> 04:56.320
+So we'll give it the value of log in.
+
+04:56.380 --> 04:56.690
+All right.
+
+04:56.690 --> 05:00.430
+And this is actually basically all we're going to have in our logon page.
+
+05:00.440 --> 05:02.020
+So a couple of things here.
+
+05:02.090 --> 05:07.400
+We're using a lot of the HCM mail that we learned about were actually grabbing information we are importing
+
+05:07.850 --> 05:10.910
+from the forms up-I file because it's such a basic form.
+
+05:11.240 --> 05:13.830
+And also we're calling a form to action.
+
+05:13.850 --> 05:19.900
+So here we're calling your RL basic app user logon and we'll show why we do that later on.
+
+05:20.060 --> 05:24.020
+And then we're also going to be playing around with the base that H-2 him efile.
+
+05:24.200 --> 05:26.390
+Well we're going to do is inside of the baseline.
+
+05:26.400 --> 05:27.570
+TMF I won't do it yet.
+
+05:27.560 --> 05:34.220
+We will come back to this later is we'll have a link that either says log in or log out depending on
+
+05:34.280 --> 05:41.030
+if the person who has already registered is logged into your site or not but to do all of this we really
+
+05:41.030 --> 05:44.300
+need to start focusing on the used up-I file.
+
+05:44.310 --> 05:47.730
+And that's again where a lot of the logic is going to be taking place.
+
+05:47.770 --> 05:51.830
+And so we're going to be doing the majority of our coding for the actual lecture.
+
+05:51.830 --> 05:58.240
+So let's go over to used up pie in our basic app and we're going to be typing a lot here.
+
+05:58.250 --> 06:04.260
+So be prepared for it if you ever need a reference you can always check out the notes.
+
+06:04.290 --> 06:08.160
+So first thing we're going to do a lot of imports because we're going to be using a lot of jingoes built
+
+06:08.160 --> 06:15.320
+in functionality so we will say from jingo contrib.
+
+06:16.150 --> 06:25.800
+You r l resolvers going to import reverse and we'll show how to use that in just a little bit.
+
+06:26.090 --> 06:28.790
+But then whip's this actually should not be from contrib.
+
+06:28.790 --> 06:31.310
+This should be from core.
+
+06:31.310 --> 06:31.910
+There we go.
+
+06:31.970 --> 06:39.320
+So from jingled the core that your resolvers import reverse and now we're going to say from Django that
+
+06:39.330 --> 06:46.670
+contrib a you th for authorization decorator's and I mentioned that there are a lot of decorators that
+
+06:46.670 --> 06:48.110
+make your life a lot easier.
+
+06:48.350 --> 06:52.100
+And one of them is called log in underscore required.
+
+06:52.190 --> 06:57.410
+And this is basically something that's super awesome about Django if you want a view to require the
+
+06:57.410 --> 06:58.770
+user to be logged in.
+
+06:58.910 --> 07:01.760
+You can decorate it with this log underscore required.
+
+07:02.120 --> 07:05.900
+And Django has a bunch of authorization decorators that really help you out like that.
+
+07:05.900 --> 07:08.550
+The main one being loggin required.
+
+07:08.770 --> 07:14.020
+And then we're going to do is keep things a little more simple instead of using render we use the HTP
+
+07:14.020 --> 07:20.560
+response and we'll also do an HTP response redirect which we may not have seen before but will say from
+
+07:21.050 --> 07:31.660
+Django HTP import HTP response redirect
+
+07:34.550 --> 07:40.410
+comma and we'll also import HTP response wups response.
+
+07:41.520 --> 07:45.530
+So we've already seen this guy a bunch times Fishley back in the beginning but we haven't seen a redirect
+
+07:45.540 --> 07:46.820
+so I'll see that as well.
+
+07:47.760 --> 07:56.810
+And then finally we'll see from Shingo that contrib the th for authorization import and then here are
+
+07:56.810 --> 08:05.220
+the three kind of key functions which are authenticate log in and log out.
+
+08:05.500 --> 08:11.830
+All right we can save that and now let's actually go and create our log in view for the user logon page
+
+08:12.310 --> 08:15.450
+and then we'll show you how to use this decorator to show you.
+
+08:15.460 --> 08:20.700
+Kind of like a simple example of sput some pages where the user log in is required.
+
+08:20.860 --> 08:28.450
+So start off by going all the way down here under register and create a new view point to put in a bunch
+
+08:28.450 --> 08:35.200
+of new lines here and we will collapse directory tree give us a little more room and we'll see if user
+
+08:35.200 --> 08:39.720
+underscore loggin now pasand request and here's a quick note.
+
+08:39.740 --> 08:42.250
+Sometimes jingoes can't complain.
+
+08:42.280 --> 08:48.040
+If you decide to clear a view log in especially if you're importing you scroll all the way up here.
+
+08:48.430 --> 08:53.750
+If you're importing a log in then you don't want to overwrite it here and the views file.
+
+08:53.770 --> 08:58.180
+So make sure that the view doesn't share a name with anything you're importing.
+
+08:58.180 --> 09:02.870
+So don't call the view authenticate log in or log out or log in required.
+
+09:02.920 --> 09:06.040
+So here try to make it something a little more unique.
+
+09:06.070 --> 09:11.650
+So here we're calling it user underscore logon and then this is actually going to look pretty similar
+
+09:11.650 --> 09:14.100
+to the request as a lot of code.
+
+09:14.200 --> 09:16.030
+Excuse me pretty similar to the registration.
+
+09:16.030 --> 09:19.730
+Again it's a lot of code but they'll get the job done.
+
+09:20.350 --> 09:28.450
+So I'll say request method if request method is equal to host then the user has actually filled out
+
+09:28.450 --> 09:29.880
+the log in information.
+
+09:29.970 --> 09:33.370
+So first thing you need to do is get the username and password supplied.
+
+09:33.810 --> 09:42.380
+So I will grab from the request that post and I can use the get method and get the name of that.
+
+09:42.450 --> 09:48.600
+So the reason I use the DAT get is because over in our logging Lowry's to email file We're just using
+
+09:48.600 --> 09:52.310
+simplest DML and we call that name equals username.
+
+09:52.410 --> 09:57.990
+So I'm going to get from that post username and then I'm going to create a variable called Password
+
+09:58.950 --> 10:09.110
+is equal to request that postop get password and there we're going to use jingoes built in authentication
+
+10:09.110 --> 10:11.780
+function and this makes your life really easy.
+
+10:11.780 --> 10:16.270
+So all the work of the authentication is going to happen for you automatically.
+
+10:16.280 --> 10:23.340
+So I'll say user authenticate and the person user name equal to user name.
+
+10:23.750 --> 10:27.320
+And then the password equal to password.
+
+10:27.380 --> 10:31.910
+And again sometimes jingle complains if you just passen username comma password.
+
+10:32.060 --> 10:36.700
+So actually tell it the variable username is equal to username password Ezekial the password.
+
+10:36.700 --> 10:42.020
+So type in what the parameters are equal to and this will basically automatically authenticate the Sezer
+
+10:42.020 --> 10:43.390
+for you which is awesome.
+
+10:43.400 --> 10:44.610
+One line of code.
+
+10:44.660 --> 10:46.060
+Thank you Django.
+
+10:46.130 --> 10:53.360
+And then if we have a user so I will say if user remember user is going to check if they're actually
+
+10:54.230 --> 10:58.530
+right here authenticated then what I'm going to do is check the account is active.
+
+10:58.940 --> 11:04.790
+So later on especially in the Clones We'll talk about deactivating users if they spent too much time
+
+11:04.790 --> 11:10.070
+on the site or having them reactivate their accounts etc. in case they lost their password.
+
+11:10.070 --> 11:15.230
+But right now I will say if I were a user so they passed the authentication process and then if the
+
+11:15.230 --> 11:19.190
+user is active We're going to log the user in.
+
+11:19.190 --> 11:21.140
+And that again is one simple function.
+
+11:21.140 --> 11:23.340
+Thanks to a lot of the built in stuff Django.
+
+11:23.420 --> 11:28.580
+We just say log in function we imported and then pass the request and then pass through the person the
+
+11:28.580 --> 11:34.650
+user object that was returned by authenticate and then we're going to send that user back to some page.
+
+11:34.660 --> 11:36.870
+So once they're logged in you send them somewhere.
+
+11:36.910 --> 11:42.970
+Sometimes we'll be there own profile page to our home page et cetera and we use HTP response redirect
+
+11:43.060 --> 11:51.140
+to redirect them to some other page and we can redirect them and call reverse on index.
+
+11:51.360 --> 11:56.190
+And basically what this is going to do is going to do a redirect if they log in and it's successful
+
+11:56.220 --> 11:57.630
+and their account is active.
+
+11:57.780 --> 12:00.500
+It will reverse them and redirect them back to the home page.
+
+12:02.230 --> 12:03.070
+And then else.
+
+12:03.070 --> 12:12.030
+So if their account is not active will return HDP response and it won't be there will just be a response
+
+12:12.030 --> 12:19.930
+and we'll give them something back like accounts not active.
+
+12:20.160 --> 12:28.150
+And then on this if user call we can say else we might want to print something out just for us in the
+
+12:28.150 --> 12:28.850
+con..
+
+12:28.990 --> 12:37.480
+So something like someone tried to log in and failed.
+
+12:37.540 --> 12:44.290
+Now we can also prints if you want to username.
+
+12:44.290 --> 12:47.890
+So again this is a very simple site so you probably wouldn't want to do something so they read on your
+
+12:47.890 --> 12:54.130
+site but I'm going to print out maybe someone malicious try to log in with a username and password but
+
+12:54.130 --> 12:55.300
+it wasn't right.
+
+12:55.300 --> 13:00.610
+So he could either print straight into the console or have some sort of error log and we'll talk about
+
+13:00.730 --> 13:02.610
+logging later on in the course.
+
+13:02.740 --> 13:07.110
+We can say something like print username password that format a username and password.
+
+13:07.150 --> 13:08.580
+So this will be.
+
+13:09.130 --> 13:14.230
+What they tried to log in with now is not so bad that we print it out because technically this username
+
+13:14.230 --> 13:22.220
+and password combination isn't already in our database and they will say return and T-P response of
+
+13:23.400 --> 13:27.080
+invalid log in details.
+
+13:27.760 --> 13:37.580
+Supplied so else which means the request that method wasn't equal to post so they haven't actually submitted
+
+13:37.580 --> 13:38.660
+anything.
+
+13:38.730 --> 13:48.400
+Then we just return the actual render of the request and then the logon page which is basic slash log
+
+13:48.400 --> 13:55.370
+in Tamil and we can passengers an empty contex dictionary if you want.
+
+13:55.390 --> 14:00.360
+So we'll save that and then should be ready to go for user logon.
+
+14:00.440 --> 14:05.400
+And now what I want to show you is imagine what a page would look like if you want to require the logon.
+
+14:05.800 --> 14:10.050
+So will scroll all the way up and add two more functions here.
+
+14:10.060 --> 14:12.550
+It's kind of up to you where you want to add these views.
+
+14:12.640 --> 14:17.650
+And if you get over piled of views here sometimes some people separate them into different views and
+
+14:17.650 --> 14:19.420
+then import them all here.
+
+14:19.420 --> 14:23.560
+PERINO We're keeping things so basic that we'll just add in two more views.
+
+14:23.560 --> 14:27.400
+These are much smaller but we want a logo.
+
+14:27.760 --> 14:31.100
+So we'll call this E-F user underscore log out.
+
+14:31.120 --> 14:34.820
+We don't want to call it just log out because if you notice we imported log out.
+
+14:35.170 --> 14:40.610
+So we'll call it user underscore log on instead this takes in a request.
+
+14:40.860 --> 14:47.760
+And what this happens is you pass on the request to that built in log out function and that automatically
+
+14:47.760 --> 14:49.500
+logs out the user.
+
+14:49.890 --> 15:00.070
+And then we return and HTP response redirects reverse back to the index page so pretty simple except
+
+15:00.070 --> 15:06.580
+for one thing we want to make sure that only a user who is logged in can log out the way we have right
+
+15:06.580 --> 15:11.950
+now is a little confusing because it doesn't actually require a user to be logged in in order to log
+
+15:11.950 --> 15:12.130
+out.
+
+15:12.130 --> 15:14.910
+So this would probably cause some issues and problems with the page.
+
+15:15.070 --> 15:19.840
+And this is what's really awesome about Django in order to make sure that any view requires a person
+
+15:19.840 --> 15:21.360
+to be logged in to see it.
+
+15:21.640 --> 15:24.930
+All you do is decorate it with this log in required.
+
+15:24.940 --> 15:25.810
+Now we imported.
+
+15:25.810 --> 15:31.150
+So you say at and review the Ducrot the decorator's lecture if you don't remember how to do this but
+
+15:31.360 --> 15:33.730
+you just call it directly above the function.
+
+15:33.870 --> 15:35.110
+And it has to be directly.
+
+15:35.140 --> 15:36.580
+So one line above.
+
+15:36.580 --> 15:40.500
+So if I'm on line 16 b should be at line 15.
+
+15:40.510 --> 15:46.650
+So here we see at log in required and now suddenly this interview has a log in required.
+
+15:46.730 --> 15:53.390
+So let's imagine that you had some sort of special page or you wanted to return something special just
+
+15:53.390 --> 15:59.750
+to kind of reiterate this you have some other page that requires a log in and you can say something
+
+15:59.750 --> 16:11.010
+like return in HTP response that says you are a log then nice.
+
+16:11.220 --> 16:16.980
+All you have to do is say in order to make sure that view requires a log in is passen log on are required
+
+16:17.010 --> 16:22.620
+as Degrader and that's what's pretty awesome about Django the fact that authenticate log in and log
+
+16:22.620 --> 16:25.880
+out and log in required are super easy to call.
+
+16:25.890 --> 16:30.450
+It's just a function call for log in and log out and it's just a decorator for logging required.
+
+16:30.450 --> 16:34.800
+And that's really what's going to save you a ton of time when you're developing your own web applications.
+
+16:34.800 --> 16:39.390
+I know the process to actually understand how to use those takes a long time but once you understand
+
+16:39.390 --> 16:45.330
+how to use them the process of using them definitely shortens your development cycle OK.
+
+16:45.660 --> 16:47.690
+So views that pi should be taken care of.
+
+16:47.680 --> 16:52.420
+Now let's go a mixture are you or else actually point to the user logon page.
+
+16:52.440 --> 16:58.830
+So let's come back to our Uriel's in our project and scroll all the way down right now points to Addleman
+
+16:58.870 --> 17:05.700
+basic app and then the home page index page and what we can do here is add in something for let's say
+
+17:05.700 --> 17:10.160
+log out page and that special page we just kind of made that silly view.
+
+17:11.390 --> 17:17.840
+So we'll do something for logo since that's actually we're going to be using and we'll say logo slash
+
+17:17.840 --> 17:31.160
+dollar sign and we'll just say get views use or log out you know we will give it the name equal to Wargo.
+
+17:31.360 --> 17:35.420
+And if you want to see an example of setting that special view that someone requires to be logged in
+
+17:36.400 --> 17:42.730
+and as a practice problem if you want you can set in other HTL to go to this special page but we'll
+
+17:42.770 --> 17:53.630
+say special slash Due's the special name is equal to special.
+
+17:53.730 --> 17:59.460
+So that's some sort of special page that we haven't really done anything with that theoretically a user
+
+17:59.460 --> 18:02.180
+would have to be logged in to even see this page.
+
+18:02.200 --> 18:02.600
+OK.
+
+18:02.820 --> 18:08.360
+So that's what the project would look like now as far as the Oreilles up file meaning that we added
+
+18:08.370 --> 18:10.800
+is this log out page for the user log.
+
+18:10.810 --> 18:15.650
+So let's come to our project or sooner applications or else that py file.
+
+18:15.720 --> 18:17.770
+Right now we only have that register view.
+
+18:17.790 --> 18:20.600
+What I want to add in is the log in view.
+
+18:20.740 --> 18:32.690
+So we'll say your all our current user log in slashed dollar signs and then I'm going to save used user
+
+18:32.690 --> 18:41.600
+underscore log in and we'll give it the name user underscore logon save that in our Your all pattern's
+
+18:41.600 --> 18:41.960
+is done.
+
+18:41.960 --> 18:47.120
+So we have something pointing to the log in page and log out page or I'm going to do before we actually
+
+18:47.120 --> 18:54.860
+get started is come to base that HVM L and over here add in another link with some logic to have the
+
+18:54.860 --> 18:57.890
+user either log in or log out once they've registered.
+
+18:58.010 --> 19:02.250
+And we way we're going to do that is I'm going to zoom out just a tiny bit and also collapse character
+
+19:02.250 --> 19:07.090
+strictly tree to get a little more room here so I can show you what I'm going to be doing.
+
+19:07.110 --> 19:13.520
+So I want some logic to actually display one more list item which means I'm going to use template tags
+
+19:14.330 --> 19:15.380
+so I have Django.
+
+19:15.400 --> 19:18.550
+I have admin register and I'm going to say this
+
+19:23.990 --> 19:29.850
+user is authenticated I make sure I spell that right.
+
+19:29.880 --> 19:33.190
+A You authenticated.
+
+19:33.600 --> 19:38.490
+And basically what this says is OK the user passed that authentication function that we called in the
+
+19:38.490 --> 19:38.830
+view.
+
+19:38.890 --> 19:43.710
+If you go back to view and scroll all the way down to the logon.
+
+19:43.710 --> 19:45.260
+So here's user.
+
+19:45.390 --> 19:45.860
+Right.
+
+19:45.900 --> 19:48.090
+And then here is authenticate.
+
+19:48.330 --> 19:53.910
+And what we're going say is if that user is authenticated then we're gonna do something here.
+
+19:55.110 --> 19:57.630
+I'll add an A-list item to that nav bar.
+
+19:57.630 --> 19:58.790
+It's going to be an anchor tag.
+
+19:58.920 --> 20:01.270
+They'll have the same class.
+
+20:01.440 --> 20:12.350
+The class will be nav bar bash link and then the ref is going to beat you.
+
+20:12.550 --> 20:13.260
+Whoops.
+
+20:13.980 --> 20:15.530
+Let's make sure we do this right.
+
+20:16.690 --> 20:20.400
+A Your old templates to log out.
+
+20:22.080 --> 20:27.000
+And if we look back at our project so under learning user we have log out here.
+
+20:27.000 --> 20:28.320
+Its name is log out.
+
+20:28.440 --> 20:33.960
+So that's what we're pointing to here under our template tagging so your L log out.
+
+20:34.260 --> 20:39.980
+And then let's give it some actual text text which says log out.
+
+20:42.970 --> 20:45.670
+Else so let's imagine that the user was not authenticated
+
+20:50.060 --> 20:57.780
+then I'm going to say create a list item create an anchor and we'll give it the ref versus give it the
+
+20:57.780 --> 20:58.210
+class.
+
+20:58.230 --> 21:00.690
+It looks the same as everything else.
+
+21:00.690 --> 21:03.550
+That's again another bar ash link.
+
+21:04.630 --> 21:10.080
+And it's going to have an H ref of your l.
+
+21:10.080 --> 21:16.710
+So it's another your template and it goes to the basic app and it finds the user log in view
+
+21:20.600 --> 21:28.140
+OK so remember in the Urals PI file for application over here we named this user logon and it's under
+
+21:28.140 --> 21:35.370
+basic app and that leads the actual user log in view that you are all mapping which means I need to
+
+21:35.400 --> 21:39.150
+add one more line of code here and hopefully you guessed it it's the end.
+
+21:39.160 --> 21:45.060
+If so whenever you have an if you need to have an end if and I'm not using any sort of plug ins to help
+
+21:45.060 --> 21:50.040
+me autocomplete Django I definitely suggest those on your own computer when you're kind of developing
+
+21:50.040 --> 21:51.190
+instead of learning.
+
+21:51.270 --> 21:55.860
+I'm not using any here as far as Jingle plug ins because I want to manually code everything out to explain
+
+21:55.860 --> 21:58.920
+everything on my own personal computer when I'm not teaching.
+
+21:58.920 --> 22:03.990
+I definitely have a lot of plugins that do special autocomplete and highlighting syntax here.
+
+22:04.000 --> 22:12.250
+OK so let's add one line of text theory that says log in and save this.
+
+22:12.250 --> 22:18.460
+Let's run the server and see if we actually got everything to work and we'll debug if we have to say
+
+22:18.590 --> 22:31.810
+less and then let's start typing Python managed up PI runs server enter.
+
+22:32.060 --> 22:36.260
+And that's good news it's actually attempting to run some things so let's copy this and bring in our
+
+22:36.260 --> 22:41.140
+browser when I'm going to do is bring that here.
+
+22:41.660 --> 22:45.710
+And let's register a new user to make sure that still works.
+
+22:45.710 --> 22:48.440
+And so I can actually remember how this person's going to log in.
+
+22:48.740 --> 22:59.840
+So we will create a user name we'll call him Samie email address Sammy at gmail dot com lips g mail
+
+23:00.150 --> 23:02.330
+com we'll give them a test password
+
+23:04.980 --> 23:08.880
+and then their portfolio site or we can just provide one does it really matter.
+
+23:08.940 --> 23:09.840
+We give it Google.
+
+23:09.870 --> 23:15.800
+You can upload a picture and let's actually get some practice uploading a picture so they choose File
+
+23:16.210 --> 23:18.440
+and let's upload a picture of the hub.
+
+23:18.560 --> 23:23.750
+Octo cat and let's register this is thank you for registering.
+
+23:23.750 --> 23:24.770
+That looks good.
+
+23:24.770 --> 23:31.550
+Let's log in as an admin and verify that that person registered successfully put in your super user
+
+23:31.550 --> 23:37.090
+name and then let's check on the user profile info there Sammy.
+
+23:37.250 --> 23:42.980
+And here he can see they have their profile pic and they're at Google dot com for their portfolio site.
+
+23:43.370 --> 23:46.120
+So we will log out now.
+
+23:46.120 --> 23:52.990
+Now let's go back to the home page and let's log in as Samie So it says enter username.
+
+23:53.030 --> 23:58.330
+We'll type in Samie and then let's enter their password test password.
+
+23:58.680 --> 24:02.650
+And we should be redirected to the home page and no what else happened.
+
+24:02.680 --> 24:04.660
+Now we get this changed to logo.
+
+24:04.720 --> 24:05.910
+So I'll show you that again.
+
+24:06.130 --> 24:08.260
+Click log out it changes to log in.
+
+24:08.260 --> 24:10.930
+We can also have that redirect to another page if we wanted.
+
+24:11.110 --> 24:20.110
+But then I can log in says log in and Samie says password it log in.
+
+24:20.330 --> 24:22.390
+And now I see the log out change.
+
+24:22.430 --> 24:22.920
+Great.
+
+24:23.060 --> 24:28.430
+Then I can always click log out and that can redirect to some sort of thank you for visiting page.
+
+24:28.620 --> 24:33.680
+And that's basically all there is for logging in and logging out later on in some of the clone projects
+
+24:33.680 --> 24:40.170
+will also talk about sessions but maybe as a good exercise for you is to see if you can have a link
+
+24:40.350 --> 24:43.960
+and create a nav bar link to the special page that we created.
+
+24:43.950 --> 24:48.570
+So we created a view called special and linked it in the Urals but we never actually really did anything
+
+24:48.570 --> 24:48.950
+with it.
+
+24:48.960 --> 24:52.350
+It was just the check that someone had to be logged in to see it.
+
+24:52.350 --> 24:57.720
+This entire process of creating users having them log in log out register and creating sessions for
+
+24:57.720 --> 25:02.730
+each user is something we're going to explore a lot more during the Clone project so will definitely
+
+25:02.730 --> 25:06.930
+get a lot more practice of this but hopefully solve the very basics are actually quite simple things.
+
+25:06.930 --> 25:07.520
+Jingo.
+
+25:07.880 --> 25:10.140
+Okay thanks everyone and I'll see at the next lecture.

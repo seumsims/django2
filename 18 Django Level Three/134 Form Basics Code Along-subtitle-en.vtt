@@ -1,0 +1,784 @@
+WEBVTT
+
+00:05.020 --> 00:05.730
+Hello everyone.
+
+00:05.720 --> 00:06.950
+Welcome to the forum basics.
+
+00:06.970 --> 00:11.770
+Cut along lecture and this lecture will just be cutting through all the concepts we previously discussed
+
+00:12.190 --> 00:13.500
+in The Last Lecture.
+
+00:13.510 --> 00:16.810
+Let's go to the editor and get started OK.
+
+00:16.830 --> 00:18.020
+Here I am at the editor.
+
+00:18.030 --> 00:24.990
+The first thing we're going to do is see the into a new folder I just made called Django level three.
+
+00:25.320 --> 00:32.700
+And then they're going to actually create the project so I will call my Django dash admen command line
+
+00:32.700 --> 00:39.000
+tool will say start the project and we can just call this project whatever we want I'll call it something
+
+00:39.000 --> 00:45.810
+like basic forms and this should start off the project and after that we can start off the application.
+
+00:45.860 --> 00:56.190
+So I will see the into the top level basic forms and then call it jingo admen star app to start application.
+
+00:56.200 --> 01:00.690
+Now we can call this just basic app using simple names here.
+
+01:00.700 --> 01:05.420
+Now if I expand this I see the folders of files that I was looking for.
+
+01:05.570 --> 01:12.440
+And let's actually create our templates folder that goes onto the top level project folder create a
+
+01:12.440 --> 01:19.640
+new folder call it templates and then inside of this I want to create another folder that matches the
+
+01:19.640 --> 01:20.920
+basic app name.
+
+01:21.670 --> 01:23.620
+And this is where the applications touched him.
+
+01:23.620 --> 01:25.350
+All templates are going to go.
+
+01:25.530 --> 01:27.340
+It will create a new file here.
+
+01:28.200 --> 01:28.960
+Call index.
+
+01:28.960 --> 01:32.150
+Let each team will and we'll create another file.
+
+01:33.000 --> 01:37.160
+And this one we can call something like form underscore page each T.M..
+
+01:37.320 --> 01:42.190
+So under this index each HTML that's just going to be the home page all type each time L and we'll give
+
+01:42.230 --> 01:47.630
+the title home say heading 1 welcome to home page.
+
+01:48.630 --> 01:50.420
+Save that in in the form page.
+
+01:50.420 --> 01:53.410
+That's we're actually going to be using template tagging and doing a lot more.
+
+01:53.610 --> 01:55.780
+So we'll just leave it with the title forms for now.
+
+01:55.810 --> 02:01.050
+But we'll do a lot more at this page later on what we need to do is actually are setting up a profile
+
+02:01.050 --> 02:04.920
+so it knows where the templates are and that we have an application that we just made.
+
+02:05.070 --> 02:08.790
+So we'll open up settings and then let's set up the template directory.
+
+02:09.150 --> 02:17.160
+So it's going to be template underscore the are and all synthetical to OS path that join and I want
+
+02:17.160 --> 02:20.920
+to join the base directory with templates.
+
+02:23.690 --> 02:28.520
+And then what I want to do is scroll down to where we have installed apps Mixtura include the app I
+
+02:28.520 --> 02:34.850
+just made which is basic app and then continue to templates and pass in that template directory just
+
+02:34.850 --> 02:38.140
+made up.
+
+02:38.210 --> 02:39.480
+So I will save this.
+
+02:39.500 --> 02:41.200
+So now my settings are ready to go.
+
+02:41.300 --> 02:48.180
+And now we can get started actually create in the forms which means inside of my basic app going to
+
+02:48.180 --> 02:56.020
+right click Create a new file call it forms that hi enter and then it's going to look very similar to
+
+02:56.020 --> 03:00.070
+building up a model we'll say from Django import forms.
+
+03:00.070 --> 03:02.540
+Previously we had done import models.
+
+03:02.800 --> 03:07.760
+They'll create a class called it's just a very basic form named class.
+
+03:08.020 --> 03:11.970
+And then we'll say form start form again.
+
+03:12.070 --> 03:14.090
+We basically that models that model last time.
+
+03:14.110 --> 03:16.510
+Hopefully this feels really familiar.
+
+03:16.510 --> 03:21.930
+Just using the same paradigm and then we'll say name let's create a couple of fields.
+
+03:22.000 --> 03:27.580
+So now sort of making database fields we're making essentially what our form fields those text inputs
+
+03:27.580 --> 03:29.860
+text areas cetera.
+
+03:30.700 --> 03:34.030
+So this will be a character field.
+
+03:36.250 --> 03:37.640
+Or the actual name.
+
+03:37.770 --> 03:45.890
+Also have this person provide an email in their form say forms dot let's say an email field
+
+03:48.920 --> 03:55.520
+and then we can say we'll have a text area field to the way you do that you say forms as in a character
+
+03:55.520 --> 03:57.420
+field and incited this.
+
+03:57.440 --> 04:02.330
+You can specify a particular widget and you can check out the documentation for a list of all the widgets
+
+04:02.330 --> 04:09.200
+available but essentially we do just call forms and then passen the widget method or widget attribute
+
+04:09.620 --> 04:12.150
+that corresponds to the actual type.
+
+04:12.140 --> 04:14.110
+You would specify in the HMO.
+
+04:14.360 --> 04:19.820
+So remember we were making forms of to mail with specify it's a type text area input.
+
+04:19.820 --> 04:23.140
+Here we're just specifying it as a widget inside of this character field.
+
+04:23.510 --> 04:26.930
+You can kind of see how this sort of match up later on when we connect this to a model.
+
+04:26.960 --> 04:28.980
+Right now we're just using a very basic form.
+
+04:29.030 --> 04:31.300
+Later on will see how to use model forms.
+
+04:31.310 --> 04:31.710
+OK.
+
+04:31.850 --> 04:33.180
+That's really all we need to do here.
+
+04:33.230 --> 04:35.740
+Are the forms up PI file.
+
+04:35.920 --> 04:40.930
+What we can do now is set up the views that will actually return these pages correctly.
+
+04:40.930 --> 04:42.710
+So we'll say from.
+
+04:42.970 --> 04:49.480
+And I can just say from DOT import forms or I could also say from basic app import forms.
+
+04:49.870 --> 04:51.130
+It's basically the same.
+
+04:51.370 --> 04:53.460
+And let's create an index view.
+
+04:53.500 --> 04:54.870
+Just get that out of the way.
+
+04:55.060 --> 05:03.370
+That's going to be a simple request and will return render function with the request and let's pass
+
+05:03.370 --> 05:04.680
+in the actual file we want to do.
+
+05:04.690 --> 05:12.990
+So that goes under templates which is going to be that basic app index Ledwidge Timo and we'll start
+
+05:12.990 --> 05:17.820
+off with a very basic view before we actually check for the post so the most basic view you can get
+
+05:18.030 --> 05:20.440
+for a form look something like this.
+
+05:20.490 --> 05:27.820
+So whatever your form name view you want it takes in a request and then insight of this ongoing to say
+
+05:28.330 --> 05:36.290
+the form is equal to imported forms dot and whatever the actual class you call that form you're telling
+
+05:36.300 --> 05:38.520
+me you called it form name so that's fine.
+
+05:38.520 --> 05:44.730
+So we'll make an instance of that form name class here and I'm going to return with the render function
+
+05:45.230 --> 05:49.140
+passen request like we always do pasand the page I want to show.
+
+05:49.380 --> 05:51.280
+In this case I want to say basic.
+
+05:51.330 --> 05:57.740
+And we call that page form underscore page HVM T.M..
+
+05:57.770 --> 06:04.610
+And then finally the context dictionary will give it the key form and we'll passen that actual form
+
+06:04.610 --> 06:06.820
+object.
+
+06:06.900 --> 06:09.580
+And again you can be flexible whatever you want to call these things.
+
+06:09.600 --> 06:13.030
+Maybe you don't like that and using the word form so much or basic so much.
+
+06:13.080 --> 06:16.570
+It's really up to you whatever you want to call these.
+
+06:16.750 --> 06:21.010
+Now that we have these views set up we want to make sure that we actually point your L's in the right
+
+06:21.010 --> 06:21.590
+way.
+
+06:21.910 --> 06:25.370
+So I come to the project YOUR else that PI file.
+
+06:25.510 --> 06:30.970
+We could also have you URLs up PI file point to the applications you URLs and do it that way remember
+
+06:31.080 --> 06:36.220
+there was including this other you are l configuration which do a simple function of B for now keep
+
+06:36.220 --> 06:38.560
+things pretty simple.
+
+06:38.740 --> 06:41.860
+So let's add in your I'll call here.
+
+06:41.860 --> 06:50.710
+Well first we actually need to import from our application is say from basic app import views that we
+
+06:50.720 --> 06:52.840
+can call them we use the function method here.
+
+06:52.940 --> 06:56.850
+Number that's this very first one where we just use the syntax.
+
+06:56.960 --> 07:06.110
+So come down and then say your L and I'm going to specify for the home page gnashes carrot symbol dollar
+
+07:06.110 --> 07:14.360
+sign using regular expressions and then say start index and we'll give it the name index.
+
+07:15.740 --> 07:20.690
+And then I like always having the first to be the home page and the Ottoman site and then everything
+
+07:20.690 --> 07:22.480
+else being your actual pages.
+
+07:22.760 --> 07:28.850
+So I'll say regular expression carat symbol and let's have the extension for this be something like
+
+07:29.630 --> 07:32.510
+form page truly up to you whatever you want to call it.
+
+07:32.660 --> 07:38.000
+This basically just says OK if you go to your L slash form page and anything after that it's going to
+
+07:38.000 --> 07:42.280
+take you to the views dot and then the view.
+
+07:42.470 --> 07:50.950
+In this case we called it form underscore namers or view and we'll give it the name form underscore
+
+07:50.950 --> 07:52.880
+a name.
+
+07:52.880 --> 07:53.120
+All right.
+
+07:53.120 --> 07:54.290
+So that should be all we need.
+
+07:54.290 --> 08:00.990
+For though your patterns and now let's actually go with the templates and show you how to use the template
+
+08:00.990 --> 08:05.700
+tagging to actually inject that form our index page looks pretty simple.
+
+08:06.660 --> 08:13.170
+We'll add one more thing that says go to slash form page to fill out the form.
+
+08:15.340 --> 08:18.260
+Let's double check that that was actually your L I gave slash form page.
+
+08:18.280 --> 08:19.260
+Yes it was.
+
+08:19.480 --> 08:27.020
+And then on the form page we're going to let's put this all in a div that we can use later.
+
+08:27.190 --> 08:28.810
+I'll give it the container class.
+
+08:28.810 --> 08:32.430
+I haven't imported bootstrap yet but that's OK.
+
+08:32.620 --> 08:34.400
+We'll show that when we kind of want to improve the site.
+
+08:34.420 --> 08:40.990
+But let's keep everything super basic and I'm going to just say form here.
+
+08:42.780 --> 08:46.670
+Again I'm not even checking if there is a form under the same form.
+
+08:46.710 --> 08:50.010
+Let's save that and see if we actually can get everything to work.
+
+08:50.010 --> 08:52.310
+Hopefully we didn't forget anything.
+
+08:52.530 --> 09:01.600
+I'm going to say Python managed up-I run server and see if there's any errors that pop up to us OK I'm
+
+09:01.600 --> 09:08.850
+not going to copy this and bring in over my browser so it looks like we've got the home page working
+
+09:08.850 --> 09:09.260
+out.
+
+09:09.360 --> 09:13.060
+We see go to slash form page to fill out the form.
+
+09:13.080 --> 09:14.570
+Let's see if that also works.
+
+09:15.750 --> 09:19.650
+Go to a forum page and we can see the actual form we have name email and text.
+
+09:19.660 --> 09:21.740
+It looks super ugly.
+
+09:21.790 --> 09:25.390
+Now we see if I type something and there's not even a submit button here.
+
+09:25.750 --> 09:30.960
+So it's pretty bland but we can see that we're actually starting to get the very basics of a form here
+
+09:30.970 --> 09:32.990
+is that text area widget.
+
+09:33.310 --> 09:34.060
+Great.
+
+09:34.060 --> 09:36.590
+Now let's add some stuff to actually improve this.
+
+09:36.610 --> 09:43.190
+And most of it is going to happen on the form page on each T.M. and in the actual forms that PI file.
+
+09:43.210 --> 09:47.290
+First thing I want to do is let's just actually make this look good since we're going to be looking
+
+09:47.290 --> 09:48.770
+at it quite a lot.
+
+09:48.790 --> 09:55.030
+I will say here in the head of mite's TMF files I'll paste in the link to bootstrap.
+
+09:55.030 --> 09:56.820
+Just going to use bootstrap 3 for now.
+
+09:56.830 --> 10:03.850
+Keep things simple and also do it in the next let each team l save that and let's put all of this inside
+
+10:03.850 --> 10:14.380
+of a container class and let's put that inside of a Jumbotron just to make the home page look a little
+
+10:14.380 --> 10:15.570
+nicer.
+
+10:15.760 --> 10:20.800
+We'll grab these two headings and then put them inside these divs.
+
+10:20.800 --> 10:26.320
+Save that and then for the form page we have to add in quite a bit.
+
+10:26.410 --> 10:29.420
+So we have a container class so that works out for us.
+
+10:29.530 --> 10:34.420
+But notice we actually don't even have any form tags and those form tags.
+
+10:34.510 --> 10:39.630
+So the basic form h HTML tags those are not made for you when you call form here.
+
+10:39.820 --> 10:44.690
+So we need to do is actually have those provided that way you can say what you want to do.
+
+10:45.490 --> 10:50.210
+Although we won't worry about class or action for now you can worry about class when you want to style
+
+10:50.210 --> 10:52.200
+this a little more with bootstrap.
+
+10:52.390 --> 10:55.000
+But for now this div container should be enough.
+
+10:55.000 --> 11:03.140
+Let's add in a heading here that says fill out the form save that and then I'm going to request a form
+
+11:04.250 --> 11:06.050
+as a underscore.
+
+11:06.380 --> 11:10.140
+And that's going to request each of those form which is to be instead of a paragraph tag.
+
+11:10.190 --> 11:14.090
+That way they don't go from left to right but instead we get that actual line break and they go from
+
+11:14.090 --> 11:21.650
+top to bottom and then we also need inside of these foreign tags to ask for the input.
+
+11:21.890 --> 11:28.190
+And also as a quick note I have the method right now being post inside of the form lowercase or capital.
+
+11:28.220 --> 11:29.580
+Either way it should work.
+
+11:29.840 --> 11:31.000
+So we'll capitalize it.
+
+11:31.010 --> 11:32.750
+So it's really clear there.
+
+11:32.750 --> 11:35.150
+And I want the input to be type.
+
+11:35.300 --> 11:42.060
+Let's make it submit and we don't really have to give it a name for now we could give it a class if
+
+11:42.060 --> 11:50.670
+we want it to look a little nicer can say PTEN and then it's in primary when those bootstrap classes.
+
+11:50.670 --> 11:51.590
+Now let's give it a value.
+
+11:51.590 --> 11:56.070
+So we actually see something inside the button and we'll hit save.
+
+11:56.070 --> 11:59.790
+So now I'm going to grab your Allegan see what it looks like.
+
+12:01.200 --> 12:02.130
+Bringing that in.
+
+12:02.310 --> 12:05.160
+Obviously the home page looks a lot nicer with that Jumbotron.
+
+12:05.490 --> 12:07.320
+And then let's go to form page.
+
+12:07.380 --> 12:09.410
+See what that ends up looking like.
+
+12:09.480 --> 12:12.380
+And this looks way nicer with the bootstrap fill out form.
+
+12:12.390 --> 12:16.630
+Can see stuff is looking good but notice if I hit submit.
+
+12:16.680 --> 12:24.030
+Well let's actually fix that e-mail Shamila hit submit and on getting an error.
+
+12:24.030 --> 12:28.160
+C s r of f work verification failed request to abort it.
+
+12:28.170 --> 12:33.210
+So remember as I mentioned the previous lecture we need to have that tag there in order to have the
+
+12:33.210 --> 12:38.490
+security that we need to make sure users are safe from submitting their form or something data to some
+
+12:38.490 --> 12:39.570
+other Web site.
+
+12:39.610 --> 12:44.760
+So as I mentioned a lot of these forms are going to break if you don't have that tag which is a good
+
+12:44.760 --> 12:45.570
+thing.
+
+12:45.930 --> 12:47.710
+Keeps you a safe programmer.
+
+12:47.730 --> 12:54.010
+So let's add in that token we'll save it and you can add it above or below the form should work the
+
+12:54.010 --> 12:54.780
+same.
+
+12:54.830 --> 13:01.020
+Then going to refresh the page and make sure it's working and to do this I'm actually probably going
+
+13:01.020 --> 13:02.940
+to need to restart the server.
+
+13:02.950 --> 13:10.550
+I will say Python managed a high run server and then let's come back to this again.
+
+13:10.640 --> 13:14.940
+And now when I come to the page and you have to not just refresh.
+
+13:14.940 --> 13:16.630
+You have to go back to it here.
+
+13:16.660 --> 13:18.680
+Let's see if I type some stuff out.
+
+13:18.900 --> 13:22.320
+I will actually try accepting some things so if I hit submit.
+
+13:22.320 --> 13:26.150
+Notice that over here on the bottom there's a bunch of get calls.
+
+13:26.160 --> 13:27.870
+But now I get a post here.
+
+13:27.870 --> 13:29.640
+So it's actually except in the information.
+
+13:29.640 --> 13:32.840
+Now let's show you how you can do stuff with that data.
+
+13:32.880 --> 13:41.680
+So we'll edit our view coming back to views that pie we have our very basic form you doesn't really
+
+13:41.680 --> 13:44.260
+do anything though when you actually post the data.
+
+13:44.320 --> 13:50.440
+So we're as we were mentioning in the previous lecture if you just have this view and this form you
+
+13:50.440 --> 13:54.670
+have a good looking form you have the tokens so it's secure but you're not doing anything with that
+
+13:54.670 --> 13:55.000
+data.
+
+13:55.030 --> 13:56.710
+Once it gets posted to you.
+
+13:57.100 --> 14:00.820
+So we're going to do is come back to views and actually show you a very simple example of something
+
+14:00.820 --> 14:02.620
+you could do it with it.
+
+14:02.620 --> 14:07.300
+You're not going to just print out the data into the console but this will show you an idea of how you
+
+14:07.300 --> 14:11.440
+can actually grab that data later I'll show you a much more complicated things you can do with that
+
+14:11.440 --> 14:11.900
+data.
+
+14:12.040 --> 14:16.630
+Right now keep things simple and just print out whatever the person puts into the form directly into
+
+14:16.630 --> 14:19.260
+the console.
+
+14:19.330 --> 14:25.300
+And what I'll do to start off is I have the form will form that form name that's fine.
+
+14:25.480 --> 14:31.010
+When the collapse of trees we get a little more room here and then the first thing I want to do is check
+
+14:31.100 --> 14:32.990
+if the request
+
+14:35.780 --> 14:42.590
+then call the method attribute is equal to post meaning someone actually hit submit and posted something
+
+14:42.590 --> 14:43.410
+back.
+
+14:43.820 --> 14:45.580
+I'm going to need to pass in their request.
+
+14:45.590 --> 14:56.200
+Now I will say form is equal to forms the form name and then passing that request not post and the pending
+
+14:56.240 --> 14:59.510
+on what plugins you have if you downloaded some Gengel plug ins.
+
+14:59.560 --> 15:01.890
+You'll have a lot more help and syntax highlighting here.
+
+15:01.920 --> 15:10.850
+So keep that in mind and then we'll say if the form and it has a method called is valid which is essentially
+
+15:10.850 --> 15:13.360
+a boolean check to see if the form is actually valid.
+
+15:13.430 --> 15:16.270
+And we'll talk a lot more about custom validation checks later on.
+
+15:16.370 --> 15:21.470
+Right now this should automatically turn into valid as long as it works of the T.M. inputs like the
+
+15:21.470 --> 15:23.730
+at symbol in an email input.
+
+15:23.960 --> 15:29.180
+So again if the form is valid in the request method is post I can do something here.
+
+15:29.180 --> 15:34.300
+So this is where your do something Kodo at work.
+
+15:34.330 --> 15:36.440
+So let's show you a very simple thing to do with it.
+
+15:36.730 --> 15:38.630
+And then just grab the data and print it out.
+
+15:38.710 --> 15:41.860
+Probably would never actually do this but just show that it works.
+
+15:41.950 --> 15:45.140
+So I'll say validation
+
+15:47.540 --> 15:48.910
+success.
+
+15:49.190 --> 15:54.360
+So he certainly validated that data from the post and then I'll show you how to access that data.
+
+15:54.380 --> 16:01.880
+So you grab your form object and then offer that one way to do it is by grabbing cleaned underscore
+
+16:01.970 --> 16:06.890
+data and then those actual fields that you had in your forms if you could have forms up higher remember
+
+16:06.890 --> 16:13.550
+we had these object class class object attributes the name email and text coming back here.
+
+16:13.550 --> 16:15.480
+That's what you passen as the key.
+
+16:15.490 --> 16:17.390
+So I can passen name here.
+
+16:17.970 --> 16:25.680
+And then I can print this out directly into the council and the show a little bit of nicer formatting
+
+16:25.920 --> 16:31.830
+that won't just print that out but I will say name space and then we're going to do this again for the
+
+16:31.830 --> 16:32.900
+other two fields.
+
+16:33.530 --> 16:43.930
+So I'll do a paste here and I'm going to say email and then I'm going to say here text and if it is
+
+16:43.930 --> 16:48.460
+ever going too fast for you you can always reference the notes and you can reference the presentation
+
+16:48.880 --> 16:52.910
+the slides that is for kind of a walkthrough of the steps we're doing here.
+
+16:53.180 --> 16:58.260
+And then we have e-mail and then whatever text they happen to put in a text area.
+
+16:59.130 --> 16:59.730
+OK.
+
+17:00.030 --> 17:03.260
+So we'll save that the render stays the same.
+
+17:03.400 --> 17:07.250
+And now let's bring our let's quit the server and run it again.
+
+17:07.250 --> 17:12.410
+We shouldn't have to do this but just to make sure that everything got posted as a change and bringing
+
+17:12.420 --> 17:16.050
+our browser.
+
+17:16.080 --> 17:24.680
+OK so here it is at the home page or we're going to do is go to slash form page we'll fill out the form.
+
+17:25.030 --> 17:28.190
+So I'll say my name is Jose my name.
+
+17:28.300 --> 17:30.060
+Hello at gmail dot com.
+
+17:30.220 --> 17:33.070
+And then some random texts.
+
+17:33.070 --> 17:36.190
+If I hit submit now we see it here.
+
+17:36.190 --> 17:42.670
+Rinse it out in the consul Jose emails Hello Jim about COM texts etc. and that is the very basics of
+
+17:42.670 --> 17:43.990
+a jingle form.
+
+17:44.050 --> 17:49.690
+Hopefully you can see how powerful Django is just with the most basic form you can grab data that the
+
+17:49.690 --> 17:56.090
+user input it and easily work with it and you had the advantage of just having it put essentially to
+
+17:56.170 --> 17:58.940
+very small template tags in the form.
+
+17:58.960 --> 18:01.010
+A lot easier will be seen in the past.
+
+18:01.090 --> 18:05.200
+OK thanks everyone if you have any questions feel free to post the Kewney forums.
+
+18:05.200 --> 18:10.350
+I would definitely suggest that you try coding this out on your own just using the notes as a guide
+
+18:10.540 --> 18:12.020
+and the slides as a guide.
+
+18:12.340 --> 18:13.750
+Thanks I'll see you at the next lecture.

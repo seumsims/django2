@@ -1,0 +1,208 @@
+WEBVTT
+
+00:05.270 --> 00:09.760
+Hello everyone and welcome back to the solutions lecture for the Django challenge.
+
+00:10.070 --> 00:13.790
+Well we're going to be doing this lecture video is just going through the solutions to the previous
+
+00:13.790 --> 00:14.940
+challenges together.
+
+00:15.140 --> 00:19.210
+If you are able to figure it all out then you can go ahead and just skip this lecture.
+
+00:19.370 --> 00:24.320
+But if you want to see the process gone through one more time feel free to stick around as I go through
+
+00:24.320 --> 00:24.780
+it.
+
+00:24.830 --> 00:31.160
+I'm going to jump to the Adam text editor to get started OK here I am at the Adam text editor.
+
+00:31.160 --> 00:36.260
+Now the first thing we needed to do was actually create a new Django project so I'll just go ahead and
+
+00:36.260 --> 00:37.550
+put this under that same.
+
+00:37.550 --> 00:42.830
+My Django stuff folder that we had earlier makes you change directories so you're matched to it.
+
+00:42.830 --> 00:47.320
+And then well I will go ahead and do is say Django dash adamant.
+
+00:47.360 --> 00:49.860
+What was.
+
+00:50.000 --> 00:52.820
+And then I do the starts project command.
+
+00:52.820 --> 00:57.410
+Hopefully we're able to remember that and then whatever you want to name the project in this case we'll
+
+00:57.410 --> 01:03.590
+call it something like pro to we'll hit enter and then we can see here that the project too has been
+
+01:03.590 --> 01:04.010
+created.
+
+01:04.010 --> 01:08.880
+So under my jingoes stuff I had this new pro to folder and it's ready to go.
+
+01:08.930 --> 01:14.980
+Then the next thing I needed to do was actually create an application inside of this pro to project.
+
+01:15.140 --> 01:19.810
+So I will do is change the rectory to be inside of Pro-Tools.
+
+01:20.300 --> 01:27.980
+So I will say see the two row to and now I should be aligned of this managed up by file so I can call
+
+01:27.980 --> 01:32.190
+that file and then call start app and create that second app.
+
+01:32.360 --> 01:39.710
+So say Python managed up PI and then the commander I want to call for that the star app and then let's
+
+01:39.710 --> 01:49.830
+call this something like app to create it or it can see we have app 2 inside of that project too.
+
+01:50.090 --> 01:50.860
+Great.
+
+01:50.940 --> 01:53.950
+Then the next thing you want to do is actually create a view.
+
+01:54.010 --> 01:58.140
+So I click here on a view and here we say create your views here.
+
+01:58.180 --> 02:00.010
+So let's fill in the needed information.
+
+02:02.020 --> 02:08.200
+The typical view is shown you how to do so far requires that HTP response and we need to actually import
+
+02:08.200 --> 02:08.690
+that.
+
+02:08.710 --> 02:11.820
+We will say from jingo.
+
+02:12.160 --> 02:17.920
+H t t p import HTP response.
+
+02:20.740 --> 02:26.590
+And then we'll go ahead and create that index for you which is going to be DPF to create that function
+
+02:27.340 --> 02:30.440
+index and then it takes on a request.
+
+02:30.490 --> 02:34.900
+Remember this could actually be called whatever you want but by convention it's request and we will
+
+02:34.900 --> 02:43.580
+return that HTP response and pass in some code and in this case actually wanted you to pasan some H
+
+02:43.600 --> 02:52.400
+Tim L So will say my second project and then close off the H team Elkhead am.
+
+02:52.550 --> 02:59.690
+Now obviously you won't be passing in an entire h m l string here for most usual circumstances but I
+
+02:59.690 --> 03:05.180
+just wanted to show you what would happen in case you wanted to test out the capabilities of Django
+
+03:05.780 --> 03:07.760
+for this views that py file.
+
+03:08.270 --> 03:13.150
+So I will save that and then we need to link this new view to our u r l.
+
+03:13.250 --> 03:15.930
+So I come over here to you or else start.
+
+03:16.190 --> 03:20.350
+Scroll down and then we have the URL pattern's list.
+
+03:21.020 --> 03:31.270
+And just like we did last time and going to say from and in this case it's going to be app to import
+
+03:33.510 --> 03:38.700
+views that views that py file and then under your patterns.
+
+03:38.940 --> 03:45.920
+I'm going to say your L looks good and to have that in your l using regular expression.
+
+03:46.050 --> 03:51.070
+I'm going to use just like we did last time the Chevron with the dollar sign.
+
+03:52.080 --> 04:00.420
+And then as a second argument let's make sure we only have one single quote there I will say buse dot
+
+04:01.080 --> 04:02.100
+index.
+
+04:02.100 --> 04:09.650
+So I call index off of that and then we'll just give that the name index comma to complete that.
+
+04:09.900 --> 04:16.980
+And then finally I need to edit my settings that PI file under pro 2 to let the actual project know
+
+04:17.040 --> 04:19.750
+that my app 2 application actually exists.
+
+04:19.980 --> 04:28.960
+So again we come down here until we see installed apps and I will add in here as an argument that app
+
+04:28.970 --> 04:29.640
+too.
+
+04:30.120 --> 04:35.790
+And then I will save this then we can actually run our server and make sure everything works correctly.
+
+04:35.790 --> 04:48.270
+Let's go ahead and do that just come down here and I will say Python managed up high run server enter
+
+04:48.370 --> 04:50.680
+lets make sure everything works out OK.
+
+04:50.700 --> 04:52.500
+Looks like we're running it here.
+
+04:52.680 --> 04:54.900
+So I'm going to copy this.
+
+04:54.900 --> 04:58.690
+Put it into my browser and hopefully we see that string.
+
+04:58.710 --> 05:03.200
+My second project and looks like it came out well in the drag it over.
+
+05:03.210 --> 05:08.610
+Now we can see here we have my second project in a taluk So it's actually able to understand that that's
+
+05:08.670 --> 05:11.960
+HVM L when it reports back that view.
+
+05:11.970 --> 05:17.670
+And what I want you to do is sort of get used to this workflow of creating a project and creating applications
+
+05:18.080 --> 05:22.290
+hopefully you feel comfortable with the few commands that we've learned so far.
+
+05:22.290 --> 05:22.580
+All right.
+
+05:22.620 --> 05:24.550
+That's really all there is to this challenge.
+
+05:24.570 --> 05:29.280
+If you were getting stuck on anything or had any questions feel free to post the Q&amp;A forums and I'll
+
+05:29.280 --> 05:30.670
+be happy to help you there.
+
+05:30.900 --> 05:32.910
+Thanks everyone and I'll see you at the next lecture.

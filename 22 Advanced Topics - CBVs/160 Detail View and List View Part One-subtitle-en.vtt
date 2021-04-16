@@ -1,0 +1,679 @@
+WEBVTT
+
+00:04.970 --> 00:08.330
+Hello everyone and welcome to list views and detail views.
+
+00:09.280 --> 00:14.800
+We've learned how to use class based views to directly show a template but what about models in your
+
+00:14.800 --> 00:16.060
+application.
+
+00:16.060 --> 00:21.760
+Often when you have models we want to either list the records from the model or show details of a single
+
+00:21.760 --> 00:23.660
+record in that model's database.
+
+00:24.650 --> 00:29.210
+And previously we did this with calls using the object relation mapper directly.
+
+00:29.210 --> 00:34.700
+And that was back when we were doing things such as calling my model objects all that's how he used
+
+00:34.700 --> 00:39.970
+to connect a template to an actual call to the model to show information from the database.
+
+00:39.980 --> 00:45.650
+However you can imagine that these sort of operations are very common and they're so common that Shingo
+
+00:45.650 --> 00:50.840
+has some generic view classes you can inherit from two actually very quickly display information from
+
+00:50.840 --> 00:51.750
+your model.
+
+00:51.950 --> 00:55.700
+And this is where the power of class based views really comes to help us out.
+
+00:55.700 --> 01:01.790
+So if you haven't been convinced yet that class based views are worth the tiny bit of extra effort after
+
+01:01.790 --> 01:05.870
+this lecture I really think your opinion is going to change and you probably never want to go back to
+
+01:05.870 --> 01:07.430
+function based views.
+
+01:07.940 --> 01:12.080
+OK so in this lecture we're going to be doing is quickly creating some new models to actually show off
+
+01:12.080 --> 01:16.700
+these features as well as some need templates and then we're going to focus on two generic views which
+
+01:16.700 --> 01:18.840
+is the list view and the detailed view.
+
+01:18.860 --> 01:23.510
+So far we've only seen the view and template you know we're going to learn about List View and detail
+
+01:23.510 --> 01:26.650
+view which will allow us to connect to the models which we're going to be creating.
+
+01:26.660 --> 01:32.880
+Also in this lecture and then previously we've been putting all our templates inside the templates folder
+
+01:33.120 --> 01:34.620
+within the matching app folder.
+
+01:34.620 --> 01:38.460
+And what we're also going to do and this lecture is show you the common practice which is essentially
+
+01:38.460 --> 01:42.810
+the reverse have a template folder inside of the Applications folder.
+
+01:42.810 --> 01:44.280
+So say another way.
+
+01:44.430 --> 01:49.350
+Previously we had that templates folder and then inside of that you had your matching application folder
+
+01:49.380 --> 01:52.070
+and then inside of that you had those dot h team l files.
+
+01:52.110 --> 01:55.700
+It's really common in the real world to have essentially the reverse way.
+
+01:55.860 --> 02:00.020
+So under your application folder that has its own templates folder and under that you have that each
+
+02:00.040 --> 02:01.750
+team all files.
+
+02:01.900 --> 02:04.590
+So we're going to show example of doing that in this lecture as well.
+
+02:04.590 --> 02:09.550
+And it's going to basically set you up to be able to read other real world projects so if you're ever
+
+02:09.550 --> 02:14.950
+browsing get a hub and see someone's Shingo project most likely they'll be using class based views especially
+
+02:14.950 --> 02:19.240
+lists and detail view and they'll have the template structure that we're going to show in this lecture.
+
+02:19.240 --> 02:19.670
+OK.
+
+02:19.900 --> 02:21.070
+So there's a lot to cover.
+
+02:21.070 --> 02:24.060
+Let's get started by helping over to the Adam text editor.
+
+02:24.070 --> 02:24.410
+All right.
+
+02:24.430 --> 02:29.380
+So the first thing to actually show a list view and a detailed view is to create the models that they're
+
+02:29.440 --> 02:30.780
+going to report back.
+
+02:30.790 --> 02:36.110
+So let's come over to models up high in our basic app folder and let's create those models.
+
+02:36.130 --> 02:44.250
+I'm going to try to mimic some sort of school administration Web site so maybe we'll have a class school
+
+02:45.310 --> 02:51.520
+and that will say models that model and then we're going to have three fields will have a name of the
+
+02:51.520 --> 02:59.640
+school and they will be models and there will be a character field and we can give you the max length
+
+02:59.640 --> 03:04.050
+if you want to say 256 doesn't really matter for our case.
+
+03:04.170 --> 03:12.480
+And then every school also has a principal that school and will say models start at character field.
+
+03:12.480 --> 03:13.220
+And what the heck.
+
+03:13.220 --> 03:17.160
+Let's also give it a max length for that principal's name.
+
+03:17.160 --> 03:21.270
+And then every school is also going to have location models.
+
+03:21.270 --> 03:22.740
+That's also a character field.
+
+03:24.780 --> 03:28.110
+We'll give it a max length 256 as well.
+
+03:29.240 --> 03:33.080
+And then if we remember from talking about models we usually want to have a string representation of
+
+03:33.080 --> 03:35.740
+that model in case we ever want to print it out.
+
+03:35.840 --> 03:42.480
+So create that special method SDR and I will say return self-taught name.
+
+03:42.560 --> 03:42.830
+All right.
+
+03:42.860 --> 03:44.250
+Looking good on that school.
+
+03:44.390 --> 03:45.730
+And schools have students.
+
+03:45.740 --> 03:51.100
+So let's create another model we'll call it class students.
+
+03:51.340 --> 03:54.550
+Let me make a couple new lines here so we can see this all typed out.
+
+03:55.460 --> 03:59.560
+And then all inherit from models that model.
+
+03:59.740 --> 04:04.950
+And let's give these students three fields so the student themselves are going to have a name won't
+
+04:04.990 --> 04:10.120
+worry about last name or first name just keep things simple right now and let's give the students name
+
+04:10.120 --> 04:12.470
+a max length of 256 as well.
+
+04:12.490 --> 04:14.290
+I'm choosing that number arbitrarily.
+
+04:14.460 --> 04:14.810
+All right.
+
+04:14.830 --> 04:18.670
+And another attribute a student can have is an H.
+
+04:18.790 --> 04:25.090
+Now we're going to do is call models and something we haven't seen before as a field is the positive
+
+04:25.990 --> 04:27.130
+integer field.
+
+04:28.170 --> 04:31.170
+You make sure you spell it right integer field.
+
+04:32.400 --> 04:36.150
+And we don't provide any more arguments there because basically what the positive integer field is you
+
+04:36.150 --> 04:39.090
+may have guessed just is a positive integer.
+
+04:39.210 --> 04:41.250
+Makes sense because Agias can't be negative.
+
+04:41.400 --> 04:45.960
+And since these are essentially we'll call them elementary school kids we don't care if are eleven point
+
+04:45.960 --> 04:52.850
+five years old we'll just say they're either 11 12 cetera and each student is going to be assigned to
+
+04:52.850 --> 04:59.480
+school and that will be then a foreign key field because we want it to match up to the school object
+
+04:59.480 --> 05:06.620
+that peer to school model I should say which means we pass in school and we can also passen in related
+
+05:06.620 --> 05:14.980
+name parameter that will allow us to call this later on so we'll say it related name students and let's
+
+05:14.980 --> 05:19.010
+have a string.
+
+05:19.030 --> 05:22.960
+So if you have a printout a student will probably just return the student's name.
+
+05:22.960 --> 05:26.570
+Self-tanning look at pretty simple stuff here.
+
+05:26.640 --> 05:32.700
+You have the school model has a name a principal location and then we have name age and school for the
+
+05:32.700 --> 05:33.370
+student.
+
+05:33.660 --> 05:34.810
+And that's basically it.
+
+05:34.830 --> 05:40.140
+Now we want to do is register these in are adamant that PI file.
+
+05:40.180 --> 05:51.500
+So let's open up admin that PI under basic app and I will import from basic app the models import school
+
+05:51.590 --> 06:02.840
+karma student and then I will call adamant that site thought register in its lowercase and all pasand
+
+06:02.850 --> 06:12.040
+school and we're going to do the same thing for student so adamant that site register student.
+
+06:12.180 --> 06:16.420
+That way I can just quickly call the admin and add some students in at some schools.
+
+06:16.530 --> 06:21.420
+You can also create a population that py file to auto populate this using faker.
+
+06:21.450 --> 06:23.310
+But things are just simple right now.
+
+06:23.340 --> 06:24.940
+Focus on the class based views.
+
+06:25.110 --> 06:31.430
+So I'll just do those manually in the admin in order to confirm that this all worked and won't create
+
+06:31.460 --> 06:33.890
+a super user startup my server.
+
+06:33.950 --> 06:37.510
+And then actually add some students and schools to this.
+
+06:37.520 --> 06:45.720
+So first thing I want to do is say Python managed up high and migrate OK perfect.
+
+06:45.720 --> 06:52.830
+And then I'll say Python told me to say make migrations this makes sense will say make migrations basic.
+
+06:52.880 --> 06:54.970
+Underscore app enter.
+
+06:55.140 --> 07:00.870
+It created the model school created the model student perfect and also a python managed up high and
+
+07:00.930 --> 07:06.610
+migrate one more time and it's applying all those migrations looks like it worked out well.
+
+07:06.620 --> 07:08.460
+Finally I want to create a supervisor.
+
+07:08.520 --> 07:14.030
+Python managed up-I create super Lapsley make sure you spell that right.
+
+07:14.030 --> 07:22.560
+Create super user will say Jose whatever password is fine.
+
+07:22.640 --> 07:25.270
+Hello at gmail dot com password.
+
+07:25.310 --> 07:30.470
+All use test password and I'll type that in again.
+
+07:30.470 --> 07:30.810
+Great.
+
+07:30.820 --> 07:32.520
+So now my super users are ready to go.
+
+07:32.530 --> 07:33.930
+I've migrated to databases.
+
+07:34.030 --> 07:37.330
+Let's add in some schools and students make sure everything's working properly.
+
+07:37.330 --> 07:44.790
+I'll type in Python managed up-I run the server and then bring in my browser OK bring in that browser.
+
+07:44.800 --> 07:46.730
+I can still see stuff from the template view.
+
+07:46.750 --> 07:51.900
+We're going to change this later on but what I'm more concerned about is going to that admin page.
+
+07:54.410 --> 07:55.900
+Perfect Genger administration.
+
+07:55.950 --> 07:56.800
+Let's log in
+
+07:59.840 --> 08:03.390
+and then we can see here we have schools and students so I will do it.
+
+08:03.400 --> 08:08.570
+I'm going to add some schools and add some students to the schools so let's create a school or call
+
+08:08.570 --> 08:19.120
+this school AUPs for school principal Mr. John wherever and I will say it's based in San Francisco.
+
+08:19.240 --> 08:24.440
+Or let's just say Frank because I don't want to say too much and I will say that.
+
+08:24.650 --> 08:28.760
+Let me expand this all the way and create one more school.
+
+08:28.850 --> 08:40.310
+We'll call this new second school principal say Mrs. Smith and its location will say New York.
+
+08:40.420 --> 08:43.230
+Obviously it doesn't really matter what values we put in here.
+
+08:43.450 --> 08:51.220
+So there are first schools come back to basic app and let's add in some students going to add a student
+
+08:52.090 --> 08:59.710
+and first student we'll just call them out call him Mikey or Mike whatever 10 years old and I'm going
+
+08:59.710 --> 09:02.120
+to assign them to a school from the Strabane menu.
+
+09:02.150 --> 09:05.140
+Mikey goes that first school.
+
+09:05.140 --> 09:07.690
+Now let's add two students per school.
+
+09:07.750 --> 09:12.910
+So how John will be 12 years old also goes the first school.
+
+09:12.910 --> 09:15.530
+Save that and then let's come back up here.
+
+09:15.550 --> 09:16.140
+Whoops.
+
+09:16.310 --> 09:26.060
+Actually let's stay at students and we'll put in some more students we'll say Lauren is 11 years old
+
+09:26.750 --> 09:37.340
+and we'll have her go to new second school and then at a student and I'll call Sarah whenever.
+
+09:37.350 --> 09:39.280
+9 years old doesn't really matter.
+
+09:39.330 --> 09:40.440
+Second school.
+
+09:40.440 --> 09:44.310
+So I signed two girls name to the second school that way I make sure that everything is working when
+
+09:44.310 --> 09:48.230
+I work a stuff on the front end and I assigned two boys name to the first school.
+
+09:48.240 --> 09:49.100
+It really doesn't matter.
+
+09:49.110 --> 09:51.840
+It should be apparent to you however you do this.
+
+09:52.020 --> 09:52.940
+So we'll come back home.
+
+09:52.950 --> 09:54.100
+Everything's ready to go.
+
+09:54.210 --> 09:59.490
+I'm going to log out and then let's jump back into the Adam text editor and continue by actually working
+
+09:59.490 --> 10:02.390
+at the class based views and then pointing to your ELSE to them.
+
+10:03.430 --> 10:09.610
+All right so as I mentioned in the slides portion of this lecture it's very common to have the templates
+
+10:09.610 --> 10:13.800
+folder underneath the application those templates belong to.
+
+10:13.990 --> 10:17.890
+So we're going to show that paradigm of creating the templates folder.
+
+10:17.920 --> 10:22.990
+That way instead of just having a single template with the base files.
+
+10:22.990 --> 10:28.900
+So what we're going to do is we'll keep base T.M. an index that each team will under the templates folder.
+
+10:28.900 --> 10:33.400
+Note that they're not underneath a subdirectory of the basic app.
+
+10:33.400 --> 10:39.040
+Instead we'll say that templates that relate to the basic application are going to be under neath their
+
+10:39.040 --> 10:40.490
+own templates folder.
+
+10:40.570 --> 10:48.940
+So we will say basic app new folder and we'll call it templates and then it's also common that underneath
+
+10:48.970 --> 10:56.390
+this templates you add in another folder that matches the application name now there's various ways
+
+10:56.390 --> 10:57.160
+to do this.
+
+10:57.200 --> 11:01.970
+And what I would recommend that you actually check the documentation page on different conventions and
+
+11:01.960 --> 11:07.070
+there's also a great book called two scoops of Django which has its own conventions for setting up a
+
+11:07.070 --> 11:09.550
+project and setting up file formats.
+
+11:09.590 --> 11:13.820
+And there's also something called cookie cutter Django that you may also want to google and check out
+
+11:14.060 --> 11:17.130
+which kind of shows some boiler plate Gengel.
+
+11:17.180 --> 11:20.670
+Again this is kind of a thing where it's your own personal preference.
+
+11:20.690 --> 11:24.850
+So what I don't want to actually give any hard guidelines here on you have to do it this way.
+
+11:24.980 --> 11:30.250
+It really depends on the scope of your project and how self-contained you want applications to be.
+
+11:30.260 --> 11:34.970
+So this method the applications are a little more self-contained because the templates are going to
+
+11:34.970 --> 11:41.350
+be underneath the applications folder which is nice if we intend to use this application for other projects.
+
+11:41.420 --> 11:45.420
+But if you're doing a small project maybe you don't need all of this so keep that in mind.
+
+11:45.440 --> 11:48.260
+There's no right or wrong way to do step here.
+
+11:48.260 --> 11:48.620
+OK.
+
+11:48.740 --> 11:57.320
+Continuing on underneath this basic folder I'll create three new files I'll create some basic app base
+
+11:57.410 --> 12:00.530
+that H T.M. that I will extend from.
+
+12:00.530 --> 12:07.940
+And then also create a new file and I'll create a school detail that HTML file and then I'm also going
+
+12:07.940 --> 12:09.810
+to create a school list file.
+
+12:09.850 --> 12:14.760
+So when you file school list age T.M..
+
+12:15.050 --> 12:17.120
+So those are three female files.
+
+12:17.120 --> 12:22.190
+Now what I'm going to do right now is player on this team as files and make sure everything is set up
+
+12:22.520 --> 12:26.330
+for those class based use in order to actually do that.
+
+12:26.330 --> 12:28.490
+We have to create those class based views.
+
+12:28.640 --> 12:35.000
+So let's hop back over to views that pi and you kind of do this in any order you want essentially have
+
+12:35.000 --> 12:36.440
+three main tasks left.
+
+12:36.440 --> 12:38.810
+That's set up the remaining class based views.
+
+12:38.930 --> 12:44.480
+Set up those HVM l template files and then also set up the or else that pi to point the views to those
+
+12:44.480 --> 12:45.850
+new templates we created.
+
+12:45.860 --> 12:47.650
+So we have those three things left to do.
+
+12:47.660 --> 12:49.770
+There's no right order to do them in.
+
+12:49.790 --> 12:52.140
+So they kind of all code depend on each other.
+
+12:52.280 --> 12:56.790
+So something will just start off with is the actual class based views themselves and the first thing
+
+12:56.790 --> 13:01.450
+you do say from Jingo that use that generic is import instead of your template.
+
+13:01.450 --> 13:06.990
+You the list view and then the detail view.
+
+13:07.280 --> 13:09.770
+And these are going to be two views that you use all the time.
+
+13:09.770 --> 13:15.470
+In fact list view and detail view are pretty much the most common generic views you'll see in other
+
+13:15.470 --> 13:16.700
+people's Shango projects.
+
+13:16.700 --> 13:19.850
+They're really so useful that people use them all the time.
+
+13:19.850 --> 13:25.600
+Now let's try to make the argument and show the motivation of why or create a class school list of view
+
+13:27.120 --> 13:36.820
+passen list view and then I will connect it to a model and we just have to say model is equal to and
+
+13:36.820 --> 13:38.180
+then the actual name of the model.
+
+13:38.200 --> 13:41.010
+And that means that we need to import models.
+
+13:41.080 --> 13:48.910
+So I will say from dots in poor models what I could have also done is safe from basic underscore app
+
+13:49.030 --> 13:50.140
+import models.
+
+13:50.140 --> 13:56.160
+That just means look in the current directory that is a little nicer in case you ever want to change
+
+13:56.160 --> 13:57.760
+the actual name of stuff here.
+
+13:58.110 --> 13:58.550
+OK.
+
+13:58.680 --> 14:06.210
+So you'll say model is equal to models dot school and we will save that and believe it or not that is
+
+14:06.270 --> 14:11.570
+all you have to do and you will be provided with a list of every record in this model.
+
+14:11.680 --> 14:12.350
+That's it.
+
+14:12.570 --> 14:16.050
+That list view does all the work for you OK.
+
+14:16.250 --> 14:19.640
+So now I'll show what a detail view looks like.
+
+14:19.640 --> 14:28.370
+We'll say class school detail view and then in a detailed view.
+
+14:30.160 --> 14:36.780
+And we'll also connect it to model is equal to models.
+
+14:36.800 --> 14:45.490
+The school and then let's provide it with a template underscore name so you can see how list view or
+
+14:45.490 --> 14:49.810
+detail you are kind of related to the template view and the fact that they can take the same class object
+
+14:49.840 --> 14:51.770
+attribute template underscore name.
+
+14:51.880 --> 14:54.640
+And this is where we're going to point to the template.
+
+14:54.640 --> 15:02.460
+In this case it goes under basic app slash school underscore detail that aged him.
+
+15:02.710 --> 15:08.740
+That was a template we just made underneath the basic apps own templates folder basic folder and that
+
+15:08.740 --> 15:14.190
+sort of organization makes using the still view analyst view a little easier.
+
+15:14.230 --> 15:18.240
+Which is why you sort of see that more common in the real world.
+
+15:18.250 --> 15:18.770
+OK.
+
+15:18.940 --> 15:21.370
+So we'll leave these like this for now.
+
+15:21.370 --> 15:26.710
+Now what we're later going to show is how you can use the Context object name class attribute.
+
+15:26.710 --> 15:28.960
+So I'll leave that out for now but we'll come back to this.
+
+15:28.960 --> 15:33.380
+We're not finished with this view is that PI file just quite yet but I will save it for now.
+
+15:33.600 --> 15:33.910
+OK.
+
+15:33.940 --> 15:36.210
+So we still have to work with the templates.
+
+15:36.220 --> 15:41.770
+We made those various HVM l files and we still have the work of the Oreilles not pi file to connect
+
+15:41.770 --> 15:44.200
+the views to those new templates.
+
+15:44.200 --> 15:47.150
+This is a good cutting off point and we'll continue all of this right.
+
+15:47.170 --> 15:49.640
+We're relieving off here the next lecture.
+
+15:49.660 --> 15:50.020
+Thanks.
+
+15:50.020 --> 15:54.310
+And if you have any questions feel free to post the Q&amp;A forums and make sure also check the notes that
+
+15:54.310 --> 15:55.270
+Blotz us lecture.

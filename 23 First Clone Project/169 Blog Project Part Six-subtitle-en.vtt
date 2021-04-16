@@ -1,0 +1,265 @@
+WEBVTT
+
+00:05.250 --> 00:05.850
+Hello everyone.
+
+00:05.850 --> 00:10.050
+Welcome back to Part 6 of the blog clone project.
+
+00:10.140 --> 00:15.620
+So he finished up all our views and now let's wrap up all the or else including the Urals in the project.
+
+00:15.630 --> 00:20.790
+You're also up by file by setting up a quick authentication system that runs on top of that super user
+
+00:20.790 --> 00:21.520
+group.
+
+00:21.600 --> 00:26.940
+That way anyone that actually wants to create a post needs to be a super user should be pretty brief.
+
+00:26.940 --> 00:28.380
+So let's get started.
+
+00:28.930 --> 00:29.230
+All right.
+
+00:29.230 --> 00:34.750
+Here I am at the Adam text editor and I will open up the URLs that py file that corresponds to the my
+
+00:34.750 --> 00:36.280
+site project folder.
+
+00:36.550 --> 00:45.210
+And here when I'm going to do is save from jingo dot contrib.
+
+00:45.390 --> 00:48.910
+Th authorization import use.
+
+00:49.160 --> 00:53.720
+And what I'm doing is I'm just importing some views just like I would from another application from
+
+00:53.720 --> 00:55.280
+the authorization application.
+
+00:55.280 --> 00:57.040
+And we've seen this actually done before.
+
+00:57.410 --> 00:58.730
+So let's set this up.
+
+00:58.770 --> 01:08.440
+Going to call your L and I'm going to create a domain slash accounts slash logons can be or a logon
+
+01:08.450 --> 01:19.410
+page and we're just going to call use the log in and give it the name logon and the next thing we're
+
+01:19.410 --> 01:30.930
+going to do is create our log out souls say our accounts slash log outs slash dollar sign in here we'll
+
+01:30.930 --> 01:40.660
+say views log out give it the name walk out and then give it some keyword arguments or so.
+
+01:40.660 --> 01:46.870
+KW a RG Yes we can collapse that directory tree give ourselves a little more room here and then we'll
+
+01:46.870 --> 01:51.010
+say equal to an old do we'll give it the next page.
+
+01:51.040 --> 01:58.430
+So that's the next page going to go to and we'll have it go with a value of just a forward slash.
+
+01:58.430 --> 02:03.860
+So when you log out the next page you go to is just the home page which is our post list page.
+
+02:04.160 --> 02:04.610
+OK.
+
+02:04.760 --> 02:11.390
+So those are all patterns and if we check out under registration we have our log in that each team l
+
+02:11.390 --> 02:14.270
+page which is ready to go.
+
+02:14.510 --> 02:16.350
+So let's fill that out right now.
+
+02:17.540 --> 02:25.750
+And we'll say that this extends from blog base.
+
+02:25.810 --> 02:33.450
+H tim L. and depending on what plugins you have for Adam this could be syntax highlighted and will eventually
+
+02:33.450 --> 02:36.440
+have some base but each team will block.
+
+02:36.480 --> 02:45.240
+So I'm going to say block and we'll have some sort of content block which will behave as our body block.
+
+02:45.240 --> 02:51.280
+So we've usually seen you can call it whatever you want and then we'll need to call and block here.
+
+02:51.280 --> 02:53.680
+So this is essentially going to be our log in page.
+
+02:53.680 --> 02:59.090
+So I'm going to have it be a Jumbotron eventually in the baseline h team l file or we're gonna end up
+
+02:59.090 --> 03:06.750
+doing is sending a link to bootstrap and we'll just say something like Please log in.
+
+03:08.260 --> 03:15.900
+And then after that we'll have H-3 and imprints will remind the person must be a super user.
+
+03:16.100 --> 03:20.060
+Please check with the site's admin.
+
+03:20.150 --> 03:24.700
+Just some sort of message there to indicate Hey you must be a supervisor if you're not checking to say
+
+03:24.700 --> 03:25.730
+admin.
+
+03:26.120 --> 03:28.050
+And then here we can add in some logic.
+
+03:28.280 --> 03:29.810
+So we're going to say is
+
+03:34.140 --> 03:35.520
+the forum.
+
+03:36.870 --> 03:43.640
+Errors and then whenever we have an if you should have an end if so if that's the case.
+
+03:43.670 --> 03:49.910
+So if our form has any errors in it meaning essentially there was a match between the user or the password
+
+03:50.350 --> 04:00.120
+to have something pop up here saying your username and password didn't match please try.
+
+04:00.140 --> 04:00.590
+Whoops.
+
+04:00.650 --> 04:06.000
+Quis try again.
+
+04:06.090 --> 04:09.040
+Otherwise we'll just continue on with this form.
+
+04:09.210 --> 04:14.430
+So create a forum tag and it doesn't need a class and for the action we're going to have it do is go
+
+04:14.430 --> 04:16.430
+to the log in page.
+
+04:16.540 --> 04:23.450
+So this action sort of index that each symbol is going to have it using your template tags.
+
+04:24.690 --> 04:33.580
+Will say your el log in and we're basically since we're into your old PI file pointing everything as
+
+04:33.580 --> 04:39.370
+far as templates to go straight to the blog I don't have like we've typically seen something like blog
+
+04:39.390 --> 04:43.200
+coaling log in because there are no templates at the site level.
+
+04:43.210 --> 04:44.640
+Everything goes to the blog.
+
+04:44.650 --> 04:49.180
+So in that case you can kind of simplify things by just saying log in and we'll discover that more as
+
+04:49.180 --> 04:51.450
+we mess around with more templates.
+
+04:51.490 --> 04:53.920
+But we also don't need a.
+
+04:54.000 --> 04:54.780
+Actually.
+
+04:55.030 --> 04:57.600
+Let's make this Kapolei just so it's clear.
+
+04:57.600 --> 05:01.910
+But what we do need excuse me is the SRF token.
+
+05:01.990 --> 05:12.000
+So let's add that in so we'll say see SRF underscore tokin.
+
+05:12.170 --> 05:18.160
+And after that we're going to have form dot as underscore.
+
+05:18.550 --> 05:22.690
+So that creates the paragraph form and after that we need some inputs.
+
+05:22.690 --> 05:24.990
+So I'll have a submit button.
+
+05:25.480 --> 05:29.870
+And let's give the class that's going to align with the bootstrap classes.
+
+05:29.880 --> 05:32.900
+So between beats in the primary.
+
+05:32.920 --> 05:37.510
+Eventually you'll start kind of memorizing more and more of these classes and it doesn't need a name
+
+05:37.660 --> 05:40.010
+because we're not linking it to anything Tim Wise.
+
+05:40.150 --> 05:46.050
+But we give it a value and let's just have the button say something like log in and then beyond that
+
+05:46.050 --> 05:49.480
+what we want is to have is some hidden input.
+
+05:49.710 --> 06:00.370
+So give this a hidden input the name will be next and the value is just going to be next here.
+
+06:00.450 --> 06:03.810
+And this basically has to do with the view that we're operating with.
+
+06:03.810 --> 06:10.980
+So if we come back to your pie this log in page essentially this view is not log in it's going to supply
+
+06:11.730 --> 06:17.160
+this next value for us which is going to allow us to kind of deal with what to do next after this person's
+
+06:17.160 --> 06:21.660
+been logged in and let's make sure this div is closed and that's it.
+
+06:21.660 --> 06:22.250
+Great.
+
+06:22.260 --> 06:24.040
+So that's our entire log in.
+
+06:24.050 --> 06:30.200
+But each team L and that's all we have to do for the Urals page in the actual If come back here.
+
+06:30.240 --> 06:32.740
+This is all we need to do is just have these four patterns.
+
+06:32.750 --> 06:37.260
+Two of them dealing with log in and log out setting up the abdomen and then including blocks that you
+
+06:37.260 --> 06:39.000
+are all right.
+
+06:39.170 --> 06:43.430
+Pretty brief lecture but basically all are log in and off authentication stuff.
+
+06:43.430 --> 06:48.200
+As far as actually going into registering on the site should be done for us.
+
+06:48.200 --> 06:52.040
+Up next all we have to do is take care of these rest these templates and then we're going to do in the
+
+06:52.040 --> 06:53.170
+next lecture.
+
+06:53.180 --> 06:54.680
+Thanks and I'll see you there.

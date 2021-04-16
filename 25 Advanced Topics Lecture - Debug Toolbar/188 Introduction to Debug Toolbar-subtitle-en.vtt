@@ -1,0 +1,88 @@
+WEBVTT
+
+00:05.520 --> 00:10.290
+Hello everyone and welcome to this quick advance side lecture where we talk about the Gengel de-bug
+
+00:10.290 --> 00:12.440
+toolbar.
+
+00:12.530 --> 00:17.150
+We've already seen how to manually debug Django at the end of our clone projects but maybe there's a
+
+00:17.150 --> 00:22.100
+better way that we can try to get a little more help and luckily there is it's called the Django de-bug
+
+00:22.110 --> 00:28.490
+toolbar and it's a favorite tool for jangles developers to help them try to catch where errors are happening
+
+00:28.520 --> 00:30.070
+inside of their project.
+
+00:31.000 --> 00:36.310
+The jingle toolbar gives useful panel tools about your project that can help you clarify why certain
+
+00:36.310 --> 00:38.610
+behavior is occurring or happening.
+
+00:38.710 --> 00:43.960
+It won't be able to pinpoint the exact source of a bug or help you figure out how to actually change
+
+00:43.960 --> 00:44.840
+the syntax.
+
+00:44.980 --> 00:49.600
+It really just contains useful information that you may find helpful to actually find and help fix the
+
+00:49.600 --> 00:51.230
+bugs.
+
+00:51.560 --> 00:56.280
+So this with the toolbar actually looks like we'll actually play around for a lot more in the next lecture.
+
+00:56.330 --> 01:01.430
+But essentially you see on the right hand side this toolbar and there's various panels they can click
+
+01:01.430 --> 01:05.770
+on and then it gives you information about your website.
+
+01:05.770 --> 01:10.570
+Now keep in mind this may or may not fit with your workflow style but it is helpful enough that many
+
+01:10.570 --> 01:16.060
+developers that work of Django keep it up to date of their open source contributions so it may not work
+
+01:16.060 --> 01:21.580
+for you but it's a very popular tool for developers in general which is why it's worth talking about
+
+01:22.390 --> 01:25.680
+in order to get the debug toolbar in your virtual environment.
+
+01:25.720 --> 01:31.090
+Go to your command line and type Pipp install Shingo dasht debug cache toolbar and depending on how
+
+01:31.090 --> 01:36.190
+you actually install Django and your version you may even already have installed but again go to a virtual
+
+01:36.190 --> 01:41.220
+environment and do that Pipp install command OK in the next lecture.
+
+01:41.220 --> 01:45.120
+What we're going to do is briefly go over the panels and what information they show you.
+
+01:45.240 --> 01:48.110
+Then you can decide if it's a good fit for your workflow.
+
+01:48.120 --> 01:54.030
+A lot of the projects in this course are small enough where the toolbar may not be a deciding factor
+
+01:54.030 --> 01:59.010
+in whether or not use it though once you become a developer either as part of a larger company or you
+
+01:59.010 --> 02:01.510
+start develop your own really large projects.
+
+02:01.530 --> 02:04.550
+The toolbar may be a good choice for your workflow.
+
+02:04.590 --> 02:06.390
+OK I'll see you at the next lecture.

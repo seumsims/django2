@@ -1,0 +1,874 @@
+WEBVTT
+
+00:05.670 --> 00:06.450
+Hello everyone.
+
+00:06.450 --> 00:09.840
+Welcome to part 10 of the blog clone project.
+
+00:09.870 --> 00:14.580
+So now it's time to actually debug and get our project up and running by setting up the admin and doing
+
+00:14.580 --> 00:15.300
+the migration.
+
+00:15.300 --> 00:19.740
+So let's go ahead and finish off this project and make sure that everything's working correctly.
+
+00:19.740 --> 00:25.590
+I'm going to hop over to the editor now OK here and the editor and the first thing I want to make sure
+
+00:25.590 --> 00:30.730
+that set up is adamant that PI file under blog haven't actually done the registrations yet.
+
+00:30.770 --> 00:41.530
+So what I'm going to do is say from looks log the models import post and comment and once are those
+
+00:41.530 --> 00:42.440
+ready to go.
+
+00:42.670 --> 00:49.800
+I'm going to say Admin site that register in should actually be a lower case or so we will register
+
+00:50.280 --> 00:58.590
+post and then we're going to do the exact same thing Admin site register and I'm going to register comment.
+
+00:58.640 --> 01:04.600
+So save that and then I'm going to bring up my terminal in the terminal here when I'm going to do is
+
+01:04.610 --> 01:12.110
+CD into the blog project folder and then let me CD into the my site folder.
+
+01:12.110 --> 01:17.870
+And this is where I should be able to call Python a managed up up-I and I will call migrate and see
+
+01:17.870 --> 01:19.200
+if that works for us.
+
+01:19.270 --> 01:20.540
+Make sure no errors.
+
+01:20.540 --> 01:22.400
+This may take a while if you haven't done it yet.
+
+01:22.570 --> 01:25.300
+And then the other thing we're going to do after this is OK here we go.
+
+01:25.350 --> 01:27.810
+Bingo we have some bugs that we need to do.
+
+01:27.830 --> 01:33.620
+So it says right here in 9:28 class comments name model is not defined which means you probably forgot
+
+01:33.890 --> 01:36.650
+to import something in the actual models.
+
+01:36.680 --> 01:41.010
+So let's come here to models that apply and make sure that's all fixed.
+
+01:41.040 --> 01:46.370
+So we'll come over here to this maybe either in the forms or let's see Knutsen the models that my file
+
+01:46.790 --> 01:53.340
+comes models up pie's that says models not the fine meaning the should have been coming down here.
+
+01:53.620 --> 01:55.060
+Those plural.
+
+01:55.220 --> 01:56.360
+So I'm going to save that.
+
+01:56.360 --> 02:01.070
+And let's run this again in a kind of trying to show you realistically how you would actually go about
+
+02:01.370 --> 02:03.030
+doing these sort of debugging.
+
+02:03.110 --> 02:05.880
+OK so this next bug that I got was an import error.
+
+02:05.900 --> 02:07.250
+No module named blogs.
+
+02:07.250 --> 02:11.620
+So all I have to do is scroll up and try to find out where was I trying to call blogs when I should
+
+02:11.620 --> 02:17.690
+have just been calling blog Cingular and it looks like here in line 22 of my morals under my site.
+
+02:17.690 --> 02:19.800
+I was calling blog site Oreilles.
+
+02:19.850 --> 02:20.570
+Easy enough.
+
+02:20.570 --> 02:22.310
+I just come back to your URLs that pie.
+
+02:22.370 --> 02:28.240
+Come over here and see where I was actually calling blogs and actually the wrong Urals peafowl.
+
+02:28.250 --> 02:29.640
+This one is the one I want.
+
+02:29.930 --> 02:35.550
+Scroll down and it says blogs that URL that should be blog Seether save that.
+
+02:35.570 --> 02:36.390
+No problem.
+
+02:36.390 --> 02:37.890
+And now let's try to run this again.
+
+02:38.060 --> 02:41.270
+And we're basically going to keep doing this until we fix all these various bugs.
+
+02:41.270 --> 02:44.960
+Now if you don't actually want to spend the time to go through this sort of more realistic debugging
+
+02:44.960 --> 02:50.600
+process feel free to just copy and paste all the text files from the actual notes.
+
+02:50.750 --> 02:54.440
+But this is kind of trying to show you what realistically would happen if we went about the project
+
+02:54.440 --> 02:55.120
+this way.
+
+02:55.340 --> 02:57.230
+OK so we have some invalid syntax.
+
+02:57.260 --> 03:02.840
+I probably forgot to close this off so I'll say from blog import views and the views that py file and
+
+03:02.840 --> 03:05.510
+a hopla over to that the used up by.
+
+03:05.690 --> 03:11.810
+And it looks like it's having issues with my syntax here and it's because I forgot a comma so save that.
+
+03:11.810 --> 03:13.270
+No problem.
+
+03:13.280 --> 03:19.600
+And Loren Python managed up high and needs to say your oh no migration is to play perfect.
+
+03:19.880 --> 03:21.770
+So let's actually check this out.
+
+03:21.800 --> 03:27.180
+Say Python managed up high and I going say make migrations blog.
+
+03:27.350 --> 03:32.270
+Run that and it looks like it said create model comment create model post at field post comment.
+
+03:32.270 --> 03:35.510
+Perfect way to say Python managed up high.
+
+03:35.510 --> 03:36.500
+Migrate again.
+
+03:37.540 --> 03:39.750
+And it's going to apply those migrations to the blog.
+
+03:39.820 --> 03:40.630
+Perfect.
+
+03:40.760 --> 03:50.670
+And now what I'm going to also do is say Python creates a actually Python manage that PI create super
+
+03:51.320 --> 03:54.440
+I can spell this right super user.
+
+03:54.650 --> 04:00.950
+And then what I'm also going to do here is hit enter and we may have an issue.
+
+04:01.040 --> 04:06.860
+So it says hits it seems you set a fixed date as a default for this field may not be what you want.
+
+04:06.860 --> 04:09.090
+Now do you want to have the current blah blah.
+
+04:09.230 --> 04:10.830
+You can actually ignore these for now.
+
+04:10.880 --> 04:13.800
+It's not a big deal given the way we're doing things.
+
+04:14.180 --> 04:17.440
+So we're going to do is say user name is Jose.
+
+04:17.600 --> 04:20.690
+Email address can just do whatever Hello.
+
+04:20.890 --> 04:26.350
+Email the password all use test password password again.
+
+04:26.430 --> 04:30.900
+Say as password and then the super user was created successfully.
+
+04:30.900 --> 04:36.710
+So let's see if we can actually get this project run well say Python managed up-I run server
+
+04:39.830 --> 04:43.900
+and there it is so time to kind of cross our fingers and make sure we actually get.
+
+04:43.950 --> 04:45.080
+We're going to copy that.
+
+04:45.230 --> 04:49.260
+And let's bring in over the browser.
+
+04:49.310 --> 04:53.330
+OK so coming to the Yoro page we see this no reverse match.
+
+04:53.420 --> 04:59.930
+And if it looks empty like this where it says no queries set or arguments or missings or a package tried
+
+05:00.290 --> 05:03.520
+this is a really common error when you're working with your old templates.
+
+05:03.530 --> 05:08.940
+And if you see here it says error during template rendering which kind of gives you a hint that it has
+
+05:08.940 --> 05:12.530
+to do templates and it's also in the template and it's right here.
+
+05:12.620 --> 05:19.490
+If you kind of zoom in me do a couple pluses here it's under post lists that T.M. error at line 0.
+
+05:19.630 --> 05:23.250
+And you notice that the first line we're doing is we're extending from base each tim L..
+
+05:23.420 --> 05:25.800
+So that's where we can look for this actual error.
+
+05:25.850 --> 05:29.560
+And this is something you're going to see all the time the sort of no reverse match especially when
+
+05:29.560 --> 05:34.120
+you're starting out which is why I kind of really want to show you how you can debug this on your own.
+
+05:34.160 --> 05:39.710
+So we'll come back to the editor over here and what I'm going to do is here have post-literate h tim
+
+05:39.710 --> 05:46.220
+L I can double check to make sure my you URLs are OK and usually a common mistake is to kind of mess
+
+05:46.220 --> 05:49.470
+up these quotes right here or forget these quotes up here.
+
+05:49.730 --> 05:53.690
+And if you come back to base at CML these are all looking OK to me.
+
+05:53.900 --> 06:00.530
+What we can do it baseline each Tomales do control f and then look up u r l and then explore which ones
+
+06:00.530 --> 06:02.660
+seem to be having the errors.
+
+06:02.660 --> 06:04.990
+So we see here we have this nav bars.
+
+06:05.000 --> 06:08.200
+There's your L's in there and we kind of find the culprit right here.
+
+06:08.210 --> 06:14.190
+Your post list looks like we forgot to put or I forgot to put in the quotes.
+
+06:14.420 --> 06:15.940
+So I will save that.
+
+06:16.110 --> 06:19.570
+And now let's kind of start this guy back up again.
+
+06:19.700 --> 06:22.590
+Well actually we can just play compare and refresh this page see if it works.
+
+06:23.960 --> 06:26.460
+And there it is my blog about hub Linked-In.
+
+06:26.510 --> 06:30.220
+So so far so good we'll keep our fingers crossed make sure everything's working.
+
+06:30.220 --> 06:32.420
+Hit that button and bingo have another.
+
+06:32.450 --> 06:36.050
+It's a template syntax error and it's happening at a count logon.
+
+06:36.050 --> 06:39.100
+So thanks to Django I kind of already have an idea where it's happening.
+
+06:39.110 --> 06:42.740
+It's happening log in that age T.M. but even better it says invalid.
+
+06:42.770 --> 06:47.350
+BLOCK tag that's a keyword with form as P says expected.
+
+06:47.360 --> 06:51.830
+End the block and you might be thinking well that's where we never have to put an end block with a form
+
+06:52.220 --> 06:54.810
+and then it says Did you forget to register or load this tag.
+
+06:54.830 --> 06:59.760
+Well maybe I did but that's weird because I wouldn't have an end block form as P..
+
+06:59.900 --> 07:02.810
+And if you scroll down it actually highlights it for you.
+
+07:02.810 --> 07:06.220
+And this is where we can actually see the error we did here.
+
+07:06.320 --> 07:10.000
+We were using the wrong template tagging remember with format as P just injected.
+
+07:10.000 --> 07:11.660
+It's not an actual code.
+
+07:11.660 --> 07:13.250
+Here with the percent sign.
+
+07:13.250 --> 07:19.670
+So coming back to our logged in that age T.M. what actually should have done was have the sort of syntax
+
+07:19.670 --> 07:24.080
+these double brackets since I'm essentially just injecting that form in.
+
+07:24.440 --> 07:25.400
+So I'm going to save that.
+
+07:25.430 --> 07:31.370
+And now let's try this again I'll come back refreshed the home page and now it seems to be working if
+
+07:31.370 --> 07:34.580
+I hit the person my user name is Jose.
+
+07:34.760 --> 07:39.840
+And then let's input test password log in see if we get an error.
+
+07:40.070 --> 07:40.410
+OK.
+
+07:40.430 --> 07:43.630
+Looks like I'm zoomed in right now which is why you kind of get this weird behavior.
+
+07:43.640 --> 07:46.430
+But if you start zooming out you see it right a line.
+
+07:46.610 --> 07:48.280
+So let's check this all out see if it works.
+
+07:48.290 --> 07:50.310
+I'll hit a new post see if we can there.
+
+07:50.360 --> 07:51.390
+So far so good.
+
+07:51.680 --> 07:58.860
+Jose the title of my post test post and let's type in some text so I'll say something like and we can
+
+07:58.860 --> 08:00.790
+see that the color changing is working.
+
+08:00.810 --> 08:04.380
+So this is a test.
+
+08:04.620 --> 08:09.150
+And if I highlight it I can see that if I put in bold here it's actually working so let's save this.
+
+08:09.150 --> 08:12.360
+If we get an error OK looks like that's actually working.
+
+08:12.360 --> 08:13.570
+Nice.
+
+08:13.590 --> 08:16.140
+Let's try editing it first.
+
+08:16.230 --> 08:17.520
+So it says this is a test.
+
+08:17.550 --> 08:23.790
+I'm going to say add on at it and it actually wants to be bold so we'll say something like underline
+
+08:23.790 --> 08:27.910
+it without the build and then save that.
+
+08:27.970 --> 08:34.060
+OK so looks like we are not seeing the actual content of the posts so just this test post we'll have
+
+08:34.060 --> 08:34.980
+to check back on that.
+
+08:34.980 --> 08:37.990
+But let's see if we publish it if we actually end up seeing that content.
+
+08:37.990 --> 08:41.430
+So I hit publish and nothing's happening I'm not being redirected anywhere.
+
+08:41.530 --> 08:44.230
+Meaning if I come over to my blog I don't see anything.
+
+08:44.230 --> 08:48.640
+So something has an issue when we're actually dealing with editing and posts.
+
+08:48.670 --> 08:51.760
+So let's come back here to draps and bingo.
+
+08:51.760 --> 08:52.620
+We found the air.
+
+08:52.660 --> 08:52.880
+OK.
+
+08:52.900 --> 08:57.260
+So now we see we have this field error at drafts and it says it cannot resolve.
+
+08:57.260 --> 08:59.240
+Keyword created in the field.
+
+08:59.410 --> 09:00.940
+Choices are Author Author.
+
+09:00.960 --> 09:03.100
+The comments create date etc..
+
+09:03.130 --> 09:05.200
+So this is actually quite an obvious error.
+
+09:05.200 --> 09:10.480
+Hopefully you can see here that somewhere along the lines I started calling it created that instead
+
+09:10.480 --> 09:11.920
+of create dates.
+
+09:12.070 --> 09:13.590
+So we have two options here.
+
+09:13.630 --> 09:20.130
+Either I change the model to have it say create a date or I changed his keyword to say create date.
+
+09:20.380 --> 09:22.210
+It's up to you at this stage.
+
+09:22.210 --> 09:23.580
+Which way you should go.
+
+09:24.070 --> 09:28.210
+If you already have a bunch of stuff in your models you already create a bunch of blog posts then you
+
+09:28.210 --> 09:33.670
+should probably affect the keyword here instead of the actual choices here but where we're going to
+
+09:33.670 --> 09:37.550
+do is kind of explore how we could fix this since we're just starting out.
+
+09:37.630 --> 09:41.760
+So I'll hop back over to this and I'm going to come to models of Pi.
+
+09:41.770 --> 09:47.730
+It's kind of confirm here I have create dates and what it should have been is created date.
+
+09:47.950 --> 09:53.950
+So I could do that or the other thing I could have done is go back to the actual reference of created
+
+09:53.950 --> 09:57.550
+date so if I come over to draft's loops Let's expand this.
+
+09:57.580 --> 10:03.490
+So coming over to my post draft list somewhere along the lines here I said created dates instead of
+
+10:03.490 --> 10:04.530
+create date.
+
+10:04.670 --> 10:10.090
+So I would actually usually recommend that you've fixed this in the H.T. mail template rather than coming
+
+10:10.090 --> 10:12.130
+over here and affecting your model.
+
+10:12.130 --> 10:17.050
+But since we're just starting out I think it's better to kind of switch the model out nuts also because
+
+10:17.110 --> 10:22.870
+this matches the notes so I will save this into to control see here and migrate everything again since
+
+10:22.870 --> 10:24.320
+I affected the model.
+
+10:24.700 --> 10:33.690
+So say Python managed up-I migrate and it has no migrations to apply so annoying to say Python managed
+
+10:33.750 --> 10:41.480
+up-I make migrations and then call blog over and it said Alter field.
+
+10:41.620 --> 10:44.290
+So I added this and alter that so perfect.
+
+10:44.290 --> 10:49.390
+So then we can all see its affecting comments and if we come over to comments let's make sure that's
+
+10:49.480 --> 10:50.270
+worked well.
+
+10:50.290 --> 10:54.110
+So we see create date there and let's have that be also created.
+
+10:54.160 --> 10:56.250
+So we're kind of going to fix that as well.
+
+10:56.260 --> 11:01.410
+Created dates and I will save that and Altes actually run that same line again.
+
+11:01.870 --> 11:04.060
+OK so it's altered that in the comments as well.
+
+11:04.070 --> 11:11.170
+And I have created they are both them and I won't say Python managed up-I migrates and it's going to
+
+11:11.170 --> 11:12.900
+apply all those changes.
+
+11:12.910 --> 11:19.560
+Let's start off by actually saying Python managed up-I run server and see if that works for us.
+
+11:20.470 --> 11:24.060
+I'm going to refresh my drafts and test post.
+
+11:24.110 --> 11:24.660
+Perfect.
+
+11:24.890 --> 11:25.840
+So I come to my blog.
+
+11:25.850 --> 11:27.710
+I have nothing to my drafts.
+
+11:27.710 --> 11:28.950
+Looks like that's working.
+
+11:28.950 --> 11:33.430
+It test post and it looks like I still can't register what I'm actually adding here.
+
+11:33.620 --> 11:36.940
+So if I type some stuff here you can see that the colors are changing.
+
+11:36.950 --> 11:42.950
+I can highlight stuff take away the underline I can save it but it's not actually showing the text so
+
+11:42.950 --> 11:46.750
+somewhere along the line I'm not injecting that text.
+
+11:46.790 --> 11:48.300
+So let's see if it works have comments.
+
+11:48.290 --> 11:54.860
+If I say add comments let's put in a new author for this comment so will say visitor will type this
+
+11:54.860 --> 11:55.490
+text.
+
+11:55.550 --> 11:58.620
+This is a comment text.
+
+11:58.670 --> 12:02.390
+I'm going to post the comments and it looks like I can see the text there.
+
+12:02.390 --> 12:07.190
+So to prove this so that comets don't approve but I still can't see a test post.
+
+12:07.220 --> 12:12.710
+Even when I click publish I can see that nothing's really happening so come back to my blog draft's.
+
+12:12.740 --> 12:16.100
+Something's wrong with that publish button so let's go check it out back here.
+
+12:16.100 --> 12:20.160
+All right so coming back to the post detail page which is where I should be going to.
+
+12:20.220 --> 12:22.880
+Chicken her again to review this coming down.
+
+12:22.880 --> 12:27.770
+Once you clicked publish somewhere so here it is once they click publish it should be taking me to the
+
+12:27.770 --> 12:30.700
+post detail page so something's up here.
+
+12:30.710 --> 12:35.960
+Let's go to that post detail page and see if we notice anything kind of fishy so I'm going to get a
+
+12:35.960 --> 12:37.970
+little more room here.
+
+12:37.970 --> 12:42.040
+And you'll notice that I have this post content class and appear.
+
+12:42.110 --> 12:45.260
+I'm calling the title over here and post content.
+
+12:45.260 --> 12:46.940
+I'm accidentally calling the title again.
+
+12:46.970 --> 12:51.680
+This should have been actually calling the contents of that post which makes sense and the content of
+
+12:51.680 --> 12:53.690
+that post was the text.
+
+12:53.690 --> 13:01.140
+So let's type that in a text and save that and see if we can continue debugging this as I refresh.
+
+13:01.370 --> 13:04.430
+And now I see this is a test add on Edit etc..
+
+13:04.490 --> 13:06.420
+So looks like that actually worked.
+
+13:06.650 --> 13:09.380
+Let's see if hitting the publish button affects this.
+
+13:09.380 --> 13:14.780
+Still I suspect would not do anything so there's publish or not getting any sort of redirect published
+
+13:14.780 --> 13:18.740
+but we figured out why wasn't showing that actual text of the post.
+
+13:18.770 --> 13:23.250
+So let's figure out how we can connect this publish button to actually work going to come back here
+
+13:24.310 --> 13:28.090
+and then let's check out the actual draft page or the post detail page.
+
+13:28.090 --> 13:34.020
+Looks like or it's let's actually try to track down the source of that error when you hit that publish
+
+13:34.020 --> 13:35.760
+button nothing's really happening.
+
+13:35.760 --> 13:40.980
+So if we come back to the post detailed view I see here that the button I'm pressing is this one right
+
+13:40.980 --> 13:41.280
+here.
+
+13:41.280 --> 13:43.150
+Class has a button default.
+
+13:43.320 --> 13:48.720
+And then if you look at the graph it's taking us to post publish with the primary key equal to postop
+
+13:48.720 --> 13:49.660
+piquet.
+
+13:49.680 --> 13:54.230
+So let's go ahead and review that post publish you l and see if there's the issue there.
+
+13:54.350 --> 13:59.620
+So I'll come over here you are I'll stop by and lo and behold the very last one is the publish one.
+
+13:59.640 --> 14:00.930
+Well that's interesting.
+
+14:00.930 --> 14:06.900
+And it looks here that this is OK it's going to take you to post the primary key and then publish the
+
+14:06.900 --> 14:08.610
+view is post published.
+
+14:08.610 --> 14:09.300
+That makes sense.
+
+14:09.300 --> 14:11.200
+And the name matches those published.
+
+14:11.490 --> 14:13.540
+So that means the culprit might be at The View.
+
+14:13.620 --> 14:18.280
+Let's go with the views that PI file and explore that so it can be used up high.
+
+14:18.720 --> 14:23.240
+And then we'll scroll down until we actually get to that post published for you that function view.
+
+14:23.610 --> 14:29.250
+And then here it is it says loggin required Post publish ill get object or four or four and then it's
+
+14:29.250 --> 14:31.410
+going to call this method on that post object.
+
+14:31.410 --> 14:34.950
+The published method and it's going to redirect you back to the post detail.
+
+14:34.990 --> 14:41.280
+So so for that actually kind of makes sense so maybe the problem is not with the view of the model itself.
+
+14:41.280 --> 14:46.590
+And if you remember back when we first started this Gengel tried to warn us about a time zone problem
+
+14:46.590 --> 14:49.530
+and we're basically about to see why it was trying to warn us.
+
+14:49.530 --> 14:54.990
+So one thing here is that I'm calling the method but not executing it.
+
+14:55.020 --> 14:58.390
+So that's the main error we have is I was executing it.
+
+14:58.410 --> 15:04.290
+So we're going to save that and then I'm also going to you can see immediately fix that.
+
+15:04.320 --> 15:07.300
+But besides that I also want to make sure that the post is OK.
+
+15:07.310 --> 15:11.760
+I'm going to come back to models that pie and remember that Jinger was warning us about some sort of
+
+15:11.760 --> 15:12.860
+time zone issue.
+
+15:13.050 --> 15:17.570
+Well we can see here that I was supposed to be actually calling publish instead of just whoops over
+
+15:17.580 --> 15:19.220
+and use that by assigning it.
+
+15:19.440 --> 15:22.770
+So we're actually calling it to execute now which makes more sense.
+
+15:22.860 --> 15:27.510
+And going back to models up-I in other issue that Gengel was complaining about which is a little hard
+
+15:27.510 --> 15:32.850
+to explain if you haven't seen it often is the issue of the date time field the default being time zone.
+
+15:32.890 --> 15:39.260
+Now I was actually calling it to execute Q But what it really wants appear is just the function itself.
+
+15:39.270 --> 15:42.410
+So you don't execute it here inside of that date time field.
+
+15:42.450 --> 15:46.690
+So now I'm going to save that and I will also save my post detailed page.
+
+15:46.770 --> 15:53.290
+And let's try this again and then to refresh and then again to hit publish and Whoops looks like I need
+
+15:53.290 --> 15:54.180
+to log in again.
+
+15:54.430 --> 16:01.660
+So we'll say test password log in and now we can see that the publish is gone.
+
+16:01.660 --> 16:06.060
+So if I go back to my blog now I see a test post with one comment.
+
+16:06.130 --> 16:07.080
+Perfect.
+
+16:07.090 --> 16:11.520
+So let's try this all again and make sure that it's actually working or create a new post.
+
+16:11.590 --> 16:14.180
+It's going to be by me in full call.
+
+16:14.180 --> 16:20.050
+We called this last test post and we'll say hello world.
+
+16:20.050 --> 16:25.210
+My site is functional all hit save.
+
+16:25.400 --> 16:26.430
+Looks like it says hello world.
+
+16:26.430 --> 16:27.500
+My say is functional.
+
+16:27.530 --> 16:29.430
+If I hit draft's I should see it there.
+
+16:29.450 --> 16:31.130
+Last test post perfect.
+
+16:31.160 --> 16:33.470
+And then if I add a comment I should be able to do that.
+
+16:33.500 --> 16:40.820
+You already tested this out but let's try this again some visitor blah blah blah whatever.
+
+16:40.870 --> 16:47.340
+Post comments here I can see it can either be removed or approved and I'm going to try to publish this
+
+16:48.660 --> 16:53.040
+and looks like the publisher is gone and he gets publication they come to my blog and I see less test
+
+16:53.040 --> 16:53.570
+posts.
+
+16:53.730 --> 16:57.630
+Let's make sure I can actually remove and delete posts so that there wasn't any issues to delete views
+
+16:57.990 --> 17:00.940
+going to delete this post right here by pressing x.
+
+17:01.050 --> 17:01.590
+Perfect.
+
+17:01.590 --> 17:04.620
+Are you sure you want to confirm that you want to delete this.
+
+17:04.620 --> 17:08.670
+Like I mentioned maybe having loader and everything isn't a good idea since this is constantly changing
+
+17:08.670 --> 17:11.970
+colors but will go ahead and confirm and looks like it deleted it.
+
+17:12.030 --> 17:16.500
+So my blog and I can also cook on about make sure it takes into that temple of view about this company.
+
+17:16.500 --> 17:20.250
+Thanks for checking it out and let's make sure I can log out and still see everything.
+
+17:20.310 --> 17:26.280
+So if I log out it my blog hit test post everything's functional and it looks like we were able to successfully
+
+17:26.520 --> 17:29.420
+get rid of all the errors and troubleshoot this thing.
+
+17:29.610 --> 17:33.650
+That was more or less a realistic experience of what it would be like debugging the stuff.
+
+17:33.660 --> 17:38.150
+I think the hardest thing as far as this particular debugging call was this one right here.
+
+17:38.190 --> 17:43.110
+When we come to models and fix this time zone that now in fact we haven't even agreed to that change
+
+17:43.110 --> 17:44.690
+it so hasn't taken place.
+
+17:44.700 --> 17:48.690
+But that's the only one where you really have to have experience to understand that you want it to just
+
+17:48.790 --> 17:51.960
+passen the function itself instead of calling a function.
+
+17:52.000 --> 17:57.570
+So to fix that again you'd have to do is come over here and then call Python managed up-I migrate again.
+
+17:57.570 --> 18:02.720
+So we'll do that before we actually host the Web site on some sort of server.
+
+18:03.180 --> 18:04.490
+Ok thanks everyone.
+
+18:04.500 --> 18:08.490
+Hope you enjoyed the basics of the project and hope this gave you some ideas of how you can create your
+
+18:08.490 --> 18:09.290
+own blog.
+
+18:09.600 --> 18:11.130
+Thanks and I'll see at the next lecture.

@@ -1,0 +1,454 @@
+WEBVTT
+
+00:05.110 --> 00:11.070
+Hello everyone and welcome to the template views lecture for the class based views section of course.
+
+00:11.180 --> 00:15.490
+It's that time to learn how to use the template view object that comes with Django.
+
+00:15.530 --> 00:20.300
+Previously we just called in the basic view object from those generic views.
+
+00:20.330 --> 00:23.660
+Now we're going to learn how to use the template view and it's really going to make calling templates
+
+00:23.720 --> 00:25.640
+a breeze very easy.
+
+00:25.640 --> 00:30.290
+Now let's see a comparison between using a function call a template as we have in the past versus using
+
+00:30.290 --> 00:31.910
+the template view object.
+
+00:32.730 --> 00:38.370
+So previously for a function based view that called some sort of template you had to say the ADF name
+
+00:38.370 --> 00:43.080
+of that view function passing the request and then somewhere along the line you return the Render of
+
+00:43.080 --> 00:48.420
+that request plus the actual template you want it to return for a class based template view.
+
+00:48.450 --> 00:52.670
+It's also really easy and I would argue even easier than that function.
+
+00:52.680 --> 00:57.390
+You just create the class call it whatever you want in this case which is called index view and you
+
+00:57.390 --> 01:02.550
+inherit the template view object after importing it and then you just set the class object attribute
+
+01:02.550 --> 01:06.360
+template underscore name equal to whatever the temple you want to return.
+
+01:06.360 --> 01:12.240
+In this case index that each TNL OK let's show the basics of this and also show you how you can use
+
+01:12.240 --> 01:16.050
+a template class based view along of a context dictionary.
+
+01:16.230 --> 01:18.290
+I'll hop over to the editor and get started.
+
+01:18.600 --> 01:19.100
+OK.
+
+01:19.110 --> 01:20.190
+Back at her editor.
+
+01:20.280 --> 01:21.520
+Let's start by opening up.
+
+01:21.520 --> 01:23.770
+Use that pie in our application.
+
+01:23.820 --> 01:29.310
+So far we showed that very basic class based view of a simple HTP response but usually you're going
+
+01:29.310 --> 01:35.440
+to want to return the templates themselves so we can really all that and we can also delete the H.T.
+
+01:35.760 --> 01:41.770
+response we'll be using it instead of just importing view what we're going to import is template.
+
+01:42.100 --> 01:44.700
+We can do that from Django that use that generic.
+
+01:44.700 --> 01:47.050
+So is it still known as a generic view.
+
+01:47.180 --> 01:54.910
+Now we'll start off with creating the class and we'll call it index view and we will inherit the template
+
+01:54.940 --> 02:00.700
+view instead of just the normal view from before and then all we have to do to match something up is
+
+02:00.700 --> 02:08.980
+you say the template underscore name class object attribute and then you just pass in the actual template
+
+02:08.980 --> 02:09.970
+you want.
+
+02:09.970 --> 02:16.460
+So for instance right now under my templates folder I have indexed HVM L but maybe if you had it under
+
+02:16.460 --> 02:23.030
+a template and then your application so it would look something like basic underscore app slash index
+
+02:23.030 --> 02:24.910
+that page HTML etc..
+
+02:24.940 --> 02:30.120
+Right now since I just have it under index or excuse me under templates I don't actually have a subdirectory
+
+02:30.150 --> 02:30.710
+there.
+
+02:30.790 --> 02:34.590
+We'll just call index like Steimle and I'm going to save this and that's it.
+
+02:34.600 --> 02:39.400
+That's all we have to do and the views that PI file then coming back to our You are Elle's up by file
+
+02:40.280 --> 02:43.750
+you know scroll down here instead of saying See view.
+
+02:43.990 --> 02:45.550
+I will call that index.
+
+02:45.610 --> 02:49.840
+I remember we always have to call it as a view so let's save that as well.
+
+02:50.200 --> 02:52.130
+And just to make sure this is working.
+
+02:52.320 --> 02:56.540
+We'll call index Steimle and say something like.
+
+02:56.820 --> 03:09.380
+Testing template view save that now it's actually run the server going to CD into advance S. CD into
+
+03:09.440 --> 03:11.540
+a TV CBB.
+
+03:11.620 --> 03:16.810
+They now call Python managed up high and run my server.
+
+03:16.860 --> 03:21.570
+Enter And let's actually make sure it's running OK.
+
+03:21.580 --> 03:29.780
+Looks like it's operating will copy and paste this into our browser and bring over our browser OK.
+
+03:29.800 --> 03:30.810
+Bringing in the browser.
+
+03:30.850 --> 03:31.230
+Perfect.
+
+03:31.240 --> 03:34.480
+We get testing template view and it's all working correctly.
+
+03:34.540 --> 03:38.890
+So now you probably want to know is how to actually use a context dictionary.
+
+03:38.890 --> 03:42.820
+A big part of using templates is injecting content into the actual template.
+
+03:42.850 --> 03:44.460
+So let's walk through how to do that.
+
+03:44.560 --> 03:49.150
+Later on we're also going to be discussing things like detail views list views which actually help you
+
+03:49.150 --> 03:49.570
+a lot.
+
+03:49.600 --> 03:50.970
+But this is the most basic way to do it.
+
+03:50.980 --> 03:59.200
+If a template view or do Control-C to stop running that server and in here let's say H-2 will put in
+
+03:59.620 --> 04:10.260
+injected content in here I'll have something like inject me which will be the key for our contex dictionary
+
+04:10.260 --> 04:12.350
+that we're going to be working with in just a little bit.
+
+04:12.360 --> 04:19.440
+So my plan is inject something into this index page html page so I'll come back to views that pie in
+
+04:19.440 --> 04:24.260
+the way to do this is pretty particular but it's actually not so bad.
+
+04:24.360 --> 04:30.350
+You create a method called Get underscore context underscore data.
+
+04:30.720 --> 04:34.630
+And since this is a method in O.P. you Passons self.
+
+04:34.890 --> 04:36.530
+And then you passen quarks.
+
+04:36.560 --> 04:42.350
+So the passen Asterix Asterix a W A R G S.
+
+04:42.750 --> 04:46.900
+And let me take a brief moment to actually explain this sort of syntax that we haven't seen before to
+
+04:46.940 --> 04:49.030
+Asterix signs and then quarks.
+
+04:49.050 --> 04:53.590
+And you may have also seen something that's just one Asterix sign and.
+
+04:53.910 --> 05:00.370
+So in Python basically what's going on here is the actual syntax is just one asterisk or two asterisks
+
+05:00.660 --> 05:05.420
+whatever you pass after that doesn't really matter can be your choice but by convention you always see
+
+05:05.430 --> 05:12.030
+to Asterix with quarks for keyword arguments or one Asterix of just arguments.
+
+05:12.030 --> 05:13.990
+So let's talk about what this actually means.
+
+05:14.050 --> 05:19.450
+Keyword arguments and I got to do that by kind of opening up a stack overflow link.
+
+05:19.560 --> 05:20.700
+Let's hop to that now.
+
+05:20.880 --> 05:21.110
+Right.
+
+05:21.120 --> 05:26.100
+So I'm at the stack overflow link where Sullum basically answer the question what do this single asterisks
+
+05:26.130 --> 05:27.500
+and asterisks mean.
+
+05:27.560 --> 05:30.870
+Well let's start off with the single asterisks even though we won't be using it right now.
+
+05:30.870 --> 05:35.690
+But basically what this does is it gives you all the function parameters as a giant tuple.
+
+05:35.700 --> 05:40.080
+So if you have one star one Asterix with arcs inside of the function call.
+
+05:40.080 --> 05:44.210
+So here you see a very basic function foo and it accepts args.
+
+05:44.250 --> 05:47.140
+Basically what happens is for an Arkes you can do something.
+
+05:47.160 --> 05:51.100
+So it passes this all in as a tuple and you might be thinking well why do you need that.
+
+05:51.150 --> 05:56.370
+Well sometimes for a function you don't want to have a set number of inputs.
+
+05:56.400 --> 06:01.950
+You want to be able to take as many inputs as necessary and in that case you can use args.
+
+06:01.950 --> 06:03.690
+So here we pass in one.
+
+06:03.690 --> 06:07.090
+It just prints out one we pass in one to three.
+
+06:07.140 --> 06:12.070
+Food doesn't care since you said Ark's will just say print out one print to print three.
+
+06:12.270 --> 06:17.550
+It's basically a way that you can prepare the function to accept more than one argument and it passes
+
+06:17.550 --> 06:21.050
+that all in as a tuple and then the keyword argument.
+
+06:21.060 --> 06:26.410
+Or using double asterisked sign gives you corresponding dictionaries.
+
+06:26.430 --> 06:31.260
+So it's just kind of an advanced method are not necessarily advanced but kind of building on top of
+
+06:31.260 --> 06:32.270
+that concept.
+
+06:32.310 --> 06:36.030
+So we have keyword arguments and that's denoted by two Asterix sign.
+
+06:36.120 --> 06:42.680
+And here we can see a very simple function it's just called Bar and the input it accepts is to actress
+
+06:42.910 --> 06:45.930
+to stars to asterisked signs and keyword args.
+
+06:45.940 --> 06:49.610
+Kate they'll be args and then it says for a in the keyword arguments.
+
+06:49.610 --> 06:54.550
+Print a and then like a dictionary call print the actual value for that key.
+
+06:54.820 --> 07:00.570
+And basically what this allows you to do is have the user define a parameters as they go along.
+
+07:00.580 --> 07:04.710
+So here they can say OK names is going to be equal to one agency called 2007.
+
+07:04.840 --> 07:09.760
+Now when you were creating that function you never said there's going to be a name parameter or an H
+
+07:09.760 --> 07:10.590
+parameter.
+
+07:10.600 --> 07:14.790
+What this keyword argument allows us to do is actually have the user defined those.
+
+07:15.040 --> 07:20.230
+And then essentially we get back we use keyword arguments is a dictionary where you can pronounce a
+
+07:20.280 --> 07:25.540
+the key they gave just case age and keyword argument which is 27.
+
+07:25.570 --> 07:31.150
+Now remember that dictionaries don't retain any order which is why you see it printed out in some random
+
+07:31.150 --> 07:33.690
+order in 8:27 and named one.
+
+07:33.990 --> 07:34.500
+OK.
+
+07:34.840 --> 07:36.080
+You can check out a stack.
+
+07:36.110 --> 07:37.460
+Another stack overflow page.
+
+07:37.480 --> 07:41.700
+Google search what is quarks or what is ARGs in case it doesn't make sense to you.
+
+07:41.860 --> 07:46.910
+But essentially what it's aligned to do is take keyword arguments and treat them as a dictionary.
+
+07:46.930 --> 07:54.160
+So I'm going to bring this aside now and let's continue back with using quarks and what we'll do here
+
+07:54.220 --> 07:56.880
+is call context equal to.
+
+07:56.890 --> 08:04.570
+And we're going to use the super function that's built into Python and also say get context data and
+
+08:04.570 --> 08:07.310
+then passen the word arguments.
+
+08:07.450 --> 08:10.630
+And you're kind of having trouble with just understanding what's actually going on here.
+
+08:10.630 --> 08:15.610
+You don't actually need to know it on a deeper level you essentially just need to copy and paste this
+
+08:15.610 --> 08:20.710
+line because the work you're going to be doing happens on this next line which is the typical contex
+
+08:20.710 --> 08:26.420
+dictionary that we've seen before you pass in the key injects me which matches what we wrote on the
+
+08:26.420 --> 08:29.330
+index bloodies HTML page and then whatever we want to inject.
+
+08:29.330 --> 08:34.790
+So either a list or an item later on we'll see how to grab stuff from our model but we'll just call
+
+08:34.790 --> 08:42.690
+this basic injection and then we return that contex dictionary and that's how you can use a context
+
+08:42.690 --> 08:44.700
+dictionary with a template view.
+
+08:44.700 --> 08:49.020
+And like I mentioned with list of use and detail views that we'll learn about in the next lecture you
+
+08:49.020 --> 08:50.650
+will have to worry about this even less.
+
+08:50.640 --> 08:53.790
+I'm just showing you the very basic way of doing it with a template view.
+
+08:53.910 --> 08:58.860
+So don't worry too much if this particular line a or he word arguments doesn't make a whole lot of sense
+
+08:58.860 --> 09:03.880
+to you later I'll see much easier ways of dealing with this to save views that pi.
+
+09:04.050 --> 09:10.450
+And notice here I called contex inject me and if I go over the index page T.M. I have this inject Mielke.
+
+09:10.620 --> 09:15.930
+So I should see when I actually run the server again this injected content and I'll say basic injection
+
+09:15.930 --> 09:17.070
+in all caps.
+
+09:17.130 --> 09:22.310
+So let's call I managed up-I run the server and then bring in our browser again.
+
+09:23.950 --> 09:25.040
+And here it is.
+
+09:25.060 --> 09:28.540
+We see testing template you inject the content and then basic injection.
+
+09:28.540 --> 09:30.040
+All caps great.
+
+09:30.160 --> 09:34.250
+And those are the very basics of returning a template with a context dictionary.
+
+09:34.270 --> 09:35.550
+That's really all you need to know.
+
+09:36.360 --> 09:41.370
+Usually however you're going to be dealing with a combination of models and forms and you'll want to
+
+09:41.370 --> 09:47.850
+either list out every object in that model or list out a particular object with all its details.
+
+09:47.970 --> 09:51.690
+And we're going to be learning about in the next lecture is another generic view probably the two most
+
+09:51.690 --> 09:56.940
+common ones which is a list of view and a detailed view and they're going to be building off this idea
+
+09:57.030 --> 10:01.670
+of the template you essentially setting some sort of convenient class object attribute.
+
+10:01.710 --> 10:07.470
+And then just being able to call convenient methods off of that to create very easy views and detail
+
+10:07.460 --> 10:10.680
+view and list of you're going to make your life a lot easier.
+
+10:10.710 --> 10:14.490
+But to see them where we have to do is create models which we'll talk about in the next lecture and
+
+10:14.490 --> 10:16.010
+then link them up to those views.
+
+10:16.080 --> 10:16.680
+OK.
+
+10:16.800 --> 10:21.240
+Hopefully by now you have a very basic understanding of the power of class based views and then the
+
+10:21.240 --> 10:24.420
+next lecture will show you more of their convenience features.
+
+10:24.420 --> 10:25.920
+Thanks I'll see at the next lecture.

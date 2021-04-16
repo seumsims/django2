@@ -1,0 +1,1267 @@
+WEBVTT
+
+00:04.900 --> 00:10.440
+Hello everyone and welcome to that deploying on Python anywhere lecture some of the blame and process
+
+00:10.440 --> 00:13.810
+steps may take a while especially some of the downloading of the libraries.
+
+00:13.920 --> 00:15.870
+So keep this in mind before beginning this lecture.
+
+00:15.870 --> 00:21.120
+Make sure you set aside enough time like 20 or 30 minutes to run through the whole thing and just click
+
+00:21.120 --> 00:22.460
+on the resource link to get started.
+
+00:22.470 --> 00:23.850
+We'll take you to Python anywhere.
+
+00:23.850 --> 00:24.700
+Let's get started.
+
+00:24.910 --> 00:25.230
+OK.
+
+00:25.230 --> 00:26.040
+Here I am.
+
+00:26.100 --> 00:27.470
+Python anywhere.
+
+00:27.630 --> 00:33.780
+And as a quick note on another tab I also have a link to the repository we made and if you click here
+
+00:33.780 --> 00:38.250
+on clone or download there's going to be a link here that's going to be important to us later on.
+
+00:38.250 --> 00:42.930
+So make sure you're able to have this open as well should be on the main page of wherever your repository
+
+00:42.930 --> 00:43.410
+is.
+
+00:43.650 --> 00:47.840
+Well let's start off with Python on anywhere where you're going to do is sign up.
+
+00:47.850 --> 00:52.370
+So if you click on pricing and sign up right now we'll create a free beginner account.
+
+00:52.380 --> 00:57.970
+It's a very low CPQ bandwidth Web site and it's also you can't have your own custom domain on it will
+
+00:58.020 --> 01:00.010
+be your user name dot Python anywhere.
+
+01:00.020 --> 01:00.990
+Dot com.
+
+01:00.990 --> 01:05.940
+If you end up expanding on this and wanting to work that more the pricing is actually pretty fair especially
+
+01:05.940 --> 01:09.330
+if you really want to focus on Python apps.
+
+01:09.330 --> 01:11.060
+You can read all about it here.
+
+01:11.340 --> 01:15.950
+But for now I'm just going to create a beginner account and then you will pass in your username email
+
+01:15.960 --> 01:18.940
+password and then password again going to sign up now.
+
+01:20.660 --> 01:20.970
+OK.
+
+01:20.980 --> 01:26.710
+So once you sign that and log then make sure you confirm your email if you plan to actually use this
+
+01:26.710 --> 01:27.800
+more than once.
+
+01:27.850 --> 01:30.780
+Right now I have an unconfirmed e-mail address so we can do that later on.
+
+01:31.030 --> 01:35.740
+But once you have this web interface you'll notice that you have a couple of tabs you have the council's
+
+01:35.740 --> 01:39.480
+files web schedule et cetera.
+
+01:39.530 --> 01:44.300
+So coming to the consuls this basically is a console's tab that allows you to create and interact with
+
+01:44.300 --> 01:47.420
+just Python and bash console instances.
+
+01:47.420 --> 01:53.000
+Then the next thing over we have files and this allows you to upload and organize files within your
+
+01:53.000 --> 01:53.930
+disk quota.
+
+01:53.930 --> 01:59.420
+So right now our quota is 512 megabytes not a whole lot but more and more than enough for what we're
+
+01:59.420 --> 02:02.730
+going to be working with later on if you decide to do a larger project.
+
+02:02.780 --> 02:05.700
+You may need to pay in order to get a larger quota.
+
+02:05.900 --> 02:10.580
+Then we have a web tab which allows you to configure settings for your hosted web applications which
+
+02:10.580 --> 02:11.760
+will work later.
+
+02:11.780 --> 02:16.610
+Then you also have a schedule tab that allows you to set up tasks to be executed at certain particular
+
+02:16.610 --> 02:23.750
+times and also the databases tab which allows you to configure a sequel database for applications if
+
+02:23.750 --> 02:28.240
+they require it also allows you to do a post gresse if you're actually on a paid account.
+
+02:28.820 --> 02:36.760
+And I have all these tabs were mainly just going to be working with the councils tab and the web tab.
+
+02:36.790 --> 02:40.500
+The first thing we're going to do is set up a virtual environments.
+
+02:40.520 --> 02:48.030
+Now all you have to do is click here on Bash and this will open up a bash console for you should look
+
+02:48.030 --> 02:49.040
+something like this.
+
+02:49.050 --> 02:54.510
+They'll say loading console loading bash interpreter and then right here we have the actual console
+
+02:55.590 --> 02:59.200
+and I'm going to zoom in a lot so you can see what I'm typing.
+
+02:59.550 --> 03:00.270
+OK.
+
+03:00.660 --> 03:05.700
+And what we're going to do is make a virtual environment so I'll say this.
+
+03:05.760 --> 03:10.990
+M-K virtual D-NV.
+
+03:11.040 --> 03:17.310
+So previously we had to use Konda create on our own computer to create a virtual environment I Python
+
+03:17.310 --> 03:20.130
+anywhere it doesn't have the Anaconda distribution of Python.
+
+03:20.250 --> 03:25.440
+But what it does have is this virtual NVI which is going to work pretty much the exact same way.
+
+03:25.470 --> 03:31.190
+So then we're going to do say dash dash Python is equal to.
+
+03:31.470 --> 03:38.280
+And then we will call this all type in Python and we'll say 3.5 because that's the latest version of
+
+03:38.280 --> 03:43.560
+Python that's available on Python anywhere that come maybe by the time you're viewing this python 3.6
+
+03:43.560 --> 03:44.750
+is going to be available.
+
+03:44.760 --> 03:46.570
+It's Python therapist who's already released.
+
+03:46.620 --> 03:50.900
+I'm not sure if it's already available in Python anywhere but our application will work with 3.5 or
+
+03:50.920 --> 03:52.400
+3.6 either way.
+
+03:52.620 --> 03:55.490
+And then the actual name of our projects.
+
+03:55.940 --> 03:59.670
+So we'll call it my P R O J.
+
+03:59.970 --> 04:02.070
+And that's the name of your project's virtual environment.
+
+04:02.070 --> 04:07.170
+So basically what this is saying is create a virtual environment or make a virtual environment where
+
+04:07.170 --> 04:14.230
+Python is equal to the version Python 3.5 and call it my PR Ojay so will enter.
+
+04:14.330 --> 04:19.050
+It's going to run this and install all the setup tools and everything we need.
+
+04:19.050 --> 04:23.880
+So again this may take a little while depending on the internet connection that we're using.
+
+04:23.960 --> 04:32.050
+So be patient and I want to fast forward in time while this finishes installing everything OK.
+
+04:32.070 --> 04:35.930
+So it's finished installing that took maybe about 30 seconds for me.
+
+04:35.980 --> 04:43.970
+That should also not take a whole lot of time for you then here I have imprints sees might be Aro J.
+
+04:44.040 --> 04:49.470
+That means my virtual environment is activated just like when we we're using conduit create zone what
+
+04:49.470 --> 04:57.930
+I can do is check out what packages are already installed and I can just say hit list enter and that's
+
+04:57.930 --> 05:00.890
+going to list all the packages that are already installed here.
+
+05:00.960 --> 05:05.970
+So I have at the IRS packaging pit pipe arsing set up tools six wheel.
+
+05:05.970 --> 05:11.550
+These are all very basic packages and tools that essentially just help you install other packages and
+
+05:11.550 --> 05:12.090
+tools.
+
+05:12.240 --> 05:13.950
+But what we need is Shingo.
+
+05:14.070 --> 05:23.520
+So we're going to say this will say Pipp install and we're going to say that capital you space Gengel
+
+05:24.190 --> 05:28.950
+equal to and then whatever version of Django you happen to have been using for your project.
+
+05:29.790 --> 05:33.940
+The way to find out what version of Jingle you're using on your project is actually really easy when
+
+05:33.990 --> 05:35.840
+you're going to do it on your own computer.
+
+05:35.840 --> 05:37.810
+Open up the command prompt or terminal.
+
+05:37.830 --> 05:39.020
+So I'm going to bring that in.
+
+05:39.030 --> 05:40.750
+So this one's from my own computer.
+
+05:40.770 --> 05:42.960
+This is the command prompt that my Windows machine.
+
+05:43.080 --> 05:45.530
+Open up your terminal on your Linux or Mac.
+
+05:45.570 --> 05:50.880
+And then what you're going to do is with your virtual environment activated or if you aren't using one
+
+05:50.880 --> 05:52.070
+that's also OK.
+
+05:52.170 --> 06:02.050
+Type in Python and then you're going to import Django and then you're just going to type Shingo dot
+
+06:02.140 --> 06:06.570
+underscore underscore version underscore underscore enter.
+
+06:06.580 --> 06:09.380
+And it should report back the version you were using.
+
+06:09.430 --> 06:12.880
+And in my case it was 1.1 0.5.
+
+06:12.880 --> 06:14.850
+So we will minimize that.
+
+06:14.890 --> 06:22.570
+And then I will say jingoes equal to one point one zero point five enter and that's going to Pipp install
+
+06:22.740 --> 06:24.410
+that specific version of Django.
+
+06:24.730 --> 06:29.890
+And I'm really zoomed in here so I got kind of some weird looking output so I will zoom out a little
+
+06:29.890 --> 06:30.190
+bit.
+
+06:30.280 --> 06:35.170
+But essentially you should see something that looks like this is going to install a bunch of stuff and
+
+06:35.170 --> 06:37.610
+it's going to kind of show the loading process.
+
+06:39.520 --> 06:39.780
+All right.
+
+06:39.790 --> 06:41.400
+So this may take a little bit of time.
+
+06:41.410 --> 06:42.640
+So keep that in mind.
+
+06:42.760 --> 06:44.550
+I'm going to fast forward in time.
+
+06:44.590 --> 06:49.420
+It's looks like it's about just installing the collected packages so everything's been downloaded and
+
+06:49.420 --> 06:51.110
+it's going to install again.
+
+06:51.190 --> 06:52.770
+This takes a little bit of time.
+
+06:52.780 --> 06:57.810
+Feel free to go get a coffee right now and I will fast forward in time and meet you back here.
+
+06:59.800 --> 07:02.230
+OK so Ginger has finished installing for me.
+
+07:02.350 --> 07:06.870
+I'm going to zoom back in here so he can see my command line a little better.
+
+07:07.790 --> 07:14.440
+In order to confirm that Django has been installed what you can easily do is pass in the jingo Adam
+
+07:14.440 --> 07:15.740
+in a command line tool.
+
+07:16.100 --> 07:24.240
+So what we can do is say which jingo dash adamant up high enter.
+
+07:24.380 --> 07:29.620
+And if you get something that looks like this back virtual environments my project been jingo had and
+
+07:29.660 --> 07:30.330
+up high.
+
+07:30.410 --> 07:31.730
+That's exactly what we're looking for.
+
+07:31.730 --> 07:36.140
+It's basically telling you that when it runs Shingo dash adman is going to grab it from the virtual
+
+07:36.140 --> 07:36.590
+environment.
+
+07:36.590 --> 07:38.390
+My project which is exactly what I want.
+
+07:38.390 --> 07:44.900
+So that means he has successfully installed this if your particular Gengel project depends on other
+
+07:44.900 --> 07:46.680
+applications of Python.
+
+07:46.730 --> 07:48.830
+You'll need to install those as well.
+
+07:48.830 --> 07:52.970
+Our applications so far have been simple enough or we just need to install Django.
+
+07:53.030 --> 07:58.070
+Well let's say you depend on other libraries like plotting libraries or data analysis libraries machine
+
+07:58.070 --> 07:59.210
+learning libraries.
+
+07:59.210 --> 08:04.910
+Those will be new to installed here so that would be another Pipp install step.
+
+08:04.910 --> 08:12.960
+OK so now it's time to actually get a copy of our Get repository onto our hosted Python anywhere.
+
+08:13.100 --> 08:18.170
+So this where you're going to come over here and then where it says clone or download.
+
+08:18.310 --> 08:20.210
+You are going to copy this.
+
+08:20.390 --> 08:24.150
+So whatever this thing is you're going to copy it to the clipboard.
+
+08:24.320 --> 08:25.400
+Will say copied.
+
+08:25.520 --> 08:35.900
+Come back here and then you can type it's clone and then right click or control V to paste that in there
+
+08:35.900 --> 08:40.030
+it goes and then we're going to hit enter and it's going to clone it there.
+
+08:40.160 --> 08:45.250
+It sometimes may ask you for your password or username depending whether it's public or private.
+
+08:45.320 --> 08:48.080
+So keep that in mind since ARS is totally public.
+
+08:48.080 --> 08:53.040
+They closed that no problem and we'll be talking about security things later on.
+
+08:53.090 --> 08:58.210
+I'm showing you a very open loose way of doing things right now just to get the general ideas down.
+
+08:58.220 --> 09:01.900
+We definitely don't want to do this for a more realistic project.
+
+09:01.920 --> 09:05.360
+We've left our security key open and it's publicly available for viewing.
+
+09:05.360 --> 09:09.360
+Definitely don't want to do that but the general process going to be really similar.
+
+09:10.450 --> 09:15.970
+Or so I've cleared my console I had a lot of stuff in there and Connal Connal is basically on a Linux
+
+09:15.970 --> 09:16.970
+machine.
+
+09:17.100 --> 09:21.240
+You have to do is type in wups clear to clear a console.
+
+09:21.550 --> 09:28.180
+OK so let's type LS to list everything we have read me that text and then Gengel deployment example.
+
+09:28.240 --> 09:34.870
+I'm going to CD into Gengel deployment example just click tab to auto complete that and then type in
+
+09:34.900 --> 09:37.000
+LS That will list everything.
+
+09:37.000 --> 09:44.120
+Looks like we have learning templates going to CD into learning templates and then Emett jingo deployment
+
+09:44.130 --> 09:46.070
+example or in templates list.
+
+09:46.270 --> 09:50.900
+And I have my basic app that sequel like learning templates manage up-I templates.
+
+09:51.360 --> 09:56.070
+OK so typically you're going to have models that you need to actually migrate and set up.
+
+09:56.070 --> 09:57.830
+So this is the step in which you would do that.
+
+09:57.900 --> 10:05.460
+You would say Python managed up-I migrate it enter make all the general migrations you have to do in
+
+10:05.460 --> 10:09.510
+our case we didn't really have anything besides the admin operations.
+
+10:09.510 --> 10:12.840
+We had no actual models in our applications.
+
+10:12.850 --> 10:18.190
+If you do you'd see a lot more here and then the other thing you'd have to do is just like we did locally
+
+10:18.730 --> 10:24.220
+say Python make migrations and then the name of your applications that you needed to make those migrations
+
+10:24.220 --> 10:24.860
+to.
+
+10:24.910 --> 10:27.520
+Such as in our case basic underscore app.
+
+10:27.520 --> 10:31.860
+Again we don't have any models here so we shouldn't see anything here.
+
+10:32.140 --> 10:38.060
+Whoops I forgot to say Python managers up high make migrations.
+
+10:38.170 --> 10:39.950
+Basic underscore.
+
+10:40.120 --> 10:40.790
+There we go.
+
+10:41.110 --> 10:44.230
+So again no changes the text and app basic app.
+
+10:44.350 --> 10:47.250
+If you do have models there you will detect those changes.
+
+10:47.410 --> 10:52.680
+And then again you have to repeat Python managed up-I migrate.
+
+10:53.410 --> 10:55.410
+OK so again no migration is to apply.
+
+10:55.420 --> 10:57.660
+But those are the kind of steps we've done them before locally.
+
+10:57.700 --> 10:59.250
+You'd have to do it again here.
+
+10:59.290 --> 11:03.850
+All right so something else we want to make sure we do is we'll work if the admin interface we probably
+
+11:03.850 --> 11:05.090
+need a super user.
+
+11:05.380 --> 11:13.420
+So I have to say Python managed up-I create super user enter and then just create a supervisor.
+
+11:13.420 --> 11:17.560
+Always the same person to be using all the time.
+
+11:17.560 --> 11:19.420
+Let's actually get this training
+
+11:22.790 --> 11:26.970
+and data that entered in the password
+
+11:29.790 --> 11:37.230
+password won't show up and then pass it in again.
+
+11:37.700 --> 11:40.700
+And then your super user will be created successfully.
+
+11:40.700 --> 11:44.290
+OK so the database is set up all your migrations are done.
+
+11:44.300 --> 11:49.940
+You created a super user you've marked down the password somewhere and you are ready to actually set
+
+11:49.940 --> 11:56.660
+up your web application and that involves setting up the actual WSG settings and this basically just
+
+11:57.050 --> 12:00.500
+involves telling Python anywhere to actually serve your application.
+
+12:00.500 --> 12:06.990
+If someone visits your page so we're going to be doing is zooming out of this again.
+
+12:07.420 --> 12:10.770
+And here we're going to go back to our dashboard.
+
+12:11.050 --> 12:12.760
+So click on your dashboard.
+
+12:12.760 --> 12:13.650
+Come back to it.
+
+12:14.760 --> 12:17.030
+And then click on the web tab.
+
+12:18.070 --> 12:24.990
+And then say add a new web app pop up a pop up box is going to appear and then you're basically going
+
+12:24.990 --> 12:26.230
+to follow the instructions here.
+
+12:27.050 --> 12:29.630
+If you want your own custom domain name you're going to pay for that.
+
+12:29.630 --> 12:34.450
+So right now I'm just that Parian data practice that Python anywhere that I'm going to take this down
+
+12:34.460 --> 12:38.420
+so probably by the time you're actually viewing this you can be able to see my example web site so I'll
+
+12:38.420 --> 12:44.720
+click next then we'll say select a python web framework so we'll select Django since that's what we're
+
+12:44.720 --> 12:45.460
+using.
+
+12:45.620 --> 12:49.870
+And then we're using Django 1.1 0 with Python 3.5.
+
+12:50.030 --> 12:51.200
+So we'll hit that as well.
+
+12:51.380 --> 12:53.840
+And then there's a quick start new jingle projects.
+
+12:53.840 --> 12:55.840
+It says this will create a brand new jingle app.
+
+12:55.940 --> 12:59.640
+If you already have an app you want to use use the manual config instead.
+
+12:59.810 --> 13:06.880
+Which means we actually need to go back and what we're going to do is hit manual configuration on this
+
+13:08.310 --> 13:12.090
+and then we're going to select Python version and then the Maino configuration evolves.
+
+13:12.120 --> 13:15.350
+Editing this WCI file this configuration file.
+
+13:15.420 --> 13:19.770
+So we're going to do is when we click next to create one for you it's just a simple Hello World app
+
+13:20.070 --> 13:24.660
+and then we're going to change it to actually point to our soul say next it's going to create that for
+
+13:24.660 --> 13:25.290
+us.
+
+13:26.790 --> 13:33.010
+And then what you can do now is copy this so we can open this Lincoln and you tab and you shouldn't
+
+13:33.010 --> 13:36.840
+see your actual web site instead you'll just see something that says Hello world.
+
+13:37.090 --> 13:38.290
+So it says hello world.
+
+13:38.290 --> 13:41.930
+This is the default welcome page for a python anywhere app to figure more.
+
+13:42.040 --> 13:46.930
+Click on the web app set up page so you can actually click on this page and it has a list of instructions
+
+13:46.930 --> 13:48.310
+that were going to be following.
+
+13:48.310 --> 13:50.250
+So it says everything that we need to do here.
+
+13:52.840 --> 13:58.060
+So on this web tab page you're going to scroll down and to see virtual EMV.
+
+13:58.360 --> 14:03.080
+So we'll we're going to do is enter a path to the virtual end of the.
+
+14:03.140 --> 14:12.300
+So let's do that now we will click here enter path and it's going to be home all slash home slash your
+
+14:12.300 --> 14:13.390
+user name.
+
+14:13.470 --> 14:20.550
+In my case it's Parian or period data believe training or data practice.
+
+14:20.560 --> 14:22.580
+That's why I called it.
+
+14:22.680 --> 14:25.220
+You can view it actually appear on the actual euro.
+
+14:25.230 --> 14:34.990
+So it says user orientated practice slash and say Dot virtual E and V S slash and then whatever have
+
+14:35.100 --> 14:37.490
+you happen to have named your virtual environment.
+
+14:38.570 --> 14:47.010
+In my case it was just my PR Ojay So we'll come here and say that virtually in VS and say My p r Ojay
+
+14:47.720 --> 14:52.260
+they'll hit the check mark and it's going to line up perfect.
+
+14:52.510 --> 14:56.450
+And as long as you did this all correctly you should be able to start a console.
+
+14:56.450 --> 15:00.900
+So what we're going to do next is actually set up the source code for this.
+
+15:00.950 --> 15:07.010
+So you come back up here to the code section and then what are we going to end up doing is setting up
+
+15:07.010 --> 15:07.660
+the code.
+
+15:07.670 --> 15:09.900
+So we'll do this.
+
+15:09.990 --> 15:13.860
+So we need to set up the link to the actual project folder.
+
+15:13.860 --> 15:16.980
+Now I've actually kind of forgotten so I'll show you how to get it again.
+
+15:17.070 --> 15:25.230
+Just started con. and has virtual NVI going to bring you back to the bash con. we'll do the X Q. environment.
+
+15:25.230 --> 15:32.010
+Take us back there and let me actually grab the virtual excuse me the file path to our actual project
+
+15:32.940 --> 15:33.950
+so I can zoom in here.
+
+15:33.960 --> 15:35.730
+So this way you can do in case you forgot it.
+
+15:35.730 --> 15:38.230
+Like I just did it.
+
+15:38.240 --> 15:44.940
+LS All right so there's the jingle deployment example Singhalese CD into jingle play an example.
+
+15:44.940 --> 15:51.660
+LS again and I'm going to see the into learning templates and then I'm going to type p w d that's going
+
+15:51.660 --> 15:53.850
+to print my working directory.
+
+15:53.880 --> 15:55.610
+Let me zoom out a little bit.
+
+15:55.710 --> 15:57.390
+So this actually prints out nicely.
+
+15:57.450 --> 15:59.340
+So P.W. the.
+
+15:59.500 --> 16:00.430
+And here it is.
+
+16:00.430 --> 16:01.660
+So it's home.
+
+16:01.780 --> 16:07.240
+Whatever your username is whatever you have to name that folder and then the name of your actual project.
+
+16:07.240 --> 16:12.430
+So I will copy this and this is what I'm going to be using.
+
+16:12.470 --> 16:17.220
+So we will come back to our dashboard and then paste that into the source code.
+
+16:17.220 --> 16:23.730
+So again come to the Web tab then come down to code says enter the path here and we are going to enter
+
+16:23.730 --> 16:24.280
+that path.
+
+16:24.300 --> 16:31.570
+So let's make sure it starts with Slash home yep it's good to go so hit the check mark and that should
+
+16:31.590 --> 16:37.030
+now show us that it's match the source code for actual project and now one of the very last things you
+
+16:37.030 --> 16:40.820
+have to do is just set up our ws G.I. configuration file.
+
+16:41.050 --> 16:46.930
+So click on that and it will take you to a place where you can actually end up editing that file and
+
+16:46.930 --> 16:49.160
+you have this nice little editor in here.
+
+16:49.240 --> 16:54.640
+And so what's really great about Python anywhere I really enjoy it because it's really meant for people
+
+16:54.640 --> 16:56.620
+who love and use Python a lot.
+
+16:56.740 --> 17:00.090
+If you're using another language don't use this site.
+
+17:00.580 --> 17:02.590
+Obviously it's called Python anywhere for a reason.
+
+17:02.590 --> 17:02.840
+OK.
+
+17:02.860 --> 17:08.440
+So let's get to editing this going to zoom in so we can see it a little better.
+
+17:09.550 --> 17:10.560
+There we go.
+
+17:10.570 --> 17:13.000
+So the very first thing to show you is the hello world.
+
+17:13.000 --> 17:14.930
+That's what it was displaying before.
+
+17:15.040 --> 17:17.160
+And what we're going to do is just really all of this.
+
+17:17.230 --> 17:22.730
+So this little line of code basically from line I guess around 13 to 47.
+
+17:22.840 --> 17:24.790
+This was just the Hello World page.
+
+17:24.790 --> 17:27.760
+So we're going Adley all of that because we don't need any more.
+
+17:27.760 --> 17:31.180
+We're going to be telling it to go to our page.
+
+17:31.320 --> 17:35.030
+And what's nice about Python anywhere's they actually kind of said it already up for you.
+
+17:35.340 --> 17:41.880
+So what we can do here is scroll down to where it says Django and then start uncomment some of these
+
+17:41.880 --> 17:42.260
+lines.
+
+17:42.260 --> 17:50.980
+So we're going to say import os import Ciss for system and then we're you going to set up the path.
+
+17:51.160 --> 17:57.550
+And again that's just going to be commenting these three lines so path if etc..
+
+17:57.820 --> 18:03.430
+So it says right now home your user name my site we're going to need to change that to actually point
+
+18:03.430 --> 18:05.120
+to your project.
+
+18:05.200 --> 18:07.290
+So my project is not called my site.
+
+18:07.300 --> 18:12.300
+It's underneath this jingle deployment example so the name of that repository.
+
+18:12.460 --> 18:14.620
+And then the name of the project itself.
+
+18:14.620 --> 18:14.850
+OK.
+
+18:14.860 --> 18:16.280
+So that's what I need.
+
+18:16.330 --> 18:17.940
+And then you can keep this here.
+
+18:18.020 --> 18:22.170
+If path moments as paths as patho pentad that's totally OK.
+
+18:22.450 --> 18:25.750
+And then from here on where are we going to do is do a couple more edits.
+
+18:27.320 --> 18:30.690
+And what we need to do is change to our project directory.
+
+18:30.980 --> 18:39.260
+So out here will say OS c h d r so change directory and we'll pasand the path variable that we just
+
+18:39.260 --> 18:41.990
+defined as our path to our project.
+
+18:41.990 --> 18:48.260
+So again all I'm saying right now so far is import os import Ciss path set equal to learning templates
+
+18:48.680 --> 18:51.170
+if path on its path paths path out a pin path.
+
+18:51.170 --> 18:52.780
+That's OK as well.
+
+18:52.790 --> 18:57.530
+OS that change directory to the path we just created and then I need a Telecinco where the settings
+
+18:57.530 --> 18:59.870
+that py module is located.
+
+18:59.890 --> 19:03.130
+So one way to do that is through something that looks like this.
+
+19:03.250 --> 19:08.550
+In other way to do that which is kind of a little more in line with what we did locally is say oh estop
+
+19:09.500 --> 19:21.130
+environ set the fault the fault and then passen in all caps jingo underscore setting's underscore module
+
+19:22.630 --> 19:30.160
+comma and then the actual path to your settings so that the path to see actual settings folder SLB learning
+
+19:30.460 --> 19:34.440
+underscore templates that settings.
+
+19:34.450 --> 19:37.060
+So that's kind of where the settings that py file is.
+
+19:37.480 --> 19:45.410
+And then we're going to do say import Django Django setup and in fact a lot of this code is actually
+
+19:45.680 --> 19:46.510
+up here already.
+
+19:46.550 --> 19:53.490
+So you kind of scroll up will say custom WCI some of this code that we're going to be using as a peer.
+
+19:53.510 --> 19:54.970
+So that's OK.
+
+19:55.070 --> 19:57.420
+We can just get some practice writing in ourselves.
+
+19:57.560 --> 20:02.710
+So what we do just as we're using a version of Jingle that's greater than 1.5 just say from Django that
+
+20:02.720 --> 20:11.390
+core this guy and then we're going to save this what it save.
+
+20:11.570 --> 20:16.790
+Then we will come back and actually check to make sure we have no gate where's.
+
+20:16.810 --> 20:19.190
+So let's go back to the actual dashboard.
+
+20:21.400 --> 20:26.960
+And then where it says web I'm going to click on this link and here it says welcome to index.
+
+20:26.980 --> 20:33.000
+Hello click on other takes us to the other page and click on brand takes us back to the home page and
+
+20:33.100 --> 20:37.810
+you'll notice if I click on admin I get this sort of weird Django administration it doesn't look as
+
+20:37.810 --> 20:40.000
+nice as it usually looked for us.
+
+20:40.000 --> 20:44.700
+That means we actually need to go back to the Web tab and tell where to look for the static files.
+
+20:44.710 --> 20:46.220
+So here I can fill stuff out.
+
+20:46.230 --> 20:48.920
+Hit log in and you'll notice that it still looks ugly.
+
+20:48.970 --> 20:51.470
+So let's go back to the Web tab and fix this.
+
+20:53.570 --> 20:59.370
+OK so coming back to the Web tab we have the web open here and we're going to scroll all the way down
+
+20:59.430 --> 21:01.610
+until you see the static file.
+
+21:01.920 --> 21:02.250
+OK.
+
+21:02.250 --> 21:07.260
+So here we see static files and this is where we're going to be linking files that aren't dynamically
+
+21:07.260 --> 21:12.400
+generated by our code like C Ss and Javascript and there's basically two main static files that we need
+
+21:12.430 --> 21:17.910
+linked to one are these static files for the admin page and then the second one are your own static
+
+21:17.940 --> 21:18.840
+admin files.
+
+21:18.840 --> 21:20.270
+Now this particular project.
+
+21:20.520 --> 21:25.020
+I don't believe actually had any static admin files so we'll create the link and then we'll also show
+
+21:25.020 --> 21:28.170
+you how you can create new files and edit those to actually add in the static.
+
+21:28.170 --> 21:32.860
+But first we'll show you the one that you're always going to have which is the static for the admin.
+
+21:33.060 --> 21:40.270
+So the you are all that this goes under here is static slash admin put that in.
+
+21:40.270 --> 21:41.870
+And then we're going to enter the path.
+
+21:42.220 --> 21:44.530
+And this is kind of a long complicated path.
+
+21:44.700 --> 21:48.460
+It's home slash your user name for the Web site.
+
+21:48.910 --> 21:55.420
+So in this case it's well you use a name for Python anywhere that calmly be clear on that period data
+
+21:55.420 --> 22:04.500
+practice slash and then the dot virtual end vs slash the name of your virtual environment they created.
+
+22:04.510 --> 22:12.930
+So in my case it was my proj slash lib slash and then you pass in the Python version you're using.
+
+22:12.970 --> 22:20.710
+So it's Python 3.5 for us years maybe Python 3.6 by the time you're watching this and then we say slash
+
+22:20.730 --> 22:34.920
+site dash packages slash Shingo slash contrib slash admin slash static slash admin.
+
+22:35.140 --> 22:41.300
+All right kind of a really long path so go ahead and pause screen if you need to copy and paste this.
+
+22:41.550 --> 22:47.350
+And the next one we're going to do is actually set up our own static file.
+
+22:47.430 --> 22:53.220
+So we'll keep this static admin and directory as it is right now and will come back in a little bit
+
+22:53.430 --> 22:56.680
+and fix your own directory for own static paths.
+
+22:56.760 --> 23:01.800
+But after you ever edit something here you need to reload your web app which means come all the way
+
+23:01.800 --> 23:06.750
+up to the top and click here on reload the web that.
+
+23:06.960 --> 23:10.950
+And then there's another thing we're going to have to do which is turn off debug mode and also make
+
+23:10.950 --> 23:16.970
+sure that we've allowed our Python anywhere that com to be an actual host.
+
+23:16.980 --> 23:20.070
+Because if you click this right now you'll get an error.
+
+23:20.130 --> 23:24.480
+So you should get something like this a lot of hosts if you click here you'll get something like this
+
+23:24.540 --> 23:31.160
+and it says make sure that Pierian data practice stop by anywhere that COM is to a lot host.
+
+23:31.170 --> 23:38.150
+So in order to fix that we'll come back here and we're going to come to files will come to files on
+
+23:38.150 --> 23:44.420
+Gengel deployment example go to learning templates and then learning templates is the name of the project
+
+23:44.420 --> 23:45.460
+itself.
+
+23:45.650 --> 23:50.090
+And then here we can see the settings up my file click on that because that's what we're going to be
+
+23:50.090 --> 23:50.500
+editing.
+
+23:50.510 --> 23:55.420
+And what's nice Python anywhere has this nice Python editor free to play around with.
+
+23:55.430 --> 24:01.010
+So here we see everything that we usually saw and what we do say under a lot of hoes pasan a string
+
+24:01.040 --> 24:09.810
+that is your username your Python anywhere username that is wups.
+
+24:09.820 --> 24:10.880
+Make sure spell that right.
+
+24:10.890 --> 24:13.110
+Practice slash.
+
+24:13.120 --> 24:16.280
+Who's me thought Python anywhere.
+
+24:16.300 --> 24:19.370
+Dot com basically whatever is hosting it.
+
+24:20.270 --> 24:28.420
+So save that so we can save that and then let's come back to learning templates.
+
+24:29.710 --> 24:33.720
+And here we can either create a new character or a new file.
+
+24:33.820 --> 24:39.520
+So under learning templates all this outside one.
+
+24:39.600 --> 24:44.880
+So here we see basic app learning templates templates and ways to create a new directory name and we'll
+
+24:44.880 --> 24:51.730
+call it static it neither rectory and there's nothing in there right now.
+
+24:51.750 --> 24:54.620
+So this is where you can upload static files later on.
+
+24:54.630 --> 24:56.790
+So we've already gone over how to do static stuff.
+
+24:56.790 --> 24:58.620
+But let's actually set up the link to it.
+
+24:58.620 --> 24:59.980
+So it's under learning templates.
+
+25:00.000 --> 25:05.040
+Static member it always goes there on the same level as the applications in the project.
+
+25:05.050 --> 25:07.640
+Now we're going to come back to web and show you how we can add that.
+
+25:07.920 --> 25:14.270
+OK so once we made those changes back at the Web tab we're going to reload the actual site.
+
+25:14.580 --> 25:19.810
+Make sure those settings went through and then click again on configuration.
+
+25:19.850 --> 25:21.270
+Open that and then you tab.
+
+25:21.410 --> 25:22.010
+And we shall see.
+
+25:22.020 --> 25:22.990
+Now welcome to index.
+
+25:23.000 --> 25:23.380
+Hello.
+
+25:23.390 --> 25:28.490
+And if you click on admen it will look like the normal nice adamant means your static files were actually
+
+25:28.490 --> 25:29.720
+linked together.
+
+25:29.720 --> 25:36.560
+Now what happens if you go to somewhere that is not on your Web site so let's say you go to your name
+
+25:36.590 --> 25:39.650
+and then pass some random numbers enter.
+
+25:39.860 --> 25:45.430
+Notice that we are still in debug mode and you're seeing the error because the bug is equal to true.
+
+25:45.560 --> 25:48.740
+If you change it to false Shingo will display a standard 404 page.
+
+25:48.860 --> 25:51.320
+So let's actually make sure that happens we don't want debug.
+
+25:51.370 --> 25:53.900
+It reveals a lot of stuff about our actual code.
+
+25:54.140 --> 25:56.030
+So we'll come back here at this hour.
+
+25:56.070 --> 26:02.850
+Let's get back the old disallowed come back to files and then come back to the point example.
+
+26:02.850 --> 26:11.080
+Learning templates and then come back to our learning templates project the has are setting up py file.
+
+26:11.190 --> 26:17.330
+Click on it and then here where it says the bug will set it to be equal to false.
+
+26:17.630 --> 26:26.660
+Will save this and then we're going to come back to learning templates and then come back to web and
+
+26:26.660 --> 26:31.730
+then I'm also going to now set up the link to the other static files so there is no other static files
+
+26:31.730 --> 26:36.650
+right now but maybe you have static files for your projects that you had actually do this.
+
+26:36.680 --> 26:46.240
+So are you going to end up doing is the following you will set the URL to just be slash static as it
+
+26:46.240 --> 26:52.220
+suggests you enter and then we passen the file path to our actual static file.
+
+26:52.570 --> 27:00.580
+So in our case if we go back it's under home Pre-N data practice slash.
+
+27:00.600 --> 27:06.120
+And then let's make sure we actually find that file in order to do that I'm going to double check and
+
+27:06.120 --> 27:13.000
+scroll back up and open our files tab in the new tab so I can check on it.
+
+27:13.380 --> 27:13.620
+OK.
+
+27:13.620 --> 27:16.920
+Jingle deployment example learning templates.
+
+27:17.490 --> 27:18.650
+Static.
+
+27:19.130 --> 27:19.690
+OK.
+
+27:19.950 --> 27:27.930
+So it's under Jingo the plumbing example so let's scroll down here past that back in so slash jingo
+
+27:28.410 --> 27:34.290
+that's the placement dash example slash.
+
+27:34.470 --> 27:35.940
+Then let's click on it again.
+
+27:35.940 --> 27:37.440
+Learning the underscore templates.
+
+27:37.440 --> 27:38.540
+Perfect.
+
+27:39.030 --> 27:49.900
+So all the way to the right learning underscore templates slash static and then now this is linked to
+
+27:49.930 --> 27:51.360
+the static CSSA files.
+
+27:51.370 --> 27:55.820
+We don't have any on our particular example but this is what you would do for your own examples.
+
+27:56.700 --> 27:57.060
+OK.
+
+27:57.170 --> 28:01.000
+So let's try this again make sure we reload these changes.
+
+28:02.300 --> 28:06.230
+Take time to reload and then we're going to open up our file again.
+
+28:06.430 --> 28:09.200
+Our actual Web site great.
+
+28:09.260 --> 28:13.850
+And now it's working and everything's linked so if I come to the admin it's link to the admin static
+
+28:13.850 --> 28:17.400
+files and if I had my old static files those would also be linked.
+
+28:17.630 --> 28:24.290
+And I also noticed that if I say slash something that doesn't belong I get a not found 404 page.
+
+28:24.290 --> 28:29.780
+Now you can eventually put in your own 404 pages and we'll see this all again when we talk about clones
+
+28:29.780 --> 28:30.890
+later on.
+
+28:30.890 --> 28:31.570
+All right.
+
+28:31.670 --> 28:34.190
+So this was a super long lecture.
+
+28:34.220 --> 28:40.000
+I know it's a kind of hard to separate out the steps because it's kind of all one long flowing process
+
+28:40.370 --> 28:45.210
+but hopefully you saw that Python anywhere has a lot of built in stuff that's ready to help you out.
+
+28:45.410 --> 28:45.860
+OK.
+
+28:46.050 --> 28:48.480
+If you have any questions feel free to post them to the Q&amp;A forums.
+
+28:48.560 --> 28:52.400
+But definitely make sure that you followed all of the steps even if you mess one of them up everything
+
+28:52.580 --> 28:54.510
+further than that can be messed up as well.
+
+28:54.690 --> 28:55.100
+OK.
+
+28:55.340 --> 28:56.990
+Thanks everyone and I'll see at the next lecture.

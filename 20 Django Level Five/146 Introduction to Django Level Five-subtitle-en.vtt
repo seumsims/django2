@@ -1,0 +1,31 @@
+WEBVTT
+
+00:05.140 --> 00:05.950
+Hello everyone.
+
+00:06.040 --> 00:11.800
+To change a level 5 in this section of the course we're going to be focusing on user authentication.
+
+00:11.820 --> 00:16.770
+So far we've only created applications that assume everyone's going to see the same pages.
+
+00:16.970 --> 00:20.870
+And this is one of those aspects of Django where there are lots of built in available tools as well
+
+00:20.870 --> 00:25.880
+as plenty of external packages that enhance the functionality of user Athens cation.
+
+00:26.180 --> 00:30.980
+We're going to be focusing mainly on the built in tools for this particular section of the course and
+
+00:30.980 --> 00:36.950
+we'll be talking about users in the user model talking about permissions groups passwords and authentication
+
+00:37.130 --> 00:41.650
+and then how to have users log in and log out of your Web site OK.
+
+00:41.670 --> 00:42.630
+Let's get started.
+
+00:42.630 --> 00:43.560
+I'll see you at the next lecture.

@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.720 --> 00:04.410
+Hello everyone and welcome to the blog clone project.
+
+00:04.430 --> 00:06.260
+So this is your first clone project.
+
+00:06.260 --> 00:10.850
+I want to congratulate you on making it this far into the course and this project will be creating a
+
+00:10.850 --> 00:15.620
+blog and not just a personal blog but you can think of it more as a company blog since ill be able to
+
+00:15.620 --> 00:17.140
+have multiple users.
+
+00:17.150 --> 00:21.520
+This is actually a great first step to building a larger more robust social network application.
+
+00:21.650 --> 00:26.720
+As a lot of the knowledge here is going to be directly transferred to our social network clone projects
+
+00:28.020 --> 00:32.220
+and this project will include topics on almost everything we've covered so far so take it on slowly
+
+00:32.220 --> 00:33.240
+and carefully.
+
+00:33.390 --> 00:37.990
+And I've made sure to add in elements from pretty much every section of the course.
+
+00:38.130 --> 00:43.340
+So if you skip to Section make sure you review it before actually coming onto this clone project and
+
+00:43.350 --> 00:47.480
+I really recommend having the jingle documentation open so you can cross-reference anything new you
+
+00:47.480 --> 00:49.810
+see.
+
+00:49.810 --> 00:52.300
+This blog is going to be a multi-user blog as I mentioned.
+
+00:52.330 --> 00:57.190
+So it's kind of more like a company blog rather than just a simple personal blog interface and this
+
+00:57.190 --> 01:01.010
+multi-user behavior is going to be easily extendable to feature projects.
+
+01:02.260 --> 01:06.960
+So we're also going to be adding in some fun javascript and CSSA features to give the site a more complete
+
+01:06.990 --> 01:07.670
+feel.
+
+01:07.950 --> 01:11.280
+So let's take a look at what the completed Web site actually looks like.
+
+01:12.930 --> 01:13.290
+All right.
+
+01:13.290 --> 01:14.760
+This is what the Web site looks like.
+
+01:14.760 --> 01:19.770
+Running locally and you can see here that I have some kind of fun see assess where the colors of the
+
+01:19.770 --> 01:21.580
+blog posts are slowly changing.
+
+01:21.630 --> 01:25.960
+And even if I highlight everything my highlighted color will also slowly change.
+
+01:25.980 --> 01:30.550
+Obviously that's completely optional but that's going to be a little fun CSSA element we add to that.
+
+01:30.600 --> 01:34.840
+And that's actually Pearcey SS That's not any javascript which is interesting.
+
+01:35.130 --> 01:39.140
+So are we gonna be able to do is click here on the sort of profile tab.
+
+01:39.450 --> 01:41.480
+And that's going to show you how to use a glyph icon.
+
+01:41.880 --> 01:45.900
+And then here will say Please log in must be a super user so we can log in.
+
+01:45.900 --> 01:50.580
+I can see stuff is changing colors and then once you've done that I'm a little zoomed in here so you
+
+01:50.580 --> 01:56.400
+can see it but at 100 percent zoom in we can see we can create a new post and then we create a new post
+
+01:56.410 --> 02:03.660
+select an author title will be my great post and then you can see here you can begin to type text so
+
+02:03.660 --> 02:06.420
+I'll say something like Hello world.
+
+02:06.600 --> 02:12.540
+And if you've ever used a Web site called Medium dot com which is kind of a blogging site you'll know
+
+02:12.540 --> 02:17.760
+that if you highlight something it gives you options on stating whether something's bold whether it's
+
+02:18.090 --> 02:23.580
+italics underline or two or three and we're going to actually add in that functionality whether you
+
+02:23.580 --> 02:30.270
+want to link in here to this could take you to something like Google dot com and now it's a link etc..
+
+02:30.330 --> 02:31.870
+So that's all now in Javascript.
+
+02:31.890 --> 02:33.220
+And we're going to learn how to add that in.
+
+02:33.240 --> 02:38.390
+So then I can save this I have migrate posts and then I can also add comments to it.
+
+02:38.550 --> 02:40.440
+But note that it's right now a draft.
+
+02:40.440 --> 02:47.390
+So if I check my drafts I have draft and I publish another messed up draft and have migrate posts.
+
+02:47.430 --> 02:51.020
+Click on that and then I can say publish this to the entire world.
+
+02:51.190 --> 02:56.510
+And now if I look at my tech blog the home page I can see migrate post has been published.
+
+02:56.590 --> 03:02.440
+So then I'll migrate posts or any post really we can edit the post so I can come over here and Edsels
+
+03:02.590 --> 03:05.490
+say you at it.
+
+03:06.650 --> 03:15.450
+Save that bloops the Riego and hear you say hello world and you at it and I can also add comments to
+
+03:15.450 --> 03:22.170
+it so I can say some visitor type the text in a.
+
+03:22.360 --> 03:30.260
+That is a post and then they also get access to data things like Boulder heading to maybe don't want
+
+03:30.260 --> 03:32.130
+that but you never know.
+
+03:32.270 --> 03:37.400
+And then we'll post that comment and it says hey that is a post posted by some visitor and as a user
+
+03:37.430 --> 03:43.490
+I get to approve or remove comments so I approve that comment check it and then it takes me back to
+
+03:43.490 --> 03:44.630
+my post.
+
+03:44.790 --> 03:50.720
+If I look at my tech blog come back to my great post I can see here has one comment and there we go.
+
+03:50.720 --> 03:54.220
+And then you can also use this to link to get hub linked in.
+
+03:54.230 --> 03:57.580
+There there's an about page maybe it is about your company or about me.
+
+03:57.630 --> 03:58.380
+Cetera.
+
+03:58.640 --> 03:59.670
+So lots of cool stuff here.
+
+03:59.670 --> 04:03.950
+I'm going to learn a lot and believe it not a lot of this functionality is actually not that hard to
+
+04:03.950 --> 04:06.500
+implement given what you learned already.
+
+04:06.510 --> 04:08.480
+And then finally the last thing you can do is delete posts.
+
+04:08.480 --> 04:14.100
+You can click on this little X or if she wanted to migrate posts click confirm and athletes to post.
+
+04:14.120 --> 04:18.120
+All right so let's hop over quickly to the slides and finish this all up.
+
+04:18.340 --> 04:21.510
+All right just a few last notes before we get started.
+
+04:21.530 --> 04:26.510
+It's also really common for real jingle projects to make use of other open source third party libraries
+
+04:26.660 --> 04:27.980
+and we're going to be using quite a few.
+
+04:28.010 --> 04:30.980
+So make sure you follow along when we install them.
+
+04:30.980 --> 04:35.810
+If you're kind of going with the code and you ever get an error called No module names some sort of
+
+04:35.810 --> 04:38.100
+module it's probably because you forgot to install it.
+
+04:38.180 --> 04:42.400
+So all you have to do is go the command line say Pipp install that particular module name instead of
+
+04:42.410 --> 04:43.390
+a virtual environment.
+
+04:44.720 --> 04:48.920
+And we're also going to be exploring different ways of organizing or jingle projects and we've previously
+
+04:48.920 --> 04:51.990
+discussed this organization method in the class based views section.
+
+04:52.010 --> 04:55.380
+Definitely going to be implementing a lot of ideas from that previous section.
+
+04:55.400 --> 04:58.790
+So make sure to review it before heading on to this project.
+
+04:59.500 --> 05:04.860
+In a few final important notes no amount of clone projects can show you how to use and do everything.
+
+05:05.010 --> 05:08.880
+So you're going to need to feel comfortable venturing out on your own and read the documentation when
+
+05:08.880 --> 05:11.560
+it comes to your own personal projects.
+
+05:11.750 --> 05:16.160
+And if you're interested in learning a specific plug in library or API you're probably going to need
+
+05:16.160 --> 05:17.800
+to reference outside of materials.
+
+05:17.840 --> 05:24.420
+If you're not covered in these projects and one last final know you should be able to have a full understanding
+
+05:24.420 --> 05:29.910
+of how we're building up the clone project shown here but not necessarily memorizing every certain class
+
+05:29.910 --> 05:31.800
+call or function name etc..
+
+05:31.820 --> 05:35.670
+You should have an understanding but don't feel obligated that you had to have everything memorized
+
+05:35.880 --> 05:38.100
+by this point in the course.
+
+05:38.130 --> 05:39.790
+All right let's get started.
+
+05:40.020 --> 05:41.200
+I'll see you at the next lecture.

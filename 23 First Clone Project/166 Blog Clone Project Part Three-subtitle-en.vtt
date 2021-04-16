@@ -1,0 +1,592 @@
+WEBVTT
+
+00:05.270 --> 00:05.930
+Hello everyone.
+
+00:05.930 --> 00:10.240
+Welcome back to part three of the blog Klon project.
+
+00:10.250 --> 00:12.800
+So the models are all set up from the previous lecture.
+
+00:12.800 --> 00:17.610
+Now it's time to actually use them to quickly create some forms since we already have that forms up-I
+
+00:17.680 --> 00:23.060
+file set up inside that blog application and what we're also going to learn that we haven't done before
+
+00:23.300 --> 00:27.470
+is how we can actually set up the form widgets to correspond to see SS classes.
+
+00:27.470 --> 00:29.080
+So what do I actually mean by that.
+
+00:29.450 --> 00:35.510
+Well we've already seen something along the lines of injecting of a template tag form as underscore
+
+00:35.520 --> 00:38.900
+P which just injects your form as paragraph.
+
+00:39.110 --> 00:45.650
+And if you're actually using the bootstrap templates that looks OK it's just a standard bootstrap form
+
+00:45.980 --> 00:50.680
+where you kind of get everything from top to bottom using those as paragraph tags.
+
+00:50.690 --> 00:53.880
+But what if you actually want to style a particular widget.
+
+00:53.950 --> 00:56.710
+I remember what I mean by widget is it actual form widget.
+
+00:56.720 --> 01:01.470
+So something like a form button or the text area text input etc..
+
+01:01.580 --> 01:07.220
+What if for whatever reason I want to actually take the text area widget and give it a different styling
+
+01:07.460 --> 01:11.460
+for example give it that medium dot com styling that we're going to be using later.
+
+01:11.630 --> 01:15.080
+Well all you have to do is add a widget attribute to the medic class.
+
+01:15.080 --> 01:20.630
+And what this widget attribute is is actually a dictionary and you pass in some arguments or parameters
+
+01:20.630 --> 01:25.050
+into that dictionary that link the actual widget to the class.
+
+01:25.160 --> 01:30.860
+Later you can call in your CSSA file that class thaim and it will affect that particular widget directly.
+
+01:30.860 --> 01:34.160
+So let's show you how to do all of this by helping over to the editor.
+
+01:34.170 --> 01:35.870
+OK so here I am at the Editor.
+
+01:35.900 --> 01:38.460
+There's three models up-I file is ready to go.
+
+01:38.470 --> 01:42.530
+Remember we have a post model and scrolling down we also have a comments model.
+
+01:42.530 --> 01:47.270
+That's what we're going to be using in the forms up-I file that we've already created.
+
+01:47.270 --> 01:53.840
+So the first thing you need to do is say from Django import forms and once we've done that I need to
+
+01:53.840 --> 01:56.090
+actually grab the models themselves.
+
+01:56.120 --> 02:01.320
+There's various ways you could do this you could just say from the models to me.
+
+02:01.340 --> 02:07.160
+I actually like having as you've heard me say before the application name and then start calling files
+
+02:07.160 --> 02:12.980
+from that source say from blog that models import and then I'm going to import the two models we created
+
+02:12.980 --> 02:16.420
+which was the post model and the comments model.
+
+02:16.670 --> 02:18.500
+And then let's actually create those classes.
+
+02:18.500 --> 02:23.660
+So I will create the post form class which is going to take forms.
+
+02:24.650 --> 02:32.070
+Model form and then inside of this I'll have that metaclass and inside this Medich class we need to
+
+02:32.070 --> 02:35.230
+do is actually connect the model we're using in this case.
+
+02:35.260 --> 02:36.630
+I'm using the post model.
+
+02:36.990 --> 02:41.550
+And then we want to also connect the fields that I want to be able to edit in this form.
+
+02:41.640 --> 02:44.340
+So we'll just edit the author field.
+
+02:44.340 --> 02:46.690
+So who's actually typing out this blog post.
+
+02:46.710 --> 02:51.270
+Theoretically it should be the same person every time but maybe we'll have multiple super users so it
+
+02:51.270 --> 02:54.780
+could be almost like a company blog where we have other super users coming in.
+
+02:54.780 --> 03:00.480
+So we'll keep an author as a field you can edit then we only want to be able to edit the title of whatever
+
+03:00.480 --> 03:01.950
+blog post we're using.
+
+03:01.950 --> 03:04.470
+And of course we want to edit the text itself.
+
+03:06.290 --> 03:08.280
+And we'll talk about those widgets in just a second.
+
+03:08.330 --> 03:16.070
+But let's also edit the comments class or I should say the comment form so I will say comments form
+
+03:16.620 --> 03:27.160
+as my class and then we'll say forms da model for and then what I'm going to create here is Medha and
+
+03:27.160 --> 03:31.270
+inside of this will connect it to the comment model.
+
+03:31.360 --> 03:36.190
+So there's the connection to the comic model and in the fields here that this person's going to be able
+
+03:36.190 --> 03:36.890
+to edit.
+
+03:37.060 --> 03:41.920
+Well they should be able to say who's right in the comment the author and then the actual text of the
+
+03:41.920 --> 03:44.330
+comment itself OK.
+
+03:44.340 --> 03:46.100
+And let me add in a couple more lines here.
+
+03:46.140 --> 03:47.410
+So we get some space.
+
+03:47.640 --> 03:52.170
+And finally it's time to add in these widgets so what I'm going to do is add in the widgets first to
+
+03:52.200 --> 03:53.720
+the post form.
+
+03:53.940 --> 03:57.950
+And again this is so that I can grab a particular field widget.
+
+03:57.960 --> 04:03.990
+So let's say I want to add a red border to the text area box that corresponds with text.
+
+04:03.990 --> 04:04.920
+Well how would I do that.
+
+04:04.980 --> 04:07.050
+In that case I need to actually add in widgets.
+
+04:07.110 --> 04:11.340
+So this goes inside of the medic class and note my indentation here.
+
+04:12.800 --> 04:20.040
+And I create a widgets attribute that is a dictionary and for formatting purposes I'll kind of write
+
+04:20.040 --> 04:21.450
+this over multiple lines.
+
+04:21.450 --> 04:24.530
+But the first key is going to respond to a field.
+
+04:24.900 --> 04:32.520
+So I have title be a field and then what I will have here is forms dot and then the widget actual name.
+
+04:32.520 --> 04:41.480
+So in this case this is going to be a text input and then we have the attributes which is going to be
+
+04:41.480 --> 04:45.140
+a t t r s and set that equal to.
+
+04:45.470 --> 04:56.420
+And here we have kind of a sub dictionary and we have a class and then we can give a text input class.
+
+04:56.590 --> 05:01.930
+So I'll be the first entry and then the other one I want to be able to edit the text.
+
+05:01.950 --> 05:06.790
+So this how we're actually going to connect that text widget with those medium Ed..
+
+05:06.830 --> 05:12.630
+Textarea stylings So you'll see forms dot text area.
+
+05:12.880 --> 05:18.490
+So that's sort of which I'm doing just the giant text area and I will say 80 arest those attributes
+
+05:19.680 --> 05:25.830
+is equal to and I'll set it with a class and then we're going to have kind of a long class name that
+
+05:25.890 --> 05:30.210
+is attributed to the actual medium library we're going to be working with.
+
+05:30.210 --> 05:35.040
+So later on when we actually work with the javascript and see a sense of that medium editor library
+
+05:35.280 --> 05:37.950
+will show you how they actually got this long class name.
+
+05:38.160 --> 05:41.910
+But for now I'll just copy paste from the notes or follow along with me.
+
+05:42.060 --> 05:48.240
+But the classes we're going to pass here is the edible class as and you can edit it then we'll passen
+
+05:48.330 --> 05:55.460
+medium dash editor dash text area.
+
+05:55.510 --> 06:00.850
+So that's the actual class that's going to allow us to connect that to some sort of a medium editor.
+
+06:01.150 --> 06:07.790
+And then we're also going to do is add in our own class Orsay post content so we're connecting this
+
+06:07.790 --> 06:14.600
+text area attribute which is going to be our text in the blog post form and it's going to be connected
+
+06:14.600 --> 06:15.840
+to a CSSA class.
+
+06:15.840 --> 06:18.250
+In fact it connected to three CSSA classes.
+
+06:18.320 --> 06:20.130
+First is the edible class.
+
+06:20.180 --> 06:21.510
+That means we can't edit it.
+
+06:21.510 --> 06:25.630
+That's coming from this medium editor library that we're going to be working with.
+
+06:25.770 --> 06:31.620
+Then we have the medium editor a text area which kind of gives it the styling of the actual medium editor.
+
+06:31.790 --> 06:35.910
+And then we have this post content which is going to be our own class.
+
+06:36.080 --> 06:41.690
+So we're doing the exact same thing over here for the title except we're saying it's text input class.
+
+06:41.690 --> 06:43.930
+Again that's our own class.
+
+06:43.970 --> 06:48.980
+So the only classes that are not ours are these two right here that I'm highlighting the classes that
+
+06:49.010 --> 06:56.240
+are ours is the text input class and then the post content class then we're going to scroll down and
+
+06:56.240 --> 06:59.230
+do a really similar thing for the comment form.
+
+06:59.290 --> 07:02.320
+So over here we're going to have a dictionary widgets
+
+07:05.640 --> 07:14.670
+and I'm going to set author the first dictionary entry to be forms the it's going to be a text input
+
+07:14.880 --> 07:20.040
+widget and that will have this attributes that's going to be a dictionary.
+
+07:21.180 --> 07:22.800
+We'll have a connect to a class.
+
+07:22.800 --> 07:27.070
+And in this case I'll have it just connect to the same text input class here.
+
+07:27.240 --> 07:34.500
+So I'll say text input class so whatever C is styling this title's going to have the author will also
+
+07:34.500 --> 07:35.070
+have it here.
+
+07:35.070 --> 07:38.870
+So it kind of serves the same purpose relative to their actual form.
+
+07:38.880 --> 07:43.110
+Again you could create your own class here if you wanted to if you wanted to add some specific styling
+
+07:43.140 --> 07:47.470
+elements to the author form box of the comments themselves.
+
+07:49.120 --> 07:52.440
+And then more importantly the actual text.
+
+07:52.840 --> 07:58.630
+We want to connect to two forms text area in effect that is actually going to be the exact same thing
+
+07:59.500 --> 08:03.160
+as what's up here minus this post content.
+
+08:03.160 --> 08:07.800
+So I'm going to copy and paste this on the collapse my character ichy trees.
+
+08:07.810 --> 08:08.910
+You can see everything.
+
+08:09.160 --> 08:16.360
+And then I'm going to copy paste it here and then I'm going to delete this post content so that post
+
+08:16.360 --> 08:17.430
+content class.
+
+08:17.470 --> 08:23.580
+I'll make sure that class is only suitable for the post form versus here.
+
+08:23.590 --> 08:27.300
+I'm just going to have it kind of be the default medium ed. classes.
+
+08:27.370 --> 08:33.680
+So those are my two widgets and this is the main idea of you connect specific widgets to CSSA styling.
+
+08:33.730 --> 08:39.520
+Again the main idea is just you have widgets to dictionary attribute inside of that metaclass you have
+
+08:39.520 --> 08:42.600
+the actual field.
+
+08:42.730 --> 08:45.430
+You'll see forms dot the actual pepple widget.
+
+08:45.430 --> 08:46.430
+It's going to be.
+
+08:46.540 --> 08:51.190
+And these are attributes where you have a class key and then the name of the class that eventually will
+
+08:51.190 --> 08:53.540
+go inside your C Ss.
+
+08:53.560 --> 08:59.170
+So since we're talking a little bit about C Ss let's set up the most basic C Ss which means we probably
+
+08:59.170 --> 09:01.390
+want to set up a static folder.
+
+09:01.630 --> 09:04.870
+So I will open up my directory tree here.
+
+09:05.170 --> 09:07.980
+And this is going to go underneath right here.
+
+09:07.990 --> 09:15.040
+We see Blug project and then we also see my site a lot of times what we've done in the past is have
+
+09:15.040 --> 09:21.150
+the static folder line up with the same directory as my site and blog.
+
+09:21.340 --> 09:26.920
+But when we're talking about advanced class based views we also discussed having template and static
+
+09:26.920 --> 09:30.660
+folders inside of the actual application folder.
+
+09:30.670 --> 09:34.390
+So that's the kind of following we're going to do here since that's a little more common in the real
+
+09:34.390 --> 09:40.150
+world and doesn't line up exactly to tutorials of the Gengel documentation but a lot of times in the
+
+09:40.150 --> 09:46.780
+real world each particular application is going to come with its own set of static directories and template
+
+09:46.780 --> 09:52.510
+directories which kind of makes sense if you want these applications to be more plug and play that way
+
+09:52.510 --> 09:55.180
+in case you ever want to have some sort of blog application.
+
+09:55.270 --> 10:00.760
+You can quickly grab everything from this previous project and insert it or inject it into an other
+
+10:00.760 --> 10:02.710
+much larger project.
+
+10:02.710 --> 10:06.180
+So we're going to do it inside of this blog folder.
+
+10:06.370 --> 10:13.860
+I'm going to create a new directory so saying you folder and this folder is going to be called static
+
+10:14.970 --> 10:16.560
+and inside of the static folder.
+
+10:16.620 --> 10:24.010
+I'll create two new folders so I'll have a folder for my C Ss and then set up static.
+
+10:24.030 --> 10:30.180
+I will also have a folder for my drive a script and will call that Jesus and inside of C assess what
+
+10:30.180 --> 10:34.020
+we're going to do is we're not going to mess with it right now but we'll set up the file that we'll
+
+10:34.020 --> 10:35.150
+be using.
+
+10:35.150 --> 10:43.860
+So we'll say new file and we'll just call it blog C Ss and we'll be working a lot more of the CSSA towards
+
+10:43.860 --> 10:44.330
+the end.
+
+10:44.350 --> 10:45.800
+But right now we'll just keep it blank.
+
+10:45.810 --> 10:49.030
+But make sure that the static files are all there.
+
+10:49.110 --> 10:53.980
+And since we're adding the static directories it's a good idea to come over to the settings that py
+
+10:54.000 --> 10:57.630
+file and make sure the static is all set up down there.
+
+10:57.720 --> 11:05.880
+So let's come over to my site settings up-I scroll all the way down because usually that's where we're
+
+11:05.880 --> 11:07.520
+going to put all that static stuff.
+
+11:08.310 --> 11:11.260
+So all the way down here I have the static you're out.
+
+11:11.290 --> 11:12.490
+That's totally fine.
+
+11:12.490 --> 11:14.580
+We do have it under a folder named static.
+
+11:14.800 --> 11:24.850
+But what I'm going to do here say static underscore root is equal to OS stop half that join as we've
+
+11:24.850 --> 11:30.470
+done before and I will join the base their victory with the static folder.
+
+11:30.530 --> 11:37.190
+That way knows where to look for stuff and then what I'm also going to do is create those template folders
+
+11:37.220 --> 11:38.360
+or directories.
+
+11:38.450 --> 11:41.420
+We haven't actually created a templates yet but we will soon.
+
+11:41.570 --> 11:44.950
+And since we're missing out the settings that PI file manager will do it all now.
+
+11:45.290 --> 11:53.480
+So at the same level of the static underneath blog I will right click Create a new folder and I will
+
+11:53.480 --> 12:04.800
+call this templates and then inside of this templates lets have two directories all have a new folder
+
+12:05.430 --> 12:10.320
+that shares the same name as the application Raemer we talked about this in class based views where
+
+12:10.400 --> 12:14.460
+the templates folder goes underneath the application underneath that you have the application name again
+
+12:14.790 --> 12:19.590
+a little repetitive but that's usually seen the real world and I'm going to create a new folder here
+
+12:20.280 --> 12:26.840
+and we'll call this registration and when we actually begin dealing with registering users and authorization
+
+12:26.900 --> 12:31.670
+we'll be dealing for a little template there some sort of log in page template but since we have the
+
+12:31.670 --> 12:34.820
+template set up might as well take care of that as well.
+
+12:35.060 --> 12:39.320
+So what I'm going to do is I like doing this the top you can really do this anywhere you want in the
+
+12:39.320 --> 12:45.710
+settings that PI file but just to kind of keep in line of what we have been doing or create the template
+
+12:45.800 --> 12:47.500
+DJR here.
+
+12:47.550 --> 12:49.700
+And I will say stop half that.
+
+12:50.120 --> 12:57.420
+Join passen the base directory and when I have to do here is actually point to the templates we're using.
+
+12:57.540 --> 12:59.940
+So I'll be using blog
+
+13:02.310 --> 13:05.240
+templates blog.
+
+13:05.550 --> 13:11.780
+Save that and then scrolling down here past installed apps past middleware.
+
+13:11.910 --> 13:12.820
+Here's the template.
+
+13:12.900 --> 13:14.980
+Remember this can take a list of directories.
+
+13:15.090 --> 13:19.150
+We only have 1 templates but if we had other applications we could be passing these as well.
+
+13:19.320 --> 13:25.230
+But in this case I'll just person template underscore Diyar and that's all there is to it.
+
+13:25.230 --> 13:28.470
+So now I save this and we have our setting up py file.
+
+13:28.470 --> 13:30.830
+Now we're not completely done with the settings that py file.
+
+13:30.930 --> 13:36.660
+Later on when we actually talk about logons we'll need to do a little edit here so I will add this in
+
+13:36.750 --> 13:37.630
+right now.
+
+13:37.950 --> 13:43.170
+So scrolling all the way down and we kind of talked a little bit about this during the authorization
+
+13:43.170 --> 13:54.630
+lectures but we need a log in underscore re direct underscore u r l is equal to and we're just going
+
+13:54.630 --> 13:57.130
+to in quotes put a single forward slash.
+
+13:57.180 --> 13:59.890
+That way we have some sort of redirection to the home page.
+
+13:59.910 --> 14:05.880
+Once a person has done logging in OK and we're going to talk a lot more about users logging in and all
+
+14:05.880 --> 14:08.180
+that stuff then we actually get to that.
+
+14:08.250 --> 14:13.500
+But so far the main idea of this lecture besides setting up the settings up hi fi a little further was
+
+14:13.500 --> 14:15.840
+taking care of this forms up py file.
+
+14:15.840 --> 14:17.540
+So again two main things we did here.
+
+14:17.670 --> 14:22.780
+Setting up the forms that py file learning how to actually use these widgets in order to attribute C
+
+14:22.800 --> 14:27.510
+S S classes to particular widgets and then we did a little more in the settings up-I file and set up
+
+14:27.510 --> 14:29.380
+our static and templates folders.
+
+14:29.560 --> 14:31.470
+OK that's it for this lecture.
+
+14:31.470 --> 14:33.310
+Thanks everyone and I'll see you at the next one.

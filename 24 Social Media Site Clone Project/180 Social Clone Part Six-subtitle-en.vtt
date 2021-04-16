@@ -1,0 +1,691 @@
+WEBVTT
+
+00:05.510 --> 00:09.190
+Hello everyone and welcome to part six of the social club project.
+
+00:09.710 --> 00:14.620
+Well we're going to be doing now is after we've created the directories and files for groups and posts
+
+00:14.930 --> 00:19.820
+we will actually build out the models that PI files for both groups and post applications.
+
+00:19.820 --> 00:20.930
+Let's get started.
+
+00:21.280 --> 00:21.730
+OK.
+
+00:21.730 --> 00:26.870
+The first models not py file are going to be working with is the group's models that py file.
+
+00:26.870 --> 00:30.900
+And then once this one is ready to go we'll move over to the post models that py file.
+
+00:31.070 --> 00:36.320
+So right now under groups open up models up PI and then you can type along with me and then double checked
+
+00:36.320 --> 00:38.250
+against the provided NOTES.
+
+00:38.360 --> 00:46.220
+I'm going to say from Django that you tildes thought you'd tildes text import and I'm going to be importing
+
+00:46.220 --> 00:52.400
+slug ephi and slug file just allows us to remove any characters that are alphanumerics or underscores
+
+00:52.400 --> 00:57.290
+or hyphens and basically the idea behind that is if you have a string that has spaces in it and you
+
+00:57.290 --> 01:02.670
+want to use that as part of your R-AL it's going to be able to lowercase and add dashes instead of spaces.
+
+01:02.720 --> 01:04.580
+That way it works if your browser.
+
+01:04.670 --> 01:10.790
+So we have slug a fine and then I'm also going to import something called Misaka and that allows us
+
+01:10.790 --> 01:13.080
+to actually do Lincoln betting.
+
+01:13.370 --> 01:18.470
+If you've ever use something like redit commenting system you can actually put links are a little bit
+
+01:18.470 --> 01:21.530
+a mark down text that that's what Misaka actually does.
+
+01:21.560 --> 01:23.870
+Now in order to use this when you actually install it.
+
+01:23.930 --> 01:33.200
+So open up your terminal and then say pitte install Misaka hit enter and then my requirements were satisfied
+
+01:33.200 --> 01:34.720
+because I already installed it earlier.
+
+01:34.880 --> 01:39.390
+But in your virtual environment again just type out Pippin's tall am I.
+
+01:39.510 --> 01:40.390
+Aka.
+
+01:40.450 --> 01:44.220
+And again is going to allow us to use markdown inside of these posts.
+
+01:44.270 --> 01:52.590
+So I'm going to minimize this once that we've done that and the next thing to do is say from jingo dot
+
+01:52.610 --> 02:00.970
+contrib dot 88 so that authorization I'm going to import a function called Get user model and that returns
+
+02:00.970 --> 02:04.160
+the user model that's currently active in this project.
+
+02:04.210 --> 02:09.330
+So I'm going to be able to do that to create a user object so get user model.
+
+02:09.580 --> 02:15.950
+And essentially what that allows me to do is call things off of the current user's session and that
+
+02:15.950 --> 02:19.370
+will make more sense once we actually call things off this user.
+
+02:19.370 --> 02:24.260
+So we'll save that for now and then the last thing I wanted to do which I'm not going to able to explain
+
+02:24.860 --> 02:29.580
+right now but you'll see it in the future when we actually deal a template that uses it.
+
+02:29.610 --> 02:38.210
+I'm going to say from Django import template and then say register is equal to template library and
+
+02:38.210 --> 02:39.260
+we'll talk about that later.
+
+02:39.260 --> 02:44.440
+But basically this is how we can use custom template tags in the future.
+
+02:44.450 --> 02:50.780
+So later on I'm going to have an in-group members check templates and we're actually dealing with the
+
+02:50.780 --> 02:54.130
+group HVM files and that's going to come in handy here.
+
+02:54.140 --> 02:58.140
+So keep us in the back of your mind you're not going to see it used until a future lecture but we're
+
+02:58.140 --> 02:59.600
+going to go ahead and type it in now.
+
+02:59.900 --> 03:00.540
+OK.
+
+03:00.770 --> 03:02.870
+Now it's time for actual made model.
+
+03:02.870 --> 03:10.920
+It's group some would say class group and this is going to inherit from models that model and right
+
+03:10.920 --> 03:16.530
+now I'll just say pass because I want to add in one more class here which is the group member class
+
+03:16.650 --> 03:24.270
+to have groups and then group members will see group members and then we'll say models the model and
+
+03:24.270 --> 03:27.740
+then here I will also say pass and then save.
+
+03:27.950 --> 03:28.220
+OK.
+
+03:28.230 --> 03:30.400
+So the simpler one is actually the group member.
+
+03:30.420 --> 03:33.620
+So that's all work on first and then we'll have group itself.
+
+03:33.750 --> 03:39.420
+Let me collapse see the victory tree and get a little more space under group and then once we fill this
+
+03:39.420 --> 03:41.280
+out we'll remove the pass.
+
+03:41.340 --> 03:47.310
+So in class group member what I'm going to do is create a group attribute and that's going to be linked
+
+03:47.700 --> 03:51.420
+with a foreign key to the group class.
+
+03:51.430 --> 03:55.740
+So we'll say group and then we'll give a related name and the related name.
+
+03:55.740 --> 03:58.240
+I'm going to call it membership's.
+
+03:58.450 --> 04:04.120
+And essentially that means that the group member is related to the group class through the foreign key
+
+04:04.150 --> 04:06.280
+which we've called membership's which makes sense.
+
+04:06.280 --> 04:11.770
+A group member can have a membership to a group and then will have a user also be an attribute.
+
+04:11.950 --> 04:18.900
+And that's going to be models foreign key and that's going to be a link to user and the related name
+
+04:18.930 --> 04:22.660
+is going to be user underscore groups.
+
+04:22.680 --> 04:27.750
+So essentially we'll have a user that we get from here that current user that's logged in and playing
+
+04:27.840 --> 04:32.310
+out the Web site and they're going to have some groups that they belong to or that they're going to
+
+04:32.310 --> 04:33.180
+be a member of.
+
+04:33.180 --> 04:37.870
+So we want to link this group member class to both the user and the various groups that the user could
+
+04:37.890 --> 04:38.970
+belong to.
+
+04:38.970 --> 04:39.780
+So we have that.
+
+04:39.900 --> 04:47.880
+And then finally let's add an ADF call for a string representation of the object passes itself and then
+
+04:47.880 --> 04:57.030
+I'm going to return self user dot username so you remember when we're creating the accounts application
+
+04:57.030 --> 05:00.600
+we had a user and remember users can have user names.
+
+05:00.630 --> 05:03.220
+And that's we're going to be using for the string representation.
+
+05:03.540 --> 05:09.990
+So I will save that and then we want to add in one more subclass here at the meta.
+
+05:10.290 --> 05:18.920
+And here I'm going to call unique together so unique underscore together and say equals to
+
+05:22.070 --> 05:23.180
+and user.
+
+05:23.230 --> 05:25.260
+And we'll explain later on what that actually means.
+
+05:25.280 --> 05:28.250
+But right now that's all we need in the actual group member.
+
+05:28.250 --> 05:31.750
+Class we have the link to the group to the user.
+
+05:31.880 --> 05:32.630
+The string method.
+
+05:32.630 --> 05:36.970
+And then this unique together for group and user and then we will save that.
+
+05:36.980 --> 05:42.350
+Now it's time to deal with this larger group class or group model.
+
+05:42.350 --> 05:47.540
+So this group model or model class is going to have an attribute called name which is going to be the
+
+05:47.540 --> 05:50.730
+actual name of the group that's going to just be models.
+
+05:50.790 --> 05:58.030
+It will be a character field and we'll give it a max length of let's say fifty five.
+
+05:58.040 --> 05:59.310
+Doesn't really matter.
+
+05:59.420 --> 06:06.240
+And then I need unique to be equal to true because I don't want groups to have overlapping group names.
+
+06:06.500 --> 06:12.170
+So once we have that the next thing to do is say slug and the group is going to have a slug which is
+
+06:12.170 --> 06:21.060
+going to be at models a slug field and I'm going to allow underscore Unicode equal to true.
+
+06:21.530 --> 06:24.320
+And then I'm also going to require that this is unique that way.
+
+06:24.440 --> 06:30.130
+I don't get any mistakes calling a moral code and I make sure that group slug's and group names don't
+
+06:30.140 --> 06:38.630
+accidentally overlap each other then we will have a description field as well or attribute and then
+
+06:38.630 --> 06:42.610
+we will say this is a text field and it can be blank.
+
+06:42.620 --> 06:43.970
+We'll let it be blank.
+
+06:44.010 --> 06:45.670
+Or actually let's not let it be blank.
+
+06:45.680 --> 06:47.810
+Someone should always have a description for the group.
+
+06:47.960 --> 06:52.020
+So we'll say has to be true will make the default value be blank.
+
+06:52.040 --> 06:55.110
+So default value is just going to be a blank string.
+
+06:55.130 --> 06:56.660
+So I have two single quotes there.
+
+06:57.020 --> 07:01.940
+And that's going to be the description for the group and then we're going to add another attribute called
+
+07:02.000 --> 07:08.530
+description description underscore HVM L which you may find useful in the future.
+
+07:08.530 --> 07:11.810
+But right now we'll just type it in whether or not we're going to use it.
+
+07:11.920 --> 07:17.800
+And it's just going to be a text field where we say edible where whether or not you can edit it will
+
+07:17.800 --> 07:19.260
+set it equal to false.
+
+07:19.420 --> 07:21.770
+The default value is going to be a blank string.
+
+07:21.820 --> 07:28.260
+And we're going to say that it can be blank in case we want a kind of HTL version of our description.
+
+07:28.390 --> 07:34.840
+And then finally the members of a group is going to be equal to models and this is a many to many field
+
+07:36.070 --> 07:42.730
+so many to many field and it's going to pass in a user object and then the through argument is going
+
+07:42.730 --> 07:46.750
+to be through a member class.
+
+07:46.760 --> 07:47.580
+There we go.
+
+07:47.980 --> 07:53.170
+OK so now we have the basic attributes for our group and we're going to add in a couple of methods.
+
+07:53.390 --> 07:59.600
+So the first method we're just going to say as to your pasand self and this is just going to be the
+
+07:59.600 --> 08:03.010
+string representation of a group object where it's going to return.
+
+08:03.200 --> 08:08.030
+Self-taught name so the group string representation is just the name of the group.
+
+08:08.030 --> 08:13.090
+Next we're going to say save So when you want to save a group we're going to do the following.
+
+08:13.310 --> 08:18.060
+We'll take in args and keyword arguments.
+
+08:20.170 --> 08:29.650
+And then we'll set the slug of the group once you're saving it to slug ify self-taught name which means
+
+08:29.650 --> 08:33.550
+whatever the name is you can go ahead and put spaces in it while you're filling out the group form.
+
+08:33.550 --> 08:40.550
+But then when we actually save it the slog will become the slug if I call on self-taught name essentially
+
+08:40.550 --> 08:48.940
+just replacing and lower casing things and then we will say self description HVM else so that extra
+
+08:48.940 --> 08:56.370
+attribute that we created that's going to be equal to Misaka that each team will allow us to put markdown
+
+08:56.370 --> 09:01.050
+in their self description.
+
+09:01.110 --> 09:01.610
+There we go.
+
+09:01.610 --> 09:06.750
+So in case we have marked down in the description I can call it with Misaka h t m l and then finally
+
+09:06.750 --> 09:16.470
+we'll say super well to save our args and keyword arguments.
+
+09:16.470 --> 09:22.020
+OK so that's going to be our Save method for the group and then I'm going to get another method called
+
+09:22.080 --> 09:35.760
+Get absolute's underscore your L self and then this is going to return a reverse call of groups single.
+
+09:35.790 --> 09:37.430
+And right now we haven't actually defined.
+
+09:37.480 --> 09:38.150
+Are you URLs.
+
+09:38.200 --> 09:40.140
+Py file so keep that in mind.
+
+09:40.200 --> 09:44.820
+Later I will explain more about what groups and single is but that's going to be a reverse and we're
+
+09:44.820 --> 09:47.780
+going to add in some keyword arguments.
+
+09:47.790 --> 09:52.770
+Basically a dictionary where the slug is equal to self-taught slug
+
+09:56.000 --> 09:56.440
+OK.
+
+09:56.660 --> 10:03.290
+And then finally we will have a medic class call and we'll say ordering is equal to.
+
+10:03.330 --> 10:08.060
+And this has to be fast and has a list name save that it was kind of explain.
+
+10:08.060 --> 10:09.220
+Overall we just did.
+
+10:09.450 --> 10:15.120
+So we set up our group class as well as our group member class group member just connects to a group
+
+10:15.120 --> 10:19.970
+that this group member belongs to and a user that connects to the sexual individual member and the stronger
+
+10:19.970 --> 10:24.760
+representation is a username that we have or actual group class or group model.
+
+10:24.900 --> 10:30.480
+The name of the group the slug representation that group the description of that group and then a description
+
+10:30.480 --> 10:35.730
+that is to description underscore each T.M. that we're going to use with moussaka to actually get some
+
+10:35.780 --> 10:41.190
+marked on text and then we will call members which is just many many fields so all the members that
+
+10:41.190 --> 10:45.250
+belong to this particular group and that so far is all we have to do with the models.
+
+10:45.270 --> 10:49.310
+Py file underneath the group's application.
+
+10:49.320 --> 10:53.540
+OK now let's hop over to the models that py file in the posts applications.
+
+10:53.540 --> 10:59.420
+I will save this models PI come over to pose models that pi and then collapses.
+
+10:59.410 --> 11:07.960
+So right now this is the most models up-I file that we're going to be editing.
+
+11:07.970 --> 11:08.360
+All right.
+
+11:08.360 --> 11:11.260
+So the first thing I want to do here is couple of imports.
+
+11:11.300 --> 11:22.760
+So for the posts I'm going to say from Jane with that core that your resolvers import reverse that way
+
+11:22.760 --> 11:27.640
+when someone does a post or we're going to kind of send them back to and then the other thing I'm going
+
+11:27.640 --> 11:37.760
+to say is from Django that CNF import settings going to import moussaka.
+
+11:37.810 --> 11:42.060
+Again that way people can write Mark down inside of their actual post.
+
+11:42.100 --> 11:50.140
+And then we will say from groups models import group so we can connect the post to an actual group.
+
+11:50.140 --> 11:54.150
+And then finally we can do this Billos comment kind of up to you wherever you want to put it.
+
+11:54.160 --> 11:58.250
+We'll say from jingo dot contrib.
+
+11:58.550 --> 12:08.950
+Th for authorization in poor get user model and it will create a user object saying get user model and
+
+12:09.160 --> 12:13.340
+that's just going to connect the current post to whoever's like logged in as a user.
+
+12:13.350 --> 12:21.320
+That way you can actually get the current user logged into a session not going to say class post models
+
+12:21.330 --> 12:25.390
+that model and I just put it past right there for now.
+
+12:25.610 --> 12:27.430
+And we're going to do a couple of things.
+
+12:27.430 --> 12:32.910
+One is that at the boots for post sort of the string representation method the Save method and then
+
+12:32.930 --> 12:37.610
+the absolute Your method which means once someone has posted something where are we going to send them.
+
+12:37.620 --> 12:40.940
+And we'll have a medic class for other information.
+
+12:41.190 --> 12:44.680
+So I'm going to now get rid of that past and start typing that out.
+
+12:44.920 --> 12:45.170
+OK.
+
+12:45.180 --> 12:51.070
+So we have user and that's going to be models and there'll be a foreign key to a user.
+
+12:51.110 --> 13:01.900
+Basically this current user and I will say related name is equal to Persse I'll create a field called
+
+13:01.900 --> 13:03.200
+created that.
+
+13:03.700 --> 13:08.410
+And that's going to be equal to models that will be a date time field.
+
+13:09.660 --> 13:16.140
+And I'm going to have the auto now is equal to true that way once someone post the actual date time
+
+13:16.140 --> 13:16.880
+that they post.
+
+13:17.060 --> 13:18.450
+It's just automatically connected.
+
+13:18.450 --> 13:20.430
+So you don't actually fill in the time you posted.
+
+13:20.580 --> 13:26.340
+It's just auto generated for you and you can display that or not display it's kind of up to you but
+
+13:26.340 --> 13:29.420
+will have that information inside or adamant models.
+
+13:29.490 --> 13:31.820
+So then I'm going to say message.
+
+13:31.920 --> 13:37.570
+So what's actually the message in that post that's going to be equal to models textfield and all these
+
+13:37.590 --> 13:38.900
+old defaults there.
+
+13:38.940 --> 13:41.130
+I don't want to really put a max length on that right now.
+
+13:41.430 --> 13:48.150
+And then the HDMI out markdown version of this same message underscore each Steimle that's going to
+
+13:48.150 --> 13:49.720
+be equal to models.
+
+13:49.930 --> 13:52.910
+Textfield but I don't want people to be able to edit that.
+
+13:53.010 --> 13:58.830
+So I'll say editable is equal to false because we're going to basically grab that directly from message
+
+13:58.830 --> 14:05.220
+and you'll see that in a second and then one last attribute here I will say a group that's going to
+
+14:05.230 --> 14:13.520
+models foreign key foreign key and that's going to connect to group which we remember imported from
+
+14:13.580 --> 14:14.930
+are grouped up models.
+
+14:14.930 --> 14:18.260
+So this post is connected with a foreign key to a group.
+
+14:18.430 --> 14:25.210
+It has a related name of posts and then we'll say Knoll's equal to true.
+
+14:25.370 --> 14:29.280
+And then we will say blank is equal to true.
+
+14:30.000 --> 14:36.200
+OK so are four key can be knowledge can be Blinkx true but we'll take care of that in further detail.
+
+14:36.210 --> 14:37.710
+The templates themselves.
+
+14:37.710 --> 14:40.550
+But let's go through those methods that we we're going to do.
+
+14:40.550 --> 14:47.880
+So first one is the string representation of this and that that's just going to be the actual message
+
+14:47.880 --> 14:57.820
+the post will say return self-taught message the next one I want to do is the Save method that's going
+
+14:57.820 --> 15:06.070
+to look similar to what we've been doing in the past where we have args our keyword arguments K args.
+
+15:06.100 --> 15:07.220
+KW args.
+
+15:07.600 --> 15:17.940
+And then there will be self message underscore each Tamil is equal to Misaka each T.M. of self-taught
+
+15:17.940 --> 15:19.410
+message.
+
+15:19.530 --> 15:24.450
+That way if someone writes in a mark down so they put a link in their post it doesn't look like a strange
+
+15:24.450 --> 15:29.320
+imitation of Bracken's stuff it actually is supported with the H T.M. from Misaka.
+
+15:29.610 --> 15:31.200
+And then we're going to say super
+
+15:34.210 --> 15:35.000
+save.
+
+15:35.020 --> 15:40.100
+And then again the arcs and the keyword arguments.
+
+15:40.250 --> 15:42.170
+All right so that's the Save method.
+
+15:42.210 --> 15:47.700
+And then finally we're going to do the last method get absolute URL for that will do.
+
+15:47.700 --> 15:50.100
+Class Mehtar are a subclass.
+
+15:50.100 --> 15:56.960
+So the get absolute You are all going to say self and this is going to return the following.
+
+15:56.960 --> 15:58.570
+Let me put some more lines in here.
+
+15:59.660 --> 16:08.490
+This is going to return the reverse function call and we will passen posts single.
+
+16:08.530 --> 16:12.520
+So again we haven't set up the actual you or else but that will be set up eventually and then it's also
+
+16:12.520 --> 16:18.520
+going to take in some keyword arguments which is going to be a dictionary of the username that will
+
+16:18.520 --> 16:19.390
+be self-taught.
+
+16:19.390 --> 16:27.140
+User thought user name and then the other thing that's going to go on here is the primary key.
+
+16:27.230 --> 16:32.970
+So we're going to be kind of using primary keys as a way to relate to post back to your l.
+
+16:32.990 --> 16:39.650
+That's going to be equal to self-taught primary key and that should be it for the actual get.
+
+16:39.780 --> 16:42.640
+Absolutely or alcohol.
+
+16:42.730 --> 16:43.930
+Then we're going to say class Metta
+
+16:46.710 --> 16:52.170
+will say ordering is equal to which they created at.
+
+16:52.180 --> 16:54.200
+But notice I put a minus sign here.
+
+16:54.230 --> 16:59.810
+That way we see him in descending order so the most recent posts are at the top and then we will say
+
+16:59.840 --> 17:05.250
+unique underscore together is equal to.
+
+17:05.250 --> 17:07.800
+And that's going to be realistic and also be a tuple.
+
+17:07.820 --> 17:11.110
+It was a user message.
+
+17:11.390 --> 17:11.980
+OK.
+
+17:12.320 --> 17:17.470
+That way every message is uniquely linked to a user.
+
+17:17.510 --> 17:22.780
+All right so those are the models that Pif for files for posts and groups.
+
+17:22.790 --> 17:24.290
+Now we definitely get a lot of typing here.
+
+17:24.290 --> 17:30.110
+So double check that you match up to the supplied notes in case you were were able to follow along or
+
+17:30.110 --> 17:31.960
+were looking down and typing etc..
+
+17:32.120 --> 17:37.580
+So always check against the actual provided by files and coming up next we're going to expand on these
+
+17:37.580 --> 17:41.890
+models that py files and begin to work with them using our views not pie.
+
+17:42.080 --> 17:44.600
+All right thanks everyone and I'll see you at the next lecture.

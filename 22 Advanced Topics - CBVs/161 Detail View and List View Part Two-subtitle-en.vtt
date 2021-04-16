@@ -1,0 +1,1078 @@
+WEBVTT
+
+00:05.180 --> 00:06.260
+Welcome back.
+
+00:06.260 --> 00:08.200
+We're going to continue right where we left off.
+
+00:08.210 --> 00:12.720
+Previously we had finished setting up these two class based views and we set up the models as well.
+
+00:12.920 --> 00:19.250
+We have the list view which is going to list all the schools that are in the school model and then we
+
+00:19.250 --> 00:25.040
+also the school detailed view which is going to show all the details of a specific entry in that school
+
+00:25.040 --> 00:29.920
+model database and that includes things like showing all the students for a particular school.
+
+00:30.020 --> 00:34.110
+What we need to do is set up the templates and then somebody else that py file.
+
+00:34.130 --> 00:36.440
+So it really doesn't matter what order you do this in.
+
+00:36.470 --> 00:40.850
+You can set up the URLs that by file first and then set up the templates or the templates first and
+
+00:40.850 --> 00:42.520
+then set up the or else up-I.
+
+00:42.590 --> 00:45.960
+It makes sense either way since they're basically codependent on each other.
+
+00:45.980 --> 00:50.570
+We'll start off with the templates and we should all start up with the base template that makes the
+
+00:50.570 --> 00:53.670
+most sense since we're going to be extending that into the other pages.
+
+00:53.690 --> 01:00.440
+So I'm right now under the templates folder that's in the same directory level as the project and the
+
+01:00.440 --> 01:01.100
+application.
+
+01:01.100 --> 01:06.060
+So there's my project folder application folder and then templates folder bassée Steimle and index page
+
+01:06.080 --> 01:06.760
+HTML.
+
+01:07.070 --> 01:08.350
+Let's take care of this.
+
+01:08.400 --> 01:14.040
+What would be nice to add in here is a navigation bar that can take us to the various pages.
+
+01:14.300 --> 01:19.550
+So we'll call neth and we will give this class equal to.
+
+01:19.550 --> 01:26.760
+And this is one of those kind of quirky bootstrap names its nav bar space nav bar dash default.
+
+01:27.260 --> 01:34.450
+And then we'll say now Barbash static dash top and then inside of this nav bar we have an unordered
+
+01:34.450 --> 01:43.980
+list that also takes in a special bootstrap class which again quirky name nav nav bar dash nav.
+
+01:44.000 --> 01:47.880
+OK so let's have three items in the actual nav bar.
+
+01:48.320 --> 01:51.530
+So we'll have three list elements inside of this unordered list.
+
+01:51.590 --> 01:56.750
+And each of these is actually also going to be an anchor text and they're going to link to other pages
+
+01:57.500 --> 02:01.640
+on our page and we're going to be doing is using your old template tagging.
+
+02:01.640 --> 02:06.200
+But before we do that let's actually give these anchor tags their bootstrap classes.
+
+02:06.290 --> 02:09.420
+The first one is going to be nav bar dash brand.
+
+02:09.520 --> 02:12.710
+Remember this is kind of the brand that usually takes you back to the home page.
+
+02:12.710 --> 02:21.520
+In our case we're going to do is once we set up the API file we will have a Ural inside the basic app
+
+02:23.070 --> 02:27.360
+and we'll give it the list and then collapse the directory tree here for a second so we can see everything
+
+02:27.360 --> 02:27.890
+here.
+
+02:28.230 --> 02:36.200
+And I'm going to give this the name schools so internet bar all the way to the left as the brand there's
+
+02:36.200 --> 02:40.820
+going to be larger texts at schools and if someone clicks on that they should then see a list of all
+
+02:40.820 --> 02:47.460
+the schools that utilizes the list view then we're going to have two more links here.
+
+02:48.680 --> 02:51.720
+And this will just be nav bar dash link.
+
+02:51.830 --> 02:59.140
+As the class and inside of this is going to be in other your template and this is just going to be to
+
+02:59.140 --> 03:02.800
+the admin page in case we ever want to quickly go to the admin page.
+
+03:02.830 --> 03:05.280
+I can say Addleman colon index.
+
+03:05.620 --> 03:08.790
+And let's just make the say admin.
+
+03:08.920 --> 03:15.130
+So it takes us directly to the admin page and we'll just have an empty thing right here because later
+
+03:15.130 --> 03:16.240
+on we'll add a third link.
+
+03:16.240 --> 03:21.760
+But right now we can just keep empty and I'm actually going to do control a or command depending on
+
+03:21.760 --> 03:25.100
+your operating system and then copy all of this.
+
+03:25.240 --> 03:32.650
+So select that all copy it and I'm going to bring it into under basic app templates basic app basic
+
+03:32.650 --> 03:34.410
+app underscore base.
+
+03:34.480 --> 03:39.550
+I'm going to paste that all in here because I essentially want to have the same navigation bar in the
+
+03:39.550 --> 03:41.360
+basic app based storage T-Mo.
+
+03:41.470 --> 03:43.120
+So I will save that.
+
+03:43.120 --> 03:45.810
+And now let's come back to our home page.
+
+03:45.850 --> 03:51.350
+This is index page T.M. under the templates folder that's in the same directory as the project.
+
+03:51.580 --> 04:01.440
+And I'm going to just get rid of all this and I'll put in a jumbotron and say something like home page
+
+04:02.560 --> 04:03.400
+save that.
+
+04:03.820 --> 04:06.720
+And right now based there it's still in the stage to tell them.
+
+04:06.940 --> 04:13.850
+Let's go to basic app base school detail and school list and see how we can add something to those templates.
+
+04:14.050 --> 04:20.170
+So we'll start off with the school list that each T.M. in what we're going to do here is say extends
+
+04:20.800 --> 04:31.610
+and will extend from basic underscore app slash basic underscore app underscore based study team El
+
+04:32.870 --> 04:41.070
+and that matches the base h team l file for specific templates application or I should say application
+
+04:41.070 --> 04:50.560
+templates and we'll start off the block call block body underscore block and then because we're calling
+
+04:50.560 --> 05:01.670
+that we also want to make sure we call and block and how we can do is say Hetter one and we'll call
+
+05:01.670 --> 05:12.180
+this welcome to a list of all the schools save that and then I will do here is have an ordered list
+
+05:12.750 --> 05:17.370
+and inside this ordered list I'm going to have template tagging with a for loop.
+
+05:17.370 --> 05:28.080
+I'll say for school in school underscore l'Est I'll say H-2.
+
+05:28.300 --> 05:33.870
+Some have some heading here a list item H-2 just so it looks a little larger instead of just that paragraph.
+
+05:34.250 --> 05:38.480
+And then we'll call like can this be even like a link.
+
+05:38.480 --> 05:44.240
+But right now we'll just say school and then grab the name of that school.
+
+05:45.890 --> 05:47.210
+And let me end that for.
+
+05:47.210 --> 05:48.990
+So the end for us to go here.
+
+05:50.470 --> 05:56.920
+So annoying to say and for and what you're probably wondering right now is where does this term come
+
+05:56.920 --> 05:57.770
+from school.
+
+05:57.790 --> 06:04.030
+Underscore list well we're familiar of context dictionaries but you probably don't remember us actually
+
+06:04.030 --> 06:08.710
+defining school underscore list in the context dictionary of that pie.
+
+06:08.710 --> 06:14.380
+So if I jump over to views that pie here inside the school list view we don't see any mention of the
+
+06:14.380 --> 06:16.570
+variable school underscore list.
+
+06:16.570 --> 06:19.720
+So again where does this actually come from school underscore lists.
+
+06:19.750 --> 06:26.110
+Do we have to define this by ourselves with some sort of call to a context dictionary and the list view
+
+06:26.200 --> 06:31.330
+object right here that we inherit from actually is doing the work of creating that context dictionary
+
+06:31.330 --> 06:32.930
+and returning it for you.
+
+06:32.950 --> 06:40.000
+In fact what it does is it takes the model you called lower cases everything and then adds underscore
+
+06:40.160 --> 06:41.320
+Elyas T.
+
+06:41.410 --> 06:45.370
+So for instance if I'm calling models that school essentially what it's doing and this is just going
+
+06:45.370 --> 06:53.030
+to be comments it returns a list with the name school underscore list.
+
+06:53.040 --> 06:58.130
+So this thing lowercase and then adds an underscore L I S T.
+
+06:58.150 --> 07:00.770
+Now if you're working by yourself that may be fine.
+
+07:00.790 --> 07:05.560
+But usually for larger projects you have someone working with the front end and another person working
+
+07:05.620 --> 07:11.020
+on the backend or teams etc. and you want to make sure that you're not constantly changing stuff and
+
+07:11.020 --> 07:15.770
+maybe they're not even aware of list views and things being called as an underscore list.
+
+07:15.820 --> 07:20.770
+So it might be better if you decide on your own terms what you want the sexual object to be called.
+
+07:20.950 --> 07:24.260
+So it might make sense for this to be called schools.
+
+07:24.280 --> 07:29.260
+Well how do we actually affect the use of pi to call the context object that gets returned whatever
+
+07:29.260 --> 07:30.000
+we want.
+
+07:30.370 --> 07:32.030
+Thankfully it's really easy.
+
+07:32.200 --> 07:35.470
+Well you end up doing is using a class object attribute.
+
+07:35.530 --> 07:43.510
+So here you just say context underscore object underscore name is equal to and then whatever you want
+
+07:43.990 --> 07:46.340
+in this case we want it schools.
+
+07:46.360 --> 07:52.480
+So here you can define your own context object name that's going to return the list of all schools inside
+
+07:52.480 --> 07:53.510
+that model school.
+
+07:53.560 --> 07:56.530
+Come back here then we can just match this up with schools.
+
+07:56.790 --> 07:57.320
+OK.
+
+07:57.420 --> 08:01.300
+And that's probably usually where you're going to be seeing that way you're fully under control and
+
+08:01.300 --> 08:04.010
+you never have to worry about matching up to the model name.
+
+08:04.030 --> 08:06.870
+You know exactly what you're calling and you have more flexibility over it.
+
+08:07.720 --> 08:11.230
+While we're at it let's do the same thing for school detailed you.
+
+08:11.350 --> 08:20.510
+So here I will call this context object name equal to school underscore detail.
+
+08:20.510 --> 08:26.700
+Now you might be wondering well if list takes the model name and then adds an underscore list to it
+
+08:26.910 --> 08:32.940
+as the default contex return what does detail view turn Well detail view actually just returns the model
+
+08:32.970 --> 08:33.610
+lowercase.
+
+08:33.630 --> 08:34.590
+So that's it.
+
+08:34.590 --> 08:40.360
+So we just return school lowercase lists use return school underscore list.
+
+08:40.430 --> 08:40.950
+OK.
+
+08:41.310 --> 08:45.230
+So hopefully that made sense if you have any questions you can check and the documentation which actually
+
+08:45.230 --> 08:46.890
+is a really nice example of this.
+
+08:46.980 --> 08:51.840
+Or we can also just post the Q&amp;A forums but the basic idea here is if you're ever confused on what the
+
+08:51.840 --> 08:54.070
+context was called You just said it yourself.
+
+08:54.090 --> 08:58.630
+Context underscore object underscore name equal to whatever you want to call it.
+
+08:59.010 --> 09:04.170
+All right so we have a list view and this returns a list of all the records inside models that school.
+
+09:04.290 --> 09:09.420
+So coming here since this is a list I know I can say for school and schools and then do something with
+
+09:09.420 --> 09:11.290
+school name.
+
+09:11.440 --> 09:11.890
+OK.
+
+09:12.000 --> 09:15.300
+So this is fundamentally different than what we've done before because usually we would have to have
+
+09:15.300 --> 09:21.750
+said grab something or in-context dictionary and call the objects to all but basically listing is such
+
+09:21.750 --> 09:25.430
+a common exercise that the list of you is doing it automatically.
+
+09:25.470 --> 09:27.020
+And what they're returning to you.
+
+09:27.210 --> 09:31.620
+OK so that's the basics of using the list view for what we need to do.
+
+09:31.710 --> 09:35.190
+And that's all we're going to do for now with the school estates T.M..
+
+09:35.190 --> 09:44.880
+Now let's come over here to the actual school detail that each T.M. and what we'll will do is call extends
+
+09:45.030 --> 09:54.880
+from in quotes here will passen basic underscore app slash basic underscore app underscore based dot
+
+09:55.170 --> 09:59.440
+HTL reps and then we'll start off our block
+
+10:02.220 --> 10:06.120
+so we'll call block that's the body block we're calling.
+
+10:06.360 --> 10:15.870
+And then let's call and block and end here so we're going to do is play around with school details so
+
+10:15.870 --> 10:17.190
+we'll have a better one that says.
+
+10:17.190 --> 10:19.800
+In fact let's put this on a jumbotron.
+
+10:19.810 --> 10:23.380
+You probably noticed of course and I'm kind of a big fan of the way the Jumbotron looks.
+
+10:23.460 --> 10:28.860
+Probably too much of a big fan probably on his Jumbotron as often as I do but for teaching they make
+
+10:28.860 --> 10:32.140
+things really clear because you get this nice little Center Jumbotron.
+
+10:32.340 --> 10:41.750
+But now inside is heading one will say welcome to the school detail page and here's where we're going
+
+10:41.750 --> 10:51.950
+to return details about the school so create heading to and say school details and in paragraphs all
+
+10:51.950 --> 10:57.480
+we're going to do is this we'll have a template tag here.
+
+10:57.610 --> 11:01.720
+And remember the context dictionary return was called school underscored detail.
+
+11:01.750 --> 11:03.940
+That's what we find over here is that PI.
+
+11:04.090 --> 11:07.690
+I called school underscore detail which means that's what this is.
+
+11:07.700 --> 11:12.480
+So the actual school itself we don't need to say objects or anything.
+
+11:12.490 --> 11:21.110
+So what I'm going to do is call the name of the school and we'll call this name and then let's add in
+
+11:21.110 --> 11:22.130
+a couple of more things.
+
+11:22.130 --> 11:25.110
+Remember the schools also have principals to them.
+
+11:25.230 --> 11:30.210
+So we'll say principal and inject school underscored detail.
+
+11:30.220 --> 11:32.280
+The principal
+
+11:34.890 --> 11:38.240
+class spell everything correctly if not we'll have to do a little debugging.
+
+11:38.600 --> 11:41.540
+Then another paragraph here and I'm going to call location
+
+11:44.650 --> 11:50.530
+and we'll call school detail the location make sure that matches whatever you called the fields in your
+
+11:50.530 --> 11:58.410
+models that PI file and then we're going to do is actually we'll just leave it like that for now and
+
+11:58.410 --> 12:01.710
+we'll come back to this and add some more detail to it later.
+
+12:01.800 --> 12:04.480
+But here we can see we have those actual details.
+
+12:04.530 --> 12:08.030
+Now let's go to the URLs that PI file and a few things up.
+
+12:08.070 --> 12:09.380
+OK we have the basic set up.
+
+12:09.420 --> 12:15.010
+So let's match over to our Eurostar PI file and actually make sure everything's working correctly.
+
+12:15.060 --> 12:19.400
+So underneath our project we have the project or else that PI file.
+
+12:19.400 --> 12:20.690
+So we'll scroll all the way down.
+
+12:20.700 --> 12:25.110
+We see your L patterns we see that original Buza index view that we created.
+
+12:25.140 --> 12:33.280
+We'll keep that for the home page and we're going to do is call the function regular expression carry
+
+12:33.470 --> 12:34.100
+it.
+
+12:34.390 --> 12:41.220
+And then what we will say is basic underscore app slash and then we're going to use the include function
+
+12:41.520 --> 12:43.670
+which means we actually need to import it.
+
+12:43.790 --> 12:47.330
+So I'll say include here.
+
+12:47.460 --> 12:48.660
+Let's get a little space there.
+
+12:48.660 --> 12:58.770
+Save that and then I'm going to say include basic underscore app dot you are else and we can provide
+
+12:58.770 --> 13:02.370
+a namespace for this if we ever need to refer to it later.
+
+13:02.370 --> 13:05.610
+Now we can just call it basic underscore app.
+
+13:06.000 --> 13:07.710
+So we shall save that.
+
+13:08.080 --> 13:13.830
+And now this is going to do is allow us to reach over to the basic apps your PI file which we actually
+
+13:13.830 --> 13:14.570
+haven't created yet.
+
+13:14.580 --> 13:15.950
+So let's go ahead and do that.
+
+13:16.020 --> 13:18.150
+I'm right clicking on my basic app.
+
+13:18.210 --> 13:19.550
+Top directory.
+
+13:19.720 --> 13:22.200
+You file and calling your else.
+
+13:22.250 --> 13:24.390
+Pie just within the past.
+
+13:24.390 --> 13:28.450
+And here now our basic application is going to have it's own your own profile.
+
+13:28.680 --> 13:36.880
+And what we need to do is say from Jingo the ceiling if your Else poor your el.
+
+13:37.050 --> 13:47.250
+And then I will say from basic wups form from basic underscore app import those views.
+
+13:47.290 --> 13:53.680
+And remember I'm going to use app name is equal to basic underscore app and if you don't remember why
+
+13:53.680 --> 13:58.210
+I'm doing that it's because the templates themselves especially the never are I go over to the base
+
+13:58.290 --> 14:03.540
+never remember when I'm doing things like this basic app list and then Addleman comma index.
+
+14:03.550 --> 14:11.020
+Cetera that sort of notation can only be done if I remember to set this app name so that's ready to
+
+14:11.020 --> 14:11.460
+go.
+
+14:11.500 --> 14:15.300
+Will say your patterns is equal to a list.
+
+14:15.370 --> 14:18.000
+And let's start with just one link here.
+
+14:18.280 --> 14:23.970
+Regular Expression and will just so the list of you for now we won't worry about the details page.
+
+14:24.020 --> 14:29.670
+Now let's say comma use the school list view.
+
+14:30.030 --> 14:38.490
+Remember we have to say as View because it's a class based view and we can give it the name list so
+
+14:38.680 --> 14:41.800
+what's the reason for giving it the name that's for the oral template.
+
+14:41.950 --> 14:48.610
+So here I have the basic app name list so basic app cool and list that comes back to the base team l
+
+14:48.660 --> 14:51.480
+file for this basic app Colan list.
+
+14:51.700 --> 14:55.670
+Hopefully by now you're beginning to see those connections and how everything kind of works together.
+
+14:55.760 --> 14:59.010
+Let's actually test this all the work by running the server.
+
+14:59.010 --> 15:05.470
+I'm going to say Python helps me actually see the first into the advanced section and then CD into our
+
+15:05.470 --> 15:06.270
+project.
+
+15:06.980 --> 15:11.990
+Now I won't say Python managed up high and then run the server.
+
+15:12.020 --> 15:18.780
+So if we get any errors looks like it's thinking about it and the error we get is basic epub use has
+
+15:18.780 --> 15:21.810
+an attribute index for you so I may have accidentally deleted that.
+
+15:21.950 --> 15:25.040
+Let's come back to our I've used up my file and make sure I didn't delete it.
+
+15:25.160 --> 15:25.520
+Whoops.
+
+15:25.520 --> 15:26.440
+Looks like I did.
+
+15:26.630 --> 15:27.260
+No problem.
+
+15:27.260 --> 15:29.860
+Luckily with template view it's easy to fix.
+
+15:29.960 --> 15:36.180
+Will say class index view and I'm just going to inherit the template view.
+
+15:37.060 --> 15:42.510
+And also template name equal to index thought HVM.
+
+15:43.010 --> 15:47.230
+And you can review back to the template view lecture if you want more information about this.
+
+15:47.240 --> 15:52.160
+But you can see here that basically took care of the problem so accidently deleted this and I didn't
+
+15:52.160 --> 15:53.060
+have to do so.
+
+15:53.060 --> 15:57.480
+Now I'm going to copy this and put it in my browser and see if everything works.
+
+15:57.810 --> 15:59.540
+OK here I am at my browser.
+
+15:59.540 --> 16:00.980
+Looks like the home page is working.
+
+16:01.010 --> 16:02.140
+We fix the index view.
+
+16:02.210 --> 16:03.110
+Good news.
+
+16:03.110 --> 16:06.290
+Now let's click on schools and then bingo.
+
+16:06.290 --> 16:08.260
+Welcome to a list of all the schools.
+
+16:08.300 --> 16:11.150
+One first school new second school.
+
+16:11.240 --> 16:12.470
+Perfect.
+
+16:12.530 --> 16:16.410
+So we can see here that our list view is working correctly and again.
+
+16:16.430 --> 16:19.040
+Just a quick reminder what's actually happening here.
+
+16:19.070 --> 16:24.830
+Usually when we want to list true everything in a model we would have to have called that model that
+
+16:24.920 --> 16:31.820
+objects to all etc. what list you does for us is it puts that all in in this nice convenient context
+
+16:31.830 --> 16:33.620
+object name called schools.
+
+16:33.620 --> 16:37.940
+So then I can just say for Blanken schools then list stuff off of that.
+
+16:37.970 --> 16:44.260
+So again listing stuff in your model every entry is so common that that's already all built in for you.
+
+16:44.270 --> 16:49.580
+In these three lines of code here you can check the model and you even have to say context object name.
+
+16:49.580 --> 16:52.900
+That's only the option do you want to have your own context.
+
+16:52.910 --> 16:59.040
+OK now let's check out the admin page before we actually talk about the detail view.
+
+16:59.120 --> 17:07.260
+So I'm going to log back into this and then Jose it has password perfect and inserter administration
+
+17:07.260 --> 17:07.760
+page.
+
+17:07.770 --> 17:12.600
+If you look at basic app we have the schools and students in ific click on students.
+
+17:12.630 --> 17:15.700
+Notice that we never actually set a primary key.
+
+17:15.720 --> 17:20.730
+When we were developing that model we set a foreign key that matched to the school though we didn't
+
+17:20.730 --> 17:25.800
+actually set a primary key and for this particular application that kind of actually makes sense.
+
+17:25.800 --> 17:31.770
+We wouldn't want to set the name of the student as a primary key because students may share names Sarah
+
+17:31.760 --> 17:36.150
+may be a common name between two girls and we wouldn't want the model getting confused that we have
+
+17:36.420 --> 17:38.080
+matching primary keys there.
+
+17:38.220 --> 17:40.710
+So instead what we end up doing is not finding one.
+
+17:40.710 --> 17:46.230
+And if you don't define a primary key what jingle does in the background for you is it sets an ID which
+
+17:46.230 --> 17:48.270
+is just a serial number marker.
+
+17:48.270 --> 17:51.540
+So the first entry you put in is one the second entries to.
+
+17:51.570 --> 17:52.770
+Second entries 3.
+
+17:52.780 --> 17:56.570
+It just has that unique identifier that primary key as a single number.
+
+17:56.640 --> 18:03.330
+Which means we can call id off of it either for a student or for school since actually for neither of
+
+18:03.330 --> 18:05.640
+them we set up a primary key.
+
+18:05.640 --> 18:07.290
+So let's log out.
+
+18:07.480 --> 18:14.360
+Not going to come back to the Adam text editor to control C here and again just to reiterate if I come
+
+18:14.360 --> 18:19.750
+to models up high none of these fields that I ever indicate that it was a primary field.
+
+18:19.760 --> 18:27.020
+The only thing I indicated was that the student had a foreign key in school but since none of them were
+
+18:27.080 --> 18:33.350
+actually primary keys or primary fields then what changed are that in the background was set in ID for
+
+18:33.350 --> 18:36.650
+every entry which is just a numerical indicator.
+
+18:36.650 --> 18:39.620
+Now we can use that to actually link for a couple of things.
+
+18:39.680 --> 18:44.450
+So we're going to really show off how convenient list views and details views can be.
+
+18:44.540 --> 18:50.000
+If I come back to school list it would be nice if that if I click on the school then it takes me to
+
+18:50.000 --> 18:51.980
+the school's particular detail page.
+
+18:52.200 --> 18:58.820
+And so what we need to do is come to school list and inside of this age to apply.
+
+18:58.880 --> 19:06.760
+I'm going to pass in an anchor tied and this anchor Ted is going to have the school name as text so
+
+19:06.760 --> 19:09.760
+it's going to say for school in schools.
+
+19:09.760 --> 19:14.140
+It's going to list all the schools we've already seen that page but we're actually going to give it
+
+19:14.410 --> 19:23.350
+a Tref and what this Atra is going to be is school dot ID which is essentially just a number for that
+
+19:23.350 --> 19:25.510
+school so keep that in mind.
+
+19:25.600 --> 19:30.640
+We're going to use this later with the start PI with regular expressions in a way that we haven't actually
+
+19:30.640 --> 19:31.550
+seen before yet.
+
+19:31.870 --> 19:33.990
+But here we have the school name that makes sense to us.
+
+19:34.040 --> 19:39.460
+Just the name of the school but it's linking to essentially a number and we're going to use that in
+
+19:39.460 --> 19:41.420
+just a second year olds that PI file.
+
+19:41.500 --> 19:46.530
+But before we do that we also want to make sure that our details HTL file is ready.
+
+19:46.660 --> 19:52.040
+So school underscore detail that each team will have school details up principal that location.
+
+19:52.060 --> 19:53.460
+That's looking good as well.
+
+19:53.500 --> 19:58.270
+What I'm going to say is also list off all the students that this particular school has.
+
+19:58.390 --> 20:04.860
+So we'll create a heading three here and I will say students and then the next thing to do is have students
+
+20:04.980 --> 20:06.660
+actually cycle through the students.
+
+20:06.660 --> 20:12.840
+If I want to cycle through something I need to use a for loop I will save for student and you can use
+
+20:12.840 --> 20:14.130
+whatever variable you want.
+
+20:14.130 --> 20:21.630
+Student is fine for us and will say in school underscore detail remember school underscore detail is
+
+20:21.630 --> 20:28.560
+that context we're returning from the used up pie and I will call that students.
+
+20:28.680 --> 20:39.780
+All and then I'm going to just create a paragraph element with the student name and I will say so that
+
+20:40.010 --> 20:48.330
+like Mary Sam who is we'll call students that age years old.
+
+20:48.390 --> 20:52.670
+So we should see something that says Mary who is 11 years old etc..
+
+20:53.130 --> 20:56.700
+And then whenever we have a for loop into the end it will say.
+
+20:56.720 --> 21:02.840
+And for now something you may be wondering is where the heck those students come from.
+
+21:02.840 --> 21:06.830
+We know her school underscore detail comes from that comes from views where we just return to school
+
+21:06.830 --> 21:08.120
+and her score detail.
+
+21:08.120 --> 21:11.050
+But if we come to that students at all.
+
+21:11.060 --> 21:12.370
+How do we actually get to that.
+
+21:12.590 --> 21:18.740
+Well if you go back to models that pie remember that we added this related name and that relates the
+
+21:18.740 --> 21:21.640
+actual school to the students.
+
+21:21.680 --> 21:27.260
+So he passed it in with a foreign key and we passed and the related name so I can call back in my school
+
+21:27.260 --> 21:33.590
+detail page the actual context of the school that students are all in it's going to grab anything of
+
+21:33.600 --> 21:34.950
+that matching foreign key.
+
+21:35.060 --> 21:40.340
+In our case all the students who had that related name students that sort of notation can be confusing
+
+21:40.340 --> 21:45.620
+at first but again it's really just a related name that's connecting this foreign key with school.
+
+21:45.620 --> 21:49.390
+So that school can be linked to all of the students that belong to that school.
+
+21:49.430 --> 21:55.010
+So you just call that really the name students and then say that all to grab all of them over here in
+
+21:55.010 --> 21:57.260
+this in school detail that students.
+
+21:57.290 --> 21:58.820
+All right.
+
+21:58.850 --> 22:03.790
+So we have our school list and what we need to take care of in the Urals that py file is actually working
+
+22:03.790 --> 22:05.310
+with this school.
+
+22:05.510 --> 22:08.940
+And that's where a regular expressions are going to help us a lot.
+
+22:09.110 --> 22:11.260
+We're going to come over here to the applications.
+
+22:11.300 --> 22:18.860
+Eurostar py file and inside of this one I'm going to do is whip's is the projects that I file on my
+
+22:18.920 --> 22:19.580
+applications.
+
+22:19.580 --> 22:20.110
+Perfect.
+
+22:20.120 --> 22:20.570
+OK.
+
+22:20.660 --> 22:24.930
+So inside of this one I'm going to do is the following.
+
+22:25.110 --> 22:27.350
+And this is going to seem almost a little alien.
+
+22:27.390 --> 22:31.740
+If you feel uncomfortable with regular expressions that are going to try to explain to the best of my
+
+22:31.740 --> 22:33.370
+ability what's actually happening here.
+
+22:33.780 --> 22:44.270
+So I'll say carrot and that imprint sees ongoing person questionmark capital P and then the less than
+
+22:44.330 --> 22:45.210
+and greater sign.
+
+22:45.270 --> 22:59.000
+And then inside of that we'll pass P.K. square brackets dash backslash w and then we'll say plus that
+
+22:59.040 --> 23:08.340
+all goes inside the princes and they'll say forward slash dollar sign and they'll say use the school
+
+23:08.430 --> 23:12.800
+detail view and then pass that in as underscore you.
+
+23:12.840 --> 23:15.760
+So we have actually been looking at that detail page yet.
+
+23:15.780 --> 23:24.710
+Now we're going to link it and then we'll say name is equal to the tail and we'll save that.
+
+23:25.110 --> 23:27.610
+OK so what is actually happening here.
+
+23:27.660 --> 23:32.640
+Well essentially what we're doing is when someone comes that school list page when someone actually
+
+23:32.640 --> 23:39.240
+clicks on this school's name in that list view the ref is just going to essentially return a single
+
+23:39.240 --> 23:43.510
+number the actual number that corresponds as a primary key.
+
+23:43.680 --> 23:47.610
+Or in other words a P K primary key.
+
+23:47.610 --> 23:53.510
+Then if we go to 3 year olds that PI file inside our application that this guy the primary key that
+
+23:53.520 --> 23:59.760
+were actually grabbing in we're going to be able to do is link to that school's particular detailed
+
+23:59.760 --> 24:00.690
+view.
+
+24:00.690 --> 24:06.510
+Now back here under Europe patterns basically all we're saying with this regular expression is grab
+
+24:06.600 --> 24:12.960
+the basic app extension of the domain name slash and then whatever this number happens to be for the
+
+24:12.960 --> 24:18.870
+primary key and take that in as the school details view and let me make sure that you have a comma here
+
+24:18.870 --> 24:20.490
+separating these two guys.
+
+24:20.520 --> 24:23.530
+Looks like I need to add one in so I have a comma there.
+
+24:23.580 --> 24:26.070
+Save that and now we have the school list view.
+
+24:26.070 --> 24:29.130
+And we should also have the detail view for that particular school.
+
+24:29.130 --> 24:33.990
+So I will save that in if again if this regular expression is really confusing Don't worry.
+
+24:34.080 --> 24:37.290
+It's usually something that you kind of reference the documentation for.
+
+24:37.320 --> 24:41.580
+I would never expect someone to have this memorized right off the bat almost the work of regular expressions
+
+24:41.580 --> 24:42.310
+all the time.
+
+24:42.360 --> 24:47.820
+But as you get more and more used to particular patterns in your code and web design there are certain
+
+24:47.820 --> 24:50.700
+regular expressions that you're going to find yourself kind of memorizing.
+
+24:50.700 --> 24:55.860
+For instance we probably already memorized the basic home page which is just that curat dollar sign
+
+24:56.930 --> 25:03.160
+OK let's actually run this we'll say Python managed up PI run server.
+
+25:03.460 --> 25:07.070
+Enter And let me bring up the browser.
+
+25:07.340 --> 25:09.950
+OK so here we are at the home page looks like that's working.
+
+25:09.950 --> 25:15.140
+Let's come over to schools and now we see that all the schools are actually links so we can click on
+
+25:15.170 --> 25:18.530
+the first school and it says Welcome to the school detail page.
+
+25:18.530 --> 25:21.370
+Kind of a large zoom in here a little bit and it's a jumbotron.
+
+25:21.530 --> 25:25.920
+But here we see the school details and we've looped through all the students in the school said Mikee
+
+25:25.970 --> 25:31.490
+who is 10 years old John who's 12 years old Perfect can come back to schools try a new second school
+
+25:31.880 --> 25:36.800
+and same thing here you see the second school details Mrs. Smith New York and we see Lauren and Sarah
+
+25:36.830 --> 25:38.970
+so remember back we're setting up the database.
+
+25:38.990 --> 25:41.720
+It was female students for the new second school.
+
+25:41.720 --> 25:43.720
+So it looks like everything is matching up perfectly.
+
+25:44.000 --> 25:50.240
+And those are the basics of how you can use a list view and a detailed view so jumpy back to views that
+
+25:50.250 --> 25:55.560
+apply kind of the whole point of this is that you can quickly use list you in detail view instead of
+
+25:55.560 --> 25:59.380
+having to play around with those modeled objects all etc..
+
+25:59.550 --> 26:02.280
+We saw that we had to do a little bit of that with the detail view.
+
+26:02.340 --> 26:04.370
+But basically none of that de-list view.
+
+26:04.380 --> 26:08.110
+And you can always specify the context object name that you want to return.
+
+26:08.430 --> 26:09.120
+All right.
+
+26:09.120 --> 26:13.500
+Hope you found this useful and I'll see you at the next lecture where we begin talking about credit
+
+26:13.650 --> 26:14.770
+applications.

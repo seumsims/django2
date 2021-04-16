@@ -1,0 +1,382 @@
+WEBVTT
+
+00:05.210 --> 00:10.810
+Hello everyone and welcome to the social club project where we're going to be doing here and part one
+
+00:10.900 --> 00:14.470
+is beginning by building our basic set up for the project.
+
+00:14.470 --> 00:17.830
+That is the basic directories and just the basic structure for our code.
+
+00:18.040 --> 00:22.200
+We're also going to be giving you a quick tour of how you can customize your own adab environment.
+
+00:22.210 --> 00:25.810
+You'll notice that we actually code out through the second clone project.
+
+00:25.810 --> 00:31.150
+Our environment's going to look a little different style wise such as the UI or the color scheme versus
+
+00:31.150 --> 00:35.610
+the previous project so I'm going to show you how you can set up and customize your own out of an environment.
+
+00:35.820 --> 00:38.480
+OK let's hop over to Adam and get started.
+
+00:38.500 --> 00:43.270
+All right here am I my Adam text editor and you'll notice that for one thing I'm actually going on this
+
+00:43.270 --> 00:44.950
+with a Mac operating system.
+
+00:45.190 --> 00:46.370
+So it's going to look a little different.
+
+00:46.390 --> 00:50.370
+But the other thing you may notice is the actual color scheme and the theme looks a little different.
+
+00:50.500 --> 00:53.420
+So I want to actually describe how you can do this on any system.
+
+00:53.550 --> 00:58.930
+We need to do is go to settings or if you're on a Mac preferences so just open up the preferences or
+
+00:58.930 --> 01:00.160
+settings or just restart.
+
+01:00.160 --> 01:04.630
+Adam and usually you'll see a link to the settings and that looks like this is basically the same page
+
+01:04.630 --> 01:06.570
+where we're actually installing packages.
+
+01:06.730 --> 01:11.100
+And if you come over here it's where it says theme's you basically have two things you can really edit.
+
+01:11.120 --> 01:13.270
+It's the syntax theme and the UI.
+
+01:13.450 --> 01:19.510
+The UI theme that styles the tabs the status bar treeview drop downs etc. and you can actually install
+
+01:19.540 --> 01:21.020
+themes that people create.
+
+01:21.040 --> 01:25.630
+So there's a ton of community themes here that you can look at or when you actually look over here on
+
+01:25.630 --> 01:31.030
+install you can search for themes so click on themes and then take a look and search around for different
+
+01:31.030 --> 01:35.140
+themes that you may be familiar with if you work with other IDs or you can just look at the featured
+
+01:35.140 --> 01:38.330
+theme packages coming back to themes.
+
+01:38.330 --> 01:41.840
+So here I have this study or SETI theme.
+
+01:41.960 --> 01:43.310
+That's one of my favorites to work with.
+
+01:43.310 --> 01:47.420
+And then you can click here on this little setting's tool and you can edit the theme further to your
+
+01:47.420 --> 01:51.060
+liking and you can also select the syntax theme here.
+
+01:51.100 --> 01:55.490
+Actually select the syntax so if you like a white background or dark background whatever sort of color
+
+01:55.490 --> 01:59.780
+scheme you like you can select that as well and always you can't click here on the settings icon and
+
+01:59.780 --> 02:04.370
+then style a little more if you want to further style the Adam text editor.
+
+02:04.370 --> 02:09.800
+You can click here on style sheet and using your new CSSA skills you can actually do different stylings
+
+02:09.890 --> 02:15.920
+on the actual Adam text editor so you can edit the background color of the treeview the text editor
+
+02:15.980 --> 02:18.090
+edit that background color etc..
+
+02:18.590 --> 02:20.330
+So go ahead and play around that.
+
+02:20.420 --> 02:22.990
+I'm going to leave the settings I have right now and get started.
+
+02:23.030 --> 02:24.160
+The actual project.
+
+02:24.410 --> 02:29.000
+So I've already created a project folder called simple clone and inside of this I'm going to start my
+
+02:29.000 --> 02:31.720
+command line tool to actually create the project.
+
+02:31.820 --> 02:39.260
+So we will say Django bash adman and then I will say start projects and I'm going to call it simple
+
+02:39.260 --> 02:40.330
+social.
+
+02:40.550 --> 02:43.930
+And then enter it you can call it Star social or whatever you want.
+
+02:44.090 --> 02:48.570
+Now I have the simple social So there is some social and then I have my settings or els et cetera.
+
+02:48.620 --> 02:49.720
+So that's looking good.
+
+02:49.910 --> 02:55.800
+And the last thing I want to do is inside of this I'm also going to start an application so I will say
+
+02:56.220 --> 03:02.610
+CD into simple social and then list here so I can see you my man is up high and my main project file
+
+03:02.610 --> 03:04.260
+or folder simple social.
+
+03:04.260 --> 03:06.480
+And then I'm going to say Shingo admen.
+
+03:06.570 --> 03:09.910
+You can also use menders up high if you want to start app.
+
+03:09.960 --> 03:12.390
+And we're going to start off with the accounts application.
+
+03:12.390 --> 03:15.810
+So that's really the main application we're going to be focusing on at first and then later on we'll
+
+03:15.820 --> 03:21.690
+add things like posts groups etc. so I'm going to start the accounts application and there we go we
+
+03:21.690 --> 03:23.880
+have three here so that's good to go.
+
+03:23.880 --> 03:27.120
+And what I'm going to do is add a couple of more directories that we're going to be needing.
+
+03:27.120 --> 03:31.310
+Along the way we want the of right now but we will might as well create them.
+
+03:31.320 --> 03:38.600
+So underneath simple social I will create a template victory so a new folder templates and if you wanted
+
+03:38.600 --> 03:41.020
+to you could also do this straight from the command line.
+
+03:41.060 --> 03:46.370
+So there's my templates directory and I'm going to leave those as empty templates that I can later use
+
+03:46.370 --> 03:51.220
+for the main project page things like I basically just the smell or smell of them.
+
+03:51.230 --> 03:53.220
+A thank you page.
+
+03:53.380 --> 04:00.540
+Then the next thing to do is set up my static folder so I will say static from my folder Sometimes people
+
+04:00.540 --> 04:02.060
+also call this assets.
+
+04:02.190 --> 04:05.780
+And then what I'm also going to do is set up a couple of folders in here.
+
+04:05.850 --> 04:13.050
+So I'm going to set up a simple social sales click on static create a new folder and set up inside of
+
+04:13.050 --> 04:14.500
+static loops.
+
+04:14.550 --> 04:15.330
+Try that again.
+
+04:15.330 --> 04:23.640
+New Folder simple social and turn and expands Thetic and there is see simple social and inside of that
+
+04:23.650 --> 04:27.910
+and to create two new folders called CSSA for all my CSSA files.
+
+04:27.960 --> 04:33.940
+And then new folder in their culture asks for all my javascript files and maybe if you want some top
+
+04:33.940 --> 04:40.490
+level CSSA sometimes some people do is instead of static just at the very top level they'll say CSSA.
+
+04:40.710 --> 04:44.910
+And then inside of this they'll have some sort of master CSSA file so you can say new file and call
+
+04:44.910 --> 04:46.840
+this master that's VSS.
+
+04:47.070 --> 04:51.050
+So I'll do that as well just so everything matches along with the actual project notes.
+
+04:51.260 --> 04:56.310
+OK so now that we have all that one I'm going to do it just set up my settings up high file instead
+
+04:56.310 --> 05:00.130
+of the simple social app to match everything so we can be ready to go.
+
+05:00.250 --> 05:01.840
+Well we're actually working with accounts.
+
+05:01.860 --> 05:07.200
+So open up these settings that py file Well we're going to do is add in just the usual that we've been
+
+05:07.200 --> 05:09.740
+doing plus a couple more lines of code.
+
+05:09.810 --> 05:14.130
+So the first thing I want to do is write at the top where it says base directory and I'm going to actually
+
+05:14.130 --> 05:15.020
+collapse Mitry now.
+
+05:15.030 --> 05:16.870
+So I get a little more room to work with.
+
+05:16.980 --> 05:27.380
+I will say templates underscore the rectory is equal to was thought path join and then want to join
+
+05:27.380 --> 05:34.240
+the base their victory with templates goals and that's ready to go.
+
+05:34.410 --> 05:38.850
+And then the next thing to do is scroll down to where it says installed apps and what I'm going to do
+
+05:38.910 --> 05:42.750
+is add an accounts.
+
+05:42.880 --> 05:44.700
+Now I'm just going to add only accounts for now.
+
+05:44.700 --> 05:48.670
+There are still a lot more stuff we have to add and such as groups posts and we're also going to add
+
+05:48.670 --> 05:51.360
+in something called humanised and the bootstrap 3.
+
+05:51.520 --> 05:53.590
+We'll talk about those when we actually end up using them.
+
+05:53.590 --> 05:57.310
+So right now I'll just put an account there and then I'm going to keep scrolling down.
+
+05:58.320 --> 06:00.560
+To where it says templates so that list.
+
+06:00.740 --> 06:05.460
+As always we come over to their victories and add in that template the IRR that we just created.
+
+06:05.480 --> 06:10.550
+So then scroll down and say that and then all the way at the bottom like scroll the way down on I'm
+
+06:10.550 --> 06:12.710
+going to do is run into the static URL.
+
+06:13.010 --> 06:18.840
+I'm also going to add my static files files underscored the hour.
+
+06:19.100 --> 06:26.000
+So the directory for my static files and that's going to just be put in as a list is paff join and that's
+
+06:26.000 --> 06:30.500
+going to be based directory joined with the word static.
+
+06:30.500 --> 06:32.010
+Just so it matches up what I have.
+
+06:32.030 --> 06:35.770
+Now some people like to put the static files directory all the way up to at the top here.
+
+06:35.780 --> 06:41.180
+The other directories I personally like putting it down here because this kind of where Django by default
+
+06:41.270 --> 06:43.290
+indicates where static file should go.
+
+06:43.580 --> 06:48.930
+So again the only things added right now where the static files coming all the way back up.
+
+06:48.950 --> 06:54.440
+I also added in the template directory and then I edited my accounts installed applications.
+
+06:54.500 --> 06:58.520
+So now that we have that I'm going to kind of expand the command line here.
+
+06:58.580 --> 06:59.500
+Let me clear.
+
+06:59.660 --> 07:02.240
+If you are on Windows it will be seamless.
+
+07:02.260 --> 07:03.920
+Since I'm I'm actually just going to be clear.
+
+07:04.100 --> 07:07.910
+I'll zoom in a little bit so you guys can see a better idea of what I'm going to be typing here and
+
+07:07.970 --> 07:16.460
+I'm going to say Python managed up high migrates enter and that's going to do all the initial migrations
+
+07:16.520 --> 07:23.310
+and then they'll say Python managed up high make migrations for my accounts.
+
+07:23.430 --> 07:26.430
+Enter there and it said no change at the app account.
+
+07:26.450 --> 07:26.900
+Perfect.
+
+07:26.900 --> 07:30.320
+So then I'll say Python up-I migrate.
+
+07:30.320 --> 07:32.160
+And we should see no migration to apply.
+
+07:32.410 --> 07:38.900
+OK let's confirm that we just that everything right by saying Python manage the API run server enter
+
+07:39.230 --> 07:40.600
+and it should be running now.
+
+07:40.610 --> 07:43.450
+So let me open this up or copy and paste this.
+
+07:43.670 --> 07:48.430
+And now bringing in my actual Chrome browser or whatever browser you happen to be using at that link
+
+07:48.450 --> 07:48.830
+at work.
+
+07:48.830 --> 07:51.370
+Congratulations on your first jingle power to page.
+
+07:51.380 --> 07:51.780
+OK.
+
+07:51.830 --> 07:56.360
+So that's all I wanted to show for this initial part 1 in the next lecture we're going to dive much
+
+07:56.360 --> 08:00.980
+deeper into setting up accounts for actual little simple social clone's site.
+
+08:00.980 --> 08:04.620
+So right now you should be able to have the jingle powered web page working and then you're setting
+
+08:04.670 --> 08:08.780
+up high file as well as the other directories set up the same way we did.
+
+08:08.780 --> 08:11.150
+OK thanks everyone and I'll see at the next lecture.

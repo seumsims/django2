@@ -1,0 +1,700 @@
+WEBVTT
+
+00:05.340 --> 00:10.800
+Hello everyone and welcome back this lecture we'll be discussing Django if static files and we'll learn
+
+00:10.800 --> 00:13.160
+how to answer static media files.
+
+00:14.140 --> 00:20.560
+So far we've used templates template tagging to insert a simple text but we don't always just want Tex.
+
+00:20.560 --> 00:25.010
+What about other types of media for example returning a user's photo.
+
+00:25.060 --> 00:27.280
+Let's go out and discuss static media files.
+
+00:27.310 --> 00:33.060
+We're not yet at the point where we can connect to a database grab a user's photo and then insert it.
+
+00:33.100 --> 00:38.230
+We are at a point where we can just grab a static media file and serve it to whoever happens to visit
+
+00:38.230 --> 00:44.570
+the page to do this for going to create a new directory inside of the project called static just like
+
+00:44.570 --> 00:50.270
+we did for templates then we're going to add this directory path to the project settings that PI file
+
+00:50.780 --> 00:53.950
+that will also add a static l variable.
+
+00:53.990 --> 00:59.480
+Very similar process to what we did with templates once we've done all that we need a place to store
+
+00:59.490 --> 01:00.890
+static image files.
+
+01:01.110 --> 01:06.660
+So underneath the static directory we'll go ahead and make a new directory called images and you can
+
+01:06.660 --> 01:11.700
+go ahead and place a favorite topic file inside this images there victory or just download one off the
+
+01:11.700 --> 01:12.210
+internet.
+
+01:14.050 --> 01:18.400
+Then to test that this all worked once you set it up you should be able to go to a URL that looks like
+
+01:18.400 --> 01:24.370
+this will be your domain slash static slash images and you should be able to pick up whatever pictures
+
+01:24.370 --> 01:30.050
+you happen to save there and that will allow us to confirm that the paths are set up and connected properly.
+
+01:30.070 --> 01:33.250
+But what we really want to do is set up a template tag for this.
+
+01:33.250 --> 01:38.170
+So that line right there shows us that we have everything connected but then we're going to learn how
+
+01:38.170 --> 01:46.010
+to actually inject that static media image using template tags and to do this inside NHT mail file we
+
+01:46.010 --> 01:48.070
+need to add in a few specific tags.
+
+01:48.290 --> 01:54.020
+So at the top of the ASTM file We're going to add this load to static files which basically tells Django
+
+01:54.380 --> 01:55.850
+to load up the static files.
+
+01:55.870 --> 02:03.980
+But keep in mind this line right here is going to go after that dock type HDMI line so that dock type
+
+02:03.980 --> 02:09.110
+HD e-mail that's automatically created when we create makes the mail file make sure that always goes
+
+02:09.110 --> 02:09.680
+at the top.
+
+02:09.680 --> 02:11.000
+Otherwise you make it errors.
+
+02:11.000 --> 02:15.890
+Now we'll walk you through this when we actually code this out then we're going to also do it insert
+
+02:15.890 --> 02:19.430
+the image with an H T.M. image source.
+
+02:19.430 --> 02:24.770
+So as you remember from the HCM lectures where we're actually inserting an image into HCM we use this
+
+02:24.830 --> 02:29.220
+image tag but in this case for the source we're not going to provide a file path.
+
+02:29.240 --> 02:35.480
+Instead we're going to use template text to actually inject static and then call the part of the file
+
+02:35.480 --> 02:39.210
+path we need in this case will just be images pick up.
+
+02:39.450 --> 02:41.290
+Or whatever your picture happens to be called.
+
+02:41.470 --> 02:44.240
+And this will make a lot more sense when we actually code this out.
+
+02:45.690 --> 02:51.900
+Now quick thing to notice is how this template said those curly bracket percent sign is a little different
+
+02:51.900 --> 02:54.110
+than the double set of curly brackets.
+
+02:55.040 --> 02:59.080
+We're going to be discussing and showing these differences more clearly in future lectures.
+
+02:59.240 --> 03:03.980
+But for right now just consider those double curly brackets is being used for simple text injection
+
+03:04.340 --> 03:06.370
+and we can actually use these curly bracket.
+
+03:06.370 --> 03:12.650
+Percent sign template tags for a lot more complex injections and actual logic later on you'll see how
+
+03:12.650 --> 03:17.420
+we can actually write a for loop using those template tags inside each TNL file.
+
+03:18.270 --> 03:23.850
+OK let's cut through an example of serving up a static image and afterwards we can dive into models
+
+03:23.850 --> 03:30.360
+and databases by moving on to Django level to point to jump to the Adam text editor to get started.
+
+03:30.370 --> 03:33.600
+All right so here I am at the Adam text editor.
+
+03:33.600 --> 03:36.320
+The first thing I want to do is just like we did of templates.
+
+03:36.330 --> 03:40.320
+I'm going to create a new folder called static.
+
+03:40.410 --> 03:48.130
+So right click the top level directory of first project like new folder or new directory.
+
+03:48.130 --> 03:54.220
+Call it static and then inside of the static I'm going to do another folder and then call it something
+
+03:54.220 --> 04:01.300
+like images and now we have the directory first project static images really similar to what we did
+
+04:01.300 --> 04:03.360
+for the templates first at AMI.
+
+04:03.610 --> 04:05.250
+Collapse some of these things.
+
+04:05.290 --> 04:10.790
+All right the next thing we have to do is tell Django where to actually find static images.
+
+04:10.930 --> 04:15.820
+In this case we edit the settings stop by file just like we did of templates so really similar process
+
+04:15.820 --> 04:16.590
+here.
+
+04:16.750 --> 04:21.790
+And then just like we did with templates we're going to use the estop half thought join we'll add a
+
+04:21.790 --> 04:22.750
+little more to it.
+
+04:24.420 --> 04:32.720
+In this case we will create a new variable and call it something like static underscore at the bar for
+
+04:32.770 --> 04:40.760
+a directory for a static and then we will say OS path but join now I'm going to join that base their
+
+04:40.770 --> 04:45.450
+victory just like we did last time with the string static.
+
+04:45.450 --> 04:48.190
+So that leads just to this static folder here.
+
+04:48.360 --> 04:53.070
+And then later on we can call images or actually dealing for template tags.
+
+04:53.100 --> 04:58.260
+So this basically provides the absolute path to the location of that static folder inside of our project
+
+04:59.270 --> 05:05.300
+or it's the next step is to scroll all the way down in your settings that PI file and you should notice
+
+05:05.300 --> 05:08.310
+something that mentions static files right here.
+
+05:08.420 --> 05:13.760
+And it also has a really nice link to the documentation on how to actually set up static files and you
+
+05:13.760 --> 05:19.650
+see that we already have basically a pre-built variable static URL leading to static.
+
+05:19.760 --> 05:22.280
+And that just allows you to use that for convenience.
+
+05:22.430 --> 05:28.220
+But what we want to do is add another variable that will actually be able to take in a list of static
+
+05:28.220 --> 05:34.520
+file directory paths and basically the reason for this is when you're dealing of your own applications
+
+05:34.520 --> 05:40.750
+your own projects for this static folder you may not want something so simple as just static images.
+
+05:40.790 --> 05:45.920
+You may actually want to take the approach through that of templates and have each application have
+
+05:45.920 --> 05:49.370
+its own special folder and then within that folder put in your images.
+
+05:49.370 --> 05:53.000
+So this may have been static first app images.
+
+05:53.000 --> 05:54.930
+So just keep that in mind.
+
+05:55.040 --> 06:01.840
+Let's show you how you can actually create a variable that will be the static files directories will
+
+06:01.860 --> 06:08.770
+do something like static files all caps underscore the r s.
+
+06:08.840 --> 06:11.590
+So static file directories is equal to.
+
+06:11.600 --> 06:18.140
+And then this is going to be a list and here is we're going to pass in that variable we made earlier
+
+06:18.140 --> 06:24.550
+if we scroll back to the top or close the top this static directory which is just joining the base the
+
+06:24.550 --> 06:26.500
+victory of that static folder.
+
+06:26.500 --> 06:30.760
+So coming all the way back down will passen here static directory
+
+06:33.560 --> 06:37.060
+so we can put a comma there it's mixture that works with the multiple lines.
+
+06:38.540 --> 06:44.270
+As a quick note you should always check to make sure that this static files underscore the IRS variable
+
+06:44.270 --> 06:46.030
+doesn't already exist.
+
+06:46.070 --> 06:50.010
+Sometimes some boilerplate code will already have it placed there for you.
+
+06:50.000 --> 06:55.280
+So you want to check and it's possible and in future versions of Django that will actually create this
+
+06:55.340 --> 06:56.870
+as an empty list to begin with.
+
+06:56.990 --> 07:01.100
+When you generate a new project so keep that in mind you should always check to make sure you're not
+
+07:01.130 --> 07:06.190
+overwriting a variable or at double defining it otherwise you're going to get confused and jingle We'll
+
+07:06.230 --> 07:07.790
+also get confused.
+
+07:07.790 --> 07:10.580
+So let's keep on going.
+
+07:10.640 --> 07:16.810
+The next thing I want to do is to actually play some sort of JPEG file inside of this images folder.
+
+07:16.820 --> 07:18.710
+So I'm going to do that.
+
+07:18.830 --> 07:22.840
+I'll do that through just Windows Explorer or if you're on a Mac do that with finder.
+
+07:22.880 --> 07:26.550
+So let me jump to doing that.
+
+07:26.580 --> 07:28.660
+All right so I just did that through the finder.
+
+07:28.680 --> 07:29.750
+You weren't able to see it.
+
+07:29.780 --> 07:34.760
+So I was doing it on another monitor but as a quick little know I bring in my browser here.
+
+07:34.830 --> 07:37.500
+I just downloaded this picture of Django.
+
+07:37.500 --> 07:40.760
+This is the actual guitarist that Django is named after doing a Rheinhardt.
+
+07:41.040 --> 07:46.470
+And then I put it into the images so go ahead and put in whatever JPEG file you want there and I'll
+
+07:46.470 --> 07:48.550
+just put in Jingo for that.
+
+07:48.940 --> 07:56.170
+OK let's go ahead and continue and with everything we have now we should be able to actually test out
+
+07:56.200 --> 08:01.900
+and run the server before we do I just want to quickly review what these three variables recreated are
+
+08:01.900 --> 08:03.590
+and the settings that PI file.
+
+08:03.790 --> 08:09.940
+So scrolling back up here this static directory is just using the python OS module to actually join
+
+08:09.940 --> 08:15.180
+the base directory to static and then scrolling all the way down to the very bottom.
+
+08:15.220 --> 08:21.070
+We have the static file variables we have static underscore your L and if you're using an older version
+
+08:21.070 --> 08:21.730
+of Django.
+
+08:21.790 --> 08:27.310
+Make sure you manually place that in 1.9 and the above should have done this automatically for you and
+
+08:27.310 --> 08:32.050
+you want to make sure you have the forward slashes above at the beginning and the end of that string
+
+08:32.090 --> 08:35.500
+to definitely scroll the way down and make sure that's already been placed for you.
+
+08:35.500 --> 08:40.590
+If not go ahead and copy this that underscore your L equals that string of static.
+
+08:40.720 --> 08:47.270
+And then we have these static files underscore the IRS and that list and basically what's happening
+
+08:47.270 --> 08:53.570
+is the two variables that we create is static Diyar and static files underscore they are referred to
+
+08:53.570 --> 08:59.150
+locations on this computer were static files are being stored and then that final variable that was
+
+08:59.150 --> 09:01.650
+already here that's static underscore you are l.
+
+09:01.940 --> 09:07.940
+It's just going to allow us to specify the width which Thetic files can be accessed when we're actually
+
+09:07.940 --> 09:09.950
+running or Django server.
+
+09:09.950 --> 09:15.140
+So for example when you're actually running the server someone could go to your domain name slash static
+
+09:15.140 --> 09:19.100
+slash and get access to static content.
+
+09:19.100 --> 09:24.380
+If they're on the client side and we later on we can add protections to make sure not everyone can just
+
+09:24.430 --> 09:29.160
+go and grab static content but let's just test this and make sure everything's working out.
+
+09:30.640 --> 09:39.010
+I can do that just by saying Python actually looks CD into first project first and now I say Python
+
+09:39.400 --> 09:40.320
+managed up.
+
+09:40.380 --> 09:42.800
+I run server.
+
+09:42.930 --> 09:48.740
+Enter it looks like it's running like I've done before I will just copy this and bring it to my browser.
+
+09:50.690 --> 09:53.150
+So bringing in my browser I can see here.
+
+09:53.260 --> 09:56.020
+The previous stuff we've worked on for the first project.
+
+09:56.020 --> 10:00.860
+Hello this is index that is simple and now and coming from first app index.
+
+10:00.970 --> 10:04.440
+Well what I want to do now is actually get to that static image.
+
+10:04.720 --> 10:07.570
+So I will say this static
+
+10:10.020 --> 10:18.240
+images slash and then type in Gengel guitar J peg or whatever your JPEG file happens to be named.
+
+10:18.280 --> 10:21.110
+And here we have it the picture of Jingo.
+
+10:21.310 --> 10:28.510
+And now we want to do is actually use template tagging to inject this image into an HD M-L file.
+
+10:28.510 --> 10:34.650
+So as a user you're not going to be directly sifting through the static images just to find a JPA.
+
+10:34.660 --> 10:40.600
+What we want to do is show this as if it was just a normal DML page that happened to have this image
+
+10:40.660 --> 10:42.040
+injected into it.
+
+10:42.040 --> 10:43.410
+So let's work on doing that.
+
+10:45.340 --> 10:53.060
+So coming back to our templates page over here we have our first app and then we have that index HMO.
+
+10:53.290 --> 11:09.730
+So now let's call this something like Django guitar page saved that and then I will say why this is
+
+11:09.730 --> 11:12.780
+a picture.
+
+11:13.110 --> 11:22.830
+Django himself and then we want to actually use template tagging for the injection or inserting that
+
+11:22.830 --> 11:24.060
+actual material.
+
+11:24.060 --> 11:25.380
+So I'm going to delete this.
+
+11:25.380 --> 11:31.920
+Insert me remember those from the previous view that we were working of earlier and below this doc type
+
+11:32.140 --> 11:32.670
+HVM.
+
+11:32.700 --> 11:37.860
+I want to load static files and that basically allows Django to know hey we need to load some static
+
+11:37.860 --> 11:42.620
+files here and that will save you time if you don't need to load static files.
+
+11:43.400 --> 11:44.960
+That way you're not just always loading them.
+
+11:44.960 --> 11:47.780
+So say load static files.
+
+11:47.950 --> 11:48.300
+OK.
+
+11:48.320 --> 11:51.980
+And again notice the different type of template tagging I'm using here.
+
+11:52.010 --> 11:56.330
+So as a quick note I mentioned this in the presentation but you always want to make sure that the very
+
+11:56.330 --> 12:02.490
+first line is this one block type H D M L otherwise the extremal codes going to get confused.
+
+12:02.780 --> 12:09.780
+Then the next thing we want to do is to actually put in an image tag that will have the picture of Django.
+
+12:09.800 --> 12:10.550
+So let's do that.
+
+12:10.580 --> 12:15.580
+We have an image and the source we want to do is where we use the template tagging again.
+
+12:15.830 --> 12:21.730
+So typically what we are doing in the H.M.S. of course is we're actually just hard coding the patent
+
+12:21.790 --> 12:22.000
+there.
+
+12:22.010 --> 12:28.870
+But now since we're using Django we can actually use template tagging to essentially inject the image.
+
+12:28.870 --> 12:31.610
+So I say OK this is static.
+
+12:31.760 --> 12:42.970
+And then as a string I'm going to say it's under images slash and my one is called Django guitar.
+
+12:43.390 --> 12:45.750
+JP That's what my file is called.
+
+12:45.770 --> 12:53.360
+And then finally I want to close that off and you may want to have something like an alternative here.
+
+12:53.420 --> 12:58.760
+That's what he stands for so in case for some reason you're not able to load that JPEG it's always a
+
+12:58.760 --> 13:07.460
+good idea to have some sort of alternative there so we can say like something like oh than a show.
+
+13:07.670 --> 13:12.440
+So that way we can see at least something to know we actually were able to link this correctly.
+
+13:12.440 --> 13:14.750
+So it's always a good idea to have an alternative that.
+
+13:17.210 --> 13:21.760
+Knowledge check in back for our server and to make sure this actually all worked.
+
+13:21.800 --> 13:30.590
+Going to grab my browser again and I will bring it over and notice right now my file path is at static
+
+13:30.650 --> 13:31.330
+images.
+
+13:31.330 --> 13:39.280
+Django guitar Jay peg if I delete all of this and go back to my home page that index page enter here
+
+13:39.290 --> 13:43.610
+I have the actual wups you know it was to bring that guy back up.
+
+13:43.610 --> 13:47.590
+And here he is just on the index page it says Hi this is a picture of himself.
+
+13:47.750 --> 13:52.240
+And we were able to actually inject that image there so that static file.
+
+13:52.370 --> 13:58.220
+And as another quick note I know I've been talking a lot about injecting static images but static files
+
+13:58.220 --> 14:03.200
+don't just have to be images that can actually be basically any static file that's not going to change.
+
+14:03.230 --> 14:09.650
+That includes things like CSSA and Javascript so those can be two files that are underneath your static
+
+14:09.650 --> 14:11.350
+folder that are going to change.
+
+14:11.350 --> 14:15.050
+And let me show an example of what that would actually look like.
+
+14:15.110 --> 14:22.770
+So I'm going to exit this and under static let's make a new folder and call it something like see SS
+
+14:24.470 --> 14:31.060
+and I'm going to make a new file here and call it I don't know.
+
+14:33.490 --> 14:40.490
+My style of success and here is just give a quick style tag to Hetter one that where we know it's actually
+
+14:40.490 --> 14:48.820
+working which means I'm going to say something like H-1 for one and then just make it obvious we will
+
+14:49.040 --> 14:57.460
+put the color here something like red and then I'm going to say this.
+
+14:57.550 --> 14:59.760
+So here I have my style that CSSA.
+
+14:59.800 --> 15:05.290
+It's inside of my static folder so static reassess my style that's the SS and hopefully I can begin
+
+15:05.290 --> 15:08.290
+to get an idea of the power of templates right.
+
+15:08.290 --> 15:14.200
+Like I mentioned earlier there are a skeleton or scaffolding you're going to inject stuff in because
+
+15:14.200 --> 15:18.850
+it's a sculpture scaffolding you can reuse them over and over again and just change things slightly
+
+15:18.850 --> 15:22.610
+depending on the situation and you can call different static files into them.
+
+15:22.650 --> 15:24.220
+Right now that CSSA.
+
+15:24.410 --> 15:31.000
+Well let's go back to that index storage T.M. under templates and show you how you can actually now
+
+15:31.120 --> 15:37.090
+call template tagging to insert the static file that's not an image but an actual CSSA file.
+
+15:38.640 --> 15:42.210
+Which means back up here in the head of the HMS document.
+
+15:42.370 --> 15:48.640
+I want to make sure I've already loaded static files and then I'm going to create a link and it will
+
+15:48.640 --> 15:50.890
+be a stylesheet with the ref.
+
+15:50.980 --> 16:00.550
+In this case going to remove the string and replace it with some template tags and I'm going to be using
+
+16:00.550 --> 16:07.830
+the percent sign because I'm not just injecting simple text and then I call static and then passing
+
+16:07.850 --> 16:11.180
+the string of where that CSSA is actually based.
+
+16:11.180 --> 16:12.550
+Inside of that static folder.
+
+16:12.610 --> 16:19.970
+So underneath static directory I have the CSSA directory and then underneath that I want to call my
+
+16:20.050 --> 16:29.070
+styled SS And let's close off that 10 and make sure it's all working.
+
+16:30.320 --> 16:37.510
+And as a quick note this should also be wrapped as a string which is why I wasn't looking correct earlier.
+
+16:40.460 --> 16:43.020
+OK so I have a string within a string.
+
+16:43.100 --> 16:49.030
+So these all tags here have those ready to go that we have static and we have the string inside of that.
+
+16:49.040 --> 16:57.160
+Let's save this an restart our server to make sure it's actually picking up on that styles are going
+
+16:57.160 --> 16:58.700
+to bring back in that browser.
+
+17:00.050 --> 17:06.230
+And if I bring it back in we should see that the header has now turned red and that's the case size
+
+17:06.230 --> 17:07.490
+picture jingle himself.
+
+17:07.630 --> 17:11.240
+And we're actually connecting now a static CSSA file.
+
+17:11.270 --> 17:12.200
+Perfect.
+
+17:12.200 --> 17:18.860
+So we learned a lot of the power of static files and being able to inject them with template tags so
+
+17:18.890 --> 17:20.660
+kind of a two for one here.
+
+17:20.660 --> 17:25.580
+How do you use template tags that actually perform some sort of logic or object something that's not
+
+17:25.580 --> 17:30.880
+just simple text and then also how to deal with static images and static files.
+
+17:30.890 --> 17:35.920
+All right so hopefully out of this lecture you're really beginning to understand the sort of workflow
+
+17:35.960 --> 17:42.440
+that develops with change so that you're creating a project creating applications linking views to your
+
+17:42.450 --> 17:45.840
+Ell's dealing with the settings file in the way you need to.
+
+17:45.950 --> 17:53.030
+And then more than just injecting a simple static image actually linking static using template tags
+
+17:53.120 --> 17:55.450
+into whatever HVM elf files you're working with.
+
+17:55.550 --> 18:00.530
+So hopefully you get an idea of the sort of workflow we're going to be developing as we move on to larger
+
+18:00.530 --> 18:02.030
+and larger projects.
+
+18:02.030 --> 18:02.630
+All right.
+
+18:02.840 --> 18:06.750
+That is it for Gengel level 1 coming up in Gengel level 2.
+
+18:06.860 --> 18:13.320
+We're going to learn about this basically third piece of the puzzle which is models and databases.
+
+18:13.400 --> 18:19.910
+So a lot of times Shingo is known as an MTV framework with models templates and views and so far we've
+
+18:19.910 --> 18:22.420
+only learned about templates in views.
+
+18:22.430 --> 18:28.520
+It's time to get in that third puzzle piece with models and connect everything here to an actual database.
+
+18:28.520 --> 18:31.100
+All right thanks everyone and I will see you at the next lecture.

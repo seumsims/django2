@@ -1,0 +1,1270 @@
+WEBVTT
+
+00:05.270 --> 00:09.690
+Welcome back everybody to part for the blog Klon project.
+
+00:09.690 --> 00:14.670
+So now it's time to actually get to the meat of the project which is creating views and templates and
+
+00:14.670 --> 00:16.720
+connecting them to your else.
+
+00:16.740 --> 00:21.960
+We'll start off with the class based views handling the actual blog posts and the basic structure that
+
+00:21.960 --> 00:27.000
+we're going to follow here is we'll try to create a view see how to set it up and then we'll create
+
+00:27.010 --> 00:28.900
+the template that matches with that view.
+
+00:29.040 --> 00:33.860
+A lot of class based views have some sort of default template name so we'll create that template we
+
+00:33.870 --> 00:36.170
+will actually fill out those H.A. files.
+
+00:36.240 --> 00:38.100
+We'll do that in a future lecture.
+
+00:38.100 --> 00:38.410
+OK.
+
+00:38.430 --> 00:39.140
+Let's get started.
+
+00:39.140 --> 00:40.930
+Hop over to the editor.
+
+00:40.980 --> 00:47.480
+OK so the first step here is to actually go to views that pie underneath our blog folder and other need
+
+00:47.490 --> 00:51.750
+templates I also have a blog folder here which is where I will be adding those ASTM l files.
+
+00:51.750 --> 00:56.760
+So let's start off by actually creating the baseline each team file that will be inheriting or extending
+
+00:56.760 --> 00:57.680
+from.
+
+00:57.690 --> 01:02.750
+So I will create a new file under blog and call it base h TNL.
+
+01:03.060 --> 01:04.040
+So there it is.
+
+01:04.080 --> 01:08.820
+And I'll just type in H-2 him here later on we'll work a lot more with his team files.
+
+01:09.000 --> 01:14.050
+But coming back to views that PI Let's start off with that about page since that's one of the simplest
+
+01:14.050 --> 01:15.120
+ones we have to do.
+
+01:15.880 --> 01:26.940
+So I will say from jingo views the generic import and I'm going to import with princes since I'm going
+
+01:26.940 --> 01:27.980
+to do multiple imports.
+
+01:27.990 --> 01:30.870
+I can use princes have them across multiple lines.
+
+01:31.030 --> 01:35.970
+And the first one that I want is this template you so will say.
+
+01:36.330 --> 01:46.910
+Class and we'll call this the about you and this will be a template view and all we do here is say the
+
+01:46.910 --> 01:48.710
+template underscore a name.
+
+01:48.950 --> 01:54.270
+And we're going to connect that to about the H Tim L and that's really all we have to do.
+
+01:54.320 --> 02:01.040
+And then we're going to come here to blog create a new file call it about each T.M. and then we can
+
+02:01.040 --> 02:10.660
+say well we're here or something like extends and then in quotes something like blog slash based Timo
+
+02:11.240 --> 02:16.100
+and then we can add a lot more content in here like the body block etc. But once we have that the other
+
+02:16.100 --> 02:19.220
+thing I want to do is add this to our list of your else.
+
+02:19.460 --> 02:27.600
+So coming back to your stop pie notice I'm under the blog you're up high which is currently empty.
+
+02:27.620 --> 02:34.550
+So let's set up a way to connect our sites Yarl's that pie to our actual blog you are that pie.
+
+02:34.580 --> 02:39.030
+So I'll come first to the Eurostar pie of our entire site.
+
+02:39.050 --> 02:43.100
+So this one already has a configuration that will scroll all the way down.
+
+02:43.370 --> 02:51.080
+And then when I'm going to do here is say also import include since I'll be using that and then I need
+
+02:51.080 --> 02:58.130
+to import some views so I will say actually we'll skip that for now.
+
+02:58.140 --> 03:03.670
+I we'll say your el and basically I'm just going to say anything.
+
+03:03.680 --> 03:14.470
+That's not the admin page go to blogs thought else and we can pass this as a string and then that's
+
+03:14.470 --> 03:21.390
+going to do is going to look for the blocks application and then find that Urals that PI file.
+
+03:21.440 --> 03:23.220
+So we'll save that for now.
+
+03:23.300 --> 03:27.530
+And that means we can come back to this Yarl's that PI file and start editing it.
+
+03:27.530 --> 03:32.470
+We're not quite done with the project's URLs that PI file but for now we'll just leave it like that.
+
+03:32.510 --> 03:36.770
+We have to add in all that registration stuff but we'll talk about that once we actually get to that
+
+03:38.030 --> 03:41.170
+for the PI file of the blog application.
+
+03:41.190 --> 03:50.150
+I'm going say from Jingo the Siona for configuration thought you Elle's import Yoro.
+
+03:50.370 --> 03:55.330
+And then I'll say from blog import views.
+
+03:55.450 --> 04:00.010
+And as always you could have also said from datt import views and then we're going to have a your all
+
+04:00.010 --> 04:05.770
+patterns list and this will eventually grow to be a super large list and we just have this all basically
+
+04:05.770 --> 04:07.730
+feeding into the single application.
+
+04:07.930 --> 04:16.430
+But let's start off by saying your L and we'll have the about page B slash about.
+
+04:16.540 --> 04:24.130
+So let's do this with regular expressions and we'll say about slash dollar sign.
+
+04:24.320 --> 04:26.690
+And this is going to be views.
+
+04:26.840 --> 04:28.820
+And then the about you we just created.
+
+04:28.840 --> 04:37.580
+Remember we have to say as of you know we'll give it the name about Khama save.
+
+04:37.590 --> 04:37.880
+All right.
+
+04:37.900 --> 04:40.880
+So our first view is basically done now.
+
+04:40.930 --> 04:44.800
+So let's come back to use that pie and start the next one.
+
+04:44.890 --> 04:48.860
+And basically we're going to be doing over and over again there's going to be a ton of your all's views.
+
+04:49.030 --> 04:51.770
+And as I mentioned that's kind of the meat of the entire project.
+
+04:51.820 --> 04:59.530
+So the actual home page is going to be the list of all the posts so I'll say class a post list view.
+
+04:59.900 --> 05:05.790
+And that's going to inherit from a list view so let's have that in on our import statement comma list
+
+05:05.840 --> 05:09.670
+view and then I'm going to start a new line here.
+
+05:11.890 --> 05:19.560
+Later on we'll add some more imports so I'll have a list of you that I'm inheriting from and then I
+
+05:19.560 --> 05:21.560
+need to connect that to a model.
+
+05:21.840 --> 05:26.480
+So I'm going to connect this to the post model but in order to do that I should actually import it.
+
+05:26.610 --> 05:33.920
+So coming back up here we'll say from blog models import and let's import both models are created.
+
+05:33.920 --> 05:41.770
+We created a post model and a comment model and then the other thing I want to do here is actually define
+
+05:41.770 --> 05:43.850
+how I want to grab this list.
+
+05:43.930 --> 05:49.610
+So when we get a little more room here Heidi that terminal and basically what I can do is I can create
+
+05:49.640 --> 05:55.600
+a method called Get underscore query set self.
+
+05:56.110 --> 06:01.270
+And this allows me to use jingoes or M when dealing with just generic views.
+
+06:01.260 --> 06:04.000
+That way I can add a little more of a custom touch to it.
+
+06:04.120 --> 06:08.880
+So we kind of do this a lot when we were in a function based views but we can actually do this as well
+
+06:08.920 --> 06:10.260
+with class based views.
+
+06:10.330 --> 06:15.550
+By the finding particular get methods and we'll get a lot more practice with this in future projects.
+
+06:15.550 --> 06:23.350
+But basically what I say is the actual queries I want is going to be post all the objects and I want
+
+06:23.350 --> 06:34.870
+to filter them by the published underscore dates and then I'm also going to add an underscore underscore
+
+06:35.200 --> 06:40.830
+T and I will set that equal to time zone.
+
+06:40.860 --> 06:50.070
+Now and then I'm going to also say dots order by and let me collapse this directory tree to get some
+
+06:50.070 --> 07:00.900
+more room here and then I'm going to say as a string dash published underscore dates.
+
+07:01.140 --> 07:03.350
+And that's my whole query set.
+
+07:03.360 --> 07:05.880
+All right so what does this all actually mean.
+
+07:05.880 --> 07:13.940
+Well with the get queries set I'm basically almost doing a query like a sequel query on my model.
+
+07:14.040 --> 07:19.620
+So this is essentially kind of pie funnies version of writing a sequel query.
+
+07:19.620 --> 07:28.250
+So what I'm saying is grab the post model all the objects there and filter out based on these conditions.
+
+07:28.300 --> 07:33.820
+So then we have grabbed the published they and then with the field queries you can do this really interesting
+
+07:33.820 --> 07:39.280
+thing where you say underscore underscore and then the actual field.
+
+07:39.280 --> 07:43.260
+So in this case it's going to be less than or equal to.
+
+07:43.390 --> 07:48.070
+And I'm going to hop over to documentation link a little bit to kind of explain this part a little more
+
+07:48.080 --> 07:50.590
+because out of all this is probably the strangest thing.
+
+07:50.620 --> 07:53.850
+Underscore underscore LTE which we've never seen before.
+
+07:53.870 --> 08:01.540
+We haven't really died this deep into the OR AM of jingo but basically this is asking is OK grabbed
+
+08:01.570 --> 08:07.930
+the published dates that are Lessner equal to the current time and then order them by published day.
+
+08:07.960 --> 08:14.720
+Except with this dash we can clarify whether we want ascending or descending because if we were not
+
+08:14.720 --> 08:20.890
+to order them by Dasch published they would be happening is we would see the oldest blog post first.
+
+08:21.080 --> 08:25.660
+So here with this dash I can order them in kind of a descending order.
+
+08:25.700 --> 08:31.960
+So the most recent blog post comes up front or at the top of this list view.
+
+08:32.300 --> 08:38.270
+So this is the get query set method and essentially allows you to use this or sort of a particular query
+
+08:38.450 --> 08:43.970
+on a list so you can only get items that you want in the list with some sort of filter and then you
+
+08:43.970 --> 08:45.220
+can also order them.
+
+08:45.410 --> 08:50.810
+So let me hop over to the documentation briefly to explain a little more about this kind of curious
+
+08:50.810 --> 08:53.350
+line underscore underscore LTE.
+
+08:53.360 --> 08:59.450
+All right so here I am at the documentation now with the documentation for 1.1 0 although if that by
+
+08:59.450 --> 09:02.860
+the time you're looking at this it's one point eleven This should be basically the same.
+
+09:03.100 --> 09:10.360
+And I'm on their slash topic slash slash queries and I can just do control Ephor command and look up.
+
+09:10.370 --> 09:17.030
+Underscore underscore LTE and you'll find a simple example but this all falls under field lookups where
+
+09:17.030 --> 09:22.750
+it's essentially how you can specify some sort of sequel query using the query set methods.
+
+09:22.760 --> 09:28.610
+And there's three main Chrisette set methods filter exclude and get and the basic lookups look like
+
+09:28.610 --> 09:29.110
+this.
+
+09:29.120 --> 09:34.760
+The actual field you want the fields of our model member those are the attributes and then underscore
+
+09:34.760 --> 09:38.380
+underscore and then the lookup type equal to some sort of value.
+
+09:38.480 --> 09:41.000
+And again that's a double underscore.
+
+09:41.000 --> 09:45.800
+So for example in this kind of plays along with what we've done is we say entry so whatever that model
+
+09:45.800 --> 09:50.480
+was the object so grabble as objects and then filter them based on some condition.
+
+09:50.480 --> 09:56.660
+In this case they want where the publication date is less than or equal to this particular value.
+
+09:56.720 --> 09:59.360
+So roughly translates into the following sequel.
+
+09:59.450 --> 10:01.370
+If you're not familiar sequel don't worry about this too much.
+
+10:01.390 --> 10:03.780
+But if you are this is probably really helpful to you.
+
+10:04.010 --> 10:09.770
+So it says select everything from a blog entry or whatever entry we have here where the publication
+
+10:09.770 --> 10:11.800
+date is less than equal to this particular date.
+
+10:11.810 --> 10:15.370
+So almost exactly the same example that we're working with here.
+
+10:15.440 --> 10:19.190
+Now if you're curious more about how this is actually possible because this is definitely some more
+
+10:19.190 --> 10:23.870
+advanced Python as far as how the creators of Django kind of built this and with this underscore underscore
+
+10:24.110 --> 10:26.030
+they have a link here to keyword arguments.
+
+10:26.040 --> 10:31.550
+They can read more into but but you're probably more interested in is how to actually figure out what's
+
+10:31.550 --> 10:36.500
+possible here in this double underscore how you actually keep scrolling down.
+
+10:36.560 --> 10:41.400
+And then there's various examples that are available to you so you can say underscore underscore exact
+
+10:41.450 --> 10:47.030
+which translates into just an equal call and keep scrolling down you can say I exact which is going
+
+10:47.030 --> 10:50.170
+to be case insensitive matching you can say contains.
+
+10:50.210 --> 10:55.670
+And this essentially just he keeps rolling down a bunch of stuff that has to do with translating sequel
+
+10:55.700 --> 10:57.670
+code into Python.
+
+10:57.770 --> 11:03.920
+But the weird confusion about it is this more advanced Python mechanism where you have these double
+
+11:03.920 --> 11:09.090
+underscores separating the actual field versus the type of comparison you're doing.
+
+11:09.110 --> 11:13.070
+Now we're not going to be using these too often throughout this particular project but I do want you
+
+11:13.070 --> 11:16.210
+to be aware of them and later on in a few trial section.
+
+11:16.220 --> 11:20.650
+We'll talk more about the OR em that Shingo has but I just want you to be aware.
+
+11:20.660 --> 11:25.340
+Again you can always check the documentation page here if you want more in-depth information on this
+
+11:25.400 --> 11:28.770
+but that's a little background to where we got all those commands from.
+
+11:29.210 --> 11:29.670
+OK.
+
+11:29.780 --> 11:31.340
+So that's the post list view.
+
+11:31.490 --> 11:37.250
+Let's minimize this and go add this view to actual Uriel's that PI file.
+
+11:37.280 --> 11:41.570
+So I'm going to come over to your Allsopp high of my blog.
+
+11:41.570 --> 11:42.670
+So there it is.
+
+11:42.680 --> 11:44.290
+And let's actually listen.
+
+11:44.720 --> 11:48.290
+So I'll say Khama call your all again.
+
+11:48.680 --> 11:54.470
+And then what I'm going to do here is since this is actually going to be the home page let's delete
+
+11:54.470 --> 11:56.370
+this and let's make this the top one.
+
+11:56.390 --> 11:59.870
+So usually you always see the homepages First you are a pattern.
+
+12:00.140 --> 12:01.500
+So let's do that here.
+
+12:02.950 --> 12:14.200
+So I'll say our care and then dollar sign and this is going to accept the use dot post list view to
+
+12:14.590 --> 12:22.040
+underscore view and then I'm going to set the name equal to post underscore list which is kind of the
+
+12:22.040 --> 12:25.900
+default name it expects here and that's it.
+
+12:25.920 --> 12:32.730
+So again I'm setting the home page to all my current blog posts that are published and that's it for
+
+12:33.390 --> 12:35.230
+that particular post list view.
+
+12:35.310 --> 12:37.230
+So let's continue moving along.
+
+12:37.230 --> 12:40.690
+And you can always reference the code to make sure it matches exactly.
+
+12:40.690 --> 12:42.300
+So if you ever get stuck on something.
+
+12:42.300 --> 12:48.830
+Make sure you're checking out the code notes next year we're going to make is another class based view
+
+12:49.280 --> 12:51.890
+So let's say you have those lists of posts at click on one.
+
+12:51.950 --> 12:53.800
+It takes me to an actual blog post.
+
+12:53.900 --> 12:56.000
+That means it's a detailed view.
+
+12:56.000 --> 12:57.770
+So this one's a lot simpler.
+
+12:57.770 --> 13:03.960
+All I have to do is say post detail view and then what I'm going to do is appear.
+
+13:04.030 --> 13:06.610
+Let's import detail.
+
+13:07.640 --> 13:14.840
+Say that and here I'm going to say detail view and underneath the detail view.
+
+13:14.850 --> 13:19.820
+All I have to do is say model is equal to post and that's it.
+
+13:19.890 --> 13:22.020
+That's a detail view as we've seen before.
+
+13:22.260 --> 13:27.680
+Let's go at it in I'll come over to my Urals up-I blog.
+
+13:27.720 --> 13:30.330
+And then a lot of this is taken care of for me.
+
+13:30.570 --> 13:40.020
+So we'll say your el and then here we're going to do is for a post the tilt view I'll say that's going
+
+13:40.020 --> 13:45.480
+to be under post and then I'm going to add some regular expressions here which is going to basically
+
+13:45.480 --> 13:51.110
+be taking the primary key and we've seen this a little bit before but let's go ahead and show it again.
+
+13:51.330 --> 13:54.870
+It's going to be question mark p..
+
+13:55.020 --> 14:04.790
+And then it's going to accept piquing like this backslash the plus and then outside of this dollar sign.
+
+14:04.870 --> 14:08.500
+And again I would never really expect anyone to know this off the top of my head and lost it working
+
+14:08.560 --> 14:10.290
+a lot with Django.
+
+14:10.330 --> 14:14.410
+This is more the kind of thing that you reference other examples with documentation for.
+
+14:14.800 --> 14:16.480
+But we've already seen how do a detail.
+
+14:16.490 --> 14:21.420
+So we've seen this or something very similar to this before but luckily a lot of this heavy lifting
+
+14:21.610 --> 14:27.200
+for us in our lives that say is post detailed view and call as View.
+
+14:27.220 --> 14:32.040
+And this will automatically take care of matching the primary key to whatever you clicked on.
+
+14:32.560 --> 14:40.860
+And then let's give this a name and we'll set the name equal to just post underscore detail.
+
+14:40.870 --> 14:42.590
+OK so that's a detail view of that post.
+
+14:42.610 --> 14:49.560
+Let's save that and we'll hop right back over to use that pi and move onto the next class based view.
+
+14:49.650 --> 14:52.080
+We're going to kind of get some more space here.
+
+14:52.540 --> 15:00.130
+And next thing I want to do is sort of create view so I'll say class and we'll say create post view
+
+15:01.010 --> 15:04.860
+and then we want to inherit from create view.
+
+15:04.860 --> 15:06.970
+But first thing you need to do is actually import it.
+
+15:07.020 --> 15:13.390
+So we'll come back up here and then we'll say create a view save that come down.
+
+15:13.770 --> 15:19.400
+And then what I want to do is connect my model to be able to post.
+
+15:19.420 --> 15:20.860
+And that's what we've seen before.
+
+15:20.980 --> 15:24.320
+But there's a couple of more things so we want to do here.
+
+15:24.490 --> 15:31.450
+And the main thing we want to do is I don't want anyone to be able to access this create post view earlier
+
+15:31.480 --> 15:34.670
+when we were talking about authentication authorization.
+
+15:34.840 --> 15:40.630
+We discussed using decorator's So remember we had that at symbol we have something like lock in required
+
+15:41.080 --> 15:43.630
+but that only really works for function based views.
+
+15:43.630 --> 15:49.170
+And now we want to know how do we actually work with that sort of log in required with a class based
+
+15:49.180 --> 15:49.830
+view.
+
+15:49.930 --> 15:52.420
+And that's where the term mixdowns come in.
+
+15:52.420 --> 15:57.430
+So you haven't seen any real Moxon's but they're really easy to use just like those decorators were
+
+15:57.430 --> 15:58.320
+easy to use.
+
+15:58.390 --> 16:02.400
+You just scroll at the top here and you're going to import them.
+
+16:02.540 --> 16:11.450
+So I won't say from jingo contrib you th mixdowns.
+
+16:11.620 --> 16:13.040
+I'm going to import.
+
+16:13.340 --> 16:23.260
+And then the one we want is called loggin required Mixon and you can basically think of this akin to
+
+16:23.260 --> 16:29.590
+the decorator so I'll show you the example of a decorator one where we're we said from Django da contrib
+
+16:30.000 --> 16:40.700
+a th da decorator's import loggin underscore required.
+
+16:40.790 --> 16:46.160
+So essentially back when you're dealing with function based views to actually get that sort of automated
+
+16:46.160 --> 16:50.210
+logging required functionality you had to use these decorators.
+
+16:50.330 --> 16:55.850
+But luckily a class space to use the analogy to that is using these mixdowns and these are essentially
+
+16:55.850 --> 16:59.750
+classes that we mix in to the classes we're inheriting with.
+
+16:59.750 --> 17:04.600
+So not only do we want to create value but we're going to mixin that log in required.
+
+17:04.610 --> 17:06.260
+That's kind of where they get their name from.
+
+17:06.470 --> 17:09.860
+So I'll say log in required Mixon Khama.
+
+17:10.090 --> 17:13.280
+So now I'm going to inherit methods from both of these classes.
+
+17:13.370 --> 17:18.440
+So not just create new but also logging required mixin in with the mixdowns they take in a couple of
+
+17:18.440 --> 17:21.140
+more attributes that are necessary.
+
+17:21.140 --> 17:26.900
+So one attribute we want to do is set up the log in you are all some cases persons not logged in.
+
+17:27.070 --> 17:28.120
+Where should they go.
+
+17:28.120 --> 17:31.860
+And later on we'll say they should go to slash logon.
+
+17:31.930 --> 17:37.000
+Almost like when you're setting up the static files and then we also want to do is have some sort of
+
+17:37.000 --> 17:46.960
+redirect field so that attribute is called redirects underscore field underscore name and I want to
+
+17:46.960 --> 17:57.100
+set that equal to blog slash post underscore detail dot h HVM L and what we're going to do is going
+
+17:57.100 --> 17:57.670
+to say.
+
+17:57.670 --> 17:58.040
+All right.
+
+17:58.090 --> 18:08.590
+So redirect them to the detailed view and then we'll say form class as equal to post form.
+
+18:08.600 --> 18:10.870
+But that means we actually need to import that.
+
+18:10.910 --> 18:16.070
+So I'm going to scroll back up here and we imported the models already let's actually import the forms
+
+18:16.090 --> 18:27.740
+themselves say from blog that forms in poor host form and import the comment form.
+
+18:27.770 --> 18:29.020
+So what does this all doing.
+
+18:29.040 --> 18:31.920
+Well I have the Create post view that we've seen before.
+
+18:31.970 --> 18:36.320
+We've seen it just to create view where you kind of have these models or these forms connected.
+
+18:36.500 --> 18:41.740
+But now I'm also kind of mixing in the slogging required just like I did with decorator's But this is
+
+18:41.740 --> 18:45.070
+kind of the class based view version also very easy to use.
+
+18:45.080 --> 18:49.890
+You just end up having these two fields where you want to read redirect or where the lock in your l
+
+18:49.910 --> 18:51.440
+should be.
+
+18:51.460 --> 18:57.070
+So we'll put those all in here and we will save that and we're going to come back to you or else that
+
+18:57.070 --> 19:01.360
+pi file and then match set up to some sort of your alcohol.
+
+19:01.840 --> 19:12.040
+So I will say your L and we'll say this says post and you can say post create but you're not limited
+
+19:12.040 --> 19:14.800
+to just saying create you can call this whatever you want.
+
+19:14.800 --> 19:19.060
+So oftentimes you're not going to want the your all to just always say create.
+
+19:19.060 --> 19:22.870
+Maybe you want your own specific thing especially of larger sites for users.
+
+19:22.990 --> 19:26.450
+In this case let's call this post new which kind of also makes sense.
+
+19:27.650 --> 19:34.790
+So say our posts slashed new and then over here what I'm going to do is say views die and I'm going
+
+19:34.790 --> 19:46.350
+to create a post that you underscore as you and then I will say name is equal to post underscore.
+
+19:46.380 --> 19:50.800
+You and I'm going to say that.
+
+19:51.030 --> 19:54.050
+So this is now my create post view.
+
+19:54.300 --> 19:56.270
+So let's continue on.
+
+19:56.370 --> 20:02.250
+I've been able to check out the details of a post create a post to my home page and then at my About
+
+20:02.250 --> 20:06.360
+page tech checking off a lot of these boxes on generic views.
+
+20:06.360 --> 20:07.560
+Let's continue on.
+
+20:07.560 --> 20:09.800
+A lot of times I'll probably want to update a post.
+
+20:09.840 --> 20:12.460
+Maybe I made a mistake so I don't want to just be able to create them.
+
+20:12.480 --> 20:15.820
+I want to update them which means coming back up here.
+
+20:15.850 --> 20:18.760
+Member This is all from those crud lectures.
+
+20:18.820 --> 20:21.680
+Going Say up the view.
+
+20:21.820 --> 20:29.500
+Scroll back down and then we'll create a new class and we'll call this post up.
+
+20:29.600 --> 20:36.660
+You and we'll have this also be loggin required makes sense if I need to actually update something I
+
+20:36.660 --> 20:37.940
+should be logged in.
+
+20:38.340 --> 20:44.100
+And then we'll call up that view and then this is going to the same log in your Arel and our field name
+
+20:44.190 --> 20:46.230
+as the creation of it.
+
+20:46.260 --> 20:52.010
+In fact it's actually going to have everything the same so we can just copy and paste this and whips
+
+20:52.160 --> 20:55.770
+out my colon and there it is.
+
+20:55.780 --> 20:56.030
+All right.
+
+20:56.030 --> 21:00.990
+So all these attributes are the same for update and creation which makes a lot of sense.
+
+21:00.990 --> 21:04.460
+Basically the only thing you're saying is OK now you're updating it instead of creating a brand new
+
+21:04.460 --> 21:04.910
+one.
+
+21:05.060 --> 21:09.180
+Which kind of has to do with whether or not you're creating new primary key or linking to an old one.
+
+21:09.320 --> 21:15.360
+So same thing has always come back to your not pie hopefully or begin it's kind of fill out the pattern
+
+21:15.360 --> 21:19.090
+of what we're doing here and we'll start some regular expressions.
+
+21:19.200 --> 21:25.690
+So I'll say this is post and actually this should be you should have carrots on them.
+
+21:25.690 --> 21:28.740
+So I apologize that I forgot about that.
+
+21:28.930 --> 21:29.670
+But there we go.
+
+21:29.670 --> 21:37.480
+These were off carrots now and then what we're gonna say is for the post up they will say post slash
+
+21:37.630 --> 21:41.870
+and then I'm going to call the same sort of primary key.
+
+21:42.440 --> 21:48.550
+To make sure it matches the primary key essentially just making sure you link to the correct one.
+
+21:48.630 --> 21:56.250
+And then let's say something like slash at and then we'll have a dollar sign here so I'm going say something
+
+21:56.250 --> 22:04.650
+like oh post number one at that post and then we'll say Khama views thoughts and then I should have
+
+22:04.680 --> 22:07.490
+a post up that you.
+
+22:07.700 --> 22:13.050
+There it is as always in your column as View.
+
+22:13.270 --> 22:18.480
+And then we'll give it some sort of name and let's call this name post underscore at it you can have
+
+22:18.520 --> 22:20.290
+us call the post up.
+
+22:20.400 --> 22:23.860
+If you just remember that name and match it or I call post at it.
+
+22:24.580 --> 22:25.130
+OK.
+
+22:25.150 --> 22:27.780
+Almost none of the post use.
+
+22:27.880 --> 22:35.330
+Coming back to views that pi I have right now my creating updating detailed view listing view about
+
+22:35.410 --> 22:36.090
+you.
+
+22:36.130 --> 22:38.270
+This is all just for the blog posts.
+
+22:38.530 --> 22:42.240
+And then what I also want is to take care of the drafts.
+
+22:42.430 --> 22:47.550
+So remember I publish posts but before they're published they're going to be drafts.
+
+22:47.590 --> 22:54.500
+So let's actually create a view that lists all my unpublished drafts which means I'm going to create
+
+22:54.500 --> 23:00.540
+a class and actually before we do that let's kind of sneak in a simpler one.
+
+23:00.550 --> 23:02.320
+What if I want to delete a post.
+
+23:02.530 --> 23:08.640
+I'll need a post delete you and I will take care of that draft in just a second.
+
+23:08.960 --> 23:13.740
+But this should also be log in required and this is going to inherit from the view.
+
+23:13.790 --> 23:17.000
+We have an important so let's do that as well.
+
+23:17.000 --> 23:18.730
+So update delete.
+
+23:18.790 --> 23:26.120
+And if this is confusing you definitely check out the crud lecture inside of the advanced class lecture
+
+23:26.430 --> 23:27.790
+or section I should say.
+
+23:28.100 --> 23:30.200
+OK so here's class Postol view.
+
+23:30.320 --> 23:31.880
+Logging required mixin.
+
+23:32.090 --> 23:36.640
+And then I'm going to call you this is a really simple one.
+
+23:36.650 --> 23:40.670
+We just connect it to the model that we're going to be the leading from and then we need some sort of
+
+23:40.670 --> 23:41.170
+success.
+
+23:41.180 --> 23:44.680
+You are all so hopefully remember this as well.
+
+23:44.750 --> 23:46.160
+So what happens when you actually delete it.
+
+23:46.160 --> 23:47.540
+Where should it go.
+
+23:47.600 --> 23:52.910
+And remember that when you're deleting have you you don't want the success you are l to actually activate
+
+23:53.030 --> 23:54.370
+until you delete it.
+
+23:54.410 --> 23:59.410
+Otherwise what kind of be jumping always to another Web site or another page on your website.
+
+23:59.420 --> 24:03.230
+I should say in order to do this we need to use the reverse lazy.
+
+24:03.230 --> 24:14.410
+So again scrolling all the way back up here will say from jingo your Elle's import reverse underscore
+
+24:14.800 --> 24:15.670
+lazy.
+
+24:15.670 --> 24:21.070
+That way it waits until you've actually deleted it to give you back the success you are ill that you're
+
+24:21.070 --> 24:22.290
+going to be going to.
+
+24:22.570 --> 24:29.770
+So we'll have it go back to the home page which is going to call reverse lazy and then we'll pass and
+
+24:29.780 --> 24:33.860
+the post underscore lists and I will say that.
+
+24:34.210 --> 24:35.770
+OK so let's delete view.
+
+24:35.780 --> 24:38.710
+And that basically takes care of our crud.
+
+24:38.990 --> 24:45.110
+This sort of creates updating the actual retrieval process well that's just displaying it.
+
+24:45.110 --> 24:47.570
+So that's kind of inherent to all these slices and then deleting.
+
+24:47.780 --> 24:50.120
+So these are my credit views right here these three.
+
+24:50.390 --> 24:55.280
+And then I also have the detail list and about or a template I should say.
+
+24:55.350 --> 24:55.810
+OK.
+
+24:55.940 --> 25:02.870
+So come back to your old pie and her blog and I know there's a lot of code hopefully isn't seem super
+
+25:02.870 --> 25:05.350
+overwhelming if you saw this all at once.
+
+25:05.350 --> 25:09.560
+It would seem kind of crazy but I believe the way we're kind of structuring it out here.
+
+25:09.680 --> 25:10.900
+It shouldn't be so bad.
+
+25:12.520 --> 25:14.330
+And we just create the delete view.
+
+25:14.650 --> 25:16.020
+Let's set that up.
+
+25:16.030 --> 25:21.670
+So we'll say post underscore and are going to copy and paste this again.
+
+25:24.720 --> 25:27.430
+And then we will say slash and let's call it.
+
+25:27.490 --> 25:37.770
+I don't I'll call it remove dollar sign and then we'll call you use dots and this should be call post
+
+25:37.860 --> 25:41.440
+delete you there it is.
+
+25:41.690 --> 25:42.860
+And then we call it.
+
+25:42.950 --> 25:49.060
+View and we'll give it a name and we'll call this name so kind of matches up with the other one will
+
+25:49.060 --> 25:52.700
+say post remove comma.
+
+25:53.060 --> 25:53.780
+OK.
+
+25:53.850 --> 25:55.850
+Now you could always break this up into multiple lines.
+
+25:55.860 --> 26:01.590
+So a lot of people when at work of these you or else they kind of style them like this just so it's
+
+26:01.590 --> 26:02.570
+more readable.
+
+26:02.610 --> 26:07.290
+I'm going to follow along with the actual notes that I have for you guys where everything's on a single
+
+26:07.290 --> 26:07.890
+line.
+
+26:08.050 --> 26:13.350
+But keep in mind this isn't exactly the best pep 8 styling since it's going beyond the number of character
+
+26:13.350 --> 26:14.880
+limits here kind of line.
+
+26:15.010 --> 26:16.210
+It's a very faint line.
+
+26:16.350 --> 26:21.090
+But again I think it's a little easier to read if you just kind of scroll back and forth versus having
+
+26:21.090 --> 26:22.830
+everything on multiple lines.
+
+26:22.830 --> 26:23.140
+OK.
+
+26:23.310 --> 26:26.830
+Just a little side note coming back to you is that pie.
+
+26:26.850 --> 26:32.300
+We have one last class based of you will come over to use that pie and finish it.
+
+26:33.970 --> 26:36.520
+And that is that draft list I was mentioning.
+
+26:36.670 --> 26:43.980
+So let's create it will say draft's list of you and this is just another list view.
+
+26:43.980 --> 26:49.920
+So again I'm going to call a loggin required and this will look a lot like the post list view except
+
+26:49.920 --> 26:57.220
+it's going to have a query set specifying that I want to make sure the published day isn't there so
+
+26:57.230 --> 27:02.140
+will specify a log in the oral is equal to log in
+
+27:06.270 --> 27:10.950
+and then get some more lines and here I also want the redirect.
+
+27:10.950 --> 27:22.420
+So let's actually say the redirect field name is going to be equal to blogs slash posts underscore list
+
+27:22.980 --> 27:27.430
+HVM El and then connect to a model.
+
+27:27.430 --> 27:29.240
+The model is just going to be the post.
+
+27:29.770 --> 27:33.670
+And this looks basically exactly like the post list view.
+
+27:33.670 --> 27:41.010
+So if we jump back up to the post list view Remember I said for the post view get me stuff that's actually
+
+27:41.010 --> 27:46.000
+been published less than or equal to the times are now to kind of make sense you know and stuff.
+
+27:46.300 --> 27:48.870
+So you should publish just in case you get some more air that way.
+
+27:48.870 --> 27:51.780
+And then we also have the ordering of it in this case.
+
+27:51.780 --> 27:56.560
+If I scroll down for the drafts I want to also get a query set.
+
+27:56.670 --> 28:00.660
+But I want to make sure that there actually isn't a publication date on it.
+
+28:02.630 --> 28:16.530
+So I'll say the get queries sent pasand self and I will return post the objects that filter and I will
+
+28:16.530 --> 28:23.710
+grab that published dates underscore underscore and the method I'm going to use here is called is null
+
+28:24.720 --> 28:26.000
+and I'll set that equal to true.
+
+28:26.000 --> 28:27.480
+So what does that actually say.
+
+28:27.710 --> 28:32.600
+Well if this is a list of my drafts that I want to make sure that it doesn't actually have a publication
+
+28:32.600 --> 28:35.350
+date meaning I want is not true.
+
+28:35.480 --> 28:46.870
+And then we're going to do is offer that I will call order by and I'll order these by the created the.
+
+28:46.930 --> 28:51.130
+You could also say Dasch created they kind of up to you the pinning on how you think they should best
+
+28:51.130 --> 28:52.210
+be ordered.
+
+28:52.210 --> 28:58.880
+So we'll save that and then we make sure that my principles are balanced that pier times are now ordered
+
+28:58.900 --> 29:06.660
+by and it's I look at this post to you I should actually have in other parentheses here.
+
+29:06.830 --> 29:07.190
+OK.
+
+29:07.270 --> 29:08.760
+So that makes more sense.
+
+29:08.770 --> 29:12.550
+So I was getting some weird errors because there was some unbalanced Princie here.
+
+29:12.580 --> 29:17.320
+Let me scroll that way over here and delete that one.
+
+29:17.320 --> 29:17.650
+OK.
+
+29:17.770 --> 29:23.410
+So just a quick note I forgot to add this predeceased because it should be an entire filter command
+
+29:23.860 --> 29:26.890
+and then off of that should be entire order by command.
+
+29:26.890 --> 29:31.550
+So I was actually calling off the now instead of off the entire filter call.
+
+29:31.560 --> 29:35.650
+It's kind of more clear if we scroll down here we have this entire filter command and then we have this
+
+29:35.650 --> 29:37.100
+entire order by command.
+
+29:37.450 --> 29:40.920
+And last but not least we need to still add the draft list view.
+
+29:41.260 --> 29:44.950
+You are also again turning back to the API file.
+
+29:45.160 --> 29:47.180
+And let's hit it up.
+
+29:47.200 --> 29:54.000
+So let me make sure I have a comma here and I will say your L and hopefully on your screen this is a
+
+29:54.000 --> 29:55.260
+little more clear.
+
+29:55.260 --> 30:01.890
+Right now I'm zoomed in for you guys but on my screen I'm kind of program about myself and a zoomed
+
+30:01.890 --> 30:02.540
+in.
+
+30:02.850 --> 30:07.860
+So what I'm going to say is post and this is going to be for that draft list.
+
+30:07.860 --> 30:16.570
+So let's say for instance we want actually just make the stress keep it simple so traps are signed.
+
+30:16.590 --> 30:23.050
+So if we're ever go to drafts and I'm like then I'll be able to see all my dress and it's going to be
+
+30:23.050 --> 30:31.610
+views on the draft list of you since it's a class based for and to say it's view and let's give this
+
+30:31.610 --> 30:32.180
+a name.
+
+30:32.180 --> 30:42.240
+It's a really obvious name so don't forget it will say post draft list comma folks.
+
+30:42.260 --> 30:47.200
+So that is all the class based views were going to be working with in our project.
+
+30:47.240 --> 30:48.530
+Now I know I said that's all.
+
+30:48.530 --> 30:50.240
+But there's definitely quite a bit of them.
+
+30:50.360 --> 30:53.380
+Definitely take the time to review what we've done here.
+
+30:54.230 --> 30:55.730
+There is a lot of code.
+
+30:55.910 --> 31:02.180
+I mean basically we just wrote what about 46 lines plus all these specific or else about 50 lines of
+
+31:02.180 --> 31:03.340
+code stuff.
+
+31:03.480 --> 31:09.230
+We take the time review what we just did check with the notes make sure things matching exactly in case
+
+31:09.230 --> 31:10.640
+you run into any errors.
+
+31:10.670 --> 31:14.210
+I know we haven't actually been running the site but that's just to make sure you completely understand
+
+31:14.600 --> 31:15.610
+each of these views.
+
+31:15.620 --> 31:19.100
+Hopefully this all made basic sense.
+
+31:19.100 --> 31:24.570
+The main things that were near that we introduced was the ability to have this get queery set inside
+
+31:24.620 --> 31:25.950
+of these template views.
+
+31:26.150 --> 31:31.270
+And the other thing we introduced is if you scroll down this sort of logging required Mixon which is
+
+31:31.270 --> 31:34.900
+just analogous to those decorators that we've worked with before.
+
+31:35.310 --> 31:40.120
+OK I know these are really long lectures so definitely take some time walk around relax.
+
+31:40.130 --> 31:41.090
+You definitely earned it.
+
+31:41.090 --> 31:43.380
+After listening to all of this.
+
+31:43.550 --> 31:45.300
+Thanks and I'll see you at the next lecture.

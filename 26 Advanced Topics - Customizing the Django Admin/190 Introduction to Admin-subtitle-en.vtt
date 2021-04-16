@@ -1,0 +1,544 @@
+WEBVTT
+
+00:05.420 --> 00:08.180
+Hello everyone and welcome to this advanced topic section.
+
+00:08.180 --> 00:14.930
+Well we're going to be discussing customizing the jingo adamant interface now often the default admin
+
+00:14.940 --> 00:20.820
+page is great and it's all we need for our projects but sometimes we may also want to expand with the
+
+00:20.820 --> 00:25.950
+Admin Page can do and we also have a lot of tools and Django to customize it to our own needs and we're
+
+00:25.950 --> 00:28.240
+going to now learn how to customize it.
+
+00:28.290 --> 00:31.920
+Adam page as well as features of the atom in page.
+
+00:32.060 --> 00:33.740
+So we're going to learn how to do the following.
+
+00:33.740 --> 00:37.070
+We'll discuss a quick review of the atom in page how it's used.
+
+00:37.130 --> 00:42.050
+Then we'll change the out in page template so you can actually overwrite templates on the Admin Page
+
+00:42.380 --> 00:46.820
+and that will show you things like changing the order of fields that show up and adding search and filters
+
+00:46.820 --> 00:48.040
+to the Admin site.
+
+00:49.150 --> 00:53.440
+We're going to start by quickly creating a new project an application you won't really do anything on
+
+00:53.440 --> 00:57.110
+the front end since we really only are going to focus on the Adamant backend.
+
+00:57.280 --> 01:01.690
+So essentially it's just going to be an empty front and we have two models connected and registered
+
+01:01.930 --> 01:02.950
+to the admin.
+
+01:02.950 --> 01:05.170
+Let's shift to our editor and get started.
+
+01:05.210 --> 01:05.470
+OK.
+
+01:05.470 --> 01:10.340
+Here I am at the Adam text editor and one I'm going to do is just create a new project.
+
+01:10.450 --> 01:14.410
+I've gone ahead and created a new folder on my desktop called test to do this and really it doesn't
+
+01:14.410 --> 01:16.780
+matter too much for the size to do this.
+
+01:16.780 --> 01:21.160
+And we're going to call this my underscore video rental.
+
+01:21.610 --> 01:24.820
+We're going to kind of make it as if it's a rental video store web site.
+
+01:24.820 --> 01:31.840
+So go ahead and create that project and then I'm going to see the into my video rental here and then
+
+01:31.840 --> 01:38.290
+offer this I'll say jingo admen star app and we'll just call this app videos.
+
+01:38.340 --> 01:43.860
+And this is where we're going to have a model PI file and an admin file that we can later kind of play
+
+01:43.860 --> 01:44.760
+around with.
+
+01:44.760 --> 01:47.110
+So to expand this make sure that's all worked out.
+
+01:48.070 --> 01:51.500
+So you see my video rental I see videos I see models.
+
+01:51.910 --> 01:58.310
+So what I'm going to do is in my settings start by going to make sure I register this video here somewhere
+
+01:58.360 --> 02:01.610
+scroll down and and there are installed apps.
+
+02:01.720 --> 02:06.420
+Just go ahead and add that app name that we just created called videos.
+
+02:06.580 --> 02:07.350
+Save that.
+
+02:07.450 --> 02:10.060
+Always make sure you save so you can have those changes.
+
+02:10.210 --> 02:14.590
+There we're going to come over here to models and we're going to quickly create two models.
+
+02:14.590 --> 02:16.110
+Nothing too major here.
+
+02:16.150 --> 02:21.820
+The models we're going to create essentially just going to mimic having a movie and having a customer.
+
+02:21.960 --> 02:22.450
+So we'll say.
+
+02:22.450 --> 02:25.030
+Class movie.
+
+02:25.480 --> 02:36.000
+And then we'll say models the model and then let's give it some fields will say tidal is models.
+
+02:36.160 --> 02:38.120
+And we'll have it be a character field.
+
+02:38.460 --> 02:43.950
+Let's go ahead and give it a max length of 256 characters.
+
+02:45.420 --> 02:48.300
+And then let's say the movie has a length of minutes.
+
+02:49.970 --> 02:53.490
+And this is since it's lengthened minutes we know it has to be a positive integer.
+
+02:53.520 --> 02:55.610
+So we'll have that be that type of field.
+
+02:55.920 --> 02:57.810
+And then there's also a release year.
+
+02:58.380 --> 03:01.810
+And technically that should also be a positive integer so we'll do that as well.
+
+03:01.830 --> 03:06.930
+Just keeping things simple the main ideas not working with the models is working at the admin page.
+
+03:07.010 --> 03:11.470
+We're essentially just creating these because we need something to play around with later on.
+
+03:11.490 --> 03:18.510
+So I'm also going to create another model here called customer model and we'll say in her models not
+
+03:18.510 --> 03:24.360
+model it let's say customers have a first name let's say models.
+
+03:24.420 --> 03:30.350
+And that's also a character field if max length equal to 256.
+
+03:30.430 --> 03:32.410
+You can always copy and paste this from the notes as well.
+
+03:32.460 --> 03:34.010
+You don't want to type this all out.
+
+03:34.380 --> 03:36.650
+Now let's say last name is models.
+
+03:36.660 --> 03:43.770
+Basically the same thing here has a max length of 256 and then finally let's say you have some sort
+
+03:43.770 --> 03:46.220
+of phone number or some sort of digital code.
+
+03:46.230 --> 03:50.430
+Doesn't matter too much but we'll have that would also be some positive interest field.
+
+03:50.460 --> 03:51.200
+OK.
+
+03:51.340 --> 03:57.050
+So command or control s to say that and then I'm going to make sure that I register these into the item
+
+03:57.050 --> 03:58.020
+and file.
+
+03:58.050 --> 03:59.360
+So we'll come over here.
+
+03:59.980 --> 04:07.800
+To adamant that pie in our videos let's these We're going to say from the import models and then I'll
+
+04:07.820 --> 04:14.720
+see adman that PSI thought register is register and I'm going to register my models that way I can see
+
+04:14.720 --> 04:16.500
+them in the actual admin page.
+
+04:16.580 --> 04:17.790
+So I'm also a customer.
+
+04:17.810 --> 04:28.670
+And then Adam and that site the register models movie then it goes into control as to save that.
+
+04:29.040 --> 04:31.930
+And let's go ahead and make sure we do our migrations.
+
+04:32.130 --> 04:35.670
+So over here them of the terminal I can zoom in a little bit for you guys.
+
+04:35.820 --> 04:37.110
+I'm going to do the following.
+
+04:37.110 --> 04:45.350
+We'll say make sure say Python managed up high and then say make migrations.
+
+04:45.670 --> 04:51.340
+And it went ahead and created model and movie or excuse me create a model customer created a model movie
+
+04:51.790 --> 04:57.040
+that we're going to say Python managed up high and I'm going to migrate any changes that we have under
+
+04:57.040 --> 04:58.040
+videos.
+
+04:58.180 --> 05:00.100
+It may say running migrations.
+
+05:00.100 --> 05:01.240
+There we go.
+
+05:01.300 --> 05:06.400
+And then I always like to say make migrations one more time to make sure there's nothing left so no
+
+05:06.400 --> 05:08.340
+changes that are perfect.
+
+05:08.350 --> 05:12.610
+And since we're actually going to be using the admin interface we need to actually create a super user.
+
+05:12.700 --> 05:14.020
+So let's make sure we do that as well.
+
+05:14.020 --> 05:20.560
+We'll see Python managed up high and this line is create super user which you've done before and if
+
+05:20.560 --> 05:21.610
+you get this error.
+
+05:21.670 --> 05:23.480
+No such table off the user.
+
+05:23.490 --> 05:25.000
+It's actually an easy fix.
+
+05:26.830 --> 05:29.730
+It just means that you need to run Python managed that PI migrate.
+
+05:29.800 --> 05:35.030
+So come over here back to the terminal and say Python managed up-I migrate.
+
+05:35.170 --> 05:37.640
+Hit enter and let it migrate everything.
+
+05:37.690 --> 05:38.530
+Now try it again.
+
+05:38.540 --> 05:44.740
+Python managed up-I create super user and you should see it ask for your username.
+
+05:44.770 --> 05:46.220
+I'll say Jose.
+
+05:46.240 --> 05:48.180
+Email address doesn't really matter we'll see.
+
+05:48.270 --> 05:51.270
+Blank gmail dot com password.
+
+05:51.280 --> 05:56.480
+I always use test password and type it in again.
+
+05:56.520 --> 06:02.300
+Your password is hidden for security so there is no super user created successfully.
+
+06:02.310 --> 06:07.880
+Let's make sure it all works out so we'll see say now Python managed up-I run server.
+
+06:08.280 --> 06:14.170
+Enter there and then let's copy and paste the URL and bring it into our browser which I need to bring
+
+06:14.170 --> 06:14.840
+over now.
+
+06:17.140 --> 06:19.340
+So bringing in my browser it says it worked.
+
+06:19.350 --> 06:21.270
+Congratulations your first single power to pay.
+
+06:21.280 --> 06:22.510
+That's exactly what we want.
+
+06:22.690 --> 06:25.630
+As I mentioned before really not going to be doing anything on this front end.
+
+06:25.810 --> 06:32.140
+So let's go ahead and say slash admin and come over to her admin page my username and password are already
+
+06:32.140 --> 06:32.910
+filled out for me.
+
+06:32.920 --> 06:34.050
+Jose and his password.
+
+06:34.210 --> 06:35.910
+You may have to fill it in the Pentagon.
+
+06:35.950 --> 06:37.430
+How many times you've done this before.
+
+06:37.450 --> 06:38.380
+Go ahead and log in.
+
+06:38.440 --> 06:39.310
+And here we go.
+
+06:39.310 --> 06:40.840
+Let me make this full screen.
+
+06:40.990 --> 06:42.670
+I could see my groups and my users.
+
+06:42.670 --> 06:47.310
+That's often dictation authorization which we've actually discussed before you click here and users
+
+06:47.360 --> 06:49.700
+can see Jose blank as email.
+
+06:49.720 --> 06:54.880
+I have staff status etc. and you'll notice that I have a filter option here and we're going to discuss
+
+06:54.880 --> 06:59.270
+later on how to create these sort of filters on our own models.
+
+06:59.270 --> 07:03.160
+Bullets go ahead and go back home and check out our models.
+
+07:03.160 --> 07:04.770
+See here I have customers.
+
+07:05.050 --> 07:09.400
+And then if we come back to videos I can see here I have movies etc..
+
+07:09.640 --> 07:13.720
+So let's go ahead and create some customers willing to add a new customer here.
+
+07:13.750 --> 07:16.300
+Let's just how the customer be me as well.
+
+07:16.540 --> 07:17.740
+And then some sort of phone number.
+
+07:17.740 --> 07:19.040
+It doesn't really matter.
+
+07:19.180 --> 07:26.080
+So we're going to save and add another and then we'll make a couple more kind of generic names random
+
+07:26.080 --> 07:30.460
+phone numbers doesn't really matter save and add another and last one.
+
+07:30.460 --> 07:31.240
+Say.
+
+07:32.720 --> 07:35.480
+Let's say it's also Smith because I'm not very creative here.
+
+07:35.480 --> 07:37.530
+And then we're going to say safe.
+
+07:37.610 --> 07:39.390
+OK so we have three customer objects.
+
+07:39.390 --> 07:40.640
+Those really good.
+
+07:40.670 --> 07:42.420
+We'll come back to videos.
+
+07:42.540 --> 07:43.610
+Well same movies.
+
+07:44.560 --> 07:47.000
+And then we'll add some movies here.
+
+07:47.240 --> 07:53.480
+So let's go ahead and add in some Muzi movies traffic park let's say it's 120 minutes.
+
+07:53.500 --> 07:53.910
+Really.
+
+07:53.920 --> 07:55.130
+You're right.
+
+07:55.180 --> 07:56.900
+1993 I'm guessing.
+
+07:57.070 --> 08:02.740
+Save another one will say Star Wars like this one let's say it's 90 minutes I don't know if that's true
+
+08:02.740 --> 08:03.190
+or not.
+
+08:03.250 --> 08:04.860
+And I'll say 1973.
+
+08:04.870 --> 08:05.970
+I also don't know if that's right.
+
+08:06.770 --> 08:11.000
+And final is still one more movie here let's say Indiana Jones
+
+08:13.850 --> 08:15.700
+let's say it was in 1984.
+
+08:15.890 --> 08:16.700
+That's actually the length.
+
+08:16.700 --> 08:22.390
+So let's also say it's once 134 minutes and 94 again Polish making that up.
+
+08:22.790 --> 08:23.020
+OK.
+
+08:23.060 --> 08:25.600
+So now we have three movie objects and we're ready to go.
+
+08:25.850 --> 08:32.480
+So let's go ahead and go back to our page where we had the models and make the string representation
+
+08:32.510 --> 08:35.810
+not just say movie object to have it actually say the name.
+
+08:35.810 --> 08:43.460
+So we're going to go back over here and under models that PI notice at my class movie in class customer.
+
+08:43.460 --> 08:47.270
+Let's go ahead and give it a string representation that we've done before.
+
+08:47.300 --> 08:54.140
+We'll go ahead and here will say the F underscore underscore as TR underscore underscore it takes and
+
+08:54.140 --> 08:57.260
+self and it's going to return.
+
+08:57.330 --> 09:04.780
+Self-taught title will have that be the model and then also down here for the customer.
+
+09:04.880 --> 09:07.380
+We're going to add a method here.
+
+09:07.460 --> 09:09.980
+This will be self.
+
+09:10.230 --> 09:18.900
+And then let's have it return which is how it returns self first name and then we're going to concatenate
+
+09:18.900 --> 09:29.290
+it with self-taught last name and basically just concatenating the string and then a little space there
+
+09:29.380 --> 09:30.650
+and then the last name.
+
+09:30.670 --> 09:35.530
+So now that we've done all that let's go ahead and make sure that we migrate any changes that may have
+
+09:35.530 --> 09:36.490
+occurred.
+
+09:36.610 --> 09:38.620
+Will say Python managed of Pi migrate.
+
+09:38.770 --> 09:41.690
+They'll say running migrations no migration is to apply.
+
+09:41.920 --> 09:49.120
+So let's make sure that all works well say Python managed up high run server enter our servers running
+
+09:49.120 --> 09:49.600
+again.
+
+09:49.600 --> 09:55.290
+Let me come back to the browser and bring it over and I'm going to come straight to the Adamant page.
+
+09:55.660 --> 10:01.630
+OK so is the admin page and if we took out customers now we see Cindy Smith Mike Smith Jose Portsea
+
+10:02.050 --> 10:03.760
+and have it come back to movies.
+
+10:03.760 --> 10:06.430
+We can see Indiana Jones star wars Rasik park.
+
+10:06.430 --> 10:11.530
+So now that we have these kind of string representations here the string method we can see that it's
+
+10:11.530 --> 10:17.230
+printing out that string as its name cyclic in Indiana Jones gets a tidal length and release year etc..
+
+10:17.490 --> 10:22.360
+OK so that's the very basics of the Django adamant interface and everything that basically already comes
+
+10:22.360 --> 10:23.330
+for free.
+
+10:23.330 --> 10:25.870
+Nodine by free is that no work was involved.
+
+10:25.960 --> 10:31.540
+Which is kind of crazy when you think about it because this is a lot of kind of power features and already
+
+10:31.540 --> 10:34.980
+stuff that you can edit without having to code anything out.
+
+10:35.020 --> 10:37.820
+All you have to do is basically read straight to the oddments site.
+
+10:37.930 --> 10:40.940
+But we're going to learn how to add even more stuff to this.
+
+10:40.960 --> 10:43.340
+So the first thing to learn is how you can edit this template.
+
+10:43.420 --> 10:48.430
+Maybe you want things like a different color or instead of singing saying jingle admen or jingle administration
+
+10:48.430 --> 10:52.490
+you wanted to say like Blockbuster's admin page or something like that.
+
+10:52.540 --> 10:55.860
+Not every user is going to know what jingle Adam means etc..
+
+10:55.970 --> 10:59.690
+So in the next lecture we're going to learn how to actually edit these templates.
+
+10:59.890 --> 11:01.060
+Thanks and I'll see Ilir.

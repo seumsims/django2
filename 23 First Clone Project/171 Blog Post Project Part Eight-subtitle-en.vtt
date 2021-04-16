@@ -1,0 +1,751 @@
+WEBVTT
+
+00:05.560 --> 00:10.600
+Hello everyone and welcome back to part 8 of the blog clone project.
+
+00:10.610 --> 00:14.120
+So now we're going to continue on by filling out the rest of the templates.
+
+00:14.120 --> 00:16.340
+Let's hop over to the editor and get started.
+
+00:16.600 --> 00:16.910
+OK.
+
+00:16.910 --> 00:18.610
+Here I am at the editor.
+
+00:18.650 --> 00:23.780
+I have the base studies team l file open here and what I'm going to be doing is opening up the rest
+
+00:23.780 --> 00:28.730
+of these team files and I can double click on them to open them up in new tabs I'm going to do that
+
+00:29.270 --> 00:35.240
+and then and basically all of these what we're gonna be doing is extending from the blog base raised
+
+00:35.240 --> 00:41.600
+him L. so have already here in the About page so it's collapses directory tree and put the Slyne in
+
+00:41.600 --> 00:47.950
+all of these since we're going to be sending from baseline T.M. for all of these.
+
+00:47.960 --> 00:51.200
+And we see as files so we don't need to put it there.
+
+00:52.190 --> 00:52.830
+OK.
+
+00:53.000 --> 00:57.490
+So let's start off with probably the simplest page is going to be our About page.
+
+00:57.620 --> 01:03.260
+So in this about page is just an empty template and you can really put whatever you want here but we're
+
+01:03.260 --> 01:06.470
+going to add in a call to the content block.
+
+01:07.610 --> 01:15.350
+So say content and then we're going to end that block say and the block and then here you can just put
+
+01:15.350 --> 01:16.130
+whatever you want.
+
+01:16.140 --> 01:17.230
+Just keep things simple.
+
+01:17.220 --> 01:22.130
+We'll have an H1 heading and I will say about this company.
+
+01:22.130 --> 01:23.570
+Or you can say about me the pending.
+
+01:23.580 --> 01:31.290
+That's a personal blog and then I'll say thanks for checking it out and maybe you could put in a Jumbotron
+
+01:31.290 --> 01:40.210
+a thing etc. but we're going to do is copy and paste this real quick and grab this block call and LME
+
+01:40.220 --> 01:41.730
+delete the end block.
+
+01:41.750 --> 01:47.640
+And I'm also going to pace that into all the rest the aged him else to set up the actual blocks.
+
+01:47.810 --> 01:50.010
+So we'll do that as well.
+
+01:50.090 --> 01:56.520
+Wups and that's because we're going to be using that in essentially every single page him Al file since
+
+01:56.520 --> 01:59.860
+that includes the nav bar itself.
+
+01:59.970 --> 02:01.770
+So we'll do that and all of these.
+
+02:02.190 --> 02:02.660
+OK.
+
+02:02.940 --> 02:09.910
+So let me go across the board and save these and the next one I'm going to work on is post list.
+
+02:09.940 --> 02:15.100
+Remember post lists is just the list the view that lists all the posts so it should be pretty simple
+
+02:15.100 --> 02:15.990
+to work with.
+
+02:16.030 --> 02:22.510
+We're going to do is after calling block content I'm going to create a DIV tag here called center stage
+
+02:23.110 --> 02:25.790
+and that's going to allow me to kind of center these a little more.
+
+02:25.990 --> 02:34.840
+And so over here and blog about C Ss I will create something as a new class called center stage where
+
+02:34.870 --> 02:44.010
+anything inside this center stage I'll call margin left to be auto to center it as well as margin right.
+
+02:44.050 --> 02:48.070
+And you could also just call it margin auto but this kind of just to make it a little more clear what
+
+02:48.070 --> 02:49.400
+center stage is about.
+
+02:49.560 --> 02:54.890
+And hopefully the name is also pretty clear but will have that this isn't necessary you don't need to
+
+02:54.890 --> 02:55.340
+do that.
+
+02:55.370 --> 02:57.430
+We'll just kind of be offset if you don't.
+
+02:57.740 --> 03:01.530
+And we're going to do is have a for loop with Django template.
+
+03:01.700 --> 03:07.280
+So say for post in or remember the default is post list whenever you were a fatalist view.
+
+03:07.280 --> 03:13.140
+It's that name of that model underscore list and then when you have the four you've got to have the.
+
+03:13.220 --> 03:21.580
+And the four and then we're going to do is let's create another div and we'll have this be the class
+
+03:21.580 --> 03:28.420
+post in case we ever want to do anything with it and we'll say H-1 have a link here.
+
+03:28.720 --> 03:36.730
+And this is going to be a moral effect let's make sure that template tag Yoro and Ill take us to the
+
+03:36.730 --> 03:38.160
+post detail.
+
+03:39.270 --> 03:47.970
+Page with the piquet primary key equal to post-up piquet and essentially it is going to do is add in
+
+03:48.810 --> 03:51.570
+the temple injection here of post-Idol.
+
+03:51.810 --> 03:57.180
+And this says OK if you are able to click on that post-Idol since it's an anchor tag it's going to take
+
+03:57.180 --> 04:03.810
+you to that post detail where the primary key of that post detail is equal to postop Piquet or post
+
+04:03.870 --> 04:08.240
+is being returned for Postum post list.
+
+04:08.430 --> 04:15.270
+And then after that let's create another div and we'll give this the date class we may or may not use
+
+04:15.270 --> 04:22.260
+it just kind of keeping us organized here and then we'll have a paragraph that says published on and
+
+04:22.260 --> 04:23.700
+then we're going to have the date.
+
+04:23.940 --> 04:31.330
+So I'll say post the published and then I'm going to use some template filters and remember that's basically
+
+04:31.570 --> 04:37.990
+string functions or date time functions that are from Python and you can use them with template injections
+
+04:38.380 --> 04:45.970
+and I'd like to use date just for some formatting here so I'll say a capital D space am y.
+
+04:45.970 --> 04:50.830
+And note the spacing here you sometimes get errors if everything here isn't touching together.
+
+04:50.830 --> 04:52.350
+So there's no spaces here.
+
+04:53.560 --> 05:03.010
+And then finally what I can do is after that div I'll create one more anchor tag that links to the comments
+
+05:04.150 --> 05:15.830
+so I'll say here you are I'll post underscore detail Piquet is equal to postop Piquet's to the exact
+
+05:15.830 --> 05:21.260
+same thing wrote there and then I'm going to say have some comments.
+
+05:23.010 --> 05:25.230
+Leps comments.
+
+05:25.270 --> 05:37.000
+And then what I'm going to do is inject the comic counts so I'll say post approve underscore comments
+
+05:37.090 --> 05:41.900
+and then what I can call for that is the kind of count attribute or count method.
+
+05:41.920 --> 05:44.640
+So if you go back to the blog post wups page.
+
+05:44.770 --> 05:49.840
+Basically what this is saying is if I were to click where it says comments won or comments too it would
+
+05:49.840 --> 05:51.630
+take me back to that post detail page.
+
+05:51.700 --> 05:55.690
+Just like clicking the title would which kind of make sense because if I click on comments I probably
+
+05:55.690 --> 06:00.460
+want to see the detail page that actually has the list of those comments and that's it for the post
+
+06:00.460 --> 06:01.350
+list page.
+
+06:01.450 --> 06:03.800
+And this is essentially our home page for the Web site.
+
+06:03.880 --> 06:05.450
+So we're all done with this now.
+
+06:05.590 --> 06:12.330
+So let's go ahead and pretend someone clicked on it which would bring him over to the post detail page.
+
+06:12.570 --> 06:14.980
+And this is going to be from a detail view.
+
+06:15.300 --> 06:16.940
+So let's get started on this one.
+
+06:16.980 --> 06:21.330
+So we're going to be probably one of the more complicated views or at least the view that has a lot
+
+06:21.330 --> 06:22.730
+of content with it.
+
+06:23.220 --> 06:33.410
+So we're going to create inside of this block in H-1 tag and we'll give it the class we'll give it the
+
+06:33.410 --> 06:41.460
+class equal to will say post-Idol and then we'll say lower here.
+
+06:41.460 --> 06:45.640
+So remember Lowder is that coloring class Sophie come back then here.
+
+06:45.760 --> 06:51.850
+Lowder That way the actual colors change and we'll show later on a kind of a quick fix to get everything
+
+06:51.850 --> 06:56.210
+to change color especially the highlighting which is essentially just coming back to the baseline each
+
+06:56.210 --> 06:57.040
+symbol.
+
+06:57.060 --> 07:04.560
+And over here you go to body you can just call class and then say loader here which is going to add
+
+07:04.560 --> 07:05.730
+a lot more coloring effects.
+
+07:05.730 --> 07:10.930
+Now be careful of this because you don't want to set everything to have like the background color.
+
+07:10.950 --> 07:14.580
+So make sure this is set to color OK.
+
+07:14.850 --> 07:18.730
+Coming back to the post the page after doing those changes.
+
+07:18.900 --> 07:27.950
+What I'm going to do is have the heading 1 be the title of the post and then what I'm going to do is
+
+07:28.070 --> 07:36.370
+have an if statement that says if the Post published date
+
+07:39.100 --> 07:46.410
+I will say else and then I'll have an end.
+
+07:46.740 --> 07:51.820
+Just to kind of set up my logic.
+
+07:52.540 --> 07:57.420
+OK so what are we going to do if the Post published they meaning there's some sort of publication.
+
+07:57.800 --> 08:00.350
+Then I'll create some sort of class here.
+
+08:00.410 --> 08:07.520
+Pasand day the post day and then I'm going to inject the postop published date
+
+08:11.740 --> 08:15.790
+else which means it's not published or going to do is say.
+
+08:15.780 --> 08:16.850
+Else.
+
+08:17.110 --> 08:19.370
+And have a button here.
+
+08:19.480 --> 08:21.150
+So this button is going to be.
+
+08:21.400 --> 08:22.620
+We'll give it a class.
+
+08:22.810 --> 08:23.890
+So it looks nicer.
+
+08:25.320 --> 08:28.480
+We'll say between beats and the fall.
+
+08:28.700 --> 08:34.170
+Just one of those bootstrap classes and what it's going to link to is a button that asks you oh you
+
+08:34.170 --> 08:40.230
+want to publish this or not because it does have a published date meaning that it passes if test it
+
+08:40.230 --> 08:41.310
+hasn't been published yet.
+
+08:41.400 --> 08:47.860
+So we're going to do is if you click on that publish button I'll take it to you or El to the Post
+
+08:50.450 --> 08:55.830
+publish where your primary key is the post-primary key.
+
+08:56.090 --> 08:56.780
+There we have it.
+
+08:56.870 --> 08:57.870
+And then we're going to end this.
+
+08:57.980 --> 08:59.260
+So let's save that.
+
+08:59.480 --> 09:04.670
+And then after that once that little post-Idol is done or you have the publish button all we're gonna
+
+09:04.670 --> 09:14.240
+do is add in a paragraph here with the class equal to post content and we'll be adding these classes
+
+09:14.240 --> 09:16.220
+to the C S S file later on.
+
+09:16.220 --> 09:18.350
+Some of them we won't use some of them we will.
+
+09:18.350 --> 09:22.190
+I always think it's a good idea to add in more classes than you may need.
+
+09:22.250 --> 09:27.500
+And then once you fill that CSSA and your website looks good you can then go Ramoo classes but it's
+
+09:27.500 --> 09:31.460
+really helpful for organizations have these classes here whether or not you're going to use them right
+
+09:31.460 --> 09:31.980
+away.
+
+09:33.770 --> 09:40.240
+And what's going to be here is going to have the post title and then we're going to have a safe on it.
+
+09:40.490 --> 09:46.340
+And basically what safe does is since we're going to be using that medium javascript editor if we select
+
+09:46.340 --> 09:49.240
+something as bold we won't want it to show up.
+
+09:49.280 --> 09:55.960
+For instance in the Web site looking like this like oh bold text with the tags.
+
+09:56.010 --> 10:01.710
+So if I don't have safe here and I've affected it using the medium editor it's going to look like this
+
+10:01.770 --> 10:07.140
+included the tags if I have save that it's going to translate that is T.M. to actually look like we
+
+10:07.140 --> 10:09.820
+expect it to look.
+
+10:10.050 --> 10:14.020
+And if that doesn't really make sense you can basically just take off safe here and they'll immediately
+
+10:14.020 --> 10:16.490
+make sense as far as what I'm trying to convey.
+
+10:16.720 --> 10:25.340
+And then we're going to do is call one more says line breaks B.R. which essentially there's a line break.
+
+10:25.360 --> 10:27.280
+The team Elbel so-called break there.
+
+10:29.440 --> 10:32.610
+And then we're going to have another statement that's going to check that the user's authenticator not
+
+10:32.680 --> 10:33.080
+souls.
+
+10:33.130 --> 10:39.570
+If user is authenticated we're going to do some stuff.
+
+10:39.580 --> 10:46.210
+But as always if you've got to END-IF so to create some new lines here.
+
+10:46.550 --> 10:47.910
+So these are authenticated.
+
+10:47.930 --> 10:53.270
+We should probably have something or let's say a two buttons one to edit the post in one to remove the
+
+10:53.270 --> 10:53.950
+post.
+
+10:54.320 --> 10:58.130
+So the first line is going to be an anchor tag and we'll give it a class
+
+11:01.210 --> 11:04.480
+and the class is going to be a primary button.
+
+11:04.750 --> 11:08.170
+So say between space between primary
+
+11:12.390 --> 11:19.130
+and then we'll your L posts underscore it will pass and the primary key is equal to the post-primary
+
+11:19.140 --> 11:19.730
+keygen.
+
+11:19.890 --> 11:26.410
+Just as we them before and then we're also going to inserts inside of this icon.
+
+11:26.490 --> 11:27.840
+So let's do that.
+
+11:28.050 --> 11:34.630
+We'll use a span tag for that will say span and we just have to give it a class.
+
+11:35.040 --> 11:42.430
+So the class we're going to say is this glyph icon or Cliffie Econ. the penny how you pronounce it.
+
+11:42.560 --> 11:44.410
+And then another glyph icon
+
+11:47.250 --> 11:49.970
+Pensil.
+
+11:50.020 --> 11:51.910
+So that's going to look like a little pencil.
+
+11:51.910 --> 11:56.770
+So in case you want to actually edit the post you click on the pencil icon then I'm going to copy this
+
+11:56.810 --> 11:59.120
+and let's do another one for removing the post.
+
+11:59.400 --> 12:07.610
+So instead of it it will take you to post remove and then instead of a pencil glyph icon sort of we're
+
+12:07.610 --> 12:11.690
+going to just say remove which is a little X..
+
+12:11.690 --> 12:12.090
+OK.
+
+12:12.320 --> 12:14.080
+So that's all we need to do there.
+
+12:14.120 --> 12:18.150
+Let's continue on song.
+
+12:18.240 --> 12:19.960
+Kind of a separator here.
+
+12:21.520 --> 12:26.060
+I'll say actually you can do a horizontal break there.
+
+12:27.570 --> 12:34.260
+Or horizontal row and then we're going to say is have a class here and let's have a button that allows
+
+12:34.260 --> 12:36.000
+us to add comments.
+
+12:36.000 --> 12:48.010
+So I'll say this is an H ref that takes it to your L that is add comment to post with the primary key
+
+12:49.430 --> 12:53.450
+being equal to the post-primary key.
+
+12:53.510 --> 12:55.100
+Let's actually get the bootstrap class.
+
+12:55.100 --> 12:56.330
+It looks nice.
+
+12:57.550 --> 13:02.770
+We can say something like between beats and primary wups
+
+13:05.420 --> 13:08.150
+PTEN comments.
+
+13:08.180 --> 13:14.280
+So if we ever want to do stuff we can add it to that and then coming over to the right we have add comments.
+
+13:14.290 --> 13:20.320
+Post and let's have some actual something in this link that says like add comments.
+
+13:20.590 --> 13:26.110
+So we'll save that and then I'm going to put everything else here inside of a container class.
+
+13:26.200 --> 13:32.080
+Everything that's left and basically inside this container is going to be the list of the comments.
+
+13:32.080 --> 13:38.680
+So I'll say for comments in postop comments.
+
+13:38.720 --> 13:43.830
+All and because I have this I want to and for.
+
+13:43.930 --> 13:53.460
+So it's now well say and for and that after that we're going to do is absolutely close that in we're
+
+13:53.460 --> 13:56.010
+going to end up doing is saying this.
+
+13:56.010 --> 14:00.810
+So for every comma and post-doc comments I'm going to add in the break that we've got a little bit of
+
+14:00.810 --> 14:06.020
+space and then another check of the user's authenticated or at the comma is an approved comment.
+
+14:06.090 --> 14:08.250
+Otherwise I don't really want to display it.
+
+14:08.760 --> 14:13.040
+So I'm going to say if the user is authenticated
+
+14:15.450 --> 14:24.300
+or the comments isn't approved comments going back with that model and since I have an if statement
+
+14:24.360 --> 14:27.080
+it's a good idea to just take care of the END-IF right now.
+
+14:28.200 --> 14:33.540
+I'm going to pass in the comments created day so let's inject that in a comment.
+
+14:34.570 --> 14:48.210
+Created underscore dates and they want to do is say if nots comments prove prove underscore comments
+
+14:48.420 --> 14:49.980
+all have two buttons here.
+
+14:49.980 --> 14:53.270
+One to remove the comment and then one to approve the comment.
+
+14:53.280 --> 14:55.440
+This is going to be really similar to what I have here.
+
+14:55.440 --> 14:56.760
+So it's going to copy and paste these
+
+15:00.350 --> 15:01.670
+and let's line these up.
+
+15:01.670 --> 15:07.400
+So I need to add this.
+
+15:07.520 --> 15:11.790
+So here at the end this tab these and so they look a little more clear.
+
+15:12.990 --> 15:14.790
+And I like to paste isn't.
+
+15:14.790 --> 15:19.840
+So let me give this one more here and it's copy and paste this one more time.
+
+15:22.520 --> 15:29.840
+And then here will have remove but instead of a post remove it's going to be a comments remove and a
+
+15:29.840 --> 15:35.890
+sort of a poster to move here or actually you can just say this is comments or move instead.
+
+15:36.330 --> 15:42.200
+So at the top on the comment remove So comment remove Piquet is the comments
+
+15:45.990 --> 15:51.870
+primary key and then this Spanish class will just have it be removed so that stays the same and we can
+
+15:51.870 --> 15:58.180
+have this being said of a primary button the default button and then the second one is going to be in
+
+15:58.180 --> 15:58.750
+approval.
+
+15:58.780 --> 16:07.200
+So instead of saying Kamens remove all change it common to prove so common to prove and the piquet does
+
+16:07.200 --> 16:07.850
+need to be.
+
+16:07.850 --> 16:08.480
+Comments.
+
+16:08.510 --> 16:15.030
+Piquet's well and then the other one is going to have to be Cliffie Khan and you can really choose any
+
+16:15.210 --> 16:19.140
+clip icons you want but we'll just say OK.
+
+16:19.260 --> 16:19.770
+All right.
+
+16:20.030 --> 16:25.110
+So a little if statement to kind of check everything's OK as far as what buttons we show.
+
+16:25.110 --> 16:31.600
+And then below that I'm going to actually add in the information with some paragraph tags where I will
+
+16:31.600 --> 16:35.740
+say put in the actual text of the comments.
+
+16:36.990 --> 16:46.690
+Pass it through Safe case to use any special T.M. and then say line breaks so that we actually take
+
+16:46.690 --> 16:53.710
+care of new line breaks and below that we'll add in one more paragraph tag or this paragraph tag is
+
+16:53.710 --> 16:55.910
+going to say who is posted by.
+
+16:55.910 --> 16:57.170
+So I posted my.
+
+16:57.320 --> 17:06.830
+And then going to inject the comments author and we can passen as bold if we want but that's it.
+
+17:07.150 --> 17:13.030
+And then what we can do is in between this and if this and for have a template tag to check if something's
+
+17:13.030 --> 17:18.020
+empty meaning if there was nothing in the post comments at all.
+
+17:18.250 --> 17:19.380
+We'll just say ok.
+
+17:19.470 --> 17:20.340
+Empty.
+
+17:20.510 --> 17:28.010
+And then it's a nice easy tag call for if this is empty what you can post in this case will say no comments.
+
+17:28.020 --> 17:32.400
+OK so this was definitely one of the most complicated views we had to do throughout the entire project
+
+17:32.400 --> 17:34.050
+so let's quickly go over it.
+
+17:34.050 --> 17:38.160
+And if you want to actually reference any of this I'd highly recommend the kind of just copy and paste
+
+17:38.430 --> 17:42.180
+from the notes provided to make sure everything matches because there's a lot of stuff we could have
+
+17:42.180 --> 17:43.590
+possibly gone wrong here.
+
+17:43.690 --> 17:49.350
+But essentially all we're doing is we're saying OK put in the post title if the Post has a publication
+
+17:49.350 --> 17:50.090
+date.
+
+17:50.160 --> 17:54.290
+Start the post date and then actually place it the publication date.
+
+17:54.690 --> 17:58.570
+Else we're going to have a button here that says hey do you want to publish this.
+
+17:58.710 --> 18:04.640
+And they'll take it to the Post publish page after that you have the actual post content which you start
+
+18:04.640 --> 18:06.230
+off with just the post title.
+
+18:06.230 --> 18:10.530
+Make sure it's safe and then have the line breaks if these are authenticated.
+
+18:10.600 --> 18:14.360
+There are going to be able to edit the post or remove the post.
+
+18:14.360 --> 18:16.580
+So that's what this block of code is doing.
+
+18:16.580 --> 18:19.610
+Below that we're going to be able to add comments to the post.
+
+18:19.790 --> 18:24.170
+And in this case we have this container for all the comments that are released to that post because
+
+18:24.170 --> 18:24.820
+we are postop.
+
+18:24.820 --> 18:25.560
+OK.
+
+18:25.730 --> 18:30.410
+If the user is authenticated or the comments and approved comments we're going to show the creation
+
+18:30.410 --> 18:30.980
+date.
+
+18:31.180 --> 18:35.870
+If the comma is not an approved comment so I'm logged then I should still be able to see these comments
+
+18:35.870 --> 18:37.580
+but they're not approved.
+
+18:37.580 --> 18:41.600
+I can either remove the comments or give it the OK that it's been approved.
+
+18:42.080 --> 18:47.930
+And then once that's done we're going to show the common text safe with line breaks and then show who
+
+18:47.930 --> 18:49.010
+actually posted that comment.
+
+18:49.010 --> 18:51.590
+So that's actually all this post the tail is doing.
+
+18:51.590 --> 18:52.610
+So lots of code.
+
+18:52.610 --> 18:54.550
+But the idea is pretty straightforward.
+
+18:54.830 --> 18:55.590
+OK.
+
+18:56.150 --> 18:58.260
+We'll continue on this in the next lecture.
+
+18:58.310 --> 18:59.900
+We go the other templates.
+
+18:59.930 --> 19:01.270
+Thanks and I'll see you there.

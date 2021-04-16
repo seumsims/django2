@@ -1,0 +1,373 @@
+WEBVTT
+
+00:04.870 --> 00:11.020
+Hello everyone and welcome back here I am at the Adam text editor in my project folder under the application
+
+00:11.020 --> 00:12.100
+folder basic app.
+
+00:12.130 --> 00:17.200
+I've opened up the models that PI file and this we're going to be actually working with the user model
+
+00:17.200 --> 00:19.390
+that we talked about in the previous lecture.
+
+00:19.390 --> 00:20.440
+So let's get started.
+
+00:20.440 --> 00:24.260
+The first thing I want to do is actually import that basic user model.
+
+00:24.300 --> 00:32.700
+NET comes from Django contrib 88 for authorization models import.
+
+00:32.800 --> 00:34.930
+And then we're going to import the user model.
+
+00:34.990 --> 00:40.030
+Now I'm actually going to collapse that directory trees just so we get a little more room here and start
+
+00:40.030 --> 00:41.200
+creating that model.
+
+00:41.610 --> 00:50.050
+So we'll see class and we're going to create a user profile info class and that's going to inherit from
+
+00:50.050 --> 00:50.990
+models.
+
+00:51.960 --> 01:00.080
+Model and what we're going to be doing the very first thing is that user this attribute user for the
+
+01:00.080 --> 01:03.370
+user profile info is models.
+
+01:03.490 --> 01:05.670
+Da a one to one field.
+
+01:05.690 --> 01:11.720
+So that's one to one field with user itself.
+
+01:11.720 --> 01:16.910
+And the reason for that is because this is basically a model class to add an additional information
+
+01:17.300 --> 01:19.140
+that the default user doesn't have.
+
+01:19.160 --> 01:24.930
+Raemer the default user already has things like their username email password first name and last name.
+
+01:24.950 --> 01:29.840
+But if you want to add more attributes to your actual user you can essentially almost like extending
+
+01:29.840 --> 01:32.070
+the class of this one to one relationship.
+
+01:32.180 --> 01:36.110
+What you don't want to do is just directly inherit from the User class.
+
+01:36.140 --> 01:40.460
+That may seem really tempting but doing that may screw up your database in thinking that it has multiple
+
+01:40.460 --> 01:42.320
+instances of the same user.
+
+01:42.320 --> 01:45.580
+So instead we use a one to one feel relationship.
+
+01:45.700 --> 01:49.750
+Then below this are the additional classes.
+
+01:49.750 --> 01:58.130
+So for instance if we want a portfolio site so maybe this is a Web site where people post their portfolio
+
+01:58.130 --> 02:03.320
+projects of things they've been working on we can say portfolio underscore site as one of the attributes
+
+02:03.320 --> 02:08.360
+for this model and they will say models dot and we'll call a Ural field here.
+
+02:09.910 --> 02:13.390
+And we'll say whoops we'll say blank is equal to true.
+
+02:13.610 --> 02:16.100
+And that just means that the user doesn't have to fill it out.
+
+02:16.100 --> 02:22.830
+There's not going to be an error if they don't provide a portfolio site and then we want a nother one.
+
+02:22.880 --> 02:30.380
+Another attribute that is called profile underscore pick that's going to be called two models dot image
+
+02:30.380 --> 02:34.820
+field and then we need to specify where we actually want to upload this to.
+
+02:34.920 --> 02:42.870
+And we're going to upload this to and we'll set equal to profile underscore picks as a strain and then
+
+02:42.870 --> 02:46.420
+we'll also set this blank to true.
+
+02:46.650 --> 02:50.730
+That way the user doesn't need to actually provide their profile picture first that they don't want
+
+02:50.730 --> 02:51.410
+to.
+
+02:51.660 --> 02:56.000
+Now because we specified We want to upload to profile pics.
+
+02:56.160 --> 02:57.280
+That's going to be to need.
+
+02:57.360 --> 03:01.370
+That's going to need to be a subdirectory in the media folder we created last time.
+
+03:01.530 --> 03:05.410
+So BREENE up that directory tree I have the media folder here.
+
+03:05.490 --> 03:11.040
+We're going to expand this and then I'll say new folder and under that I'm going to call it profile
+
+03:11.400 --> 03:17.760
+underscore picks enter and then when people upload their images or profile images they're going to be
+
+03:17.760 --> 03:20.760
+saved here under media profile pics.
+
+03:20.780 --> 03:21.510
+OK.
+
+03:21.510 --> 03:23.670
+So continuing on with our models.
+
+03:23.670 --> 03:29.290
+What I want to do is add in one more method not an attribute just for printing this out.
+
+03:29.310 --> 03:33.290
+So if I ever need to print out a model of a user profile and I can get something back.
+
+03:33.300 --> 03:42.810
+So I'll take an self because it's a method and here will just say return self user dot username where
+
+03:42.840 --> 03:46.660
+username is that default attribute of this user.
+
+03:46.680 --> 03:52.080
+Because remember we just said user is equal to Models 1 to 1 field of user.
+
+03:52.080 --> 03:52.640
+All right.
+
+03:52.650 --> 03:56.840
+And that's actually all we need to do for our models not pi.
+
+03:57.130 --> 04:01.410
+But as I mentioned if you're going to be working with images we want to make sure we have the pillow
+
+04:01.410 --> 04:02.710
+library installed.
+
+04:02.730 --> 04:11.180
+So here in my virtual environment I'm going to say Pipp install pillow enter and it should collect pillows
+
+04:11.240 --> 04:12.520
+and install it.
+
+04:12.530 --> 04:16.500
+This may be a little bit of a longer installation than what you're used to.
+
+04:16.520 --> 04:17.940
+So keep that in mind.
+
+04:18.050 --> 04:21.690
+I'm going to hop forward in time until it finishes installing.
+
+04:21.730 --> 04:22.060
+All right.
+
+04:22.060 --> 04:23.330
+There it is.
+
+04:23.320 --> 04:25.510
+And mine took less than 30 seconds.
+
+04:25.510 --> 04:26.740
+Hopefully yours is the same.
+
+04:26.770 --> 04:30.420
+And then check out the notes as well especially on the models that py file.
+
+04:30.430 --> 04:35.970
+If you're getting the error that says something like a j peg disabled there's like no.
+
+04:36.160 --> 04:40.130
+And the previous lecture about what you need to do is set some global options there.
+
+04:40.300 --> 04:44.880
+And if you want the actual line of code check out the jingle level five notes are the models that py
+
+04:44.880 --> 04:45.580
+file.
+
+04:45.600 --> 04:47.670
+There is a line of code above the image field.
+
+04:47.680 --> 04:49.860
+You can just copy and paste that.
+
+04:50.020 --> 04:55.060
+Anyways that's models up high now is create the form for our models not py file.
+
+04:55.060 --> 05:02.620
+So under application we'll say a new file and call it forms that I enter and are ready to actually work
+
+05:02.620 --> 05:04.030
+with the forms.
+
+05:04.030 --> 05:11.980
+So the first thing you need to do is say from Jinggoy to import forms then we'll say from Jingo that
+
+05:12.610 --> 05:23.470
+contrib off models in poor loops import user and then we'll import the model we made which was from
+
+05:24.460 --> 05:31.390
+basic app models in poor user profile info.
+
+05:33.020 --> 05:37.190
+And save that and now we're going to create two classes here.
+
+05:37.320 --> 05:38.990
+One will be the user form.
+
+05:39.210 --> 05:45.450
+And this is kind of the base form and this is going to be inheriting from forms the model form.
+
+05:45.810 --> 05:52.350
+Review the Django level that talked about forms if this is a little fuzzy to you but we'll have here
+
+05:52.710 --> 05:53.820
+a password.
+
+05:54.730 --> 06:02.080
+Attribute that we want to kind of edit a bit and we'll say from forms or is equal to forms said equal
+
+06:02.080 --> 06:03.850
+to a character field.
+
+06:04.180 --> 06:14.120
+And this is going to be a widget with two forms the last word and put those parentheses and then finally
+
+06:14.120 --> 06:22.760
+we have that metaclass that we talked about and we'll set the model equal to the user model and then
+
+06:22.760 --> 06:25.600
+the fields we want from the base user model.
+
+06:25.850 --> 06:32.110
+I want the user name and I want the email field and I want the password.
+
+06:32.260 --> 06:36.460
+We will be asking people for their last name or their first name but you could about that add that in
+
+06:36.460 --> 06:44.280
+if you want to next for class will say user profile info.
+
+06:44.630 --> 06:51.890
+And again we inherit from forms the model for and this one there's nothing I want to edit as far as
+
+06:51.890 --> 06:53.420
+the attributes are concerned.
+
+06:53.480 --> 07:01.550
+So just say class Meta I will say the model is equal to user profile info.
+
+07:03.580 --> 07:11.450
+And I will say the fields is equal to the two fields I want what Charlap portfolio site field and the
+
+07:11.450 --> 07:15.550
+other field I made was that profile pic field OK.
+
+07:15.830 --> 07:18.270
+Save that in your forms are ready to go.
+
+07:19.670 --> 07:24.680
+One last thing we want to do though is actually register the model we created to the admin.
+
+07:24.680 --> 07:27.900
+That way if we log in as an admin we can see the actual model.
+
+07:27.920 --> 07:38.390
+So I will come to admin that pie under basic app and I'm going to say here from basic app models we're
+
+07:38.430 --> 07:49.020
+going to import the user profile info that I created and then I'm going to say adamant that site register
+
+07:50.270 --> 08:00.400
+should be lowercase our going to register that user profile info save that and we've created the models
+
+08:00.600 --> 08:05.250
+that we're going to be using essentially just that user profile which is a one to one match to the built
+
+08:05.250 --> 08:10.510
+in user with Django the forms that's going to collect the information the actual registration page and
+
+08:10.510 --> 08:16.060
+then the admin that PI file and that is essentially part 1 of what we need to do to set up everything
+
+08:16.060 --> 08:20.980
+as far as the models and the forms part 2 of what we need to do is actually connect all of this to the
+
+08:20.980 --> 08:25.200
+templates so the home page the registration page log in page et cetera.
+
+08:25.480 --> 08:30.340
+So we're going to end this here and we'll see at the next lecture where we begin to discuss how to expand
+
+08:30.340 --> 08:30.860
+off of this.
+
+08:30.920 --> 08:36.520
+But ending this you should have models up high Adam in that pie informs that pie ready to go inside
+
+08:36.520 --> 08:37.680
+of re-application.
+
+08:37.740 --> 08:42.010
+And remember whenever you add it the admin that pie file or create a new model where you're going to
+
+08:42.010 --> 08:43.730
+want to do is down here at the bottom.
+
+08:43.960 --> 08:53.260
+Say Python managed up-I migrate enter and then once that's done you see you may see something like says
+
+08:53.260 --> 08:54.180
+make migrations.
+
+08:54.180 --> 09:01.460
+So you also need to do that using the say Python whip's Python manage the pie make migrations and then
+
+09:01.470 --> 09:02.810
+the name of re-application.
+
+09:02.950 --> 09:06.450
+So basic app enter that's going to create some.
+
+09:06.490 --> 09:13.430
+And then we'll say Python managed up-I migrate one more time and we're ready to go.
+
+09:13.630 --> 09:14.150
+OK.
+
+09:14.230 --> 09:15.280
+So thanks everyone.
+
+09:15.280 --> 09:19.570
+I'll see at the next lecture or begin discussing how to connect all this to the actual templates and
+
+09:19.570 --> 09:20.800
+those extremophiles.
+
+09:20.800 --> 09:21.630
+I'll see you there.

@@ -1,0 +1,247 @@
+WEBVTT
+
+00:05.860 --> 00:10.400
+Hello everyone and welcome to part five of the social club project.
+
+00:10.460 --> 00:16.480
+Now we're going to begin by setting up the views your and template files for the groups and post applications.
+
+00:16.550 --> 00:20.810
+And given that they're interconnected we're going to have to work with them concurrently so we can't
+
+00:20.810 --> 00:22.970
+just do posts first and then groups first.
+
+00:22.970 --> 00:26.540
+Otherwise it won't make too much sense so I have to do both at the same time.
+
+00:26.570 --> 00:30.150
+We'll try to keep a focus primarily on one application at a time.
+
+00:30.170 --> 00:33.340
+But keep in mind we're going to be working on both at the same time.
+
+00:33.470 --> 00:37.070
+We're going to start off by just setting up the files we need and then the next lecture will actually
+
+00:37.070 --> 00:38.110
+start programming.
+
+00:38.330 --> 00:44.180
+OK let's suppose that a text editor and create the directories and files all right to begin actually
+
+00:44.180 --> 00:45.290
+creating the directories.
+
+00:45.310 --> 00:52.160
+I first need actually make the applications so we will go to jingo admin and say Star app and it will
+
+00:52.160 --> 00:54.170
+create the post application.
+
+00:54.560 --> 01:01.160
+So say start out for posts and then I will say jingo dash admen star app and I will start the groups
+
+01:01.190 --> 01:04.610
+app so we'll will say group say you could call groups whatever you want.
+
+01:04.610 --> 01:09.870
+You could call it something like subeditors or communities etc. I'll just choose the groups they insist
+
+01:09.870 --> 01:11.720
+that's pretty simple.
+
+01:11.810 --> 01:14.450
+Now we're all going to do it inside each of these.
+
+01:14.460 --> 01:19.370
+Let me kind of collapse accounts and collapse simple social and expand and expand groups.
+
+01:19.370 --> 01:21.150
+We are going to create the files necessary.
+
+01:21.170 --> 01:26.410
+So let's start off with posts so in posts we're going to make templates.
+
+01:26.570 --> 01:33.350
+So instead of post I will say new folder and then say templates hit enter and then inside of templates
+
+01:33.380 --> 01:39.170
+I'm going to create a new folder called posts and then here are my posts templates and I'm actually
+
+01:39.170 --> 01:41.870
+going to create the empty H-how files for now.
+
+01:42.170 --> 01:43.640
+So let's start off with that.
+
+01:43.730 --> 01:46.630
+We will say whoops that new folder in your file.
+
+01:46.760 --> 01:54.080
+So inside of this I'm going to create a couple of new files one will be my base h team l file for my
+
+01:54.080 --> 02:01.910
+post which I'll call post underscore base that each T.M. and then I also create a post underscore confirm
+
+02:02.210 --> 02:08.540
+underscore deletes but each T.M. they'll be the view that you will confirm and then we're also going
+
+02:08.540 --> 02:09.020
+to do.
+
+02:09.020 --> 02:11.270
+Let me expand this just a little bit.
+
+02:11.270 --> 02:14.890
+We're also going to do a post detail so you can kind of tell.
+
+02:14.900 --> 02:18.340
+I'm already kind of thinking of class based views right now.
+
+02:18.340 --> 02:25.630
+You will see a post underscore detail thought HTL and then a couple more here.
+
+02:26.990 --> 02:32.620
+We'll create a post form so when someone actually wants to type out the post to go to that post form
+
+02:33.010 --> 02:38.480
+and then if we want to actually list the full list view I will create a post underscore list that each
+
+02:38.510 --> 02:44.270
+T.M. And then finally we'll create a new file and this will be called user underscore.
+
+02:44.580 --> 02:46.150
+Post underscore list.
+
+02:46.220 --> 02:48.950
+And if you click on a user we should see all their posts.
+
+02:48.950 --> 02:54.210
+Kind of like seeing someone's Twitter feed so we'll have user underscore posting or score list.
+
+02:54.290 --> 02:58.610
+Now we're also going to create one more file in a format that we haven't really seen before and that's
+
+02:58.620 --> 03:05.060
+the underscore post-START T.M. And the reason for that is I'm actually going to use this underscore
+
+03:05.070 --> 03:09.990
+postdates html file to inject it into other posts that HTL files.
+
+03:10.100 --> 03:16.550
+Sometimes if you're single it's team elth page or your simple template is actually getting too big and
+
+03:16.550 --> 03:17.900
+overly complicated.
+
+03:17.900 --> 03:20.520
+Sometimes you can just break it up and inject it.
+
+03:20.570 --> 03:22.200
+And I'll show you how to do that later on.
+
+03:22.200 --> 03:27.440
+But right now we'll just keep that thought in our heads and will keep underscore postdates T.M. as are
+
+03:27.440 --> 03:32.180
+actual templates we have those template files and the next we're going to do is actually create a few
+
+03:32.180 --> 03:34.340
+more files inside of posts.
+
+03:34.880 --> 03:41.060
+So instead of post right now I have models and views but I'm also going to add a or else top pie any
+
+03:41.060 --> 03:43.430
+forms that pie will say.
+
+03:43.430 --> 03:49.950
+Post your apply and then impose new file forms that apply.
+
+03:50.130 --> 03:51.930
+OK so that's what we're going to do with post for now.
+
+03:51.930 --> 03:56.190
+So we created those templates and you can always just copy and paste the templates or check out the
+
+03:56.190 --> 03:58.940
+notes for the directories of what those templates actually look like.
+
+03:59.070 --> 04:01.250
+In case you had difficulty following along.
+
+04:01.500 --> 04:04.080
+But now we're going to do kind of the same thing for groups.
+
+04:04.080 --> 04:11.260
+So in-groups we're going to do now is create that templates that victory I'll say new folder templates
+
+04:11.350 --> 04:18.570
+and then under templates I'm going to say new folder groups and then under groups I'm going to create
+
+04:18.570 --> 04:19.400
+a couple of each team.
+
+04:19.400 --> 04:24.180
+All files will say new file group underscore based studies T.M..
+
+04:24.480 --> 04:30.480
+So that would be my base h HTML file for the groups and I will extend from that I'll create a new file
+
+04:30.480 --> 04:38.480
+called Group underscore detail each T.M. then I'll create any file group form.
+
+04:38.520 --> 04:42.940
+So when someone wants to create a new group to come to this forum page again class based views here.
+
+04:43.200 --> 04:49.500
+And then finally we should see a list of all the groups so he will say group underscore listed HTL and
+
+04:49.500 --> 04:50.590
+hit enter.
+
+04:50.610 --> 04:57.240
+OK so those are my four template files for groups and then I also want to create a profile here so we
+
+04:57.240 --> 05:03.330
+will say underneath groups new file you URLs that pie.
+
+05:04.020 --> 05:04.480
+OK.
+
+05:04.530 --> 05:06.420
+And then save all those changes.
+
+05:06.420 --> 05:07.550
+Close these now.
+
+05:07.830 --> 05:13.170
+And we should have our basic structure or skeleton for dealing with posts and groups and we're going
+
+05:13.170 --> 05:19.360
+to do in the next lecture is start off by actually focusing on groups first since there's fewer team
+
+05:19.520 --> 05:21.300
+l files or template files to work with.
+
+05:21.300 --> 05:24.630
+And if the structure is going to be a little simpler and that will kind of dictate where we need the
+
+05:24.630 --> 05:25.570
+posts to look like.
+
+05:25.590 --> 05:29.310
+So we're going to try to focus on groups at first but eventually we're gonna have to work on them both
+
+05:29.310 --> 05:30.020
+at the same time.
+
+05:30.030 --> 05:32.870
+But to make it a little easier we're going to try to focus on groups.
+
+05:33.030 --> 05:33.390
+Okay.
+
+05:33.390 --> 05:35.190
+Thanks everyone and I'll see you at the next lecture.

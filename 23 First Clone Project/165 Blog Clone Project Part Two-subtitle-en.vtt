@@ -1,0 +1,655 @@
+WEBVTT
+
+00:05.270 --> 00:10.610
+Hello everyone and welcome to part two of the blog clone project.
+
+00:10.610 --> 00:16.640
+So our basic file set up is now completed from part 1 and the next step is to set up our models so we
+
+00:16.640 --> 00:19.930
+have a model up-I file inside of our blog application.
+
+00:20.240 --> 00:25.580
+And personally I think it's always a good idea for a first step when creating a new project to create
+
+00:25.580 --> 00:30.680
+that model's PI file and actually set up those models because really for using class based views those
+
+00:30.680 --> 00:33.050
+are going to dictate the whole way your site work.
+
+00:33.050 --> 00:38.210
+So I think models are a great starting point but really should feel free to choose whatever feels like
+
+00:38.210 --> 00:40.720
+the most natural starting point to you.
+
+00:41.000 --> 00:47.060
+So maybe you like thinking about it from a Jor-El's to use to model standpoint instead of the reverse
+
+00:47.060 --> 00:48.640
+way which is the way we're going to do it here.
+
+00:48.800 --> 00:53.630
+Once you've done enough projects you'll have a natural flow so don't feel like what I'm writing here
+
+00:53.630 --> 00:55.160
+is written in stone.
+
+00:55.190 --> 00:57.200
+I personally prefer doing the models first.
+
+00:57.200 --> 00:59.450
+But really it's totally up to you first.
+
+00:59.640 --> 01:04.470
+OK with all that being said let's hop over to the editor and get started on that models that py file
+
+01:05.280 --> 01:05.630
+book.
+
+01:05.640 --> 01:11.900
+Here I am at my models PI file underneath the blog application and what I'm going to do is start setting
+
+01:11.900 --> 01:17.750
+up the models that we're eventually going to use interviews and interview URLs since I'll be using class
+
+01:17.750 --> 01:19.960
+based views for the posts.
+
+01:20.030 --> 01:23.510
+It's a good idea to just set up the model that way it's much easier to connect them.
+
+01:23.630 --> 01:27.710
+Well we're actually working with the views so there's a few more things I need to import before we get
+
+01:27.710 --> 01:28.850
+started on this.
+
+01:28.850 --> 01:40.170
+I'm going to say from Jingo that you tildes import weps time zone and that's just all lowercase.
+
+01:40.400 --> 01:43.250
+And then I'm also going to import the reverse function.
+
+01:43.250 --> 01:45.660
+We've seen it before and it'll make more sense.
+
+01:45.670 --> 01:49.760
+We're actually dealing with the class based views and the function based views that we'll see later
+
+01:49.760 --> 01:50.270
+on.
+
+01:50.390 --> 01:55.180
+But right now I'll just import it and we'll see how to work with it in a little bit.
+
+01:55.220 --> 02:00.280
+So it's from Jingo that core you are all resolvers import reverse.
+
+02:00.350 --> 02:05.030
+And if we didn't have it right now eventually more work and of using Urals we would see some more sort
+
+02:05.030 --> 02:09.580
+of error that says hey maybe you should add a reverse method to your class.
+
+02:10.060 --> 02:13.540
+OK so the first thing is to actually create some sort of post model.
+
+02:13.550 --> 02:17.260
+So each blog post is going to connect to a model in our database.
+
+02:17.420 --> 02:22.700
+So create a class and I'm going to call it post and it will inherit from models.
+
+02:22.710 --> 02:23.390
+Whoops.
+
+02:23.720 --> 02:30.480
+The model that will tell and I'm going to have a couple of fields here or attributes I'll have an author
+
+02:30.960 --> 02:34.510
+title text creation day and a publication date.
+
+02:34.590 --> 02:38.820
+So I'm going to be able to create a post but maybe not publish it right away if I want to save stuff
+
+02:38.820 --> 02:41.430
+as drafts I'll be able to do that.
+
+02:41.550 --> 02:52.570
+So also author is equal to models and this will be a foreign key and I'm going to pass in here.
+
+02:52.620 --> 02:55.150
+Th da user.
+
+02:55.360 --> 03:01.490
+And so later on when we deal with multi-user projects we will actually be following this sort of design.
+
+03:01.600 --> 03:09.160
+But since we only expect one person to really come in and have power over this blog as far as updating
+
+03:09.160 --> 03:13.100
+or having drafts and maybe even putting in comments and approving them.
+
+03:13.300 --> 03:19.890
+But we're going to do it just directly link an author to an authorization user.
+
+03:19.990 --> 03:27.340
+So when we create a super user that's basically going to be someone who can author new posts and then
+
+03:27.340 --> 03:30.010
+a title for posts is going to be models.
+
+03:30.060 --> 03:32.400
+DA That's going to be a character field.
+
+03:34.170 --> 03:42.510
+Character fields and we'll give it a max length of 200 characters really a totally arbitrary choice
+
+03:42.510 --> 03:48.280
+here and then we'll have a textfield to the actual text of that blog post.
+
+03:48.570 --> 03:54.360
+That's going to be models and we'll have a textfield there and it will put a max length for anything
+
+03:54.360 --> 03:58.410
+because I don't know how long my text is going to be.
+
+03:58.470 --> 04:04.550
+And then finally we'll have to date fields will have a creative date and that's going to be it models
+
+04:04.950 --> 04:06.870
+a date time field.
+
+04:10.250 --> 04:15.460
+And the default for that is going to be time zone now.
+
+04:15.470 --> 04:20.480
+So that's why I had to import from jingle that you tildes import time zone and if you go to your actual
+
+04:20.480 --> 04:25.970
+settings up-I file so coming over here to setting up pie pyro quick it's actually over here at this
+
+04:25.970 --> 04:26.820
+new tab.
+
+04:26.930 --> 04:31.100
+If you start scrolling down eventually where you're going to see is somewhere it should define what
+
+04:31.100 --> 04:32.570
+time zone you're in.
+
+04:32.570 --> 04:37.700
+So the internationalization I have my language code in English and you can see that I have this UTC
+
+04:37.700 --> 04:42.210
+time zone so whatever time zone makes the most sense for you that's what you should set up here.
+
+04:42.240 --> 04:46.160
+It's some sort of code for your time zone and basically what's going to happen is as you're writing
+
+04:46.160 --> 04:52.130
+a post they decide to say oh I created this post right now it's going to default to you created this
+
+04:52.130 --> 04:52.630
+post.
+
+04:52.670 --> 05:02.200
+At the current time zone but for the publication they were going to say Published Date is equal to models
+
+05:03.000 --> 05:04.570
+a date time field.
+
+05:04.720 --> 05:06.930
+And we're not going to have a default time zone.
+
+05:07.000 --> 05:14.440
+Now instead all do is we'll say it can be blank because maybe you don't want to publish it yet or can
+
+05:14.440 --> 05:15.480
+also be.
+
+05:15.680 --> 05:21.640
+No maybe you don't have any publication date whatsoever so you can either leave it blank or have it
+
+05:21.670 --> 05:23.820
+just be null meaning it can be empty.
+
+05:24.010 --> 05:27.190
+And that will make more sense when we actually start creating posts.
+
+05:27.610 --> 05:31.180
+And again you know a lot of options here you don't have to do everything the way I'm doing it but this
+
+05:31.180 --> 05:34.060
+kind of makes sense for the way we're going to set up our project.
+
+05:34.060 --> 05:36.850
+And then finally we're going to have a couple of methods on this.
+
+05:36.850 --> 05:41.250
+So one method that we need to do is actually set up the publication date method.
+
+05:41.530 --> 05:48.010
+So I'll say you can have a method called publish on this post and any method inside a class should take
+
+05:48.010 --> 05:48.630
+self.
+
+05:48.780 --> 05:53.470
+I'm going to kind of collapse the tree and this terminal so we get a little more space here to work
+
+05:53.470 --> 05:54.380
+with.
+
+05:54.400 --> 06:01.380
+So I'll say publish self and what's going to happen is I'm going to grab my actual published data attribute
+
+06:02.500 --> 06:11.000
+and then set it equal to time zone now and then I'll say self-taught save.
+
+06:11.010 --> 06:12.330
+So what does this actually mean.
+
+06:12.360 --> 06:18.600
+Well remember that when I create a date it doesn't matter I always default to the current time I hit
+
+06:18.600 --> 06:20.100
+create which makes sense.
+
+06:20.100 --> 06:24.680
+You can't really edit a creation date so you'll say OK I'm creating a new blog post.
+
+06:24.680 --> 06:31.050
+Hit that on the day of that blog post being created is the current time but the publish date can be
+
+06:31.050 --> 06:33.160
+blank and it can also be null.
+
+06:33.180 --> 06:37.310
+When I am ready to get published I'll be a published button and then when I hit that post button Ill
+
+06:37.310 --> 06:42.850
+eventually say OK right now when you hit publish It's the current time and I'm going to save that.
+
+06:43.170 --> 06:45.680
+So that's kind of all done automatically for you.
+
+06:45.810 --> 06:50.100
+The Creation day automatically by this one line published dates that's going to be linked to another
+
+06:50.340 --> 06:52.630
+button or function will just have it as a method.
+
+06:52.630 --> 06:57.370
+Here OK then post can have comments on them.
+
+06:57.610 --> 07:05.400
+So create another method called approve or underscore comments that's going to be itself.
+
+07:05.810 --> 07:18.570
+And then all of this is going to do is say return self-talk comments and I will filter it by proved
+
+07:18.750 --> 07:22.290
+that seals make it approved with a D.
+
+07:22.600 --> 07:25.360
+Comments equals true.
+
+07:25.460 --> 07:26.430
+So what does that saying.
+
+07:26.450 --> 07:29.660
+Eventually I'm going to have a list of comments somewhere.
+
+07:29.780 --> 07:31.670
+Some of them are going to be approved comments.
+
+07:31.670 --> 07:34.040
+Some of them are going to be not approved comments.
+
+07:34.220 --> 07:36.280
+So what I'm going to do is grab those comments.
+
+07:36.380 --> 07:39.670
+Filter them by saying OK is this a truly approved comment.
+
+07:39.810 --> 07:45.780
+And then I can show them along with post that anyone one of his web site and then finally of any model
+
+07:45.790 --> 07:50.750
+it's always a good idea to have some sort of string representation of it.
+
+07:52.360 --> 07:58.850
+So I will say as to your past and self and what makes the most sense for a post is the actual title.
+
+07:59.180 --> 08:03.450
+So I'll say self-titled and I'm going to save this.
+
+08:03.520 --> 08:07.730
+Eventually we're going to have to do is use this reverse method.
+
+08:07.840 --> 08:10.840
+So old kind of cross that path once we get there.
+
+08:10.840 --> 08:11.910
+So right now I'll leave it blank.
+
+08:11.920 --> 08:14.620
+But we definitely aren't done with the post class.
+
+08:14.740 --> 08:19.400
+But what I want to do since the actual comment class is going to look so similar to this.
+
+08:19.450 --> 08:22.110
+It's a good idea that we kind of take care of it right now.
+
+08:22.500 --> 08:24.420
+So we're going to create a new class
+
+08:27.800 --> 08:32.890
+called comments and it's going to look really really similar to what we just created.
+
+08:32.990 --> 08:37.700
+So it's also going to be a post you can almost think of these as almost like a mini posts.
+
+08:37.940 --> 08:52.060
+So it has a foreign key and it's going to come from blog post and we'll give it a related name of comments
+
+08:55.620 --> 08:59.370
+and that will make more sense when I start dealing with the actual views that have to do with comments
+
+09:00.640 --> 09:05.920
+basically this line is going to connect each comment to an actual post much in the same way that it
+
+09:05.920 --> 09:06.800
+become a peer.
+
+09:06.970 --> 09:13.930
+We connected the author to an actual authorization user each comma is going to be connected to a blog
+
+09:13.930 --> 09:14.930
+application.
+
+09:15.100 --> 09:22.890
+Post and then the author will say models thought character field and we're going to have anyone kind
+
+09:22.890 --> 09:24.930
+of write their own name in there.
+
+09:25.050 --> 09:31.410
+So we'll say a max length of I don't know 200 even that's probably a lot but not a big deal.
+
+09:31.410 --> 09:39.440
+We'll have the text of the comment be really similar we'll say models thought textfield no constraints
+
+09:39.440 --> 09:51.700
+there and then we also have created dates and the soby models a date time field and the default is going
+
+09:51.700 --> 09:56.270
+to be time zone but now kind of makes sense.
+
+09:56.350 --> 10:02.410
+A comment once they hit create that comment that date time field gets put into place and then finally
+
+10:02.410 --> 10:08.080
+instead of a publication process we have in approved comments process.
+
+10:08.080 --> 10:15.580
+So Ill say approved comment singular is equal to models thought and this is going to be a boolean field
+
+10:15.580 --> 10:22.190
+so true or false is that or prove they are not and the fall is going to be false that I have approved
+
+10:22.200 --> 10:26.250
+this comment yet okay.
+
+10:26.260 --> 10:27.920
+So let's say that right now.
+
+10:28.120 --> 10:29.680
+So just as a quick review what we have.
+
+10:29.710 --> 10:37.270
+It's almost the same as if we come up here the post class but we have a comic class posts connected
+
+10:37.270 --> 10:43.180
+to a post so each comment lines a posts we have an author to it which is just going to be basically
+
+10:43.180 --> 10:45.440
+what anyone who wants to can just write that in.
+
+10:45.530 --> 10:51.140
+Note the author of The comment is not the same as the author of the post nor is it a foreign key.
+
+10:51.160 --> 10:57.220
+It's basically just someone typing in who wrote it so Jondo can come in and just say hey I'm going to
+
+10:57.220 --> 10:58.420
+post this comment here.
+
+10:58.420 --> 11:03.840
+I'll fill in my name and it'll just be a character field and then we're going to come up here say Tex
+
+11:03.840 --> 11:09.370
+model what textfield the creation day and then approves comments and what I have to do is make sure
+
+11:09.790 --> 11:14.350
+that this approved comments is the same as approved comments here.
+
+11:14.350 --> 11:17.680
+So either they should both be plural or both be singular.
+
+11:17.680 --> 11:23.050
+Basically what I mean is they should both be the same thing so here I said uproots comments I think
+
+11:23.050 --> 11:26.230
+earlier I said at an Esson here since I believe in this singular.
+
+11:26.260 --> 11:28.990
+Let's actually just have them both be singular so keep that in mind.
+
+11:29.020 --> 11:30.650
+Had a little typo there.
+
+11:30.670 --> 11:32.080
+They should both match.
+
+11:32.080 --> 11:35.010
+So either they both have an s or they both have no s.
+
+11:35.360 --> 11:39.470
+Ok moving along what I'm going to do is create a few methods here.
+
+11:41.060 --> 11:43.300
+I'll create an approved method.
+
+11:43.390 --> 11:53.520
+Self I will say self approved underscore comments and I will say set it to true.
+
+11:53.650 --> 11:56.200
+This is essentially just like that publication method we worked on it.
+
+11:56.200 --> 12:01.800
+Post and then we'll say self-taught save.
+
+12:01.990 --> 12:09.430
+And then what I'm going to do here say ADF create some sort of string representation say self and then
+
+12:09.430 --> 12:16.270
+say return self-taught text OK I'm going to save this now.
+
+12:16.270 --> 12:21.490
+And so basically we have the main skeleton of a comment and a post and hopefully can see it there almost
+
+12:21.490 --> 12:28.150
+the exact same thing except that a post its is connected to an actual super user on the Web site and
+
+12:28.180 --> 12:34.840
+its publication date is kind of analogous to the approval of a comment or a comments.
+
+12:34.840 --> 12:41.380
+Post is linked foreign key wise to an actual post and then we have this author which is going to be
+
+12:41.440 --> 12:47.420
+basically anyone can just write their name in now to actually finish off this models not pi we still
+
+12:47.420 --> 12:50.770
+have to worry about the get absolute Your Al methods.
+
+12:50.780 --> 12:55.730
+Weve seen this before in the class based view lectures but now its time to actually use this or we're
+
+12:55.730 --> 12:58.890
+going to do is take advantage of this reverse function.
+
+12:58.940 --> 13:05.620
+Basically the whole idea behind this is after someone creates a post or a comment where should the Web
+
+13:05.620 --> 13:07.220
+site take them.
+
+13:07.220 --> 13:13.190
+So we're going to do is use those detail views for the pose and we'll use some function views for the
+
+13:13.190 --> 13:14.180
+comments.
+
+13:14.180 --> 13:22.190
+But let's start off with this post class and I'm going to say over here it says approved comments on
+
+13:22.300 --> 13:26.600
+ADF and have that get absolute.
+
+13:27.260 --> 13:32.080
+Your method and it has to be called Get underscore absolute underscore your l.
+
+13:32.080 --> 13:34.210
+This is something that chinked actually looks for.
+
+13:34.250 --> 13:36.350
+You can't call it something else.
+
+13:36.410 --> 13:41.040
+And so it's saying all right once you've created a instance of this post what should I do.
+
+13:41.300 --> 13:46.370
+Well we're going to say return and call the reverse.
+
+13:46.480 --> 13:50.800
+Hopefully that we also talked a little bit about reverse lazy earlier on the right now we just need
+
+13:50.810 --> 13:57.800
+reverse and we'll have some sort of view that is a detail view meaning we'll have eventually a post
+
+13:57.920 --> 14:05.760
+detail your el and then something we're also going to add in is a keyword argument dictionary or they'll
+
+14:05.800 --> 14:16.040
+be args and that's going to be a dictionary where the primary key matches up with self piquet.
+
+14:16.060 --> 14:20.260
+So all this is saying is after I create a post I'm done creating it.
+
+14:20.390 --> 14:26.770
+I hit some sort of publication where should I go we'll go to that post detail page for the primary key
+
+14:26.770 --> 14:32.210
+of the post that you just created makes sense and make more sense when we actually create the view for
+
+14:32.210 --> 14:32.550
+it.
+
+14:33.340 --> 14:38.200
+And if that this is a little confusing for you definitely refer back to those class based view lectures
+
+14:39.010 --> 14:42.820
+and scrolling down we're going to do something really similar to the comment.
+
+14:43.050 --> 14:50.220
+And in this case we're going to do is say if now sends a comment needs to be approved by a super user
+
+14:50.340 --> 14:55.230
+it doesn't make sense to actually go back to a list of the comments.
+
+14:55.230 --> 15:00.420
+Instead we're going to do is say once that person is done typing in that comment they're going to go
+
+15:00.420 --> 15:03.290
+back to the list of all the posts.
+
+15:03.380 --> 15:06.100
+It's kind of up to you what you think is most reasonable.
+
+15:06.120 --> 15:11.350
+Maybe you could have them go back to the actual detail itself but we'll just have them since the comment
+
+15:11.350 --> 15:16.350
+actually needs to be approved before displaying there will have it go back to that main home page of
+
+15:16.410 --> 15:17.810
+all the post lists.
+
+15:18.090 --> 15:31.360
+So I will say the F get underscore absolute Your L self and I'm going to return as a reverse call to
+
+15:31.360 --> 15:32.800
+post underscore list.
+
+15:32.830 --> 15:37.180
+That's going to be a list view and we're actually going to use that as the home page to the home page
+
+15:37.180 --> 15:41.530
+of this Web site is going to be just a list of all the posts.
+
+15:41.550 --> 15:42.070
+All right.
+
+15:42.160 --> 15:45.880
+So this actually seems like a really natural stopping point for part 2.
+
+15:45.910 --> 15:47.830
+So that's what we're going to deal with just ending here.
+
+15:48.010 --> 15:53.680
+But that's it for the models that py file we won't need to mess around or anything else.
+
+15:53.680 --> 16:00.640
+So as a quick review before we hang on to our Before We Go on to the next lecture excuse me we've created
+
+16:00.640 --> 16:02.320
+two classes here are two models.
+
+16:02.320 --> 16:08.620
+The post model and the comment model commet model is almost like a baby brother or baby sister to the
+
+16:08.620 --> 16:13.990
+post where we just have the author of the titles the text and then some sort of creation date and some
+
+16:13.990 --> 16:16.140
+sort of publication date in the comments.
+
+16:16.150 --> 16:23.080
+We have the post which connects to the comment post which connects to an actual post the author which
+
+16:23.080 --> 16:26.920
+is just some character field so anyone can type in their name and then we have the Creation day and
+
+16:26.920 --> 16:28.160
+the approval date.
+
+16:28.390 --> 16:29.800
+And that's really all there is to it.
+
+16:29.800 --> 16:34.810
+We also have these absolute Ural methods which once you've created a comment or a post tells the website
+
+16:34.840 --> 16:36.130
+where to go back to.
+
+16:36.310 --> 16:37.490
+And that's basically it.
+
+16:37.720 --> 16:40.960
+OK thanks everyone and I see you at the next lecture.

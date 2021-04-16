@@ -1,0 +1,226 @@
+WEBVTT
+
+00:05.310 --> 00:07.030
+Welcome back everyone to the final part.
+
+00:07.050 --> 00:09.420
+The social clone project.
+
+00:09.610 --> 00:11.840
+Now our Web site actually has full functionality.
+
+00:11.860 --> 00:17.680
+We can sign up new users have them log in and they can create both groups and posts and the groups have
+
+00:17.680 --> 00:20.920
+a count of how many members they have and how many posts they have.
+
+00:20.920 --> 00:25.870
+Now we're going to go ahead and do is add in the SS and javascript files to give this Web site a cool
+
+00:25.870 --> 00:26.500
+look.
+
+00:26.620 --> 00:30.250
+And this is where you can diverge and customize the site to your own liking.
+
+00:30.250 --> 00:34.420
+We will copy and paste from the right notes and a lot of this code just comes from a code pen that's
+
+00:34.420 --> 00:35.720
+publicly available.
+
+00:35.740 --> 00:41.100
+But again this is really a personal preference up to you how you want to style your particular site.
+
+00:41.290 --> 00:44.050
+Let's up over to the notes and finish up this project.
+
+00:44.050 --> 00:44.340
+All right.
+
+00:44.350 --> 00:49.090
+Here I am in the editor and the first thing you want to do is make sure that in our settings that PI
+
+00:49.090 --> 00:54.160
+file we have the static files linked and if you scroll all the way down I believe we may have made a
+
+00:54.160 --> 00:55.380
+small typo.
+
+00:55.480 --> 01:01.310
+So you should have static underscore you all equal to static and static files underscore.
+
+01:01.330 --> 01:03.490
+It should be d i r s.
+
+01:03.490 --> 01:05.230
+So static file directories.
+
+01:05.230 --> 01:07.660
+And the reason for that is because you pass it in as a list.
+
+01:07.660 --> 01:09.560
+It could have multiple static directories.
+
+01:09.640 --> 01:12.600
+And then we say oh estopped path but join based directory static.
+
+01:12.640 --> 01:17.950
+So make sure you change that and save it so that it's static files underscore Diyar.
+
+01:18.120 --> 01:23.740
+That's ok once you have that what you need to do is come over to static and inside of simple social
+
+01:23.740 --> 01:29.480
+C Ss in javascript create a M.Z. SS file and a master javascript file.
+
+01:29.560 --> 01:34.330
+Now inside of these I've already copied and pasted the code from the notes as well as the code in this
+
+01:34.420 --> 01:36.710
+master CSSA other see a source file.
+
+01:36.790 --> 01:40.480
+In case you ever want to play around with other things you can link this as well.
+
+01:40.480 --> 01:44.890
+Mainly we're just going to be using the C S S file which essentially makes everything black and the
+
+01:44.890 --> 01:49.310
+color white and then this javascript file which is sourced from this Koeppen.
+
+01:49.310 --> 01:54.400
+So you have the link there and this is what allows you to set the stars when you click on something
+
+01:54.400 --> 01:55.430
+on the Web site.
+
+01:55.870 --> 01:56.970
+The stars will pop up.
+
+01:57.160 --> 02:02.590
+So right now the javascript master javascript file isn't linked yet so we're going to do is linked that
+
+02:02.590 --> 02:04.460
+to our baseline team l page.
+
+02:04.480 --> 02:07.530
+That way it shows up in every single page.
+
+02:07.540 --> 02:12.430
+So we'll come over to base that each T.M. scroll all the way down to the bottom because we want this
+
+02:12.430 --> 02:17.800
+to load after the entire body is loaded and we're going to add in a script call here.
+
+02:17.980 --> 02:23.570
+So script it's going to be type text javascript and then let's say the source.
+
+02:23.590 --> 02:27.860
+So the source is going to be static.
+
+02:27.970 --> 02:35.120
+So over the static directories and it's just simple social javascript slash M.Com jazz or whatever he
+
+02:35.120 --> 02:36.220
+happens to call it.
+
+02:36.350 --> 02:38.040
+So that's where we can find it.
+
+02:38.300 --> 02:41.670
+I'm going to save that and then this whole thing.
+
+02:41.680 --> 02:43.790
+The source should be in quotes itself.
+
+02:45.210 --> 02:45.730
+There we go.
+
+02:45.800 --> 02:48.230
+And the syntax heiling can kind of hint at that.
+
+02:48.660 --> 02:51.980
+OK so that should be all we need for that particular script.
+
+02:51.990 --> 02:56.260
+Let's save that change and then let's make sure we scroll up and actually loading the static files.
+
+02:56.280 --> 02:59.310
+Ok we are loading the static files so everything should work.
+
+02:59.310 --> 03:01.820
+Let's run this and finish up this project.
+
+03:01.820 --> 03:07.300
+Confirm we'd have no bugs right now coming to the Web site we can see here it says Welcome to our social.
+
+03:07.320 --> 03:12.480
+Everything's turned black and as we hover above buttons now they're kind of inversed in color and if
+
+03:12.480 --> 03:18.000
+you click somewhere here you'll end up seeing the stars being created so you can click a whole bunch
+
+03:18.150 --> 03:21.360
+and you'll see a bunch stars being created and that's basically it.
+
+03:21.360 --> 03:27.750
+Now given the way that the actual nav bar and the content is created there is kind of a buffer zone
+
+03:27.780 --> 03:28.180
+here.
+
+03:28.260 --> 03:32.920
+As far as the stars so they're bouncing off and there's essentially I can click here to close the border
+
+03:32.920 --> 03:34.220
+so you can see it.
+
+03:34.360 --> 03:36.240
+There is no way to go above that.
+
+03:36.240 --> 03:41.010
+Now you could spend a lot more time with CSSA and Javascript and make sure all these elements that their
+
+03:41.010 --> 03:44.700
+background and their canvas is linked so that the stars go everywhere.
+
+03:44.700 --> 03:46.010
+I mean kind of up to you.
+
+03:46.080 --> 03:47.510
+That's a lot more work on the front end.
+
+03:47.550 --> 03:49.970
+That's really not what jangles about.
+
+03:50.010 --> 03:53.880
+So really up to you how much you want to customize this if the stars are really your thing to be in
+
+03:53.880 --> 03:59.160
+with but that is an example of how you could spruce up your project and just make it look better.
+
+03:59.240 --> 04:02.030
+OK that's basically all there is to this project.
+
+04:02.040 --> 04:02.940
+Hope you had fun.
+
+04:02.940 --> 04:09.300
+The main thing to really get out of this project is creating users and creating groups of users and
+
+04:09.300 --> 04:10.350
+having them connect that way.
+
+04:10.350 --> 04:16.070
+So those two kind of model ideas essentially just an expansion off the blog project.
+
+04:16.070 --> 04:16.710
+All right.
+
+04:16.740 --> 04:17.540
+Hope you enjoyed it.
+
+04:17.640 --> 04:19.560
+Thanks everyone and I'll see you at the next lectures.

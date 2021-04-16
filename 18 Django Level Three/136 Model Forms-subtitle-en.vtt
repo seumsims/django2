@@ -1,0 +1,331 @@
+WEBVTT
+
+00:05.020 --> 00:09.860
+Hello everyone and welcome to the model forums lecture for jingle level 3.
+
+00:09.940 --> 00:14.590
+We've seen how we can use Django forms to grab information from the user and then do something with
+
+00:14.590 --> 00:16.050
+it on the backend.
+
+00:16.090 --> 00:19.960
+And so far we've only printed out that information directly to the console.
+
+00:19.960 --> 00:20.880
+Nothing too useful.
+
+00:20.890 --> 00:26.740
+But what if we actually wanted to grab that information and save it to a model so maybe we have a user
+
+00:26.740 --> 00:31.660
+that's signing up for a web site and we want to save their information to a model or someone's inputting
+
+00:31.720 --> 00:37.300
+a reply post to a comment we want to save the information to a model so we can always have it on our
+
+00:37.300 --> 00:37.910
+Web site.
+
+00:37.920 --> 00:39.280
+How do we actually do that.
+
+00:39.760 --> 00:43.590
+Luckily Gengel makes accepting form input and then passing it to a model.
+
+00:43.630 --> 00:44.620
+Very simple.
+
+00:44.770 --> 00:50.080
+Instead of inheriting from that forms that forms class were instead going to be using forms that model
+
+00:50.080 --> 00:57.960
+form in our forms not py file this helper class allows us to create a form from a preexisting model.
+
+00:58.030 --> 01:03.430
+We then add an inline class something we haven't actually seen before called Mehta and this medic class
+
+01:03.430 --> 01:08.500
+provides information connecting the model to the form and that topic of an inline class is actually
+
+01:08.500 --> 01:09.390
+really simple.
+
+01:09.400 --> 01:12.840
+It's just a class within an other class.
+
+01:12.850 --> 01:17.440
+Let's see some example code of what this new type of model form class would look like.
+
+01:17.440 --> 01:22.080
+All right so this is the most generic code example that you would find inside an applications forms
+
+01:22.090 --> 01:23.470
+that py file.
+
+01:23.620 --> 01:28.960
+The very first thing you need to do is the actual imports just like before I will say from Django import
+
+01:28.960 --> 01:29.670
+forms.
+
+01:29.770 --> 01:34.660
+Except this time we're going to be using forms that model form instead of just forms that form and then
+
+01:34.660 --> 01:39.980
+we also need to actually import our model from the models that py file inside application.
+
+01:40.090 --> 01:42.100
+So you can import this however you want.
+
+01:42.100 --> 01:47.200
+Typically you'll see it's done from my laptop models import my model a lot of times people also say
+
+01:47.530 --> 01:50.830
+from datt import models not my model et cetera.
+
+01:51.340 --> 01:53.250
+Then we have the actual form class.
+
+01:53.350 --> 01:55.780
+So you have class whatever you want to call your form.
+
+01:55.780 --> 01:57.600
+In this case we're calling it My new form.
+
+01:57.730 --> 02:01.070
+And then you inherits or derive from the forms that model form class.
+
+02:01.070 --> 02:05.290
+Class is a subclass of that model form very similar to what we did before.
+
+02:05.320 --> 02:09.420
+Right below that you have the form fields that we showed earlier in the course.
+
+02:09.730 --> 02:14.680
+And then we have the middle class C inline class and this is what's really going to connect the model
+
+02:14.680 --> 02:16.240
+to the form fields.
+
+02:16.240 --> 02:21.610
+So again the fields attribute inside of that class that inline metaclass is going to do a lot of the
+
+02:21.610 --> 02:22.770
+connection to the model.
+
+02:22.930 --> 02:28.390
+So right now I haven't read about certain options but let's discuss a little bit more about that inline
+
+02:28.420 --> 02:29.520
+class.
+
+02:29.650 --> 02:35.640
+So there are many ways to make that connection on the fields attribute of the inline class Middx.
+
+02:36.100 --> 02:42.460
+But you first need to think about security for the fields and it's also very common to not actually
+
+02:42.460 --> 02:45.010
+provide any additional field information.
+
+02:45.310 --> 02:51.030
+So before I mention that form fields like we typically saw would go right below that my new form class.
+
+02:51.040 --> 02:57.430
+But then since you're already matching up the form to match up with the model exactly you don't actually
+
+02:57.430 --> 02:59.180
+need to specify those fields.
+
+02:59.970 --> 03:03.760
+So you'll typically just see the inline class immediately after that form class.
+
+03:03.750 --> 03:06.030
+That's very common to see as well.
+
+03:06.030 --> 03:11.460
+And you can have the form be just generated completely from the model and that saves you a lot of work.
+
+03:11.460 --> 03:13.090
+You don't have to type in those fields again.
+
+03:13.110 --> 03:17.350
+All you have to do is say class meta model equals my model and then connect the field somehow which
+
+03:17.360 --> 03:20.290
+we're going to talk about several options in just a little bit.
+
+03:20.550 --> 03:26.790
+But if you want to actually use custom validators like we previously discussed then you do have to pass
+
+03:26.790 --> 03:30.790
+in those form fields where you provide the validator parameters.
+
+03:30.840 --> 03:36.870
+So most of the kust most of the cost of validation you'll have to provide if you want it but the automatic
+
+03:36.870 --> 03:40.250
+cleaning and validation will be directly from your model.
+
+03:40.290 --> 03:45.360
+So remember your model had its own constraints and those sort of validation just come automatically
+
+03:45.570 --> 03:46.420
+when you call class.
+
+03:46.420 --> 03:49.270
+Medha and connect that to your model.
+
+03:49.270 --> 03:51.310
+So it's really up to you how you want to see this.
+
+03:51.460 --> 03:52.180
+It's very common.
+
+03:52.180 --> 03:55.090
+Just to see this class your forum and then directly below it.
+
+03:55.090 --> 03:58.980
+Class meta and not have to worry about any customer validation.
+
+03:58.990 --> 04:02.940
+All right let's continue on by discussing how we can actually work that fields.
+
+04:02.950 --> 04:05.980
+Attribute that's inside the inline class Mehta.
+
+04:06.310 --> 04:11.920
+So option 1 is just to set it to the special keyword underscore underscore or underscore underscore
+
+04:12.400 --> 04:17.230
+and Bisco it is you're grabbing all the fields from the model you're going to place them into the form
+
+04:19.080 --> 04:23.530
+Option two is to specify what fields you actually want to exclude.
+
+04:23.820 --> 04:27.540
+So here you can just pass in a list of the field names that you want to exclude.
+
+04:27.540 --> 04:32.470
+So you say my model and I actually don't want to include field one in the form or field to in the form
+
+04:34.050 --> 04:38.310
+and then Option three is to actually list the included field instead.
+
+04:38.370 --> 04:44.160
+So you can debate whether you have a huge model if it's easier to just include or if you have a small
+
+04:44.160 --> 04:49.280
+model if it's easier just to exclude really depends on what is better for you.
+
+04:49.770 --> 04:54.120
+All right so we briefly went over the options of how to connect the fields but I definitely suggest
+
+04:54.120 --> 04:59.100
+you check out the documentation for more discussion on how to connect the fields in the forms the fields
+
+04:59.130 --> 05:00.120
+in the model.
+
+05:00.120 --> 05:03.260
+The documentation page is really great for the model forms.
+
+05:03.270 --> 05:07.560
+Basically just google Django plus model forms will take you there has a ton of examples ton of different
+
+05:07.560 --> 05:13.110
+situations and more discussion on certain security things so if you plan on making this a big Web site
+
+05:13.140 --> 05:19.380
+where for some reason most malicious users are going to come of fields and forms is definitely something
+
+05:19.380 --> 05:20.690
+you want to keep secure.
+
+05:20.700 --> 05:26.220
+Django has a lot of built in stuff we've already seen things like the CSA RF tokin and even these special
+
+05:26.220 --> 05:28.520
+calls the options take security in mind.
+
+05:28.620 --> 05:30.190
+But if that's a big concern for you.
+
+05:30.240 --> 05:33.480
+Definitely check out the documentation's full discussion on that.
+
+05:33.650 --> 05:38.130
+OK so let's get some practice for all of this and what we're going to do is try adding a model form
+
+05:38.430 --> 05:39.360
+to our pro too.
+
+05:39.360 --> 05:42.740
+That was the second project from Gengel level 2.
+
+05:42.840 --> 05:47.460
+So this project if you remember had a single user class in its models that py file.
+
+05:47.520 --> 05:52.470
+Well we're going to be doing is connecting it to a form allowing users to register their names and emails
+
+05:52.470 --> 05:57.410
+to the site and this sort of logic could easily be used to create a simple coming soon landing page.
+
+05:57.540 --> 06:03.070
+So you've probably seen the single one page web sites where you go in there working on a project and
+
+06:03.070 --> 06:08.370
+they say oh you know come back soon or will email you to let you know whenever the project launches
+
+06:08.430 --> 06:10.520
+and it just has entered your name.
+
+06:10.520 --> 06:15.600
+Enter email address and submit and we submit that information goes to a database that they can later
+
+06:15.630 --> 06:16.280
+access.
+
+06:16.290 --> 06:21.300
+So this is easily something you could do just based off of the information in this lecture plus everything
+
+06:21.300 --> 06:22.830
+you've already learned about.
+
+06:22.830 --> 06:23.070
+All right.
+
+06:23.070 --> 06:23.990
+So to get started.
+
+06:24.090 --> 06:29.100
+Make sure you have the pro tools folder from the jingle level to folder in the notes and to see the
+
+06:29.100 --> 06:30.300
+completed version of this.
+
+06:30.300 --> 06:33.240
+Check out the pro folder in the Django level 3 folder.
+
+06:33.240 --> 06:38.820
+Again we're going to start with the finished pro to folder from a level 2 and then work with it by the
+
+06:38.820 --> 06:41.820
+end of this lecture will have what's available to you in the notes.
+
+06:41.960 --> 06:43.390
+Undertaking level 3 approach too.
+
+06:43.410 --> 06:44.180
+So keep that in mind.
+
+06:44.190 --> 06:46.620
+You want to see kind of a before and after.
+
+06:46.980 --> 06:48.000
+And let's get started.
+
+06:48.000 --> 06:48.910
+I'll see at the next lecture.

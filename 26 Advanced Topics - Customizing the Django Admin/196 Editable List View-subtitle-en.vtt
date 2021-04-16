@@ -1,0 +1,88 @@
+WEBVTT
+
+00:05.690 --> 00:06.690
+Welcome back everyone.
+
+00:06.720 --> 00:11.610
+And this lecture will show you how to create edits from the list you as I mentioned.
+
+00:11.610 --> 00:14.870
+You can also add the ability to edit attribute values from the list view.
+
+00:14.880 --> 00:19.450
+Instead of having to click into that detail view and again this is an easy attribute addition.
+
+00:19.530 --> 00:22.370
+Let's quickly show you how to hop over to the editor.
+
+00:22.830 --> 00:29.940
+OK so here I am an admin that pi the attribute need to add to this is called List underscore editable
+
+00:30.330 --> 00:35.520
+equals and then you just add in the list of the attributes or fields that you want to be able to edit
+
+00:35.550 --> 00:36.740
+from that list view.
+
+00:36.870 --> 00:40.610
+Now keep in mind those attributes are fields that you can edit.
+
+00:40.650 --> 00:41.880
+Also have to be displayed.
+
+00:41.910 --> 00:43.530
+Otherwise it won't make sense.
+
+00:43.530 --> 00:46.170
+You need to display something so you can edit it.
+
+00:46.350 --> 00:50.360
+So I'm going to go ahead and say let's edit the link.
+
+00:51.110 --> 00:59.110
+And then I will save this and then bring back my actual browser so bringing in my browser and this is
+
+00:59.110 --> 00:59.950
+what it looks like right now.
+
+00:59.950 --> 01:05.810
+Let me refresh this and you'll notice now in my list view I can edit the changes so maybe I can make
+
+01:05.810 --> 01:11.070
+this 100 minutes here and then save that and can see the changes and you can even see the filter affected
+
+01:11.150 --> 01:12.280
+those changes as well.
+
+01:12.500 --> 01:17.330
+So this makes it really easy to do both changes or bulk additions from the list view instead of having
+
+01:17.330 --> 01:21.260
+to click in to the actual detail view based off some sort of field.
+
+01:21.260 --> 01:23.870
+So again this hopefully makes your life a lot easier.
+
+01:23.930 --> 01:28.760
+Now as a quick note you should be cautious with this approach because if you intend the multiple people
+
+01:28.760 --> 01:34.390
+to have access to the admin page and have access to this list view you may cause problems.
+
+01:34.400 --> 01:38.320
+If they're trying to edit the same attribute or same field at the same time.
+
+01:38.330 --> 01:44.180
+Basically whoever clicked Save last ends up having the final say so keep that in mind that you kind
+
+01:44.180 --> 01:45.400
+of play around with this again.
+
+01:45.500 --> 01:50.600
+The attribute is if we can come back here is just list underscore editable and you have to remember
+
+01:50.690 --> 01:52.800
+that needs to be under display as well.
+
+01:52.940 --> 01:55.010
+OK thanks everyone and I'll see at the next lecture.

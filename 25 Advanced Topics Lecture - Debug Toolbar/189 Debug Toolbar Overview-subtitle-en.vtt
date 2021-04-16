@@ -1,0 +1,532 @@
+WEBVTT
+
+00:05.260 --> 00:09.180
+Welcome everyone to the de-bug toolbar overview lecture.
+
+00:09.220 --> 00:14.530
+Now we're going to do is install toolbar and go over each panel means in order to actually view the
+
+00:14.530 --> 00:16.050
+toolbar in your web site.
+
+00:16.150 --> 00:20.280
+You're going to need to make several changes to your settings that py file in your project.
+
+00:20.350 --> 00:25.150
+You can check out the Genger debug tool part documentation for helpful hints if you want to follow along
+
+00:25.180 --> 00:30.540
+their or helpful hints in case what we do here in this actual video lecture doesn't work for you.
+
+00:31.860 --> 00:32.400
+All right.
+
+00:32.500 --> 00:34.480
+So like any previous project from the course.
+
+00:34.480 --> 00:36.860
+Play around with the settings that py file.
+
+00:36.940 --> 00:41.530
+We're going to be choosing Pro 2 from Gengel level 2 because it's a really simple web site that just
+
+00:41.530 --> 00:43.560
+shows a list of users for us.
+
+00:43.840 --> 00:49.330
+All right we'll head over to the Adam text editor open up pro to install the toolbar and then edit the
+
+00:49.330 --> 00:52.230
+settings up-I file and see what that toolbar shows us.
+
+00:53.320 --> 01:00.090
+Aurie here I am at the Adam text editor and I've opened up the pro to project those that are o t w o
+
+01:00.090 --> 01:02.390
+project from Django level 2.
+
+01:02.450 --> 01:05.360
+Let's run the project so we can remember what it actually does say.
+
+01:05.370 --> 01:14.040
+Python managed up high run server and it also activated a virtual environment we can sirra here my Django
+
+01:14.110 --> 01:14.890
+Ian.
+
+01:15.190 --> 01:17.820
+And then this will run at the local host.
+
+01:17.830 --> 01:23.710
+So let's go to our browser and open up the local host going to the URL in your browser you should see
+
+01:23.710 --> 01:28.260
+something that looks like this working go to slash users to see the user list so let's do that.
+
+01:28.340 --> 01:30.330
+They'll say slash users.
+
+01:30.580 --> 01:35.450
+And then here you users frap to remember we populated that by running the population script and then
+
+01:35.460 --> 01:37.660
+we essentially showed kind of a manual list view.
+
+01:37.660 --> 01:39.790
+First Name Last Name email etc..
+
+01:40.000 --> 01:41.120
+And this was done manually.
+
+01:41.120 --> 01:44.920
+Later on we learned about list views from generic class based list views.
+
+01:44.920 --> 01:49.780
+But here's the basic idea of what our app is doing now is trying to add in the Django debug toolbar
+
+01:50.020 --> 01:54.650
+to see how that can help us eventually learn more about our application.
+
+01:54.670 --> 01:57.380
+We'll head back over to the text editor and install it.
+
+01:57.850 --> 02:02.760
+All right back at the text editor here I'm going to control C and quit that server S.O.S.
+
+02:02.770 --> 02:04.240
+On my Windows to clear.
+
+02:04.420 --> 02:09.520
+You can do clear fear on a Mac or Linux and then we're going to do is inside my virtual environment
+
+02:09.520 --> 02:19.900
+say Pipp install jingo dash debug dash toolbar or one line hit enter and this will install the Django
+
+02:19.900 --> 02:26.250
+debug toolbar for you know to help forward in time as this finishes installing.
+
+02:26.660 --> 02:31.520
+OK now that it's successfully installed the Django debug toolbar what we need to go ahead and do is
+
+02:31.550 --> 02:36.380
+edit our settings that py file to make sure that we actually can view the debug Toolbar.
+
+02:36.380 --> 02:39.830
+It wouldn't make sense to not have to edit the settings or play file.
+
+02:39.830 --> 02:42.060
+Otherwise you would never build turn the toolbar off.
+
+02:42.200 --> 02:47.510
+So it makes sense so we have to go to the settings file as shown here add it to our list of applications
+
+02:47.600 --> 02:49.530
+and then set it to be viewed.
+
+02:49.850 --> 02:54.470
+So it will scroll down the first thing I want to do is make sure are installed apps we have the debug
+
+02:54.470 --> 03:00.950
+toolbar so you scroll down install apps make sure that it goes after static files because it relies
+
+03:00.950 --> 03:06.470
+on static files and we haven't mentioned this yet and installed apps are loaded in the order of this
+
+03:06.470 --> 03:07.010
+list.
+
+03:07.040 --> 03:13.450
+So if there's a dependency of one of these applications on a later one list did you make errors.
+
+03:13.490 --> 03:18.920
+So usually what you want to do is load up all the default Jingo and default builtin stuff.
+
+03:19.130 --> 03:24.080
+Then you will load up applications that you downloaded and then at the very end you'll load up all the
+
+03:24.080 --> 03:25.720
+applications that you created.
+
+03:25.730 --> 03:34.910
+So after static files write debug underscore toolbar will have a comma there and save that.
+
+03:34.910 --> 03:36.110
+So that's the first step we need to do.
+
+03:36.110 --> 03:41.640
+Make sure it's actually loaded after static files then we want to set up the your L configuration.
+
+03:41.720 --> 03:47.330
+So we want to add a debug toolbars Jor-El's to our projects your configuration which means we'll do
+
+03:47.330 --> 03:47.930
+the following.
+
+03:47.930 --> 03:51.570
+We'll come over to our project level your Olsdorf PI file.
+
+03:51.570 --> 03:56.100
+Remember that's not an application your Elsberry actual project level you are stopped by a file.
+
+03:56.120 --> 04:03.100
+Here we have a relatively simple one where we just find your all patterns then what we will do is below
+
+04:03.110 --> 04:11.180
+this will say if settings dot debug that way we have to have debug equal to true in our settings or
+
+04:11.190 --> 04:13.700
+py file to actually see the debug toolbar.
+
+04:13.900 --> 04:23.360
+And in order to use settings here we need to import it so up at the top we will say from Django configuration
+
+04:24.040 --> 04:35.790
+in poor settings and all say if settings debug we're going to import debug underscore toolbar and then
+
+04:35.790 --> 04:41.140
+once we've done that we're going to reassign your old patterns we'll see patterns.
+
+04:41.160 --> 04:42.930
+Is now equal to.
+
+04:43.080 --> 04:44.210
+We'll have a list here.
+
+04:44.370 --> 04:46.780
+And we're going to call your l.
+
+04:46.860 --> 04:53.550
+That's the function we imported up here from config that you're oles and we will pass in using regular
+
+04:53.550 --> 04:54.550
+expression.
+
+04:55.320 --> 05:03.840
+Carot underscore underscore de-bug underscore underscore forward slash and then will type in include
+
+05:04.410 --> 05:11.400
+and passen debug underscore toolbar that you Oreilles and were able to do that because we imported it
+
+05:11.400 --> 05:12.600
+here.
+
+05:12.660 --> 05:15.120
+Now we still want the rest of these you are all patterns.
+
+05:15.120 --> 05:21.390
+So then all we can do is just say plus your old patterns and that's going to reference this previously
+
+05:21.390 --> 05:26.280
+created your all patterns so we're essentially concatenating our old your old patterns list with an
+
+05:26.280 --> 05:29.140
+additional entry in case settings is the bug.
+
+05:29.220 --> 05:31.290
+And we imported debug toolbar.
+
+05:31.290 --> 05:35.850
+Then what we need to do is make sure that debug toolbar is listed in our middleware.
+
+05:36.120 --> 05:38.870
+So we will save the Urals PI file here.
+
+05:39.120 --> 05:44.310
+We'll go back to settings that pi and we could have done this earlier but it doesn't really matter what
+
+05:44.310 --> 05:45.390
+order you do this in.
+
+05:45.510 --> 05:53.430
+And in your middleware in settings that pi what you will do is add an entry and it will be de-bug underscore
+
+05:53.430 --> 06:04.750
+toolbar dot middleware dot debug toolbar middleware and pay attention to capitalization here.
+
+06:04.790 --> 06:06.990
+You can always reference the documentation.
+
+06:07.000 --> 06:10.510
+They essentially have all these lists all the steps listed out for you.
+
+06:10.550 --> 06:12.200
+So it's really easy to follow along.
+
+06:12.200 --> 06:17.000
+But all we need to do is add that to middleware and then we're going to save our settings up PI file
+
+06:17.330 --> 06:20.480
+once we've added the debug toolbar to the middleware list.
+
+06:20.480 --> 06:27.110
+The final thing we have to do on our settings that PI file is add in an internal IPs attribute or a
+
+06:27.110 --> 06:28.010
+variable.
+
+06:28.040 --> 06:30.020
+So we'll scroll all the way down to the bottom.
+
+06:30.020 --> 06:34.310
+It really doesn't matter where you put this but we'll put it all the way in the bottom and all in all
+
+06:34.310 --> 06:41.330
+caps say in Turnell underscore IPs and set it equal to a list.
+
+06:41.360 --> 06:47.840
+And then as a string we're going to pass in our internal IPs so 6:59 point zero point zero point zero
+
+06:47.840 --> 06:49.500
+point zero point 1.
+
+06:49.700 --> 06:54.470
+And that basically allows the debug toolbar to know that it should only be operating if you're running
+
+06:54.470 --> 06:55.640
+something locally.
+
+06:55.640 --> 07:00.620
+That way if someone ends up using your site and you left the debug toolbar in the middleware or something
+
+07:00.620 --> 07:04.030
+like that they don't accidentally see it while they're using the site.
+
+07:04.040 --> 07:06.310
+This is really only for us which makes sense.
+
+07:06.500 --> 07:10.180
+So I will save that to setting up my file and I'll try running this again.
+
+07:10.190 --> 07:18.230
+Will say Python managed up-I and whips and it put a space in there more supply run server enter and
+
+07:18.230 --> 07:20.420
+then I'm going to hop over to the browser.
+
+07:20.420 --> 07:25.310
+All right coming over to your browser you should now see the debug toolbar over on your right hand side
+
+07:25.340 --> 07:26.640
+which looks pretty nice.
+
+07:26.780 --> 07:28.990
+And if you ever want to hide it so you can see more of your web site.
+
+07:28.990 --> 07:33.500
+Just click on this Heidi button and I'll say right here this little tab jingo Deepa toolbar and you
+
+07:33.500 --> 07:39.170
+can click on this and it's almost operating like a little javascript add on to our page with a lot more
+
+07:39.170 --> 07:40.460
+information.
+
+07:40.460 --> 07:43.940
+Let's go through each of these panels and explain what kind of information they're trying to give to
+
+07:43.940 --> 07:44.360
+you.
+
+07:44.600 --> 07:47.890
+So versions that panel just shows are the versions of things you're using.
+
+07:47.960 --> 07:52.790
+For example right now I'm using Django 1.1 0 in my virtual environment and piped them three point five
+
+07:53.120 --> 07:55.120
+and the debug toolbar version was one point.
+
+07:55.220 --> 08:00.590
+So if using any Python packages this report back the versions which is kind of nice in case you don't
+
+08:00.590 --> 08:05.930
+want to have to dig in and look up what versions you're using this will tell you there likely then the
+
+08:05.930 --> 08:10.120
+time panel right here just tells you the total time it took to load up this page.
+
+08:10.310 --> 08:13.010
+So for example let's go to the slash user's page.
+
+08:13.130 --> 08:18.440
+Hit enter and then you'll see here it took a little longer about 400 milliseconds versus this other
+
+08:18.440 --> 08:23.690
+page which did have to make any calls to our model took WAY less 15 milliseconds so make sense.
+
+08:23.690 --> 08:28.700
+Let's go back to that user's tab because there's basically a sequel query here that is going to be useful
+
+08:29.060 --> 08:31.010
+if you click on the settings panel.
+
+08:31.010 --> 08:35.390
+This shows you all the settings in your settings that PI file that we don't need to go back to your
+
+08:35.390 --> 08:36.260
+text editor.
+
+08:36.290 --> 08:40.490
+You can see them all here so I can see for example debug is equal to true which is why I'm able to see
+
+08:40.490 --> 08:45.500
+this debug toolbar and all the installed apps app to the book toolbar etc..
+
+08:45.830 --> 08:47.250
+So I'm going to close this now.
+
+08:47.300 --> 08:51.350
+So far pretty self-explanatory has saved this time from having to go back to the editor.
+
+08:51.500 --> 08:57.830
+If the checkout headers here this panel tab shows the APCP request and response headers as well as a
+
+08:57.830 --> 09:02.330
+selection of values from the WCI environment down here.
+
+09:02.480 --> 09:09.550
+Then next we have the request panel and the request panel just shows you the get or post request so
+
+09:09.570 --> 09:13.340
+shows you essentially view information and the cookies.
+
+09:13.340 --> 09:20.490
+So this is a little more useful on a page that has a form that we can see the posts or get requests.
+
+09:20.510 --> 09:24.930
+And then the data that's associated with them says we're using a really simple web site as our example.
+
+09:24.980 --> 09:30.050
+We don't see much information here but in the views that you had that actually have a form which is
+
+09:30.050 --> 09:34.570
+trying to get something or post something you'll see that information here on the request panel.
+
+09:34.760 --> 09:36.630
+Then we have the sequel panel.
+
+09:36.920 --> 09:41.960
+And this essentially shows you the sequel queries including the time to execute and links to try to
+
+09:41.960 --> 09:43.270
+explain each query.
+
+09:43.460 --> 09:44.880
+So let me close this real quick.
+
+09:45.080 --> 09:50.540
+Hopefully you remember that essentially we're doing here in the users for apt to is showing a manual
+
+09:50.540 --> 09:54.770
+list view of all the users meaning we had to query our models.
+
+09:54.830 --> 10:01.490
+Essentially our sequel database using sequel like and what Django did was it transformed your Python
+
+10:01.490 --> 10:03.280
+code into a sequel queery.
+
+10:03.380 --> 10:08.090
+And if you want more details on a sequel query you can click here on the sequel panel and then you can
+
+10:08.090 --> 10:08.360
+click.
+
+10:08.360 --> 10:13.680
+Plus it will show you the sequel queery that it created for us.
+
+10:13.820 --> 10:20.650
+So it's select from order by ascending order and you can see here what we actually did in our template.
+
+10:20.660 --> 10:25.700
+We said if users were Person and users etc. and it also showed you how much time it took to execute
+
+10:25.700 --> 10:26.400
+that query.
+
+10:26.630 --> 10:30.440
+Obviously our model was pretty small and our crew was really simple.
+
+10:30.450 --> 10:35.510
+So I was only 12 users here or something so it took like point five millisecond was a super fast.
+
+10:35.600 --> 10:35.890
+OK.
+
+10:35.900 --> 10:40.930
+So that may be useful information especially when you get to a more complicated class based views.
+
+10:41.000 --> 10:41.800
+Static files.
+
+10:41.810 --> 10:47.600
+We have the static files but this should show you information about them things like the SS or javascript.
+
+10:47.750 --> 10:53.030
+That way in case you ever don't get a connection from your Django application to your CSSA files this
+
+10:53.030 --> 10:55.440
+can really help you figure out what's going on there.
+
+10:55.790 --> 10:56.970
+Then there's the templates.
+
+10:56.970 --> 10:59.510
+This just shows you the actual template that it's connected to.
+
+10:59.510 --> 11:03.860
+Again pretty useful if it's connecting to a template you don't expect cache.
+
+11:03.870 --> 11:09.120
+This is just shows the cache queries right now is so so simple we actually don't really have anything
+
+11:09.120 --> 11:09.750
+here.
+
+11:10.110 --> 11:15.830
+Then we have signals the signal is just the list of signals or arguments and receivers.
+
+11:15.990 --> 11:20.290
+Right now at the level we're programming in this may not make a whole lot of sense.
+
+11:20.430 --> 11:26.030
+May not be very useful to you but it much larger projects you may find useful for this tab.
+
+11:27.320 --> 11:28.430
+Then finally logging.
+
+11:28.430 --> 11:33.650
+We actually haven't been logging anything but in case you ever wanted to use Python's built in logging
+
+11:33.650 --> 11:39.170
+module to log things like error messages etc. You could easily accept those and find them here.
+
+11:39.170 --> 11:42.760
+And those are all the really useful features of the debug toolbar.
+
+11:42.770 --> 11:46.300
+Again right now developing pretty simple web site applications.
+
+11:46.300 --> 11:50.810
+And since we're doing everything from the ground up and we essentially write all the code for these
+
+11:50.810 --> 11:55.850
+larger clone projects that we've been experiencing the debug toolbar may not be right now the best fit
+
+11:55.850 --> 12:01.280
+in your workflow but once you start doing a much larger project working with other people your colleagues
+
+12:01.280 --> 12:06.450
+are working at a company or you start using other outside libraries that you may not have written yourself.
+
+12:06.560 --> 12:10.340
+The DBA toolbar will hopefully be a really good addition to your workflow.
+
+12:10.340 --> 12:12.400
+All right that's it for this section of the course.
+
+12:12.410 --> 12:17.240
+Just wanted to show you the debug toolbar what it's capable of and how to set it up in your project.
+
+12:17.240 --> 12:20.040
+Thanks everyone and I'll see you at the next section of the course.

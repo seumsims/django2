@@ -1,0 +1,367 @@
+WEBVTT
+
+00:05.880 --> 00:09.840
+Welcome back everyone to the part of the social clone project.
+
+00:10.020 --> 00:12.080
+We're going to finish up the accounts application.
+
+00:12.090 --> 00:17.610
+That means our log in log out and sign up capabilities by setting up the log in and log out your calls
+
+00:17.700 --> 00:23.090
+and or setting up py file creating two more templates for that and then we'll also set up the migration.
+
+00:23.100 --> 00:27.960
+So we're going to continue with the accounts application right where we left off from the previous lecture.
+
+00:27.960 --> 00:28.200
+OK.
+
+00:28.200 --> 00:29.940
+Here I am Adam text editor.
+
+00:29.960 --> 00:33.860
+Remember in the previous lecture we finished off creating are based studies team M-file.
+
+00:33.870 --> 00:39.540
+What we need to do is set up the log in to redirect your URL and log out redirect you RL that the log
+
+00:39.540 --> 00:44.310
+in and log out views are going to call and we're going to need to do that within our settings that PI
+
+00:44.310 --> 00:44.880
+file.
+
+00:45.090 --> 00:47.690
+So go to simple social settings not pi.
+
+00:48.060 --> 00:51.450
+And then these usually go all the way at the bottom so scroll all the way down and we're going to set
+
+00:51.450 --> 00:53.680
+up two variables.
+
+00:54.060 --> 00:59.730
+So you're going to say log in underscore redirects underscore you are l.
+
+00:59.730 --> 01:05.190
+So this is the log in redirect and we'll have this redirect to a test page and then we will have our
+
+01:05.190 --> 01:11.830
+log out underscore read redirect underscore you Earl and I'm going to have that be equal to A thinks
+
+01:11.910 --> 01:12.470
+page.
+
+01:12.540 --> 01:13.730
+So we'll save that.
+
+01:14.040 --> 01:18.750
+And now that we've said test and thinks let's actually create those templates so we didn't create those
+
+01:18.750 --> 01:24.500
+templates inside of our top level templates in the same directory we're based on index trees.
+
+01:24.510 --> 01:30.180
+Tim L-R so we'll a new file and I'm going to call this file test.
+
+01:30.320 --> 01:33.500
+H.A. and I'll create one more file under templates.
+
+01:33.500 --> 01:39.450
+New file and I will say thanks to HTL and let's set those up so the test.
+
+01:39.460 --> 01:41.120
+I was going to test this.
+
+01:41.130 --> 01:49.500
+Basically we're going to say extends from base but each T.M. we're going to say block the content block
+
+01:50.130 --> 01:52.890
+and put this inside of a can actually going into a container.
+
+01:52.890 --> 02:01.350
+We just need to say H-1 you are now logged in exclamation point and then we'll just actually just have
+
+02:01.350 --> 02:02.250
+that be it.
+
+02:02.250 --> 02:05.590
+So I'll save that that's essentially going to be a test page to see if logging in worked.
+
+02:05.700 --> 02:08.690
+Once you log in it should take us this page you are now logged in.
+
+02:08.910 --> 02:12.930
+And then in our thinks each team pile this is going to be the log out.
+
+02:12.930 --> 02:24.000
+So we'll say extends based HCM HTL I will call the content block here and then we'll say H-1.
+
+02:24.230 --> 02:28.840
+Thanks for visiting comeback soon.
+
+02:28.940 --> 02:32.480
+That's kind of the typical log out thing you usually see in a web site.
+
+02:32.510 --> 02:35.750
+So if you log out of Facebook usually see oh thank you for visiting.
+
+02:35.750 --> 02:36.400
+Come back soon.
+
+02:36.410 --> 02:37.020
+Cetera.
+
+02:37.250 --> 02:42.530
+So that's our log in and log out so log in view from jingo point eleven essentially going to look for
+
+02:42.530 --> 02:45.870
+those variables which are then going to connect to these HCM files.
+
+02:45.920 --> 02:51.410
+So now that we created those HMO files what we need to do is actually set them up with the views that
+
+02:51.410 --> 02:55.110
+pi and euros that PI over a simple social app.
+
+02:55.160 --> 03:02.390
+So in the simple social project come over to views that pie right now we just have our home page view.
+
+03:02.390 --> 03:10.440
+I'm going to add in the test page and the things page I will say class test page and I'm going to again
+
+03:10.440 --> 03:19.440
+use template view here and then just set my template name equal to test page T.M. and I'll add one more
+
+03:19.980 --> 03:21.360
+for the actual thinks page.
+
+03:21.360 --> 03:24.150
+So will say thanks page.
+
+03:24.180 --> 03:31.530
+And this is going to be a template view and this will say template name is equal to think study.
+
+03:31.580 --> 03:33.180
+Female perfect.
+
+03:33.190 --> 03:37.170
+Now I'm going to say that since we have these interviews we're going to connect these two or you're
+
+03:37.170 --> 03:38.100
+all stopped by.
+
+03:38.190 --> 03:40.410
+So let's do that come over to your All-Starr pie.
+
+03:40.590 --> 03:47.190
+This is our project your PI file and we will say you are el and WIPs you are ill.
+
+03:47.940 --> 03:50.440
+And then we're going to use regular expressions here.
+
+03:50.670 --> 03:53.930
+We will say something like carrots.
+
+03:54.140 --> 03:56.630
+Let's actually make sure we have that in our accounts as well.
+
+03:56.700 --> 03:58.040
+That should always be there.
+
+03:58.140 --> 04:04.700
+So our curate counts carried accounts and then curate this will be for the test page support slash.
+
+04:04.910 --> 04:09.630
+And then I can put a dollar sign in there just to continue in case we want to build off test.
+
+04:09.630 --> 04:21.380
+I will say views that test page dot as View so call as a view and then let's give it the name test.
+
+04:23.180 --> 04:31.930
+And then we'll say you are all using regular expressions again carrots and then I'm going to say thanks
+
+04:32.980 --> 04:39.940
+and let's connect that to use the the thinks page as a view and we'll get the name.
+
+04:40.040 --> 04:44.960
+Thanks ok save that.
+
+04:44.980 --> 04:46.740
+So now are your patterns are done.
+
+04:46.960 --> 04:51.930
+Let's move on to the next step which is to migrate all the changes we did to accounts.
+
+04:52.180 --> 05:01.760
+So I will say Python managed PI make migrations accounts and turn let that run great.
+
+05:01.770 --> 05:08.830
+We created the model user Nangle and say Python managed up-I migrate enter and we should see it should
+
+05:08.830 --> 05:10.290
+have apply those migrations.
+
+05:10.480 --> 05:12.070
+Let's check and see if this actually works.
+
+05:12.070 --> 05:13.870
+We may have to do some debugging.
+
+05:13.870 --> 05:19.180
+We will say Python is up high and then run our server.
+
+05:19.670 --> 05:21.210
+Enter.
+
+05:21.290 --> 05:22.940
+OK so we got no bugs there.
+
+05:23.060 --> 05:25.950
+So we may have to do a little debugging but right now looking good.
+
+05:25.950 --> 05:31.420
+I'm going to hop over to the browser in here and the browser let's refresh and see what we get.
+
+05:31.610 --> 05:32.150
+OK.
+
+05:32.380 --> 05:34.240
+So it says template syntax error.
+
+05:34.300 --> 05:38.940
+Invalid block line 17 static that you forget to register or load the tag.
+
+05:38.950 --> 05:39.850
+I probably did.
+
+05:39.850 --> 05:45.010
+So let's make sure it's actually registered and we can see or hear that's happening at base that T.M.
+
+05:45.100 --> 05:46.390
+error at line 17.
+
+05:46.390 --> 05:48.220
+So let's fix that.
+
+05:48.340 --> 05:51.070
+So I will go back to my base that each team l file.
+
+05:51.070 --> 05:54.640
+So let me come back here and here in my base study C.M. file.
+
+05:54.640 --> 05:59.640
+I can see him using static but in order to actually use that static call you need to load static files
+
+05:59.770 --> 06:03.590
+scroll all the way back up here and right underneath this dock type.
+
+06:03.670 --> 06:12.440
+I'm going to call load as a template tag and then say static files save that and balustrades again.
+
+06:12.450 --> 06:13.710
+Welcome back to the browser.
+
+06:14.970 --> 06:18.600
+Let's refresh and it says Welcome to our social.
+
+06:18.600 --> 06:21.720
+OK looking pretty good right now we can see we have the basic navigation bar.
+
+06:21.800 --> 06:25.010
+We have our social groups log in and sign up.
+
+06:25.010 --> 06:29.570
+So right now groups shouldn't really do anything but log in and sign up should Let's practice signing
+
+06:29.570 --> 06:34.240
+up will click sign up and you can see here it actually looks really nicely formatted.
+
+06:34.310 --> 06:39.030
+Here you can see there's extra stuff about the password and then required 150 characters or fewer.
+
+06:39.050 --> 06:41.510
+That's what bootstrap 3 library is doing for us.
+
+06:41.510 --> 06:43.140
+It's making this really nice display.
+
+06:43.310 --> 06:44.270
+So let's sign up.
+
+06:44.270 --> 06:49.320
+I'm going to say my display name is test user.
+
+06:49.730 --> 06:59.520
+My email address is going to be test at gmail dot com password is going to be password and then we will
+
+06:59.520 --> 07:03.360
+confirm our password with test password.
+
+07:03.440 --> 07:05.340
+Let's click sign up.
+
+07:05.540 --> 07:09.640
+OK so it's signed up and redirected us the log in page as we expected.
+
+07:09.710 --> 07:14.120
+And it kind of auto filled for me because I'm using Chrome right now which is kind of memorizing the
+
+07:14.210 --> 07:15.100
+username password.
+
+07:15.110 --> 07:20.990
+So let's make sure this is working and the log in and it says please correct username so it's wrong
+
+07:20.990 --> 07:22.610
+username it should be.
+
+07:22.610 --> 07:26.940
+Test User and then make sure that password is also correct.
+
+07:26.940 --> 07:28.760
+Test password.
+
+07:29.130 --> 07:33.740
+Ok now I'm going to log in and then boom it says now you're a log then perfect.
+
+07:33.840 --> 07:36.520
+And I can see here the actual navigation bars change.
+
+07:36.510 --> 07:38.550
+Now I have post in create group.
+
+07:38.550 --> 07:39.740
+I also have log out.
+
+07:39.780 --> 07:42.550
+So let's test with log out make sure that's working.
+
+07:42.630 --> 07:44.730
+And it says thinks or isn't it come back soon.
+
+07:44.730 --> 07:45.300
+Fantastic.
+
+07:45.300 --> 07:50.460
+Looks like everything is working for us so we're going to do it in the next lecture we'll continue on
+
+07:50.700 --> 07:55.210
+by moving to posts and groups and we kind of have to work with those simultaneously.
+
+07:55.440 --> 07:58.460
+So we're not going to work on a single application like we just did here.
+
+07:58.530 --> 08:03.870
+But since they're so connected it should be relatively straightforward as far as working with them in
+
+08:03.870 --> 08:04.560
+sync.
+
+08:04.740 --> 08:08.150
+OK I'm going to end it here and I'll see you at the next lecture.
+
+08:08.310 --> 08:09.380
+Thanks everyone.

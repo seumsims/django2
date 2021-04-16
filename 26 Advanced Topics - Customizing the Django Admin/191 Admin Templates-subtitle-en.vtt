@@ -1,0 +1,256 @@
+WEBVTT
+
+00:05.360 --> 00:09.360
+Welcome back everyone to this lecture on adamant templates.
+
+00:09.530 --> 00:12.820
+Now for projects where other users will have access to the admin page.
+
+00:12.830 --> 00:17.450
+Not just yourself the person who created the Web site you may want to add some customization to the
+
+00:17.450 --> 00:18.410
+admin templates.
+
+00:18.410 --> 00:23.500
+That way when they log in it looks a little nicer it's more related to the actual web site etc..
+
+00:23.540 --> 00:28.860
+So to do this you can overwrite template punched him elf files that are associated with the Admin Pages
+
+00:30.100 --> 00:31.180
+in order for that to work.
+
+00:31.180 --> 00:34.350
+You must have the correct template name and directory structure.
+
+00:34.540 --> 00:41.140
+Finding the file names that are correct involves looking around jingoes open source code on get hub.
+
+00:41.160 --> 00:45.600
+So what we're going to do is we're going to create that directory structure and then find a template
+
+00:45.600 --> 00:48.780
+name from get hub will kind of walk you through the whole process.
+
+00:48.810 --> 00:53.910
+Then afterwards once we have that template we're going to copy and paste the ASTM file into our code
+
+00:54.180 --> 00:56.050
+and change the template however we want.
+
+00:56.250 --> 01:01.440
+Let's get started by jumping over to our editor and setting up the directory structure.
+
+01:01.450 --> 01:07.450
+OK so in your project directory where you have your project directory your project folder and then your
+
+01:07.450 --> 01:11.170
+application folder what you're going to have right underneath the project directory.
+
+01:11.170 --> 01:15.960
+At the very top level you're going to add a new folder and you're going to call it templates.
+
+01:16.980 --> 01:23.710
+And then under that new templates folder you're going to create a subfolder called admin and this is
+
+01:23.710 --> 01:29.680
+where you can copy and paste template HTL files that are associate of the admin and essentially overwrite
+
+01:29.770 --> 01:32.660
+the original admin template files.
+
+01:32.740 --> 01:35.110
+Now to show you what these template file should be named.
+
+01:35.110 --> 01:39.520
+We're going to hop over to our browser and walk you through the Django documentation or open source
+
+01:39.520 --> 01:39.840
+code.
+
+01:39.880 --> 01:40.800
+Just a little bit.
+
+01:41.080 --> 01:44.760
+Let's open my browser and head over to jingoes page.
+
+01:45.160 --> 01:49.170
+OK so here I am at get help dot com slash jingoes slash Django.
+
+01:49.210 --> 01:51.720
+And this is all the open source code for Django.
+
+01:51.940 --> 01:56.620
+And we actually need to play around this a little bit and find where the admin template files are.
+
+01:56.640 --> 02:00.100
+So let me go ahead and show you how you can find them.
+
+02:00.230 --> 02:02.380
+Your first going to come to this Django folder.
+
+02:02.400 --> 02:05.870
+Let me zoom in just a little bit here so it's kind of clear what we're looking at.
+
+02:05.870 --> 02:11.780
+You'll come over to Jane go with that load up and then underneath jingo you'll scroll down to see contrib.
+
+02:11.990 --> 02:17.840
+Click on that and then you'll find Adam in here and then under admin you'll find the templates folder.
+
+02:17.960 --> 02:21.950
+So this templates folder is where you have registration admin to the Pentagon which you kind of want
+
+02:21.950 --> 02:22.910
+to play around with.
+
+02:22.910 --> 02:28.140
+You can edit those too as well but we are just adding the admin page right now so we'll click on that.
+
+02:28.340 --> 02:33.590
+And this is why we had to have that specific directory structure templates underscore admen because
+
+02:33.590 --> 02:38.350
+essentially we're going to be overwriting one of the team files and for now we can overwrite the base
+
+02:38.390 --> 02:39.540
+site h l.
+
+02:39.560 --> 02:46.250
+That's the very first page you see so if you hit that and click on open a new tab you'll see here that
+
+02:46.250 --> 02:52.820
+it says extends from Adam in base that age female and essentially just has the index page and the dingo
+
+02:52.820 --> 02:54.710
+site admin Hetter page.
+
+02:54.710 --> 02:59.900
+Now if you come back here you can see that there's base h t m l and this is the base h tim Alko that
+
+02:59.900 --> 03:04.740
+kind of has the styling the links etc. and builds out with a lot of these pages are going to look like.
+
+03:04.790 --> 03:09.740
+So if you want to end up doing things like setting the page have certain styles or colors anything with
+
+03:09.770 --> 03:14.070
+CSSA or just kind of something that extends to the majority of the pages.
+
+03:14.090 --> 03:17.290
+This is the file you kind of want to play around with based that each team.
+
+03:17.450 --> 03:20.520
+But we just really want to play around with that very first thing.
+
+03:20.600 --> 03:26.540
+So we'll say based site HTL base underscore site that each team will I'm going to copy all of this.
+
+03:26.990 --> 03:33.280
+So right click copy and then I'm going to hop over back to my editor see to minimize that and have an
+
+03:33.310 --> 03:34.180
+editor right here.
+
+03:34.200 --> 03:39.770
+So underneath Addleman I'll create a new file and remember he said the exact same name as what we just
+
+03:39.770 --> 03:44.890
+discussed so it's going to be base underscore site that each team will enter.
+
+03:44.900 --> 03:46.420
+And now we have this template file.
+
+03:46.430 --> 03:52.400
+So then I'm going to just paste it here if I just run this right now nothing is going to change.
+
+03:52.430 --> 03:55.570
+So I'm actually going to do is change over the first heading 1.
+
+03:55.610 --> 03:57.240
+So you can see heading 1 right now.
+
+03:57.500 --> 04:00.340
+It links to the index page of the Ottoman site.
+
+04:00.440 --> 04:02.920
+But then it also has this kind of template insert.
+
+04:03.840 --> 04:08.850
+So it says here like oh I'm inserting some say a header at default Gengel administrator etc. instead
+
+04:08.850 --> 04:12.960
+of doing all that I'm just going to kind of put in my own line here.
+
+04:12.960 --> 04:14.240
+So let's delete that.
+
+04:14.370 --> 04:23.820
+And let's just have it say something like new Ligers for doing a video store let's do video store admen
+
+04:24.420 --> 04:26.420
+then I'm going to save this.
+
+04:26.580 --> 04:30.600
+Now that we've gone ahead and edited this based site that reached him we want to make sure that our
+
+04:30.650 --> 04:34.360
+settings file is ready to accept any template changes.
+
+04:34.470 --> 04:39.550
+So we'll open up our project folder open up settings that pie and as we them before you can actually
+
+04:39.540 --> 04:46.250
+just is directly usually had another variable name but instead we're going to do is if you come over
+
+04:46.250 --> 04:49.870
+to where it's as templates it is going to search for templates.
+
+04:49.880 --> 04:52.570
+There we go and Lotus has directories right now.
+
+04:52.590 --> 04:54.630
+MT Salt's go ahead and do the following.
+
+04:54.630 --> 05:03.940
+We'll say oh estopped path the join and we're going to join that base directory with templates
+
+05:06.470 --> 05:11.760
+so save that and once you have that we should be able to see the new changes in our base site at him.
+
+05:12.070 --> 05:14.960
+So we notice that basically Genger already restarted it for me.
+
+05:15.080 --> 05:21.820
+So I'll bring in in my browser now with the admin page and if I bring it over you can see now it says
+
+05:21.840 --> 05:23.560
+video store admin.
+
+05:23.570 --> 05:27.830
+So those are the kind of changes you can make basically anything stylistically that you want to change
+
+05:27.830 --> 05:31.460
+or CSSA you're probably better off doing the baseline each small file.
+
+05:31.460 --> 05:37.070
+But if you want to change kind of minor things around this kind of index page of base site HTL you can
+
+05:37.070 --> 05:38.170
+do that as well.
+
+05:38.180 --> 05:42.580
+Now carefully be careful you don't want to change things too much to actually break the functionality.
+
+05:42.650 --> 05:47.600
+I would recommend this war for style choices as far as functionality editing word and learn the more
+
+05:47.600 --> 05:51.700
+correct ways to do that later on throughout this series of lectures.
+
+05:51.710 --> 05:52.930
+All right that's it for this lecture.
+
+05:52.940 --> 05:53.660
+I'll see at the next one.

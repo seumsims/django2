@@ -1,0 +1,670 @@
+WEBVTT
+
+00:04.820 --> 00:08.830
+Hello everyone and welcome to the creating models lecture for Django level.
+
+00:09.810 --> 00:12.270
+We covered a lot of concepts in the previous lecture.
+
+00:12.270 --> 00:17.220
+So let's actually start implementing them and in order to do that we are going to continue working with
+
+00:17.220 --> 00:19.730
+the two project folders from Gengel level 1.
+
+00:19.860 --> 00:23.000
+If you don't have those you can always download them from the course notes.
+
+00:23.020 --> 00:25.100
+OK let's start making some models.
+
+00:25.140 --> 00:28.870
+I'm going to hop over to the editor and open up the first project folder now.
+
+00:29.100 --> 00:33.000
+OK here I am at the editor and I have my file structure.
+
+00:32.990 --> 00:38.690
+Jingle level 1 and I have two projects from jingle level on Pro 2 and first project.
+
+00:38.910 --> 00:39.990
+So you can open those up.
+
+00:40.020 --> 00:46.200
+And what I want you to do is inside of first app open up the models that py file and you should have
+
+00:46.500 --> 00:51.420
+somewhere in that model up my file from Django that the import models and if you don't have that for
+
+00:51.420 --> 00:53.710
+some reason go ahead and type that in.
+
+00:53.790 --> 00:59.210
+And now we're going to do is using object oriented programming will create models with Shango.
+
+00:59.700 --> 01:05.780
+So models as we discussed in a previous lecture are just classes and then we give the actual name you
+
+01:05.780 --> 01:12.050
+can kind of relate these to the name of the table inside the database and then we'll actually inherit
+
+01:12.140 --> 01:15.430
+from models the model.
+
+01:15.440 --> 01:16.760
+So that's the base class.
+
+01:16.790 --> 01:24.770
+So we're going to have this topic be a derived class and then this class object attribute top underscore
+
+01:24.770 --> 01:30.680
+name is going to be equal to models dot and then we actually have to specify what kind of field it's
+
+01:30.680 --> 01:31.860
+going to be.
+
+01:32.000 --> 01:40.580
+This is going to be a character field for the actual topic and then we'll say max length is equal to
+
+01:40.640 --> 01:41.750
+2 6 4.
+
+01:41.840 --> 01:45.610
+So max length is a constraint of this character field.
+
+01:45.800 --> 01:48.920
+It's really up to you what value you choose for the maximum length.
+
+01:49.100 --> 01:54.320
+Obviously you should have some maximum length otherwise your users are going to be able to put as many
+
+01:54.320 --> 01:58.080
+characters as they want and you'll have to save them to 6 4 for a topic name.
+
+01:58.090 --> 02:00.490
+It's probably overkill but that's totally fine.
+
+02:01.610 --> 02:07.390
+Now we can say unique which is a Bramber to require as a constraint that all the topics be unique.
+
+02:07.400 --> 02:12.910
+I mean you can have duplicates in there so we'll say that's true as well and then usually you'll also
+
+02:12.910 --> 02:15.860
+want to have some sort of string representation of your model.
+
+02:15.880 --> 02:21.350
+So if you ever have to print out an instance of topic you will be able to do that without any error.
+
+02:21.490 --> 02:25.810
+So we know that there's a special method for that from the Object Oriented Programming sections.
+
+02:25.840 --> 02:32.160
+And that's just the SDR and then we're going to say return self-taught top name.
+
+02:32.350 --> 02:35.090
+Right now it's create two more models.
+
+02:35.920 --> 02:40.660
+We'll create a web page models the model
+
+02:43.460 --> 02:48.170
+and then we'll create a three class object attributes here the topic.
+
+02:48.170 --> 02:51.720
+And these are essentially the columns inside the table with page.
+
+02:52.070 --> 02:53.630
+And this will be a foreign key.
+
+02:55.830 --> 03:01.150
+Because we're going to grab from topic which makes sense.
+
+03:01.450 --> 03:04.730
+And then we have name which is going to be models.
+
+03:05.050 --> 03:07.060
+And this will be a character field.
+
+03:07.920 --> 03:14.300
+And we'll get this as well a max length set that include 2 6 4 2 6 4 1 2 8.
+
+03:14.340 --> 03:16.190
+It's totally fine whatever you want.
+
+03:16.250 --> 03:20.490
+And I also want to specify the unique constraint here to be true.
+
+03:22.740 --> 03:31.660
+And then finally I'm going to have your all equal to models your air field and I also want this to be
+
+03:31.660 --> 03:32.080
+unique
+
+03:34.690 --> 03:39.480
+so you can always visit the documentation of Django for the actual available fields.
+
+03:39.490 --> 03:43.360
+But we're definitely going to be showing you the most common ones as we continue on through this course.
+
+03:43.360 --> 03:48.880
+Things like integer fields date fields etc. So just keep that in mind and then we also want some sort
+
+03:48.880 --> 03:50.400
+of string representation here.
+
+03:51.300 --> 03:58.860
+Pasand self and I'm going to say return self-taught and we'll return the name of the web page as its
+
+03:58.860 --> 04:03.880
+string representation Finally let's create an Access record class
+
+04:06.950 --> 04:13.660
+and this will also inherit from models Top Model and what this access record class is going to be is
+
+04:13.960 --> 04:24.340
+will say the name of models thought foreign key and then what we will do is passen web page and we're
+
+04:24.340 --> 04:25.620
+also going to have a date field.
+
+04:25.630 --> 04:27.580
+When was it actually accessed.
+
+04:27.730 --> 04:37.800
+So the date column will be models dot a date field no X or constraints there.
+
+04:38.050 --> 04:43.600
+And then if I want to string representation of this I'll say this to your self and then I'm going to
+
+04:43.600 --> 04:47.310
+just pass the actual date so I'll return.
+
+04:47.410 --> 04:48.480
+Self-taught date.
+
+04:48.640 --> 04:53.980
+But unfortunately since this is a Date Time object it needs us because it has a string.
+
+04:53.980 --> 04:59.120
+And if you're ever unsure if one of these fields is going to be able to just simply be represented as
+
+04:59.130 --> 05:03.410
+string you can always just cast it using the SDR builtin function.
+
+05:03.520 --> 05:04.000
+OK.
+
+05:04.210 --> 05:06.610
+So looks like all our models are ready.
+
+05:06.640 --> 05:10.790
+Now it's time to actually create the sequel databases behind these models.
+
+05:10.840 --> 05:16.400
+And this is what the real power of Django is is all you have to do is to find classes here and it's
+
+05:16.420 --> 05:20.010
+going to take care of the rest of actually building out that sequel database for you.
+
+05:20.350 --> 05:22.470
+And we do that through a series of commands.
+
+05:23.390 --> 05:29.210
+The first thing we need to do is to actually initiate this entire process in that project folder.
+
+05:29.200 --> 05:38.620
+I will call Python manage PI and then call migrate enter and you should see running migrations.
+
+05:38.650 --> 05:42.900
+And if you've already run this if you read it twice you'll see no migrations to apply.
+
+05:42.910 --> 05:45.890
+I accidentally already ran it before I filled this.
+
+05:45.940 --> 05:48.700
+So Bill says no migrations for you.
+
+05:48.700 --> 05:51.790
+It will say something else if you haven't run this already.
+
+05:51.790 --> 05:55.610
+Then the next thing you have to do is register the changes to your application.
+
+05:56.110 --> 06:04.450
+So we will do here say Python managed up PI and we call make migrations and make sure I spell that right.
+
+06:04.450 --> 06:08.140
+Yep make migrations and then the name of your application.
+
+06:08.170 --> 06:13.590
+In our case it's simple Sia's first app will enter and you'll see some other things.
+
+06:13.600 --> 06:19.100
+Now I got no changes detected an app for SAP because I already ran this again.
+
+06:19.120 --> 06:20.960
+You'll get something else will say something like.
+
+06:21.040 --> 06:27.520
+Creating a model creating model accepter and after you've done that you need to run Python may manage
+
+06:27.580 --> 06:29.570
+that PI migrate one more time.
+
+06:30.410 --> 06:35.400
+So say Python managed up-I migrate one more time.
+
+06:35.690 --> 06:37.490
+And for me it says no migration supply.
+
+06:37.490 --> 06:40.470
+You'll probably get something different since you'll be running it for the first time.
+
+06:41.460 --> 06:48.180
+So those three commands this one by four managed up high then I managed up high make migrations.
+
+06:48.180 --> 06:49.380
+Your application name.
+
+06:49.620 --> 06:56.430
+And then again I managed that PI migrate and now our models should be ready and connected to a sequel
+
+06:56.430 --> 07:01.270
+database that Django just created for us and register the changes to our application.
+
+07:01.280 --> 07:04.820
+Now the question arises Well how do you actually confirm that all of this worked.
+
+07:04.830 --> 07:07.400
+And how do you actually interact with that database.
+
+07:07.440 --> 07:12.900
+Well we'll show you the most simple and basic way and that's to create some test data with some shell
+
+07:12.900 --> 07:13.310
+commands.
+
+07:13.310 --> 07:19.990
+So using Python at the Shell we can actually interact for database and this is going to do that.
+
+07:20.050 --> 07:29.480
+I will call Python managed up PI show and this will open up an interactive console for me I'm using
+
+07:29.900 --> 07:33.350
+Python 3.5 here you're probably using some 3.6.
+
+07:33.350 --> 07:34.490
+That's totally fine.
+
+07:34.490 --> 07:41.320
+Either one should work and I'm going to collapse that tree so we can see a little more here and whoops
+
+07:42.210 --> 07:43.560
+that's not what I meant to do.
+
+07:45.480 --> 07:47.930
+Ok come back down to the con..
+
+07:47.930 --> 07:52.260
+Here we go now to make sure everything's working I'm just going to Prince.
+
+07:52.460 --> 07:53.020
+Hello.
+
+07:53.060 --> 07:56.040
+I should get hello back and good it's working fine.
+
+07:56.970 --> 08:03.200
+What we'll do is we'll say from first underscore app dot models.
+
+08:03.290 --> 08:05.790
+So this is the models that py file have open right here.
+
+08:05.790 --> 08:14.290
+From that first app folder import topic's actually import in instance Erck import that class so we can
+
+08:14.410 --> 08:15.230
+work with it.
+
+08:16.150 --> 08:17.320
+And that worked fine.
+
+08:17.350 --> 08:21.760
+If you get an error here it's probably because you forgot to do the migration command so keep that in
+
+08:21.760 --> 08:22.590
+mind.
+
+08:22.960 --> 08:29.480
+And then we can say Prince topic objects.
+
+08:29.590 --> 08:36.250
+All clothes princes and if I run this this will actually print all the objects in that topic model or
+
+08:36.250 --> 08:37.510
+topic table.
+
+08:37.900 --> 08:39.260
+You'll get nothing back the first time.
+
+08:39.280 --> 08:40.420
+So let's create something else.
+
+08:40.420 --> 08:46.740
+Say T is equal to an instance of topic and I will say the top name.
+
+08:46.830 --> 08:55.900
+So the topic name is the social network so maybe a couple of Web sites follow social networks things
+
+08:55.900 --> 08:57.720
+like Instagram Facebook.
+
+08:57.740 --> 09:00.700
+I don't know if anyone's still on MySpace but you get the idea.
+
+09:00.750 --> 09:03.590
+Enter here and then to actually save this change.
+
+09:03.610 --> 09:10.260
+I say T Dot save and that's a method that we inherit from the models that model class.
+
+09:10.330 --> 09:12.630
+So enter now it's saved.
+
+09:12.670 --> 09:20.490
+So if I run that previous command of current topic the object stopped all I get back Cleary's set topic
+
+09:20.500 --> 09:21.420
+social network.
+
+09:21.550 --> 09:21.910
+Great.
+
+09:21.910 --> 09:28.550
+So I actually was able to affect all of this and I'm going to quit.
+
+09:28.660 --> 09:34.090
+So so far we've created models and we've created the databases behind them and we actually use shell
+
+09:34.090 --> 09:37.650
+commands to add something.
+
+09:37.650 --> 09:42.600
+Now we're definitely not going to be using the shell every time we want to add something or view or
+
+09:42.600 --> 09:46.920
+model or get an idea of what the database actually contains.
+
+09:47.010 --> 09:52.470
+In order to use more convenience we use the admin interface and this is again a really awesome feature
+
+09:52.490 --> 09:53.050
+jingo.
+
+09:53.070 --> 09:58.890
+It's going to have a fully developed admin interface with very little work from us but in order to have
+
+09:58.890 --> 10:05.280
+the admin interface with the models we need to register them to our applications admin that py file.
+
+10:05.280 --> 10:09.780
+So let's show you how we can do that when to open up the directory tree here.
+
+10:09.860 --> 10:14.700
+And I have my application folder and inside of that I see Adam and up-I and it looks something like
+
+10:14.700 --> 10:17.110
+this from Django that contrib import adman.
+
+10:17.160 --> 10:18.920
+And it says register your models here.
+
+10:19.020 --> 10:23.640
+So I need to basically tell my application that my models exist.
+
+10:23.800 --> 10:30.040
+So I'll say from and then you put in the name of your application so my case its first app that models
+
+10:30.040 --> 10:35.870
+so that models that py file import and then I'm going to import all the models so that's Axxess record.
+
+10:36.220 --> 10:39.110
+That's topic an atom should be helping you out here.
+
+10:39.220 --> 10:43.230
+And then the last one was called web page I believe.
+
+10:43.790 --> 10:44.350
+Great.
+
+10:44.800 --> 10:51.550
+And then it's time to register them in the way you register them is from that Admin site.
+
+10:51.820 --> 11:00.650
+Register and it should be lowercase and then we passen the actual model so we can start with access
+
+11:00.650 --> 11:10.420
+record and then we'll do this a couple of more times for the other two models will say register topic
+
+11:11.270 --> 11:19.270
+and admin dot sites register register and then finally what page.
+
+11:19.940 --> 11:20.350
+OK.
+
+11:20.400 --> 11:26.910
+So these are registered and ready to be used with the admin interface in order to actually fully use
+
+11:26.910 --> 11:29.460
+the database with the admin interface.
+
+11:29.460 --> 11:35.270
+I need to create a super user that way not just any Joe Schmo can come in and start messing around for
+
+11:35.270 --> 11:41.100
+our database only people who were creating the web site and had access to all of this information could
+
+11:41.100 --> 11:44.150
+create a super user and we can do that with the following.
+
+11:44.150 --> 11:49.350
+So under first project I say Python managed up PI.
+
+11:49.670 --> 11:56.610
+And then we say create super user and then later from the admin interface you can create more super
+
+11:56.610 --> 11:58.640
+users or give people more permissions.
+
+11:58.650 --> 12:02.420
+But we have to create at least one super user here from this command line.
+
+12:02.820 --> 12:10.320
+So create a super user and we need to have a user name a password and an email address.
+
+12:10.380 --> 12:12.420
+Now it's totally up to you what you want to provide.
+
+12:12.420 --> 12:14.380
+Here is your user name email and password.
+
+12:14.400 --> 12:17.550
+Just really make sure that you remember them or write them down somewhere.
+
+12:17.640 --> 12:22.960
+Otherwise you have to repeat this entire create super superuser process so I'm going to say I'm a user
+
+12:22.960 --> 12:24.160
+name is Jose.
+
+12:24.280 --> 12:31.460
+E-mail address let's say training at Pierian data that com.
+
+12:31.680 --> 12:38.310
+And then my password elders say T E S T P S S W O R D.
+
+12:38.310 --> 12:39.660
+Test password.
+
+12:39.660 --> 12:43.180
+It won't let you do super weak password so keep that in mind.
+
+12:43.230 --> 12:45.100
+This one that I'm typing in is really weak.
+
+12:45.120 --> 12:50.040
+Just test password but I don't really care since I'm never actually going to launch this website.
+
+12:50.100 --> 12:50.400
+All right.
+
+12:50.400 --> 12:51.690
+So I created a super user.
+
+12:51.690 --> 12:57.240
+Now it's time to actually use that super user the admin interface and let's do that by actually running
+
+12:57.240 --> 13:01.600
+the server and checking out the admin interface in our browser.
+
+13:01.620 --> 13:09.760
+So I'll say Python managed up-I run server enter and hopefully have no errors.
+
+13:09.850 --> 13:13.960
+Ok I'm going to copy and paste this and jump to my browser.
+
+13:13.960 --> 13:18.330
+OK so here I am at my browser if you did everything correctly you shouldn't notice anything on the front
+
+13:18.350 --> 13:21.360
+end change you still get this picture of Dangeau himself.
+
+13:21.490 --> 13:29.170
+But if you say slash admen and hit enter now you get a log in where you can provide your username and
+
+13:29.170 --> 13:30.140
+then your password.
+
+13:30.310 --> 13:31.910
+So it's provider password.
+
+13:32.140 --> 13:39.790
+My case it was really weak as password log in and now this is what the Django adamant page looks like.
+
+13:39.840 --> 13:41.790
+And this was all done automatically for you.
+
+13:41.790 --> 13:46.770
+By Jingo the sequel databases were created for you this Adam and page was created for you with just
+
+13:46.770 --> 13:50.940
+those few lines of code and I know right now it may seem like I have do a lot of work to get all this
+
+13:51.270 --> 13:56.490
+but when I see or feel really comfortable with Django this is going to feel like magic every time.
+
+13:56.490 --> 14:00.840
+It still amazes me every time that jingle does this all for you automatically So this is really really
+
+14:00.840 --> 14:01.680
+awesome.
+
+14:02.060 --> 14:02.540
+OK.
+
+14:02.760 --> 14:08.490
+So if we check out topics I can actually click on topics here and I see that I have my topics social
+
+14:08.490 --> 14:14.940
+network and then I can click on that I can delete it I can save add another saving to editing a history
+
+14:14.940 --> 14:16.870
+of this comeback.
+
+14:16.920 --> 14:19.840
+The first app topics are Whoops.
+
+14:20.040 --> 14:20.920
+Come see something else.
+
+14:20.940 --> 14:25.320
+Access records right now I have zero access records I can manually add in an Access record.
+
+14:25.350 --> 14:26.690
+So that's pretty cool as well.
+
+14:26.730 --> 14:32.310
+So let's say I go to web pages and instead of using shell commands I could click here at a web page
+
+14:32.540 --> 14:33.660
+I select the topic.
+
+14:33.810 --> 14:38.400
+I can either click plus here to add another topic or select from existing topics.
+
+14:38.400 --> 14:43.890
+Remember this is a foreign key into another table so it's a drop down menu social network and then we
+
+14:43.890 --> 14:44.850
+can give it a name.
+
+14:44.850 --> 14:52.650
+So this web page can be something like Google and your Will something like W.W. google.com and then
+
+14:52.650 --> 14:56.950
+we're just going to say save and now I have a web page.
+
+14:57.000 --> 14:57.610
+Great.
+
+14:57.930 --> 15:02.790
+And now you can see how we can use Django admen to create an access records.
+
+15:02.790 --> 15:08.910
+Now you also see just how powerful the admin interface and why only certain people should have authentication
+
+15:08.910 --> 15:11.240
+and authorization to access this page.
+
+15:11.370 --> 15:16.020
+If someone else maliciously access this page they can do a lot of damage to your website.
+
+15:16.020 --> 15:20.340
+So again this is super important that you protect access to this Admin Page.
+
+15:20.340 --> 15:26.730
+This essentially gives you control over the entire site and later on the course will discuss users groups
+
+15:26.730 --> 15:27.350
+permissions.
+
+15:27.360 --> 15:32.580
+A lot more we can see here there's already an authentication authorization application for us.
+
+15:32.580 --> 15:35.900
+You can check out users right now we only have Jose that's me.
+
+15:35.910 --> 15:39.860
+But maybe you're working with other people in your company and you want to add permissions.
+
+15:39.870 --> 15:45.720
+You can eventually add users from here so you can say as a user their username password password confirmation
+
+15:45.750 --> 15:46.540
+etc..
+
+15:46.590 --> 15:50.050
+So again Django admin interface a lot of power here.
+
+15:50.100 --> 15:54.820
+You've got to keep the safe OK so that's it for now.
+
+15:54.820 --> 15:59.590
+Coming up next we're going to continue talking about Django models and a lot more.
+
+15:59.650 --> 16:05.440
+And we'll also show you how to actually use the library faker to populate your databases.
+
+16:05.620 --> 16:07.260
+Thanks everyone and I'll see you at the next level.

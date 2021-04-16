@@ -1,0 +1,124 @@
+WEBVTT
+
+00:05.480 --> 00:09.630
+Welcome back everyone and this lecture will learn how to do additional fields.
+
+00:11.110 --> 00:16.080
+Currently we can only see one field of our models in the list view on the Admin Page.
+
+00:16.120 --> 00:19.120
+We can actually add more fields to view AND ORDER BY.
+
+00:19.120 --> 00:22.700
+And again this is also just an easy addition of an attribute in that class.
+
+00:22.690 --> 00:26.670
+We've been kind of playing around with the up overs of the editor unsure how to do it.
+
+00:27.360 --> 00:32.190
+All right so here we are back at the admin PI file and before we actually added the attribute I want
+
+00:32.190 --> 00:36.300
+to show you what it currently looks like when we look at the list view of a particular model and to
+
+00:36.300 --> 00:41.880
+bring in over my browser and right now if I don't do any filters or if I show all I can see all the
+
+00:41.880 --> 00:42.520
+movies.
+
+00:42.740 --> 00:46.590
+So I only see right now movie in this list view of a model.
+
+00:46.860 --> 00:48.300
+So bringing that over again.
+
+00:48.510 --> 00:53.880
+Let's go ahead and show you the attributes and the attributes quite simple as just list display lists
+
+00:53.970 --> 01:00.020
+underscore display and let's go ahead and just copy this list so we display all the fields.
+
+01:00.030 --> 01:03.540
+Usually you probably don't want to do this depending on how many fields you have in your model but that
+
+01:03.540 --> 01:04.800
+should be enough for us.
+
+01:04.830 --> 01:12.030
+We'll save it and then let's bring back our list view page and then I'm going to refresh this and I
+
+01:12.030 --> 01:18.360
+can see the really cear the length and the title and the order you put them in the list is the order
+
+01:18.360 --> 01:19.210
+they show up.
+
+01:19.230 --> 01:21.470
+So I probably want a title over here on the left hand side.
+
+01:21.480 --> 01:26.770
+Let's do that as well and move this over and let's go ahead and have title be first.
+
+01:26.790 --> 01:28.510
+So don't cut that here.
+
+01:30.760 --> 01:37.720
+It's actually his insert title and then remove it over here on the back.
+
+01:37.760 --> 01:38.230
+There you go.
+
+01:38.340 --> 01:41.080
+So I'm going to save this and now refresh the page.
+
+01:42.830 --> 01:43.450
+And I can see.
+
+01:43.460 --> 01:45.230
+Title is now here first.
+
+01:45.230 --> 01:50.300
+So whatever is first in this column is the one you can click on to go to the detail view page.
+
+01:50.330 --> 01:52.180
+So again this is the list view.
+
+01:52.190 --> 01:53.040
+Click on one of these.
+
+01:53.060 --> 01:54.700
+It shows you the detailed view.
+
+01:55.170 --> 02:00.830
+You can also now sort by these guys so you can notice these little kind of pop ups here so you can sort
+
+02:00.830 --> 02:06.200
+by really sure just by clicking here on the top column and that's how you can add more fields in your
+
+02:06.200 --> 02:06.740
+list for you.
+
+02:06.740 --> 02:07.690
+Simple as that.
+
+02:07.700 --> 02:12.230
+Again the attribute is just lists underscore display and hopefully now you get the theme of how easy
+
+02:12.230 --> 02:14.050
+it is to work with Django admen.
+
+02:14.090 --> 02:16.450
+You essentially just create a class here.
+
+02:16.670 --> 02:20.960
+Inherit from Adam in that model admin and then add in attributes as you need them.
+
+02:20.960 --> 02:26.840
+Things like filtering displaying search fields etc. and then just remember to register that particular
+
+02:26.840 --> 02:27.930
+class.
+
+02:27.950 --> 02:30.140
+OK thanks everyone and I'll see at the next lecture.

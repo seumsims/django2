@@ -1,0 +1,466 @@
+WEBVTT
+
+00:05.430 --> 00:11.760
+Welcome everyone to Part 11 of the social club project before we can begin debugging we have to add
+
+00:11.760 --> 00:14.070
+in views for leaving and joining groups.
+
+00:14.070 --> 00:19.170
+We kind of left those views untouched and now we're going to add them in it's going to be too class
+
+00:19.170 --> 00:24.350
+based views and then we're going to connect them to the Urals not py file inside of the group's application.
+
+00:24.390 --> 00:28.520
+Once we've done that we should be ready to go for debugging and testing.
+
+00:28.530 --> 00:32.340
+The reason we have to do this before we actually jump straight into debugging is that we'll get a lot
+
+00:32.340 --> 00:37.760
+of errors because instead of a lot of our templates we're actually calling groups join in groups leave
+
+00:37.770 --> 00:41.940
+for those actual buttons and we need some sort of view to at least connect them.
+
+00:42.120 --> 00:44.750
+Let's hop over to the editor and finish that up.
+
+00:45.730 --> 00:51.250
+All right here we have the views the PI file for groups application and we help create group single
+
+00:51.250 --> 00:55.130
+group and list groups and I'm going to create two more class based views.
+
+00:56.490 --> 01:01.720
+And that's going to be a joint group I'll pass there for now.
+
+01:01.760 --> 01:04.850
+And a Leib group and they're gonna look really similar.
+
+01:05.050 --> 01:09.050
+Just one is going to be for leaving a group and another one's going to be for joining a group.
+
+01:09.050 --> 01:10.550
+Let's start with join group.
+
+01:10.550 --> 01:15.500
+First off to join a group should be logged in so will have log in required Mixon and we're going to
+
+01:15.500 --> 01:18.070
+use another generic class based view.
+
+01:18.260 --> 01:20.750
+And that one's going to be a redirect for you.
+
+01:20.750 --> 01:25.820
+So once someone clicks on join we should do some stuff on the back and for models to join the actual
+
+01:25.940 --> 01:31.710
+user to be a member of that group and then we're going to redirect to another page so that we can do
+
+01:31.710 --> 01:40.150
+here is say if there's a method we can define called Get redirect you are el.
+
+01:40.370 --> 01:46.180
+And that will allow us to grab whatever we wanted direct them to.
+
+01:46.250 --> 01:52.710
+Once they join it group will say self arcsin keyword arguments and we're going to return a reverse call.
+
+01:52.820 --> 01:56.600
+So in order to use reverse make sure you scroll up here and actually import it it's right here under
+
+01:56.600 --> 01:58.870
+your own resolver so we're good to go.
+
+01:58.910 --> 02:03.110
+The only collapse that directory tree get a little more room here and there we're going to redirect
+
+02:03.110 --> 02:05.740
+to groups single.
+
+02:05.930 --> 02:08.740
+So that will be the detail view of that particular group.
+
+02:08.750 --> 02:13.370
+Now in order to know what groups we're talking about we're going to add in a keyword arguments dictionary
+
+02:14.180 --> 02:25.790
+and it's just going to define slug as self keyword arguments lips self cured arguments get slug.
+
+02:25.840 --> 02:31.530
+Essentially you just get whatever slug of the page or clicking button that you're on the group of.
+
+02:31.700 --> 02:37.640
+And that's all you need to do forget redirect you are all and know what we can do is add in some more
+
+02:37.640 --> 02:45.740
+checks in case this person is already a member of the group so you can say the F gets and they will
+
+02:45.740 --> 02:59.730
+be self request and that takes an args and keyword arguments and a well-defined group as object.
+
+02:59.740 --> 03:05.200
+In fact we're going to need to import this was a good object or for or for which either means try to
+
+03:05.200 --> 03:09.940
+get the group that this person is currently looking at or return a four or four page.
+
+03:09.940 --> 03:17.830
+So in order to use this command we're going to scroll back up and then we'll say from jingo shortcuts
+
+03:17.950 --> 03:21.130
+import objects or four or four.
+
+03:21.280 --> 03:25.570
+And you also notice there's a get list option but we're just looking for a single object so just say
+
+03:25.570 --> 03:29.180
+group and then we will say group is what we want.
+
+03:29.180 --> 03:37.790
+So then we're going to add in a couple more things we will say group slug and slug is going to be able
+
+03:37.790 --> 03:44.470
+to self keyword arguments get slug
+
+03:47.420 --> 04:02.850
+and then we're going to try we will say group member objects creates user is equal to self request user
+
+04:03.500 --> 04:06.570
+work group is equal to a group.
+
+04:06.570 --> 04:08.110
+All right so what does that actually mean.
+
+04:08.110 --> 04:13.810
+I'm going to try to get the group member objects and create one where the user is equal to the current
+
+04:13.810 --> 04:15.460
+user and group to group.
+
+04:15.460 --> 04:26.180
+So creating a number and then I will have an accept accept and I can actually accept a specific error.
+
+04:26.410 --> 04:29.680
+So the specific error we're looking for is an integrity error.
+
+04:29.820 --> 04:33.680
+Well you don't have to technically you can just say except you don't have that right in the air here.
+
+04:34.520 --> 04:38.190
+So it can say integrity air.
+
+04:38.440 --> 04:44.980
+And then we will say messages warning and in order to use messages you're actually going to need to
+
+04:44.980 --> 04:52.930
+import it so let's scroll back to the top and say from Jingo that contrib import messages these are
+
+04:52.930 --> 04:55.730
+basically things we can send back to the user.
+
+04:55.800 --> 05:02.940
+So say from lips from Jingo that contrib import messages so we can send the message hey you're already
+
+05:02.940 --> 05:03.710
+a member of that group.
+
+05:03.720 --> 05:11.110
+If you're trying to join it again and then say itself the request and then we actually pass and what
+
+05:11.110 --> 05:19.690
+we want to warn here so we can say warning already a member so that will be if they're already a member
+
+05:19.690 --> 05:21.440
+we'll get some sort of error there.
+
+05:21.680 --> 05:33.010
+Else we're going to say is messages success Noll's say self-taught requests and then say is a second
+
+05:33.660 --> 05:34.150
+crap.
+
+05:34.210 --> 05:39.070
+This is not supposed to be an equal sign neither is this supposed to pass in the self.
+
+05:39.100 --> 05:47.580
+And then here we're going to say as a second argument you are now a member.
+
+05:47.770 --> 05:49.190
+We actually don't need these princes here.
+
+05:49.210 --> 05:50.640
+It's just the second argument.
+
+05:51.070 --> 05:51.540
+OK.
+
+05:51.700 --> 05:53.980
+So that should be it for that.
+
+05:53.980 --> 06:04.730
+And then at the end of all this get we're going to return calls super gets request arcs and then he
+
+06:04.730 --> 06:08.690
+word arguments and then save that.
+
+06:08.770 --> 06:13.590
+So we're doing here is if you're joining a group we have this redirect you are ill from this a view
+
+06:13.860 --> 06:19.200
+that just says OK once you join the group go back to that group's single detail page and then for this
+
+06:19.200 --> 06:24.210
+we want to make sure that a person is going to receive some sort of error or warning message if they're
+
+06:24.210 --> 06:30.890
+already inside the group and a good way to do that is by using jingoes built in messages from contrib.
+
+06:31.020 --> 06:36.870
+So using that you can just try to do what we would do which is grab a group member object and create
+
+06:36.870 --> 06:43.230
+it with the user equal to the current user and group equal to group which we just said Get object or
+
+06:43.230 --> 06:43.620
+create.
+
+06:43.620 --> 06:44.970
+So that's where groups coming from.
+
+06:44.970 --> 06:51.240
+So this group right here is linked to this group right here on line 29 and then we can say except integrity
+
+06:51.240 --> 06:51.550
+air.
+
+06:51.570 --> 06:56.980
+And you can just actually say except So if there's any sort of air you could just say for instance this.
+
+06:57.000 --> 07:02.010
+That's totally fine as well say that they were going to send some warning message says hey you're already
+
+07:02.010 --> 07:02.780
+a member.
+
+07:02.850 --> 07:07.620
+Otherwise if it works we'll say you're now a member and then we're just going to return super get requests
+
+07:07.650 --> 07:15.750
+and then Arkes and keyword arguments then we're going to fix this for LIBOR and actually be pretty similar.
+
+07:15.750 --> 07:23.250
+So for lebe group we're going to again say you should be log in to leave a group and we'll also have
+
+07:23.310 --> 07:24.540
+a generic redirector view.
+
+07:24.540 --> 07:27.740
+So once you leave a group you should be directed somewhere.
+
+07:27.750 --> 07:30.880
+So I'll say in fact this will just make it the exact same thing.
+
+07:30.900 --> 07:34.470
+Once you leave a group you get redirected to that group's page.
+
+07:34.530 --> 07:39.240
+You can also make it redirect to the home page if you want it to or the grouplets page but we'll keep
+
+07:39.240 --> 07:41.810
+things simple and experiment and Titian's right there is.
+
+07:42.000 --> 07:46.200
+So again pretty much the exact same thing when you leave a group you'll be redirected to that group's
+
+07:46.220 --> 07:47.090
+detail page.
+
+07:47.280 --> 07:51.720
+And then finally we'll have a get method very similar to the one we just made.
+
+07:51.780 --> 08:01.780
+So it's going to be self request arx keyword arguments to make sure that they can't accidentally leave
+
+08:01.780 --> 08:03.670
+a group that are not really in it.
+
+08:03.670 --> 08:10.780
+So we're going to do is first try we will try to get a object we'll call it membership and set that
+
+08:10.780 --> 08:18.760
+equal to models group member and they'll be objects and I'm going to filter those objects.
+
+08:19.980 --> 08:29.650
+And we will filter only start this new line user is equal to self request user and then group underscore
+
+08:29.650 --> 08:41.780
+underscore underscore underscore slug Ziegel to self-taught keyword arguments get slug and then off
+
+08:41.860 --> 08:44.190
+all that we're going to just call get method.
+
+08:44.420 --> 08:49.610
+So we're going to attempt to try to get a membership and that's all that group member assuming that
+
+08:49.610 --> 08:51.610
+the user is already in that group.
+
+08:51.650 --> 08:57.620
+So grab the group slug grab the user off that group member object and that's going to be my little membership
+
+08:57.620 --> 09:05.700
+that are going to be playing around with and then I'm going to be except now I can say models group
+
+09:05.710 --> 09:09.610
+member does not exist.
+
+09:09.620 --> 09:12.550
+That's an actual thing I can call off that group member object.
+
+09:12.560 --> 09:17.660
+So if that thing does happen to actually exist it means that group member was never actually a member
+
+09:17.660 --> 09:18.300
+of that group.
+
+09:18.320 --> 09:24.350
+So you excellently click delete button on a group you were never a member of to say messages warning
+
+09:25.460 --> 09:26.930
+self-taught request.
+
+09:26.930 --> 09:36.830
+Basically same thing we're doing last time and says Sorry you are in this group and let's say you are
+
+09:36.830 --> 09:41.900
+not so don't have to worry about syntax for single quotes.
+
+09:41.920 --> 09:44.090
+OK so sorry you are in the group.
+
+09:44.090 --> 09:49.730
+Else we're going to do is if everything's working we'll say membership and we can call a delete method
+
+09:49.730 --> 09:57.580
+off of this and then we're going to say messages and call a success message and then pasand the request
+
+09:58.520 --> 10:12.070
+request and says you have left the group then I'm going to return super gets passen request person or
+
+10:12.120 --> 10:16.180
+X and then person keyword arguments.
+
+10:16.240 --> 10:18.680
+OK so that should be looking good.
+
+10:18.790 --> 10:22.850
+I'm going to save this and the next thing I want to do is make sure I actually connect these views to
+
+10:22.880 --> 10:24.430
+my your stop PI file.
+
+10:24.560 --> 10:25.810
+So let's open that up.
+
+10:25.860 --> 10:31.790
+Else that pie inside of groups we have a couple of more views to do so we'll come over and we'll add
+
+10:31.790 --> 10:36.940
+in the leave and join view to the left profile we'll say you're all
+
+10:39.520 --> 10:46.150
+join forward slash and we will say we're actually going to just grab and copy and paste the same thing
+
+10:46.150 --> 10:49.570
+here.
+
+10:49.870 --> 10:55.080
+Join and then we will say views.
+
+10:55.220 --> 11:01.990
+Join a group and call that as a view and give that the name join since that's what we did in the templates.
+
+11:02.440 --> 11:05.270
+And then the other thing we're going to do is add in the leave.
+
+11:05.590 --> 11:08.770
+So let me just copy and paste this into the same thing.
+
+11:08.770 --> 11:10.930
+Copy paste instead of join.
+
+11:10.980 --> 11:13.620
+It's going to say leave and sort of join group.
+
+11:13.630 --> 11:17.500
+It will be great.
+
+11:17.610 --> 11:24.660
+And then set the name join it will be leave so we're going to save that and that's it for the join and
+
+11:24.660 --> 11:26.620
+leave views that we had to create.
+
+11:26.910 --> 11:29.030
+So again over and views.
+
+11:29.520 --> 11:34.410
+He's definitely more complicated views so we kind of waited till now for joining a group and leaving
+
+11:34.410 --> 11:34.930
+group.
+
+11:34.950 --> 11:36.330
+They're really really similar.
+
+11:36.330 --> 11:37.630
+They're both read direct views.
+
+11:37.650 --> 11:41.260
+Meaning you just kind of define OK what's this person's perform this action.
+
+11:41.280 --> 11:42.470
+Where should they go to.
+
+11:42.570 --> 11:48.210
+And that's the redirect view and I can actually pass keyword arguments and grab things off that current
+
+11:48.430 --> 11:54.330
+requests such as the slug that they're looking at to go to that detail page and then we have to get
+
+11:54.330 --> 12:00.780
+methods both in leave and join group and basically what these do is check to see if the user can actually
+
+12:00.810 --> 12:02.360
+perform the given action.
+
+12:02.460 --> 12:04.240
+If he didn't have these try except.
+
+12:04.270 --> 12:05.340
+Else calls here.
+
+12:05.400 --> 12:12.150
+You may just get broken pages if the person wasn't in the group and then try to join it and then try
+
+12:12.150 --> 12:18.450
+to join it again etc. instead of doing all that they can just have these messages show up and that will
+
+12:18.450 --> 12:19.920
+help fix any issues.
+
+12:20.140 --> 12:21.650
+OK so that's it.
+
+12:21.660 --> 12:27.090
+We should now be ready to take care of a few more things in settings that pi connect everything and
+
+12:27.090 --> 12:28.190
+start the bugginess.
+
+12:28.320 --> 12:30.060
+Thanks everyone and I'll see you at the next lecture.

@@ -1,0 +1,370 @@
+WEBVTT
+
+00:05.700 --> 00:11.520
+Hello everyone and welcome back in this lecture we're going to quickly cover some more your L mappings
+
+00:11.520 --> 00:12.330
+methods.
+
+00:13.420 --> 00:18.890
+So as we continue on throughout the course we're going to be dealing with mapping or else quite a bit.
+
+00:18.910 --> 00:20.580
+There are several ways of doing this.
+
+00:20.590 --> 00:25.950
+So I want to briefly touch upon another way but first off let's review what we've done in the past.
+
+00:26.020 --> 00:33.140
+Previously we showed a very direct mapping that imported the views of Pi file directly into the thought
+
+00:33.380 --> 00:35.380
+pie of your projects.
+
+00:35.440 --> 00:41.490
+So you're connecting your views of your application to the or else that py file of the project itself.
+
+00:41.500 --> 00:46.990
+Now we want to do is show you the ability of using the include function that you can import from a Django
+
+00:47.050 --> 00:54.540
+module the include function allows us to look for a match with Figler expressions and link back to our
+
+00:54.540 --> 00:57.590
+application's Own Your else thought py file.
+
+00:57.750 --> 01:03.630
+That way each application has its own your L's py file as a quick note we'll have to manually add in
+
+01:03.660 --> 01:08.940
+this Yarl's py file because when you start your application it doesn't automatically create one for
+
+01:08.940 --> 01:09.380
+you.
+
+01:09.660 --> 01:14.040
+Unlike when you start your project it does create the Oreilles that PI file for the project.
+
+01:15.400 --> 01:21.190
+So we would want to do is add the following to the project's Uriel's that PI file will add that first
+
+01:21.190 --> 01:27.030
+line which basically imports that include function and then where it says the usual patterns list.
+
+01:27.040 --> 01:28.480
+We've worked with before.
+
+01:28.570 --> 01:34.450
+What you will do is called the function from before and then add in a regular expression as a first
+
+01:34.450 --> 01:35.020
+argument.
+
+01:35.050 --> 01:41.320
+And basically what this regular expression does is it just says OK look at your domain name slash and
+
+01:41.320 --> 01:48.250
+then whatever that string is in the first regular expression slash and then call the app your Elle's
+
+01:48.310 --> 01:53.950
+from the include function and this will all make a lot more sense when we actually code this out later
+
+01:53.950 --> 01:54.160
+on.
+
+01:54.180 --> 01:56.770
+But just to touch upon what I just explained.
+
+01:57.070 --> 02:02.770
+Basically what this does it's allowing us to look for any URL that has this sort of pattern.
+
+02:02.770 --> 02:09.370
+Bill GWW that domain name dot com slashed first underscore app or whatever you happen to have put there
+
+02:09.460 --> 02:10.950
+in that first regular expression.
+
+02:10.970 --> 02:15.900
+In this case I'm just calling it what the application was called first underscore app slash.
+
+02:16.210 --> 02:21.970
+And then if we match that pattern what happens is the include function basically tells Django hey go
+
+02:21.970 --> 02:28.480
+look at the Urals PI file that's inside of the first app folder not the world's top pie file it's inside
+
+02:28.480 --> 02:30.360
+of the project.
+
+02:30.550 --> 02:35.530
+And basically this might seem like a lot of work especially for such a simple mapping but later on we
+
+02:35.530 --> 02:41.920
+really want to try to keep our projects or else the py file clean and modular that we want to set the
+
+02:41.920 --> 02:47.080
+reference to the application instead of listing them all in the main Your Alstott py file.
+
+02:47.380 --> 02:50.200
+So you can easily plug and play a few applications.
+
+02:50.230 --> 02:51.760
+Everything is modular now.
+
+02:51.880 --> 02:55.350
+And the Jor-El's are inside the actual application.
+
+02:56.440 --> 03:00.380
+So let's quickly walk through an example of all this just to show how it all works.
+
+03:00.550 --> 03:05.450
+And as a quick note we've covered everything in part 1 of jingoes official tutorial.
+
+03:05.470 --> 03:10.540
+So after this lecture you may want to go visit part one of that efficient Tauriel and browse through
+
+03:10.540 --> 03:11.020
+it.
+
+03:11.020 --> 03:16.130
+You can check the resource for direct link to part 1 of jingoes official tutorial.
+
+03:16.150 --> 03:16.450
+All right.
+
+03:16.450 --> 03:20.880
+With that said let's jump to Adam and actually code out everything that I just explained.
+
+03:21.280 --> 03:22.910
+Ok so here we are at.
+
+03:22.910 --> 03:29.290
+Adam the first thing you want to do is actually check out our original your PI file from our first project
+
+03:29.370 --> 03:36.560
+and important we need to have their so previously we just said from first app import use and then we
+
+03:36.560 --> 03:43.030
+called using the URL function a regular expression here and that just said OK put in the use that index
+
+03:43.040 --> 03:46.080
+in case you ever get anything just the domain name.
+
+03:46.170 --> 03:54.860
+What we all do now is add in another your I'll call here and put in a regular expression with an extension
+
+03:54.860 --> 03:55.250
+of this.
+
+03:55.250 --> 04:02.000
+And basically was going to say is something like first underscore app forward slash and then we're going
+
+04:02.000 --> 04:07.610
+to use the include function in order to use the include function I need to import it and I can do from
+
+04:07.610 --> 04:12.520
+Django got C-L an F for configuration.
+
+04:12.570 --> 04:16.390
+Got you or else in poor include.
+
+04:16.620 --> 04:21.680
+And then with this function I can actually now just pass this in as the second argument include.
+
+04:22.200 --> 04:30.150
+And then I'm going to call my first underscore app dot you are else in it takes it in as a string and
+
+04:30.150 --> 04:35.620
+then finally I want to make sure I have a comma here OK let's save that.
+
+04:36.190 --> 04:41.930
+And then the next thing I want to do is actually create this stop file inside our first application.
+
+04:41.980 --> 04:44.830
+So I'll say right click on first map.
+
+04:44.830 --> 04:51.360
+Create a new file and call it your ELSE STOP pie and it's going inside that first application I made.
+
+04:51.520 --> 04:57.340
+And now what we will do is essentially create almost like a mini your old Pif file is going to have
+
+04:57.340 --> 05:00.100
+a lot of the same functionality we just saw earlier.
+
+05:00.100 --> 05:10.590
+So again I will say from jingo dot CNF got you Earles import your el WIPs you r l Cingular.
+
+05:10.710 --> 05:21.610
+And then I will also say from ferse underscore app poor use and then I will say you are all pattern's
+
+05:23.170 --> 05:34.770
+is equal to and I will do another call to your el and now I'm going to do a very generic regular expression
+
+05:34.770 --> 05:38.510
+so I will just say for basically anything there.
+
+05:38.760 --> 05:40.630
+And I will call you start.
+
+05:40.650 --> 05:43.510
+Now let's just go ahead and call the index right now.
+
+05:43.650 --> 05:48.480
+Later on we'll test to make sure things are working by creating a new view and then I will say name
+
+05:48.750 --> 05:55.540
+is index and we can have a comma here so we can have this on three lines.
+
+05:55.670 --> 06:00.040
+Then I will just say that now let's make sure this actually all worked.
+
+06:00.050 --> 06:08.520
+I'm going to say Python helps manage that pi and then run the server.
+
+06:08.640 --> 06:10.980
+You have to make sure you're in the correct they're accurate do this.
+
+06:10.980 --> 06:15.150
+I'm going that initial first underscore project folder.
+
+06:15.150 --> 06:18.860
+I'll enter run my server lets make sure everything works OK.
+
+06:19.020 --> 06:20.120
+So we have our server running.
+
+06:20.160 --> 06:25.770
+Let's copy and paste this and we'll copy that and dragline over my Chrome browser.
+
+06:27.080 --> 06:28.630
+Let me bring that into frame.
+
+06:28.670 --> 06:29.360
+Here it is.
+
+06:29.360 --> 06:29.720
+Great.
+
+06:29.720 --> 06:31.670
+So that's what we actually had before.
+
+06:31.670 --> 06:38.390
+Now what I want to check to make sure it works is say slash or forward slash first underscore app and
+
+06:38.390 --> 06:39.330
+then hit enter.
+
+06:39.410 --> 06:41.000
+And you notice it's working we still get.
+
+06:41.000 --> 06:41.960
+Hello world.
+
+06:41.960 --> 06:47.170
+And just to prove that this isn't a coincidence or anything let's do something that we haven't defined
+
+06:47.220 --> 06:51.970
+forward slash new page hit enter and you will get a 404.
+
+06:51.980 --> 06:53.390
+This page has not been found.
+
+06:53.420 --> 06:55.400
+So clearly what we've done is working.
+
+06:55.400 --> 07:03.020
+We're able to actually direct some extension of our domain into the or else stop pie of the application.
+
+07:03.020 --> 07:08.000
+And this is basically what we're trying to get at as an overall idea that I can have the application
+
+07:08.000 --> 07:15.350
+itself host its own neural patterns that I can then call from the Urals Alstom project or you are also
+
+07:15.350 --> 07:17.630
+up high in the first project folder.
+
+07:17.630 --> 07:24.650
+So again here I'm going to use this include functionality and then passen as a string.
+
+07:24.650 --> 07:30.350
+My application name dot your else and this we can actually call whatever you want.
+
+07:30.350 --> 07:41.670
+So for instance let's say something like this my new extension and then I will save files save this.
+
+07:41.920 --> 07:46.000
+And let's go ahead and make sure this updated.
+
+07:46.330 --> 07:47.590
+I believe it updated right now.
+
+07:47.600 --> 07:53.020
+Let me just control C and restart it just to make sure everything worked correctly and then let's bring
+
+07:53.020 --> 07:54.600
+back in that browser.
+
+07:55.670 --> 07:57.890
+OK so bringing this browser again.
+
+07:57.890 --> 08:03.340
+Now let's go ahead and say first underscore app enter.
+
+08:03.350 --> 08:03.710
+Great.
+
+08:03.740 --> 08:04.550
+That's not working.
+
+08:04.550 --> 08:07.480
+So now let's actually try and this new extension just made.
+
+08:07.760 --> 08:13.010
+So I can say my new extension enter.
+
+08:13.030 --> 08:14.150
+And we can see it's calling.
+
+08:14.150 --> 08:15.130
+Hello world.
+
+08:15.140 --> 08:17.360
+So all of these basically are calling the same thing.
+
+08:17.360 --> 08:23.840
+So the main index page that home page is just the domain name is calling the exact same view of the
+
+08:23.920 --> 08:29.270
+my new extension page which we can do just for simplicity call first app.
+
+08:29.410 --> 08:34.360
+So it is a nice idea to try to get these regular expressions to match re-application application name
+
+08:34.370 --> 08:36.860
+that way it's easier to reference you know get lost.
+
+08:36.860 --> 08:41.830
+It will always happen but it's a good idea to try to make things at least in your own mind readable
+
+08:41.840 --> 08:44.660
+so when you come back to them later things make sense to you.
+
+08:45.510 --> 08:48.880
+But all right that's all I really wanted to show you for this particular lecture.
+
+08:49.080 --> 08:54.900
+And again the main idea here is that the applications can have their own URLs that PI file that we can
+
+08:54.900 --> 08:58.990
+then call from the projects your patterns list.
+
+08:59.280 --> 08:59.850
+All right.
+
+08:59.850 --> 09:00.680
+Hope you enjoy that.
+
+09:00.690 --> 09:01.820
+And I will see at the next lecture.

@@ -1,0 +1,214 @@
+WEBVTT
+
+00:04.990 --> 00:10.150
+Hello everyone and welcome to the templates features and filter's lecture before we complete jingle
+
+00:10.150 --> 00:12.350
+level 4 in our understanding of templates.
+
+00:12.460 --> 00:18.430
+Let's quickly touch upon Django template filter's imagine that you had some information from your model
+
+00:18.640 --> 00:23.590
+that you wish to use across various views or pages on your website but perhaps you wanted to make a
+
+00:23.590 --> 00:28.630
+slight edit to the information before injecting it maybe like a string operation or basic arithmetic
+
+00:29.080 --> 00:34.390
+for example maybe on a certain web page you wanted the string to be all capital letters but on another
+
+00:34.390 --> 00:36.640
+web page you just want to be in lowercase.
+
+00:36.640 --> 00:42.170
+Well how do you actually deal if that luckily Gengel provides a ton of easy to implement template filters
+
+00:42.500 --> 00:45.980
+that allow you to affect the injection before the splaying it to the user.
+
+00:45.980 --> 00:48.490
+And this allows for flexibility from a single source.
+
+00:48.590 --> 00:51.530
+So you don't have to worry about editing the source on the Python side.
+
+00:51.530 --> 00:55.420
+You can actually edit it using templates on the Web site.
+
+00:55.540 --> 00:58.890
+So the general form of a template filter it looks like this.
+
+00:58.930 --> 01:04.570
+Previously we just had those set of brackets and then the value we wanted to inject here we can say
+
+01:04.570 --> 01:09.880
+the value you want to inject have the pipe operator that straightline the name of the filter and then
+
+01:09.880 --> 01:11.840
+the parameter that the filter takes in.
+
+01:11.860 --> 01:16.120
+Now not all filters taken parameters and we'll see examples of them as we continue on throughout this
+
+01:16.120 --> 01:16.920
+section.
+
+01:17.230 --> 01:20.620
+Many of these filters are based off of common built in Python functions.
+
+01:20.620 --> 01:22.350
+So you're already going to be familiar with them.
+
+01:22.360 --> 01:25.340
+They're naming operations and what they can actually do.
+
+01:25.750 --> 01:30.250
+OK let's show you the documentation on them so you know how to reference all the various filters.
+
+01:30.250 --> 01:31.170
+There are a ton of them.
+
+01:31.270 --> 01:35.230
+So a lot of times will just be go into documentation seeing which one you need to use and then copying
+
+01:35.230 --> 01:38.730
+and pasting from there later on will also show you how you create your own filters.
+
+01:39.720 --> 01:41.520
+I'm going to jump to documentation.
+
+01:41.520 --> 01:42.890
+You can go to this specific link.
+
+01:42.900 --> 01:46.550
+This is the documentation link for templates for 1.1 0.
+
+01:46.560 --> 01:50.610
+This version of Django or you can just google search Gengel plus templates and it'll probably take you
+
+01:50.610 --> 01:53.090
+to this page and hop over there now.
+
+01:53.100 --> 01:58.400
+All right so here we are at the documentation page for Django templates and this is a really great reference
+
+01:58.410 --> 02:00.410
+if you ever have any questions on templates.
+
+02:00.510 --> 02:04.070
+And as I always mentioned the jayega documentation in general is really good.
+
+02:04.170 --> 02:08.740
+So the templates page it starts off by talking about different support for template engines.
+
+02:08.790 --> 02:11.620
+By default we use the Django template language or DTL.
+
+02:11.640 --> 02:13.580
+It's more than enough for our use cases.
+
+02:13.590 --> 02:17.880
+So if you're just learning Django as you get more advance you can always check out popular alternatives
+
+02:17.880 --> 02:20.060
+for template engines such as Jinja too.
+
+02:20.190 --> 02:23.280
+And this tells you how to connect them how to download them etc..
+
+02:23.490 --> 02:25.590
+So a lot of really useful information here.
+
+02:25.620 --> 02:28.590
+But we're going to be concerned about is template filters.
+
+02:28.650 --> 02:33.280
+So if you come over here on the right hand side there should be a link under syntax to filters.
+
+02:33.330 --> 02:37.030
+You can click on it and it will show you what filters look like.
+
+02:37.080 --> 02:42.600
+So as I mentioned in general look like this I'm going to zoom in a little bit here to see the filters
+
+02:43.050 --> 02:44.370
+Museum and one more time.
+
+02:44.460 --> 02:47.340
+Scroll back down to the filters.
+
+02:47.340 --> 02:48.260
+And here there.
+
+02:48.480 --> 02:48.970
+OK.
+
+02:49.290 --> 02:51.510
+So the filters in general look like this.
+
+02:51.510 --> 02:57.190
+Remember we have a context dictionary that is actually calling a key value pair.
+
+02:57.270 --> 03:01.560
+And then we pass in the key here that's the actual variable or value we're passing in.
+
+03:01.680 --> 03:06.240
+Then you have the pipe operator and the name of the filter you want to apply.
+
+03:06.240 --> 03:11.520
+So in this case we have Django where the context of jingle being the key and it's attached to the string
+
+03:11.550 --> 03:16.920
+that's in all lower case and then the filter name we're using is called Title and title if you're familiar
+
+03:16.920 --> 03:22.380
+with Python string operations it's also a python string operation where it basically capitalizes the
+
+03:22.380 --> 03:24.590
+first letter and every word in a string.
+
+03:24.750 --> 03:27.900
+So you can see how converts this to this right here.
+
+03:27.960 --> 03:32.340
+And as I mentioned some filters also take an argument or a parameter and that would look like something
+
+03:32.340 --> 03:35.990
+like this you would say my date that belongs to some context dictionary.
+
+03:36.090 --> 03:41.810
+The pipe operator and then the name of the filter date's colon and in a string whatever argument you're
+
+03:41.820 --> 03:47.100
+actually passing in this case the format of the date you want to display and there's a reference for
+
+03:47.100 --> 03:50.880
+all the built in filters as well as instructions for writing your own custom filters.
+
+03:50.880 --> 03:55.230
+Now there are so many built in filters that we don't have enough time in this course to go through them
+
+03:55.230 --> 03:55.710
+all.
+
+03:55.740 --> 03:59.100
+Really what you're going to be doing is clicking on this link and referencing them yourself.
+
+03:59.280 --> 04:04.170
+But there's also a way to write your own custom filters which will also show you how to do in a future
+
+04:04.170 --> 04:04.730
+election.
+
+04:04.860 --> 04:06.680
+But that's all we're going to cover for now.
+
+04:06.750 --> 04:12.420
+In this lecture coming up next we're going to talk about just some few examples of basic built in filters
+
+04:12.480 --> 04:15.510
+as well as talking about how to create your own custom filters.
+
+04:15.510 --> 04:17.190
+Thanks everyone and I'll see you at the next lecture.

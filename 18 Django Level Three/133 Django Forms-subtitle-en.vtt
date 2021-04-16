@@ -1,0 +1,505 @@
+WEBVTT
+
+00:05.080 --> 00:11.150
+Hello everyone and welcome to the Gengel basic forms lecture for doing a level 3 and this lecture where
+
+00:11.160 --> 00:16.190
+we're going to be doing is conceptually walking through the process of creating a form with jingoes
+
+00:16.200 --> 00:21.840
+So to actually do any coding you can just sit back relax and watch this lecture almost like a game plan
+
+00:21.870 --> 00:23.120
+for the next lecture.
+
+00:23.130 --> 00:26.970
+We're going to be coding through a lot of the topics we discuss here.
+
+00:26.970 --> 00:27.660
+All right.
+
+00:27.660 --> 00:32.650
+We've covered forums when discussing HMO so you might be wondering why bother with jingle forms.
+
+00:32.650 --> 00:35.030
+What extra features do they bring to the table.
+
+00:35.860 --> 00:37.900
+Well jingle forms have lots of advantages.
+
+00:37.900 --> 00:39.890
+And here are three distinct ones.
+
+00:39.910 --> 00:43.000
+The first one is that they can quickly generate HVM malformed widgets.
+
+00:43.000 --> 00:48.760
+Those are things such as your inputs where you have to specify that input will be email type or a text
+
+00:48.760 --> 00:56.530
+type text area type etc. checkboxes forms with Django allow you to just generate those quickly like
+
+00:56.530 --> 00:58.270
+with template tagging.
+
+00:58.270 --> 01:02.950
+Another advantage is that you can validate data and process it into a python data structure so you can
+
+01:02.950 --> 01:04.630
+quickly use it in the backend.
+
+01:04.630 --> 01:09.310
+You can also make your own custom validation rules and then the third point is that you can create form
+
+01:09.310 --> 01:14.320
+versions of our models and then quickly update models from forms and we'll talk about that in a future
+
+01:14.320 --> 01:16.000
+lecture OK.
+
+01:16.000 --> 01:21.190
+So let's actually walk through the steps you would have to take in order to create a form on your website
+
+01:21.220 --> 01:26.950
+from your web application and the very first thing you do is actually create a forms that PI file inside
+
+01:26.950 --> 01:31.840
+your application just like we previously created you or els the PI file inside the application.
+
+01:31.900 --> 01:35.990
+We have to create a form that PI file because it doesn't come standard.
+
+01:36.070 --> 01:38.790
+After that we call jingoes builtin forms classes.
+
+01:38.800 --> 01:41.910
+And this looks very similar to creating a model of Django.
+
+01:41.920 --> 01:43.900
+Let's see an example of this.
+
+01:43.930 --> 01:49.150
+So an example of what would be inside your forms up-I file inside of your application would be something
+
+01:49.150 --> 01:49.590
+like this.
+
+01:49.600 --> 01:55.540
+You say from just import forms and then you have a class form name forms that form where every input
+
+01:55.630 --> 01:57.520
+is essentially a class object attribute.
+
+01:57.520 --> 02:01.340
+Now you should notice that this looks a lot like creating a model with Django.
+
+02:01.390 --> 02:06.420
+So that's really good because you can have that similar feel across various aspects of jingoes.
+
+02:06.430 --> 02:11.530
+You don't need to re learn a completely different paradigm for creating a form it feels and looks like
+
+02:11.530 --> 02:18.730
+a model again looks similar to a model and now that we have the form created inside the applications
+
+02:18.730 --> 02:25.790
+forms that high file we need to show it using a view so inside your views that py file of your application
+
+02:25.790 --> 02:28.790
+we need to import the forms and there's two ways to do this.
+
+02:28.790 --> 02:34.700
+One is you can say from import forms and dot just means look at the current directory or you can do
+
+02:34.700 --> 02:39.980
+what we've been doing in the past and actually explicitly saying from form's import and then that actual
+
+02:40.020 --> 02:41.000
+quorum name.
+
+02:41.000 --> 02:45.320
+So if we go back we called the class form name.
+
+02:45.320 --> 02:50.720
+So if you were inside of your views that PI file you would say from that forms that PI file you just
+
+02:50.720 --> 02:54.120
+created import that class object form name.
+
+02:54.200 --> 02:59.300
+And again that dot just indicates to import or in the same directory as a current high file either one
+
+02:59.300 --> 03:05.000
+of these methods is ok once you've imported the form you can create a new view for it and it looks really
+
+03:05.000 --> 03:08.240
+similar to when you're recreating a view and calling a model.
+
+03:08.240 --> 03:10.790
+Except this time you're actually calling it form.
+
+03:10.820 --> 03:16.490
+So you say your function the form named you whatever you want that actually used to be called it takes
+
+03:16.490 --> 03:22.320
+in a request to create a temporary object called form equals Gorham's dot and then whatever your classes
+
+03:22.430 --> 03:27.880
+again that's the forms that PI file the class from it set that equal to a variable and then return render
+
+03:27.950 --> 03:33.050
+pass and request pass in the name of the HVM elf child is going to hold that form and then you pass
+
+03:33.050 --> 03:38.680
+in the context dictionary where you have some key Reim back that form from form name.
+
+03:38.840 --> 03:45.230
+Again very similar feel to how we are working with models in our views that py file and then all you
+
+03:45.230 --> 03:50.660
+have to do is add the view to the apps you are else either directly or with the include function.
+
+03:50.750 --> 03:52.640
+If you do it directly it just looks something like this.
+
+03:52.640 --> 03:58.290
+You'll say from your application import views and then somewhere inside you your old patterns file you'll
+
+03:58.320 --> 04:04.470
+say that your function passen the actual extension of your your all that you want the form to be on
+
+04:04.900 --> 04:07.040
+be used whatever the view is called.
+
+04:07.040 --> 04:12.140
+So in this case we call that form name view and then you give it a name such as form name again using
+
+04:12.140 --> 04:13.460
+really generic terms here.
+
+04:13.550 --> 04:16.880
+So you can later replace them with your own names.
+
+04:17.910 --> 04:18.660
+All right.
+
+04:18.660 --> 04:23.700
+So we can then create the templates folder along with a steam file that will hold the actual template
+
+04:23.730 --> 04:24.950
+tagging for the form.
+
+04:25.230 --> 04:29.990
+And remember to update the settings up-I file to reflect the new template directory variable.
+
+04:30.000 --> 04:34.920
+We did the anjing a level one so you can review it or you can watch the next lecture where we'll go
+
+04:34.950 --> 04:36.810
+and start the process from scratch.
+
+04:36.810 --> 04:40.720
+So you can remember how to actually fix that and you're setting up my file.
+
+04:40.750 --> 04:45.580
+Ok then you should also remember that your views should reflect subdirectories inside templates.
+
+04:45.720 --> 04:48.730
+And again we'll talk about that when we walk through it in the next lecture.
+
+04:48.990 --> 04:54.810
+And once you've done that everything is set up for us to go into the form name a simple file or whatever
+
+04:54.810 --> 05:00.000
+each team l files going to How's the actual form itself and that's going to be usually placed inside
+
+05:00.000 --> 05:05.220
+your templates folder and then the subdirectory every application folder and add in the actual template
+
+05:05.220 --> 05:07.320
+tagging that will create the jingle form.
+
+05:07.320 --> 05:11.970
+So just like we inject it of template tagging stuff from the model we can quickly inject the actual
+
+05:11.970 --> 05:13.620
+form.
+
+05:13.660 --> 05:17.440
+So there are several ways you can inject the form using template tagging.
+
+05:17.620 --> 05:20.230
+You can just pasand the key from the context dictionary.
+
+05:20.240 --> 05:23.730
+So remember the key from the context dictionary we had was just form.
+
+05:23.770 --> 05:29.690
+So you would just have these sort of Crilley brackets and passen form usually won't see it so plainly.
+
+05:29.710 --> 05:35.200
+But this is technically all you have to do and before we continue let's have a quick side discussion
+
+05:35.200 --> 05:36.310
+about three topics.
+
+05:36.310 --> 05:44.300
+HTP get and post since we're going to be using those to connect our form to our actual back and HTP
+
+05:44.340 --> 05:47.110
+stands for hypertext transfer protocol.
+
+05:47.310 --> 05:51.540
+And it is designed to enable communication between a client and a server.
+
+05:51.900 --> 05:55.450
+The client submits a request and then the server responds.
+
+05:56.220 --> 06:02.790
+The most commonly used methods for this request response protocol are get and post get request data
+
+06:02.820 --> 06:08.180
+from a resource and then post submits data to be processed to a specific resource.
+
+06:08.180 --> 06:12.770
+Again pretty simple idea a request and then a response.
+
+06:12.790 --> 06:14.640
+So those are the basics that we need to know for now.
+
+06:14.650 --> 06:20.620
+But you can check out the W3 schools dot com page on get slash post for a lot more details like what
+
+06:20.620 --> 06:25.740
+remains in browser history whether using GET or POST and what can be cast for future use.
+
+06:25.750 --> 06:28.570
+It's a really simple concept so you can just check out that page.
+
+06:28.700 --> 06:34.010
+But basically you just need to know that you're using a sort of request response protocol when working
+
+06:34.010 --> 06:40.450
+with forms and once you've put in that form template tag you should be able to see a very basic and
+
+06:40.870 --> 06:43.410
+honestly ugly looking form on that page.
+
+06:43.430 --> 06:50.530
+However you won't actually have an HMO form tag there so let's look at a more completed form HTL page
+
+06:50.560 --> 06:54.620
+would look like so on your form page that each table.
+
+06:54.630 --> 06:57.140
+Realistically you're going to have something that looks like this.
+
+06:58.140 --> 07:03.700
+So we've had some added bootstrap class styling calls and that's the div class container.
+
+07:04.900 --> 07:10.750
+And we're also calling the form as underscore P which uses a paragraph and that's going to allow you
+
+07:11.110 --> 07:16.480
+to have a nicer lay out of your actual form going to return it within paragraph tags.
+
+07:16.480 --> 07:20.690
+That way they're actually lined up from top to bottom instead of from left to right.
+
+07:20.740 --> 07:25.960
+If you just use form by itself inside those two sets of curly brackets it's going to go from left to
+
+07:25.960 --> 07:31.210
+right and you're not going to have a form looking for it that means top down instead of the left to
+
+07:31.210 --> 07:36.830
+right and that gives you nice format's work with using those paragraph tags which are automatically
+
+07:36.830 --> 07:37.870
+put there with the As.
+
+07:37.870 --> 07:42.500
+Underscore P and you can also check the jingle docs for other methods.
+
+07:42.500 --> 07:46.400
+You can request a form as a table for instance and work with it that way.
+
+07:47.260 --> 07:53.300
+And you also notice that I added the C S R F underscore token tag.
+
+07:53.440 --> 07:57.910
+So this is actually the first time we've encountered thinking about sites security measures that little
+
+07:57.970 --> 08:04.860
+see as RF tag token that if we go back it's right underneath the actual form template tagging.
+
+08:04.990 --> 08:12.340
+That is what is known as a cross site request forgery token and that secures the HTP post action that
+
+08:12.340 --> 08:15.280
+is initiated on the subsequent submission of a form.
+
+08:15.280 --> 08:20.230
+So when you click submit you have this cross-site requests for every token that helps protect the user
+
+08:20.530 --> 08:26.310
+or your web site from getting false data or from a user accidentally sending that data somewhere else.
+
+08:27.030 --> 08:31.450
+So the jingle framework actually requires that C S are tokens to be present.
+
+08:31.560 --> 08:33.740
+If it's not there your form may just not work.
+
+08:33.750 --> 08:39.090
+So that means jingoes security is actually built into the fact that it won't really work unless you
+
+08:39.090 --> 08:40.450
+provide that token.
+
+08:40.560 --> 08:44.220
+So you'll get in the habit of just from memory to provide that token whenever you're working with forms
+
+08:44.790 --> 08:49.920
+and it generally works by using what's known as a hidden input which automatically uses some random
+
+08:49.920 --> 08:53.020
+code and checks that it matches the user's local site page.
+
+08:53.020 --> 08:53.600
+We don't know.
+
+08:53.610 --> 08:59.010
+We don't need to know a whole lot about how that random code is generated but basically just know you
+
+08:59.010 --> 09:01.650
+always need to add in if we go back to slides.
+
+09:01.860 --> 09:06.300
+You always need to add in that see SRF token to make sure your form works correctly and that it's secure
+
+09:08.170 --> 09:09.020
+OK.
+
+09:09.280 --> 09:11.490
+So again just need to remember to put that template together.
+
+09:11.530 --> 09:13.350
+You don't need to worry about the background.
+
+09:13.480 --> 09:14.630
+Now that we can show the form.
+
+09:14.650 --> 09:18.550
+Let's discuss how to actually handle the form in a you.
+
+09:18.600 --> 09:22.760
+OK so right now if you set up everything the way you've been describing and you had a submit button
+
+09:22.760 --> 09:25.490
+there and your user clicked that nothing would happen.
+
+09:25.610 --> 09:32.150
+And that's because we still need to inform you that if you actually get a post back me the user submits
+
+09:32.210 --> 09:37.940
+and has a response to your request for information you should actually check if the data is valid and
+
+09:37.940 --> 09:43.060
+if so you can then grab and use that data and you can actually do this by editing the view.
+
+09:43.130 --> 09:44.920
+So far we just showed you a simple view.
+
+09:44.990 --> 09:46.840
+We're going to talk about a more advanced one.
+
+09:46.970 --> 09:50.030
+And later on we'll actually talk a lot more about form validation.
+
+09:50.110 --> 09:55.480
+And you can have your own custom validation rules but for now upon receiving a validated form we'll
+
+09:55.490 --> 09:56.630
+assume is just valid.
+
+09:56.750 --> 10:03.790
+We can access what's known as a dictionary like attribute of that actual data called clean data.
+
+10:03.920 --> 10:05.660
+And this will look something like this.
+
+10:05.780 --> 10:10.070
+So this is inside your applications views that py file.
+
+10:10.100 --> 10:11.720
+We've edited the view a little bit.
+
+10:11.720 --> 10:16.850
+First we just had that form is equal to forms that form name and then we had all the way at the bottom
+
+10:16.850 --> 10:20.910
+that render request form page or a symbol and then the form form.
+
+10:21.050 --> 10:23.000
+And what we've added is everything in the middle.
+
+10:23.000 --> 10:24.500
+So the basic steps looked like this.
+
+10:24.500 --> 10:29.780
+First you check to see if you actually get a post back meaning if the request method is equal to post.
+
+10:29.780 --> 10:34.730
+That means your user hit submit and is posting something back in which case you want to pass in that
+
+10:34.730 --> 10:35.620
+request.
+
+10:35.630 --> 10:41.390
+So you say now is form is equal to forms that form name pass in the request post and then you want to
+
+10:41.390 --> 10:42.710
+check if the form is valid.
+
+10:42.710 --> 10:45.860
+And we'll talk a lot more about form validation in a future lecture.
+
+10:45.890 --> 10:52.490
+But once you have that you can call form doc clean data and then access the information with a key dictionary
+
+10:52.490 --> 10:52.990
+call.
+
+10:53.180 --> 10:55.930
+So here you can see I'm just printing it out straight into the con..
+
+10:56.120 --> 11:00.460
+So I'll say for validation success prints in the console and then they will print out the name email
+
+11:00.470 --> 11:02.600
+and text they provided in that form.
+
+11:02.600 --> 11:06.620
+So it was a very simple form just asking for three fields.
+
+11:06.720 --> 11:11.470
+OK so we still have a lot more topics to cover like customizing form validation connecting forms to
+
+11:11.470 --> 11:13.920
+a model which we haven't even really discussed yet.
+
+11:14.050 --> 11:18.760
+But before we do all that let's get some practice with what we know so far and create a basic form project
+
+11:18.760 --> 11:22.150
+an application from scratch that's really going to help your understanding.
+
+11:22.150 --> 11:22.940
+Thanks everyone.
+
+11:22.960 --> 11:24.020
+I'll see you at the next lecture.
+
+11:24.040 --> 11:26.020
+We're going to be coding everything we just talked about.

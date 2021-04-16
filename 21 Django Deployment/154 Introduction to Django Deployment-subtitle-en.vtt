@@ -1,0 +1,148 @@
+WEBVTT
+
+00:05.280 --> 00:08.760
+Hello everyone and welcome to jingle deployment.
+
+00:08.760 --> 00:11.040
+So welcome to the deployment section.
+
+00:11.040 --> 00:14.760
+Before we continue I really want to tell you that there's still so many topics to learn though we're
+
+00:14.760 --> 00:15.990
+going to cover in this course.
+
+00:16.110 --> 00:21.450
+Things like Oren's advanced user authorization social logons that means logging into the site with like
+
+00:21.450 --> 00:24.050
+Facebook or get payments rest.
+
+00:24.070 --> 00:29.200
+They provide encryption testing sessions cookies class based views and so much more.
+
+00:29.280 --> 00:31.840
+So don't worry we're still going to tackle a lot of these topics.
+
+00:31.920 --> 00:38.250
+But for right now we're going to cover those topics in a mix of clone projects and advanced Gengel topics
+
+00:38.490 --> 00:39.870
+in future sections.
+
+00:39.870 --> 00:45.210
+I think by now you've learned enough that if you really want to go out in your own reference online
+
+00:45.210 --> 00:49.740
+sources and documentation to build whatever web application that you had in mind.
+
+00:49.740 --> 00:53.880
+So for now we're going to mark a milestone in our knowledge by learning how to actually deploy our Gengel
+
+00:53.880 --> 00:59.610
+projects before we continue I want to quickly discuss deployment options in general.
+
+00:59.610 --> 01:04.200
+There are many many options for the point your site that each option is going to come with a tradeoff
+
+01:04.500 --> 01:09.370
+on things like price scalability security ease of use etc..
+
+01:09.680 --> 01:14.810
+Please check the resource links in this lecture for instructions on how to play Django to a wide variety
+
+01:14.810 --> 01:15.800
+of platforms.
+
+01:15.800 --> 01:20.510
+What I've done is I've google search and found the best step by step guides for a wide variety of Gengel
+
+01:20.510 --> 01:21.160
+platforms.
+
+01:21.160 --> 01:28.520
+Things like elastic beanstalk Heroku Python anywhere except her and each guide is a clear step by step
+
+01:28.520 --> 01:31.540
+walkthrough of deploying on a platform.
+
+01:31.570 --> 01:35.870
+So for this lecture we're going to show you how to use the deploy functionality for a very simple and
+
+01:35.870 --> 01:36.140
+easy.
+
+01:36.140 --> 01:39.360
+He is host called Python and the word dot com.
+
+01:39.380 --> 01:41.820
+Later on we can talk about things like the plumbing to a veeps.
+
+01:41.890 --> 01:45.110
+It's like Digital Ocean or hosting service like Heroku.
+
+01:45.170 --> 01:49.610
+And definitely check out the resource links for fools step by step guides on how to do those sort of
+
+01:49.610 --> 01:51.030
+deployments.
+
+01:51.710 --> 01:55.880
+Understanding the basic process on a simple site like Python anywhere that com will really help you
+
+01:55.880 --> 02:02.030
+when it comes to playing on more technical platforms like elastic being stuck on a W-S and as you continue
+
+02:02.030 --> 02:06.050
+on through the course and your interest in deploying to particular platform or service usually just
+
+02:06.050 --> 02:10.040
+a simple Google search of the service name plus jingle results in many guides.
+
+02:10.820 --> 02:15.030
+It is in the best interest of these services that a well-written deployment guide is available.
+
+02:15.050 --> 02:19.760
+Otherwise they won't make any money because if users find it hard to deploy on their Web site or service
+
+02:20.000 --> 02:20.920
+they're just not going to use it.
+
+02:20.960 --> 02:26.930
+So at this point in time basically every major hosting service that's a good fit for Django has a really
+
+02:26.930 --> 02:27.930
+well-written guide.
+
+02:27.980 --> 02:31.530
+So again check the resource links I've linked some of the best ones here.
+
+02:31.700 --> 02:34.820
+And keep that in mind as you explore a wide range of options.
+
+02:34.820 --> 02:39.350
+I understand that Python and where that com isn't going to work for everybody on their applications
+
+02:39.350 --> 02:44.390
+or for their startup etc. So this is more of a general guide on how to deploy something whether you
+
+02:44.390 --> 02:49.480
+actually end up using Python anywhere that com for your own web projects is really up to you.
+
+02:50.730 --> 02:51.230
+All right.
+
+02:51.330 --> 02:53.290
+So it's time to show the world what we've created.
+
+02:53.310 --> 02:55.340
+We're going to get started with the plan that Gengel project.
+
+02:55.350 --> 03:00.450
+But first we'll need to learn how to use get hub to host our code and go through a deployment checklist.
+
+03:00.450 --> 03:02.310
+Thanks everyone and I'll see you at the next lecture.
+
+03:02.310 --> 03:04.530
+We're going to be covering hub either.

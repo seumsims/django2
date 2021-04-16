@@ -1,0 +1,118 @@
+WEBVTT
+
+00:05.590 --> 00:12.130
+Welcome back everyone to this lecture on adding filters so we can also add filters for Adam in view
+
+00:12.130 --> 00:17.050
+of our models and filters will automatically show up on the right hand side of the view and they will
+
+00:17.050 --> 00:19.460
+also auto filter the printing on the data type.
+
+00:19.600 --> 00:22.620
+And I'll explain more about that later on.
+
+00:22.620 --> 00:26.280
+Keep in mind not every field will be useful as a filter.
+
+00:26.280 --> 00:31.580
+Let's explore how to easily create filters for admin views and hop over back to the editor.
+
+00:32.040 --> 00:38.160
+OK here I am at my admen PI file and if you notice what we have right now for bring in over my browser
+
+00:38.490 --> 00:41.220
+is if I'm selecting videos then check out the movies.
+
+00:41.220 --> 00:46.370
+I see a list of movies and I can search them and then I can also add movies here when I want to do is
+
+00:46.380 --> 00:47.760
+if we come back to home.
+
+00:47.820 --> 00:54.270
+Notice how the built in users has a filter filter by staffs that is super Beezer status active etc.
+
+00:54.360 --> 00:57.000
+so I can filter based off these different fields.
+
+00:57.030 --> 01:00.440
+I'm going to show you how to add in those kind of filters for your own models.
+
+01:00.450 --> 01:03.670
+On the admin page so to do that it's actually really simple.
+
+01:03.870 --> 01:09.690
+All you need to do is in this class that we created and you can do this for any model that you may just
+
+01:09.690 --> 01:12.490
+create another class such as customer admin.
+
+01:12.630 --> 01:19.920
+The attribute you need to add in is called Whoops list underscore filter and then you just added the
+
+01:19.920 --> 01:24.570
+list of things you want to filter by so different attributes of your model that you can filter by.
+
+01:24.570 --> 01:30.030
+So for movies what might make sense is filtering by for instance a release year or filtering by the
+
+01:30.030 --> 01:30.500
+genre.
+
+01:30.510 --> 01:32.180
+Or maybe even the length etc..
+
+01:32.390 --> 01:35.500
+Well probably does not make sense of filter by is the title.
+
+01:35.700 --> 01:41.010
+So I get to add all of these as filters that you can get an idea of how this actually works and why
+
+01:41.010 --> 01:43.960
+some of these choices are probably not good choices for filters.
+
+01:43.980 --> 01:47.910
+So I bring back my movies over here and I'm going to refresh.
+
+01:47.980 --> 01:51.030
+Now I can see over here on the right hand side let me kind of expand this.
+
+01:51.030 --> 01:54.490
+You can see it on the right hand side over here.
+
+01:54.570 --> 01:55.500
+We zoom in a bit.
+
+01:55.560 --> 02:00.780
+I can see by filter so filtering by really cear that may make sense because you know there's different
+
+02:00.870 --> 02:05.850
+or multiple movies per release year by length that could also make sense depending if things are standard
+
+02:05.850 --> 02:07.310
+length or not by title.
+
+02:07.320 --> 02:12.750
+Doesn't really make sense because titles probably a unique ID in this model so you don't want just kind
+
+02:12.750 --> 02:14.720
+of hundreds of titles here.
+
+02:14.760 --> 02:20.670
+So usually I want to filter by some sort of categorical attribute of your model where many movies or
+
+02:20.670 --> 02:23.190
+many objects are going to fit to that category.
+
+02:24.250 --> 02:29.370
+OK so that's how you can easily add in a filter and that's really all there is to it.
+
+02:29.370 --> 02:32.710
+As a quick review it's just an attribute of lists underscore filter.
+
+02:32.800 --> 02:35.440
+And then the actual attributes you want to filter by.
+
+02:35.740 --> 02:37.910
+OK thanks everyone and I'll say at the next lecture.

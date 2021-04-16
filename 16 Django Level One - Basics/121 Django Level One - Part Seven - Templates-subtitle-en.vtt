@@ -1,0 +1,703 @@
+WEBVTT
+
+00:05.490 --> 00:10.110
+Hello everyone and welcome back in this lecture we'll be discussing Django templates.
+
+00:10.970 --> 00:15.950
+Templates are a key part of understanding how Django really works and interacts with your web site.
+
+00:15.950 --> 00:20.900
+Later on we will learn about how to connect templates with models so that you can display data created
+
+00:20.900 --> 00:24.750
+dynamically taken straight from your database.
+
+00:24.800 --> 00:30.010
+However for now let's focus on the basics of templates and later on template tags.
+
+00:30.260 --> 00:35.260
+The template will contain the static parts of NHT M-L page parts that are always the same.
+
+00:35.270 --> 00:40.190
+You can think of it almost as the scaffolding or skeleton of the page.
+
+00:40.230 --> 00:43.950
+Then there are a template text which have their own special syntax.
+
+00:43.950 --> 00:49.710
+This syntax allows you to inject dynamic content that you're Django absentees will produce affecting
+
+00:49.710 --> 00:55.190
+the final h Tamil that the user sees to get started with templates.
+
+00:55.310 --> 01:00.620
+You first need to create a templates directory and then a subdirectory for each specific apps templates
+
+01:00.800 --> 01:01.930
+or at least by convention.
+
+01:01.940 --> 01:02.900
+That's how we're going to do it.
+
+01:02.900 --> 01:06.440
+Here it goes inside of your top level directory.
+
+01:06.470 --> 01:08.780
+So in our example we'll have something that looks like this.
+
+01:08.780 --> 01:14.000
+The first project folder or directory then we'll create a new templates folder and inside of that we'll
+
+01:14.000 --> 01:18.130
+have the first underscore app folder or that rectory.
+
+01:18.320 --> 01:25.070
+The next step is let jinglin know of the templates by editing the D R key inside of the templates dictionary
+
+01:25.080 --> 01:27.020
+in the settings that py file.
+
+01:27.020 --> 01:29.670
+So inside the settings py file for the project.
+
+01:29.770 --> 01:35.240
+There is a variable called templates and it's a dictionary inside that dictionary is a string.
+
+01:35.240 --> 01:40.250
+D i r which stands for directory and that's what we need to edit to let Django know where the templates
+
+01:40.250 --> 01:40.760
+are.
+
+01:41.030 --> 01:45.920
+However there is an issue with this that we have to deal with before we can actually edit that templates.
+
+01:45.930 --> 01:52.660
+Variable we want our jingle project to be easily transferable from one computer to another.
+
+01:52.820 --> 01:58.970
+But the DJR or directory key is going to really require a hard coded file path and that means we're
+
+01:58.970 --> 02:00.360
+going to have a conundrum.
+
+02:00.410 --> 02:08.030
+We can't really hard code a file path with our username if we want to easily share this project or application
+
+02:08.030 --> 02:12.220
+with other users and then we have the whole issue of different operating systems.
+
+02:12.290 --> 02:18.260
+Someone using a Mac isn't going to be able to use the same file path settings as someone using a Windows
+
+02:18.260 --> 02:19.070
+computer.
+
+02:19.100 --> 02:21.770
+So the question is how do we actually resolve this.
+
+02:21.770 --> 02:24.530
+Well this is where the power of Python comes into play.
+
+02:24.560 --> 02:30.950
+We can use Python's os module to dynamically generate the correct file path strings regardless of whose
+
+02:30.950 --> 02:35.030
+ever computer you're using or whatever operating system you're using.
+
+02:35.060 --> 02:36.310
+Do you want to check this out.
+
+02:36.440 --> 02:42.260
+You can import os with Python and then try something like the following Prince underscore underscore
+
+02:42.260 --> 02:46.250
+file underscore underscore or print OS that path.
+
+02:46.580 --> 02:49.040
+Name and then pass that file tag.
+
+02:49.050 --> 02:51.620
+And we're going to actually show you examples of this right.
+
+02:51.620 --> 02:57.440
+We're done with this presentation but we're going to be using this os module to feed the path to the
+
+02:57.440 --> 03:00.290
+DDR key inside of that template dictionary.
+
+03:00.290 --> 03:05.930
+Once we have done that we can create H.T. a mail file called index storage DML inside of the templates
+
+03:05.930 --> 03:09.880
+first app directory inside the this L file.
+
+03:09.890 --> 03:16.280
+We will insert template tags along with normal h l these template tags are also sometimes known as Django
+
+03:16.280 --> 03:17.910
+template variables.
+
+03:17.990 --> 03:24.310
+These template variables will allow us to inject content into the HVM l directly from Django.
+
+03:24.410 --> 03:29.690
+Now as a quick note these template tags can be a little intimidating for beginners and the reason for
+
+03:29.690 --> 03:35.020
+that is because they don't look exactly like h T.M. and they don't look exactly like Python either because
+
+03:35.030 --> 03:37.450
+of this new pseudo mix between the two.
+
+03:37.700 --> 03:41.480
+So they're a little intimidating at first and you may find them confusing when you're first dealing
+
+03:41.480 --> 03:42.200
+with them.
+
+03:42.200 --> 03:46.340
+But don't worry we're going to be working with them often enough that by the end of this course you'll
+
+03:46.340 --> 03:48.820
+feel really comfortable calling template tags.
+
+03:48.920 --> 03:54.080
+So as a quick note Don't be intimidating if you see this thing come out of nowhere but we will have
+
+03:54.080 --> 03:58.070
+a full understanding of template tags as we progressed through the course and we'll start off slow and
+
+03:58.070 --> 04:00.820
+steady to get comfortable with them in your own time.
+
+04:02.350 --> 04:06.860
+So this is now starting to really reveal the power of why we should even be using a web framework.
+
+04:06.990 --> 04:13.000
+Will be able to inject content into the HMO much means we can later on use Python code to inject content
+
+04:13.000 --> 04:16.110
+from a database which will learn about when we learn about models.
+
+04:16.140 --> 04:22.210
+Django in order to achieve all of this what we will use is a new function called the render function
+
+04:22.540 --> 04:27.520
+and place it into our original index function inside of our views that py file that we've been working
+
+04:27.520 --> 04:27.980
+with.
+
+04:28.300 --> 04:33.170
+So I know I've been talking a lot so let's now actually jump to the add on text editor and code through
+
+04:33.190 --> 04:34.820
+everything that we just discussed.
+
+04:36.160 --> 04:38.960
+Already here and back at the Adam text editor.
+
+04:39.020 --> 04:43.820
+Now before we get started actually creating our templates what I want to do is quickly talk again about
+
+04:43.820 --> 04:49.670
+those dynamic paths using Python's os module to actually generate dynamic paths so you don't have to
+
+04:49.670 --> 04:55.260
+worry about giving the file to a computer that's on another operating system.
+
+04:55.300 --> 04:58.940
+What we can do here is under first project first project.
+
+04:59.020 --> 05:03.070
+Open up our settings that py file and you'll notice that actually at the top.
+
+05:03.070 --> 05:09.370
+Import os has already been imported for you and there's a base directory and this basically builds the
+
+05:09.370 --> 05:11.770
+paths inside of the project.
+
+05:11.770 --> 05:17.530
+And if we actually just run this file we can explore what these file paths actually are.
+
+05:18.010 --> 05:19.860
+So let's go ahead and do that.
+
+05:19.890 --> 05:28.050
+We're going to change directory you first project that way am under first project first project and
+
+05:28.050 --> 05:36.730
+then right now I will say Python settings stop PI enter and we shouldn't see any output because we're
+
+05:36.880 --> 05:38.480
+not printing anything out.
+
+05:38.920 --> 05:43.620
+So we can run it now it's actually print stuff out and explore what it actually is.
+
+05:43.720 --> 05:51.460
+We'll start off with this file and this is essentially just a special key indicating the settings that
+
+05:51.510 --> 05:52.340
+high file.
+
+05:52.530 --> 05:59.870
+So if I save this and run it now I get settings that pi as my file output so that's the actual file.
+
+05:59.890 --> 06:04.800
+And now let's print out this the O S path the absolute path to this.
+
+06:04.800 --> 06:06.680
+So I can just copy and paste this from here.
+
+06:07.740 --> 06:12.360
+Copy that and then paste it here saved this.
+
+06:12.360 --> 06:14.380
+And now let's front that.
+
+06:14.500 --> 06:17.580
+And here we can see it printed out my actual full file path.
+
+06:17.580 --> 06:21.540
+So here and there see users my name desktop my jingoes stuff.
+
+06:21.550 --> 06:24.040
+First project first project settings start pi.
+
+06:24.280 --> 06:28.230
+And this is the sort of thing we're going to be using to actually feed and file paths.
+
+06:28.370 --> 06:33.800
+So we will feed even directly from python instead of typing out something like this.
+
+06:33.880 --> 06:38.230
+And then finally we can see what this base Diyar is.
+
+06:38.230 --> 06:43.870
+So this whole thing has been set up as a variable already conveniently for us so we can use it later.
+
+06:43.890 --> 06:48.790
+Willing to say this and then actually just print out base directory and we can see here when we print
+
+06:48.790 --> 06:50.040
+out the base directory.
+
+06:50.080 --> 06:53.500
+It prints out the directory that leads directly to the first project.
+
+06:53.500 --> 07:01.340
+So this most upper directory with this base underscore directory variable we can use it's conveniently
+
+07:01.340 --> 07:04.630
+call our new templates directory that we're about to create.
+
+07:04.760 --> 07:09.800
+Let's first create that directory and then show you how you can create the template directory under
+
+07:09.800 --> 07:12.060
+the top directory of first project.
+
+07:12.080 --> 07:20.420
+I will click and then add in a new folder and I will call this folder templates all lowercase.
+
+07:20.660 --> 07:22.810
+And here you can see I have a new templates folder.
+
+07:22.820 --> 07:24.920
+Right now it's empty.
+
+07:24.920 --> 07:29.450
+And then I can use this base directory and add onto it templates.
+
+07:29.480 --> 07:37.220
+Now you may be tempted to do something like this as a simple add on maybe backslash and then templates
+
+07:37.250 --> 07:40.200
+but that's actually not going to work for many reasons.
+
+07:40.220 --> 07:46.190
+One is stuff may be treated as an escape character and to this isn't going to work for all operating
+
+07:46.190 --> 07:46.820
+systems.
+
+07:46.850 --> 07:50.750
+If you are on a Linux or Mac maybe or forward slash will go the other way.
+
+07:50.750 --> 07:56.680
+Etc. so what are you going to do is use OS stop path that joyn actually joined these two.
+
+07:56.810 --> 08:04.520
+So we're going to put a comma here and now instead of calling Prince I will call O S path that join
+
+08:05.030 --> 08:07.490
+and this will actually join these two together.
+
+08:07.490 --> 08:13.300
+And let's show you what that looks like when I say print's going to save this and then run settings
+
+08:13.310 --> 08:14.430
+that high again.
+
+08:14.690 --> 08:19.600
+And here I can see the full directory for my local machine to that templates folder.
+
+08:19.650 --> 08:25.370
+And in this case I'm not actually going to print this but actually save this as a new variable and this
+
+08:25.370 --> 08:33.340
+variable is going to be called template underscore the IIR so templates underscore DJR sets the template
+
+08:33.370 --> 08:34.790
+directory.
+
+08:34.810 --> 08:37.980
+Let's save that and then we're going to edit the directories.
+
+08:37.990 --> 08:44.980
+If we scroll down here still in the settings up-I going to go past the installed apps go past the middleware
+
+08:45.610 --> 08:47.740
+and here under templates.
+
+08:47.740 --> 08:54.520
+I'm going to passen for the directories so remember this is just essentially a dictionary type object.
+
+08:54.520 --> 08:55.630
+Than the here's is key.
+
+08:55.630 --> 09:02.830
+Rectories inside of it I will passen that template underscore the our variable we just made and we can
+
+09:02.830 --> 09:05.830
+put in a comma there and then save this.
+
+09:05.890 --> 09:06.700
+All right.
+
+09:06.700 --> 09:12.430
+So here we have everything set up ready to go with the paths going to be concatenated correctly.
+
+09:14.500 --> 09:19.520
+Let's move on to the next step of actually adding a template within our template directory.
+
+09:19.600 --> 09:30.530
+We're going to Right-Click put in a new file and we will call this file index the HMO and inside of
+
+09:30.530 --> 09:36.410
+this I will just put in my regular HTL code and we can set this title to be something like.
+
+09:36.500 --> 09:42.930
+First app save that and then we're actually going to put in a little bit of information here in the
+
+09:42.930 --> 09:43.480
+body.
+
+09:43.560 --> 09:53.390
+We'll put in the header and say something like Hello this is indexed HMO save that and then we're going
+
+09:53.390 --> 09:59.430
+to show you what a template looks like in to make it really obvious how it's going to work will give
+
+09:59.430 --> 10:01.550
+it a name that makes it very clear.
+
+10:01.620 --> 10:05.840
+So as far as syntax for a template tag or at least the very first thing we're going to do.
+
+10:05.970 --> 10:11.190
+You have essentially two sets of these curly brackets on each side and then the actual variable.
+
+10:11.190 --> 10:17.580
+You're going to passen in this case we'll call this variable inserts underscore me so that we can actually
+
+10:17.580 --> 10:23.340
+see that we're inserting stuff using Django some going to say this again very simple 20:00 file except
+
+10:23.340 --> 10:27.870
+there might be a little confusing is this template tag right now and don't worry if you find that a
+
+10:27.870 --> 10:33.120
+little intimidating because it's kind of weird and new we will see this more and more as we go throughout
+
+10:33.120 --> 10:34.290
+the course.
+
+10:34.290 --> 10:40.980
+Now what we need to do is actually connect this variable insert me to our actual project and our application
+
+10:41.720 --> 10:47.670
+and the way we're going to do that is by editing the views that py file of our first underscore app.
+
+10:47.730 --> 10:55.610
+So we will come here to views that pi and here we have the index takes and a request returns and HTP
+
+10:55.640 --> 11:01.340
+response Hello World and said well we're going to do now is notice we have from Jingo that shortcuts
+
+11:01.760 --> 11:06.650
+import render that should already be there by default but if you don't have it go ahead and type that
+
+11:06.650 --> 11:07.370
+in.
+
+11:07.370 --> 11:15.090
+And now what we will do is actually edit this function and we're going to say something like this will
+
+11:15.140 --> 11:25.470
+say create a dictionary and we will call it my underscore dictionary or whatever you want to call it.
+
+11:25.790 --> 11:27.550
+And then here this is the important part.
+
+11:27.620 --> 11:29.350
+We'll have a key value pair.
+
+11:29.390 --> 11:35.410
+And in this case we need this key to match the variable that we created over in that template tag.
+
+11:35.420 --> 11:42.320
+So in that case it was insert me and we'll just have it be a string and say something like Hello I am
+
+11:42.860 --> 11:45.210
+from use that pi
+
+11:48.450 --> 11:51.500
+we will save that and then we're going to return.
+
+11:51.750 --> 11:55.150
+And this is where we can actually use the render function.
+
+11:55.440 --> 12:01.220
+And in this case for the render function we're going to pass passen it takes in the request and then
+
+12:01.220 --> 12:04.660
+it takes in as a string where you actually want to show this.
+
+12:04.670 --> 12:09.020
+So again that first parameter is just really the template we wish to use.
+
+12:09.710 --> 12:15.800
+And then the next thing I need to add in is the actual file itself indexed HVM el.
+
+12:15.900 --> 12:21.660
+And then here as the third argument is the context and this good basically going to link up what we're
+
+12:21.660 --> 12:26.940
+passing in here to our index is the mail file and we're actually going to change this in a little bit
+
+12:26.940 --> 12:32.060
+we'll create a subdirectory but I'll explain that right after we test this out to make sure it all works.
+
+12:32.070 --> 12:37.940
+So here shouldn't be a string will pass in that dictionary we just created and then we will save all
+
+12:37.940 --> 12:38.830
+of this.
+
+12:38.870 --> 12:43.190
+And let's actually make sure this all worked out and then we'll explain it and show you why you should
+
+12:43.190 --> 12:47.840
+edit this just a little bit by actually referencing the specific application.
+
+12:47.870 --> 12:49.190
+So let's run this.
+
+12:49.190 --> 12:50.470
+Make sure all work out.
+
+12:50.510 --> 12:53.140
+And then we're going explain and do a little quick review.
+
+12:53.660 --> 12:56.220
+So I'm going to back up to see the.
+
+12:56.480 --> 13:06.260
+Under first project they all say Python managed up-I run the server enter and looks like our servers
+
+13:06.260 --> 13:08.690
+are running so let's just copy and paste this.
+
+13:08.780 --> 13:12.890
+And as always I'll bring in my browser and then bringing in my browser over here.
+
+13:12.890 --> 13:13.460
+Look who we get.
+
+13:13.460 --> 13:14.320
+We say hello.
+
+13:14.330 --> 13:15.400
+This is indexed.
+
+13:15.420 --> 13:16.340
+H T.M..
+
+13:16.520 --> 13:18.860
+And then we say hello I am from buse that pie.
+
+13:18.860 --> 13:22.880
+So we have the original header that is from index that it's T.M..
+
+13:22.910 --> 13:27.080
+We look at index that CML we would find it there and then we see this little message.
+
+13:27.080 --> 13:28.850
+Hello I am from B is that PI.
+
+13:28.880 --> 13:32.020
+So this is pretty much the amazing part of what we're doing here.
+
+13:32.100 --> 13:35.120
+We're actually inserting using Jenga.
+
+13:35.120 --> 13:41.070
+We say hello I'm from the used up pie and using that template tagging I can then pass that in.
+
+13:41.080 --> 13:42.130
+Now a quick note.
+
+13:42.310 --> 13:46.700
+Well we want to do is actually separate out our templates per application.
+
+13:46.720 --> 13:54.180
+So what I should do is this under my templates I'm going to create a new folder and name it after my
+
+13:54.180 --> 14:02.100
+application first app and then I will move index each T.M. into first app and that way we keep our code
+
+14:02.190 --> 14:06.130
+modular and the next thing I have to do is come back to use that pi.
+
+14:06.390 --> 14:14.290
+And here I will call first underscore app and then actually call the index there.
+
+14:14.530 --> 14:19.600
+And this slash should actually go the other way and this slash is OK to go that way because this is
+
+14:19.600 --> 14:22.190
+basically what your browser is going to be reading.
+
+14:22.240 --> 14:27.970
+So we will save that and let's check it again make sure everything works and let's go ahead and just
+
+14:27.970 --> 14:29.800
+to make sure thing work change this.
+
+14:29.800 --> 14:31.330
+So say something like.
+
+14:31.480 --> 14:40.400
+Now I am coming from coming from first app
+
+14:43.020 --> 14:44.240
+index.
+
+14:45.530 --> 14:46.110
+Saved this.
+
+14:46.100 --> 14:49.810
+And let's bring in that back that browser make sure all were.
+
+14:49.970 --> 14:54.790
+And I just refreshed the page and now I see this one coming from first app index studied Simmo.
+
+14:54.860 --> 14:55.460
+OK great.
+
+14:55.460 --> 14:58.650
+Looks like everything worked out then our templates are good to go.
+
+14:58.880 --> 15:03.620
+So let's break down everything we just did real quickly just so we get a fuller standing of how the
+
+15:03.620 --> 15:06.920
+basics of templates work and when to minimize this.
+
+15:06.980 --> 15:07.210
+Right.
+
+15:07.220 --> 15:13.460
+First thing we had to do was create essentially our templates directory and inside that template directory
+
+15:13.490 --> 15:18.480
+you should create the rectory for each application and then inside it that is where your actual All
+
+15:18.530 --> 15:19.860
+files are going to go.
+
+15:19.880 --> 15:25.190
+And later on we'll see how to incorporate things such as JavaScript and see SS because we've created
+
+15:25.190 --> 15:27.000
+this templates directory.
+
+15:27.090 --> 15:31.730
+We need to let settings that pi know about it and the way we did this is we took advantage of a couple
+
+15:31.730 --> 15:32.210
+of things.
+
+15:32.210 --> 15:39.100
+One was the import os and Python's operating system and then we had the template directory.
+
+15:39.120 --> 15:45.650
+Now we use Python's OS module to say oh stop Hathout join and join the space directory to that templates
+
+15:45.890 --> 15:51.070
+that we just created and you'll always want to use OS that path join instead of something more manual.
+
+15:51.080 --> 15:54.240
+That way the code can run on any operating system.
+
+15:54.320 --> 15:59.510
+Once we've done that we come back here two views and we learn how to use import render which is something
+
+15:59.510 --> 16:03.860
+we're going to be using a lot more often than just a simple APCP response.
+
+16:04.460 --> 16:07.450
+And then with the render function we can create a dictionary.
+
+16:07.460 --> 16:12.620
+Now this dictionary is then going to have the actual content that we want to inject into that index
+
+16:12.830 --> 16:18.080
+the amount it takes in the key and this key is going to be the variable that we pass into that template
+
+16:18.080 --> 16:18.580
+Ted.
+
+16:18.680 --> 16:21.900
+In this case we just called it insert me to make it really obvious.
+
+16:21.950 --> 16:28.780
+And now here I say now and coming from Stapp index etc. and in the render pasand the request passen
+
+16:28.790 --> 16:30.120
+the actually it's T.M..
+
+16:30.260 --> 16:35.240
+And then for the context we pass in this dictionary and then it will read in the Keys when it actually
+
+16:35.240 --> 16:39.560
+wants to inject stuff into this index that H.T. mail file.
+
+16:39.560 --> 16:40.200
+All right.
+
+16:40.280 --> 16:44.960
+Now I know that was certainly a lot in a lot of new things but don't worry as we continue on throughout
+
+16:44.960 --> 16:48.290
+this course this is going to feel more and more comfortable for you.
+
+16:48.320 --> 16:48.960
+OK.
+
+16:48.980 --> 16:51.370
+Hope you enjoyed that lecture and we'll see you in the next one.

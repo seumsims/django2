@@ -1,0 +1,316 @@
+WEBVTT
+
+00:05.860 --> 00:10.960
+Welcome to your next social clone project in this project we're going to be taking bits and pieces from
+
+00:10.990 --> 00:17.560
+other social sites to build our own platform and our site is basically going to be a social outer space
+
+00:17.560 --> 00:18.710
+fan community site.
+
+00:18.730 --> 00:23.910
+So people who are big fans of things that do have outer space can come here and be part of the site
+
+00:25.170 --> 00:29.950
+this clone project also takes full advantage of some of jingoes onepoint elevons newest features such
+
+00:29.950 --> 00:33.550
+as loggin view and log out view.
+
+00:33.560 --> 00:37.730
+So the basic idea of the site is that users can create groups on various topics that have to do with
+
+00:37.760 --> 00:41.420
+outer space things like Space X NASA Pluto etc..
+
+00:41.690 --> 00:46.070
+They can then create posts inside those groups and they can also leave and join other groups.
+
+00:46.070 --> 00:48.980
+Let's discuss a few of the key features.
+
+00:49.180 --> 00:53.980
+So as I mentioned there are groups in this web site similar to things like sublets except for just calling
+
+00:53.980 --> 00:54.970
+them groups.
+
+00:54.970 --> 01:01.300
+There's also multiple users and authorisations just like any social media site or a social network site.
+
+01:01.330 --> 01:04.960
+There's also posts inside the group similar to posting a tweet.
+
+01:05.140 --> 01:08.120
+We're also going to be linking user profiles with an at symbol.
+
+01:08.290 --> 01:12.400
+So if you ever see a user name somewhere there's a little symbol attached to it you can click on that
+
+01:12.400 --> 01:14.560
+symbol and then go straight to their profile.
+
+01:14.590 --> 01:16.160
+And there's also multiple applications.
+
+01:16.180 --> 01:19.220
+Unlike the previous clone project.
+
+01:19.370 --> 01:24.320
+Let's take a quick peek at the actual project and remember you can download the zip file in this lecture
+
+01:24.320 --> 01:28.490
+as a resource which has all the code that we're going to be needing for this project.
+
+01:28.490 --> 01:32.360
+Let's jump to the browser and check out the project.
+
+01:32.360 --> 01:32.630
+All right.
+
+01:32.630 --> 01:37.790
+This is what the Web site actually looks like it's called Star social and let's say it's the best community
+
+01:37.790 --> 01:39.410
+for all things on outer space.
+
+01:39.440 --> 01:44.500
+And one of the funny little features of it is with javascript and CSSA we can't create stars and let
+
+01:44.500 --> 01:45.980
+him bounce around etc..
+
+01:46.310 --> 01:51.260
+So the main idea is that we could sign up as a new user and then we get this sign up page.
+
+01:51.260 --> 01:55.310
+So we have at this plaining so we'll call this space fan.
+
+01:55.310 --> 01:57.330
+One is our display name.
+
+01:57.470 --> 02:03.560
+Give this an email address of hello at gmail and then we'll say test password and we need to confirm
+
+02:03.560 --> 02:06.780
+our password so we'll say test password.
+
+02:06.780 --> 02:07.950
+I didn't mess that up.
+
+02:07.950 --> 02:08.520
+There we go.
+
+02:08.520 --> 02:10.030
+And now let's log in.
+
+02:10.030 --> 02:17.580
+So I'll a space fan 1 and lie test password log in and it says Now I'm logged in.
+
+02:17.580 --> 02:22.830
+Go to groups saw select go to groups and I can see there's some groups already created here for me so
+
+02:22.830 --> 02:26.490
+I can create a new group and it will tell me it's create a new group.
+
+02:26.490 --> 02:36.900
+So we'll give this group something that says like NASA rocks and then we'll say people who like NASA
+
+02:37.680 --> 02:41.010
+will create that group so we can then join the group.
+
+02:41.010 --> 02:45.950
+So it has no members right now so we'll join the group and now we can see has a member count of 1.
+
+02:45.960 --> 02:48.250
+So there's no posts in this group yet.
+
+02:48.270 --> 02:53.650
+Now you notice that we have a post button a group button and a create group button will be on groups.
+
+02:53.670 --> 02:58.770
+And now you can see in the group list we have my new group Nassor rocks and then the second group so
+
+02:58.770 --> 03:03.680
+we can end up doing is posting to any of these if I click on post it allows me to do and you message
+
+03:03.690 --> 03:13.020
+so I'll say first post in NASA exclamation point and then I'll choose this Nassor rocks group hit post
+
+03:13.500 --> 03:17.340
+and then I can see here I'm not superzoom then but hopefully you can see this.
+
+03:17.340 --> 03:22.960
+I'll zoom in a little more that I have the first post in Assa space fan and I can see space fan once
+
+03:22.980 --> 03:25.380
+I had this little symbol I have the time I post it.
+
+03:25.390 --> 03:26.630
+And NASA rocks.
+
+03:26.880 --> 03:32.310
+And if I hit on a space fan 1 there is my post history at space fan 1 and it's basically since I only
+
+03:32.310 --> 03:33.110
+have one post.
+
+03:33.180 --> 03:33.590
+There it is.
+
+03:33.600 --> 03:36.070
+And I can also delete posts so I can hit delete here.
+
+03:36.240 --> 03:37.860
+It says Are you sure you want to delete this post.
+
+03:37.860 --> 03:44.190
+I can either confirm to delete or cancel it so I'll just confirm that delete etc now takes me back to
+
+03:44.220 --> 03:47.660
+just a list of all the posts currently available for me.
+
+03:47.670 --> 03:48.850
+So again it groups.
+
+03:48.870 --> 03:51.690
+I can see members I can join other groups etc..
+
+03:51.900 --> 03:55.950
+All right there's a lot to this project even though it seems pretty simple on the back and there's a
+
+03:55.950 --> 04:00.220
+lot going on but it's going to feel like a natural extension of our blog project.
+
+04:00.300 --> 04:04.050
+So let's discuss various things to know about this project and how to approach it.
+
+04:04.120 --> 04:09.620
+A hop back to the presentation slides now so as I previously mentioned you can download the zip files
+
+04:09.650 --> 04:14.750
+in this lecture for all of the code and this project workflow will also be a bit different than the
+
+04:14.750 --> 04:16.040
+previous project.
+
+04:16.100 --> 04:20.300
+We're going to be focusing on a more realistic development process where we build out applications one
+
+04:20.300 --> 04:25.430
+by one versus the previous project where we kind of built all the views first and then all the templates
+
+04:25.440 --> 04:28.810
+etc. We're actually going to focus on applications one at a time.
+
+04:29.870 --> 04:34.280
+And this approach we take here is definitely going to be more realistic but by its nature it's also
+
+04:34.280 --> 04:39.690
+going to contain a lot more debugging especially because some applications depend on other applications.
+
+04:39.830 --> 04:44.450
+And while the blogging isn't very fun when first learning a concept by now you've learned enough that
+
+04:44.450 --> 04:49.220
+you feel really comfortable enough to debug often so keep that in mind as you approach these videos
+
+04:49.220 --> 04:51.050
+you're going to see us debugging a lot.
+
+04:51.050 --> 04:53.970
+But it's definitely part of a realistic development process.
+
+04:55.010 --> 04:55.510
+OK.
+
+04:55.720 --> 04:59.320
+Another note is that we're also going to be using some outside libraries to keep this in mind.
+
+04:59.320 --> 05:03.420
+If you happen to just immediately run the file that's in the resource for this lecture.
+
+05:03.460 --> 05:08.240
+If you don't have the right modules installed you may get something that says No module names etc..
+
+05:08.500 --> 05:13.270
+Then these can be easily fixed of just a simple Pipp install in your environment or in your virtual
+
+05:13.270 --> 05:17.620
+environment and we'll do this in the video lectures as well as you run into those modules so keep that
+
+05:17.620 --> 05:18.120
+in mind.
+
+05:18.280 --> 05:24.250
+If you get something that says maybe no module named bootstrap theory then you may have to install bootstrap
+
+05:24.250 --> 05:26.190
+3 OK.
+
+05:26.420 --> 05:31.350
+This project is also specifically designed to feel like an extension of the previous block clone project.
+
+05:31.400 --> 05:36.890
+And what I really want to get across here is thinking of social media Web sites as extensions of simple
+
+05:36.890 --> 05:42.590
+blogs will really help your understanding as far as building a social media website with Django.
+
+05:42.660 --> 05:48.180
+So remember that we created a text blog for a single user really similar to medium dot com if it was
+
+05:48.180 --> 05:51.050
+just a simple single user blog site.
+
+05:51.070 --> 05:56.220
+Now we're going to try to do is expand this concept of a blog site to an actual social media site by
+
+05:56.220 --> 05:58.160
+simply expanding to multiple users.
+
+05:58.170 --> 06:00.040
+So let's think of this in some examples.
+
+06:00.860 --> 06:01.520
+Instagram.
+
+06:01.550 --> 06:05.840
+You could technically think of as just a photo blog with multiple users.
+
+06:05.840 --> 06:09.960
+Twitter is literally just a microblog service with Again multiple users.
+
+06:10.100 --> 06:13.680
+YouTube is just a video blog service with multiple users.
+
+06:13.860 --> 06:14.330
+They'll be full.
+
+06:14.330 --> 06:19.190
+However it does take a lot more work than I'm kind of throwing out here to build sites like these especially
+
+06:19.190 --> 06:22.220
+at scale but the basic premise is the same.
+
+06:22.220 --> 06:27.190
+We can expand the idea of a single blog for a single user attach multiple users to it.
+
+06:27.350 --> 06:32.120
+And now we're dealing with a social media network especially if things like Instagram Twitter or YouTube
+
+06:32.360 --> 06:36.940
+where they're especially focused on a particular type of post or blog.
+
+06:37.080 --> 06:40.010
+OK so these ideas are still there.
+
+06:40.010 --> 06:43.980
+More importantly you now have awesome jingle skills and we're going to learn even more.
+
+06:44.090 --> 06:48.270
+So let's get started building out our site of Social Network.
+
+06:48.320 --> 06:49.910
+Thanks and I'll see it the next lecture.

@@ -1,0 +1,25 @@
+WEBVTT
+
+00:05.000 --> 00:10.760
+Hello everyone and welcome to Genger level 3 hopefully you are now excited by the possibilities of the
+
+00:10.760 --> 00:15.740
+MTV workflows those models templates and views workflows that we already learned about in jingle of
+
+00:15.740 --> 00:17.400
+a one and jingle level too.
+
+00:17.510 --> 00:22.370
+But we're still missing a big piece to creating a full web site and that is user input.
+
+00:22.760 --> 00:27.770
+In this section we're going to be covering how to use Gengel forms to accept user input and connect
+
+00:27.770 --> 00:31.490
+it to the database and your models and then retrieve it later on.
+
+00:31.490 --> 00:32.840
+All right let's get started.
+
+00:32.840 --> 00:33.850
+I'll see at the next lecture.

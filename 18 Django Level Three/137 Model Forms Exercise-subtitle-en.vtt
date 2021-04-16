@@ -1,0 +1,784 @@
+WEBVTT
+
+00:05.040 --> 00:10.810
+Hello everyone and welcome to the model forums exercise lecture and this lecture we will work with the
+
+00:10.810 --> 00:14.010
+pro to project folder from Gengel level 2.
+
+00:14.050 --> 00:18.980
+So if you still have that around you can just download the notes and grab that pro to project folder.
+
+00:19.040 --> 00:25.690
+Remember from Gengel level to that final project was to have that user that HTL file use template tagging.
+
+00:25.720 --> 00:30.090
+This playlist of all the users and their first thing is their last name and the e-mail information.
+
+00:30.090 --> 00:34.360
+So we had that for loop inside that template tagging and then we displayed all that information directly
+
+00:34.360 --> 00:35.920
+from the model.
+
+00:36.220 --> 00:40.930
+We're going to change this to be a sign up page and it's going to be connected to a model form that
+
+00:40.930 --> 00:46.810
+we previously discussed so that the user goes to slash users signs up on the user page and once they
+
+00:46.810 --> 00:51.710
+hit submit that information goes the model and the user gets taken back to the home page.
+
+00:51.760 --> 00:56.070
+A great exercise would be to try this on your own first.
+
+00:56.260 --> 01:01.780
+So operationally you can attempt these exercise steps before viewing the rest of the lecture as an attempt
+
+01:01.780 --> 01:02.790
+to try this on your own.
+
+01:02.830 --> 01:04.660
+And these are the steps you're going to have to follow.
+
+01:04.720 --> 01:10.360
+You'll need to create a model form and forms that pi will have to connect the form in the template then
+
+01:10.360 --> 01:15.510
+you'll need to edit views that pie to show the form and work with the form in case there's a post and
+
+01:15.520 --> 01:17.510
+you'll figure out how to save that data.
+
+01:17.530 --> 01:20.130
+That's something we didn't talk about in the previous lecture.
+
+01:20.200 --> 01:24.490
+So as an exercise you have to look up in the documentation how to save the data and the way I wrote
+
+01:24.490 --> 01:28.270
+SAVE here is a really big hints on how to do it off the form.
+
+01:28.270 --> 01:32.080
+Once you figured that out then just verify that the model is Adam unregistered registered.
+
+01:32.080 --> 01:36.800
+So once you hit submit you can log in as an administrator and see that the data is actually there.
+
+01:36.810 --> 01:38.930
+Inside the model OK.
+
+01:38.970 --> 01:43.590
+So again I highly encourage you to try it out on your own and you're going to need to look at the documentation
+
+01:43.620 --> 01:45.160
+or to do that successfully.
+
+01:45.200 --> 01:49.470
+If that's not really your speed and you don't feel that comfortable doing it yet feel free to just continue
+
+01:49.470 --> 01:51.390
+watching this and code along with me.
+
+01:51.390 --> 01:53.490
+All right let's get started.
+
+01:53.490 --> 01:53.730
+All right.
+
+01:53.730 --> 01:59.970
+Here I am at the editor and right now I have my Pro two project inside a folder called Gengel level
+
+01:59.970 --> 02:02.430
+3 and it has the app too.
+
+02:02.430 --> 02:04.220
+That was the second application we made.
+
+02:04.380 --> 02:09.490
+We take a look at the templates we have this index page HTML page and then we have the users.
+
+02:09.510 --> 02:14.280
+Remember this was the template tagging we used earlier to actually display all these information directly
+
+02:14.280 --> 02:15.180
+from the models.
+
+02:15.270 --> 02:20.570
+And we're going to be replacing all of this with an actual form that connects directly to the models.
+
+02:20.610 --> 02:27.150
+So as a quick note the Pentagon when you actually downloaded this you may not have the models registered
+
+02:27.150 --> 02:28.570
+on your abdomen up file.
+
+02:28.680 --> 02:34.080
+So make sure other app to added up pie for this Pro-Tools that you have these two lines here app to
+
+02:34.080 --> 02:39.660
+that model import user and Adam that site register user member we need to register our models in order
+
+02:39.660 --> 02:42.690
+to see them when we log in as an administrator.
+
+02:42.690 --> 02:45.620
+All right let's start off with the front end actually.
+
+02:45.990 --> 02:48.080
+And then we'll come back to it later on as well.
+
+02:48.460 --> 02:56.940
+But here on the index page we'll say Welcome go to users too and we'll say sign up and I'm actually
+
+02:56.940 --> 02:59.370
+going to add in Bootstrap.
+
+02:59.370 --> 03:00.820
+So this looks a little nicer.
+
+03:02.200 --> 03:08.070
+And I copied and pasted the link from Bootstrap dot com or get bootstrapped dot com.
+
+03:08.070 --> 03:08.870
+You can do the same.
+
+03:08.870 --> 03:15.080
+So I'll put that on the index page and also put it on the user's page in the next section of the course
+
+03:15.080 --> 03:21.410
+we'll actually learn how we can use one single basic template and then keep inheriting from the same
+
+03:21.410 --> 03:21.950
+template.
+
+03:22.130 --> 03:26.540
+So you don't have to keep writing so much H-2 him but for right now we'll have the same link in both
+
+03:26.540 --> 03:29.270
+of these files in this user's page.
+
+03:29.270 --> 03:35.340
+This one is going to say please sign up here.
+
+03:36.750 --> 03:40.640
+And I'm going to clear the rest of this since we won't be using it for now.
+
+03:40.930 --> 03:42.630
+Everything else that's in the body.
+
+03:42.760 --> 03:47.470
+And just to make this look a little nicer we'll put it inside of a container class and then we'll grab
+
+03:47.470 --> 03:54.280
+this and put that in here and then on the index page that home page will put all of this into a container
+
+03:54.280 --> 03:55.290
+class as well.
+
+03:55.360 --> 03:59.900
+And in fact let's put it all into a Jumbotron just so it looks a little more home page.
+
+04:00.450 --> 04:03.660
+And grab this stuff and we'll put it in here.
+
+04:05.410 --> 04:05.620
+All right.
+
+04:05.620 --> 04:06.690
+Looking good.
+
+04:06.880 --> 04:11.050
+And we'll come back to users that each time and do some additional stuff in here of the actual forum
+
+04:11.050 --> 04:11.970
+later on.
+
+04:12.040 --> 04:18.470
+But let's come to the forums excuse me app to folder where we need to make a Forms up high file.
+
+04:18.640 --> 04:26.180
+So say you file forms that PI enter and we should have the forms that PI file to here.
+
+04:27.070 --> 04:30.490
+Now what we need to do is import forms as we did last time.
+
+04:30.820 --> 04:38.320
+So I'll say from Gengel import forms and then we also need to import our actual models so we can say
+
+04:38.350 --> 04:41.660
+from Daut but I prefer actually naming it.
+
+04:41.680 --> 04:46.130
+So I'll say from app 2 even though we're in the directory don't need to actually say that.
+
+04:46.210 --> 04:50.720
+I just say from DOT will say from app to that model's import and then the actual name of the models
+
+04:50.740 --> 04:51.770
+we intend to use.
+
+04:51.940 --> 04:57.250
+This case is just user and now it's time to create that class.
+
+04:57.380 --> 05:09.050
+And in this case we will call this something like new user it will say forms dots and then we call model
+
+05:09.080 --> 05:15.760
+form instead of just normal form so typically before we were just using form but if I actually want
+
+05:15.760 --> 05:20.960
+this to connect to a model and edit that data off the top model form and then we also have that in-line
+
+05:20.960 --> 05:23.970
+class which is going to be this Medich class.
+
+05:24.140 --> 05:28.790
+And if you want to do your own custom validations then you would define a field tier something like
+
+05:29.390 --> 05:32.900
+whatever they're actually called first name equals blah blah.
+
+05:32.900 --> 05:37.270
+The forms the character field and then eventually you would add in your validator.
+
+05:37.280 --> 05:40.220
+But right now we're not going to do any of that.
+
+05:40.430 --> 05:42.850
+We already covered head to custom validations if you want to do that.
+
+05:42.860 --> 05:44.940
+That's fine if you don't that's also fine.
+
+05:45.120 --> 05:50.870
+Alycia class Metta L.M. create the model attribute this should always be called Model and then you assign
+
+05:50.870 --> 05:55.160
+it to whatever model this form happens to linked to this case is just one form here.
+
+05:55.160 --> 06:02.310
+User if we had another model to import that would have its own class with its own form model or own
+
+06:02.310 --> 06:07.200
+model form I should say and then we have the fields attribute and we talked about the fields attribute
+
+06:07.200 --> 06:10.170
+in the previous lecture and the various ways to handle it.
+
+06:10.290 --> 06:14.700
+Since we're going to be using all the fields we'll just use that special keyword underscore underscore
+
+06:14.910 --> 06:17.740
+all underscore underscore as a string.
+
+06:18.180 --> 06:23.530
+And as a quick note for this meta you can either just do meddle like this or have the open closed princes
+
+06:23.580 --> 06:24.670
+for Python 3.
+
+06:24.750 --> 06:25.460
+That doesn't matter.
+
+06:25.470 --> 06:26.630
+It's basically the same thing.
+
+06:28.530 --> 06:33.540
+And now that we have that ready to go let's go to our views that pi file and make sure that it's connected
+
+06:33.540 --> 06:37.550
+to the form properly and that it's going to do something if the user actually hit submit.
+
+06:38.010 --> 06:44.370
+So we'll come to views that pie and right now we just have our previous users that was returning information
+
+06:44.370 --> 06:45.480
+from the model.
+
+06:45.510 --> 06:49.160
+But instead we're going to be returning information directly from that form.
+
+06:49.380 --> 06:50.440
+So we'll delete that.
+
+06:50.520 --> 06:55.150
+Right now the index view that's totally fine will keep the same home page return the index or C.M. but
+
+06:55.200 --> 06:57.780
+for users we're going to do something a little different.
+
+06:57.780 --> 07:03.700
+First thing you have to do is actually make sure the form is working which means we need to import it.
+
+07:03.700 --> 07:07.050
+So previously we were importing the model direct directly.
+
+07:07.240 --> 07:11.380
+We won't be using that since we're not actually grabbing information from the model to post we're just
+
+07:11.380 --> 07:13.750
+going to grab stuff from the form.
+
+07:13.900 --> 07:21.690
+So I'll say from in his case app to dot and it's the forms import.
+
+07:21.780 --> 07:24.920
+And we're going to import the new user in just to make it really clear.
+
+07:24.920 --> 07:30.650
+Let's actually call it muties or form that we we don't get confused so we'll come back to forms up PI
+
+07:30.710 --> 07:34.020
+and let's call this new user form.
+
+07:34.140 --> 07:37.810
+Save that and then interviews we'll call this new user form.
+
+07:37.860 --> 07:39.210
+That's a little clearer to me.
+
+07:39.210 --> 07:43.310
+Just so I don't get anything messed up and then we're also not using HTP response anymore.
+
+07:43.320 --> 07:45.970
+That was one of the most basic things we learned about.
+
+07:45.990 --> 07:47.560
+So we'll comment that out.
+
+07:47.580 --> 07:52.440
+So we just have the render and user form that we're going to be working on this.
+
+07:52.490 --> 07:57.120
+And let me grab some space here by collapsing the directory tree and also collapsing the terminal will
+
+07:57.120 --> 07:58.680
+bring them back in a little bit.
+
+07:59.010 --> 08:04.350
+But the first thing I want to do is create a object or a variable here called form and assign it to
+
+08:04.380 --> 08:10.190
+an instance of that new user form so create an instance of that needs reform inside the user's view
+
+08:10.190 --> 08:24.380
+here and then we'll say this if the input request method is equal to a post then we're going to reassign
+
+08:24.380 --> 08:31.990
+form to equal to an instance of new user form except passen request form or actually request that post
+
+08:33.980 --> 08:38.130
+and then we'll scroll down get a little more focus on this one function here.
+
+08:38.170 --> 08:43.060
+So OK so basically saying is right now our form is an instance of that form class we just made it the
+
+08:43.070 --> 08:47.190
+request method is equal to post meaning someone hit submit on that form is sending information back.
+
+08:47.300 --> 08:51.650
+We pasand the request up post and then we check if it's valid or not.
+
+08:51.920 --> 08:56.540
+And as we discussed before you can have your own custom validation checks but we'll just do the automatic
+
+08:56.540 --> 08:57.380
+ones.
+
+08:57.830 --> 08:59.180
+So the form is valid.
+
+08:59.630 --> 09:02.360
+Meaning essentially they didn't mess anything up when hitting the summit.
+
+09:02.360 --> 09:04.700
+And so an email was an e-mail etc..
+
+09:04.910 --> 09:08.180
+Then here's the thing we didn't cover in order to save the form.
+
+09:08.180 --> 09:11.660
+You can say form that save as the method.
+
+09:11.660 --> 09:13.790
+Now we can also do it or it's committed to the database.
+
+09:13.800 --> 09:17.110
+Is it commit is equal to true.
+
+09:17.150 --> 09:18.620
+So we'll save that.
+
+09:18.730 --> 09:22.110
+So we have if form is valid form that save it's true.
+
+09:22.300 --> 09:25.030
+And then after this what we're going to end up doing is returning
+
+09:28.440 --> 09:36.450
+and we'll return the index page so we'll return the index view and then pasand the request.
+
+09:36.470 --> 09:42.080
+So this basically means if someone says Post mean they give back information and it's valid we will
+
+09:42.080 --> 09:46.730
+save that form using the Save method off of it and then we're going to return the index view of the
+
+09:46.730 --> 09:51.230
+request which it will just return the render request of the home page.
+
+09:51.230 --> 09:53.490
+This will basically take you back to the home page.
+
+09:53.510 --> 09:56.450
+Now what if they actually don't do anything.
+
+09:56.450 --> 10:02.140
+So we can say have an else statement here let's say the form isn't valid.
+
+10:02.410 --> 10:02.970
+We can just say.
+
+10:02.970 --> 10:04.050
+Else.
+
+10:04.360 --> 10:05.610
+And there's a lot of things you could do.
+
+10:05.610 --> 10:11.430
+Like Rayson Eric cetera right now we'll just prints error form invalid.
+
+10:11.470 --> 10:16.550
+We will actually end up experiencing this because we're not going to have an invalid form anywhere and
+
+10:16.560 --> 10:21.010
+then outside of all this we need to actually return something so that it matches the actual page.
+
+10:21.010 --> 10:26.710
+So say the users and on the very first level of indentation inside of this view function are going to
+
+10:26.710 --> 10:37.760
+return and we'll say render request and then pass in wherever our users pages it's under app to and
+
+10:37.770 --> 10:43.050
+let's make sure that the folders matches so under templates we see app too.
+
+10:43.050 --> 10:48.720
+So that's actually capitalized although as a string passing it I don't believe it makes a difference
+
+10:49.400 --> 10:51.750
+but we can always just check on that.
+
+10:51.750 --> 10:58.740
+So two member templates app to index I smelled the ghost templates app too and we send back whatever
+
+10:58.770 --> 11:00.860
+pages and it was called users.
+
+11:01.050 --> 11:02.890
+Each team L.M..
+
+11:03.340 --> 11:07.930
+Then finally we want to send back that context dictionary that actually contains the form and it's very
+
+11:07.930 --> 11:08.260
+common.
+
+11:08.260 --> 11:13.950
+Just to give it the key form and then pass in that form object which is this guy.
+
+11:14.010 --> 11:14.350
+All right.
+
+11:14.350 --> 11:15.740
+So we will save that.
+
+11:15.760 --> 11:21.710
+Now let's go back to users that it's T.M. and fix this up so it contains the form.
+
+11:21.740 --> 11:25.670
+So the first thing we need to do is actually create that form tag.
+
+11:25.670 --> 11:29.080
+We don't need to really worry about action right now because we're kind of handling that ourselves.
+
+11:29.090 --> 11:33.590
+Now the age T.M. and we don't need to assign it a class if you want to add more styling to it you can
+
+11:33.590 --> 11:34.230
+do that.
+
+11:34.250 --> 11:38.710
+We definitely say methods Posto and either lowercase or uppercase works.
+
+11:38.710 --> 11:41.560
+I like putting in uppercase just so it's very clear to me what's happening.
+
+11:42.470 --> 11:46.440
+And then we're going to do is use that template tagging and we'll pass form.
+
+11:46.490 --> 11:51.790
+Technically that's all you need to do but in order to get those nice line breaks we can say as underscore
+
+11:51.790 --> 11:52.330
+P..
+
+11:52.550 --> 11:58.100
+So that way each actual thing each actual widget form is a paragraph tag.
+
+11:58.550 --> 12:05.480
+And then remember this is something beginners often forget is that C S are f tag or token I should say.
+
+12:05.610 --> 12:11.980
+So we have C S R F underscore tokin and we need that in order to make sure the form is secure.
+
+12:12.020 --> 12:13.970
+And just so it runs period.
+
+12:13.970 --> 12:19.940
+And then finally we need the input so the input style is going to be or the type will be submit.
+
+12:20.360 --> 12:25.990
+We don't need to give it a name but we can't do is give it a class just since we have bootstrap here.
+
+12:26.100 --> 12:27.520
+Make it look a little nicer.
+
+12:27.660 --> 12:33.780
+So we'll give it to class between and then between primary and then finally the value whatever the buttons
+
+12:33.790 --> 12:36.980
+actually going to show can be submit.
+
+12:36.980 --> 12:37.510
+All right.
+
+12:37.790 --> 12:40.430
+So hopefully we've taken care of everything.
+
+12:40.430 --> 12:42.890
+We have our users ASTM all ready to go.
+
+12:43.070 --> 12:44.450
+Index looks good as well.
+
+12:44.450 --> 12:51.560
+Jumbotron or else already matched up from the previous iteration of this projects we have users calling
+
+12:51.560 --> 12:54.770
+app to that your Els and your Elle's up high here.
+
+12:54.800 --> 12:55.410
+Looking good.
+
+12:55.400 --> 12:56.750
+Users not users.
+
+12:56.960 --> 12:58.890
+And then we have our actual views.
+
+12:58.910 --> 13:03.080
+This is probably the hardest part of all this and it's returning back that dictionary which we're calling
+
+13:03.200 --> 13:06.680
+in the users of HTL over here with form.
+
+13:06.710 --> 13:09.300
+So let's actually test this out and see if it all worked.
+
+13:10.200 --> 13:20.430
+We're going to see the end to go to and then when I'm going to do a same Python managed up high and
+
+13:20.430 --> 13:27.430
+then will say run server if depending on how far you got in the previous Gengel level to Pro 2 folder
+
+13:27.520 --> 13:32.980
+you need to actually run the migrations if you went along with me throughout the entire course and we're
+
+13:32.980 --> 13:36.640
+coding along correctly then you shouldn't need to make those migrations but keep that in mind.
+
+13:36.640 --> 13:40.460
+You may need to make the migrations north to have everything be connected.
+
+13:40.540 --> 13:42.290
+I should already have everything connected.
+
+13:42.460 --> 13:45.450
+So it's actually run the server.
+
+13:45.590 --> 13:47.270
+Let's make sure we don't get an error out.
+
+13:47.300 --> 13:49.260
+So that's a good sign no error.
+
+13:49.320 --> 13:51.410
+Let's copy this.
+
+13:51.430 --> 13:54.700
+Actually we don't need to copy x and have it here or else I'll just refresh.
+
+13:54.980 --> 13:55.870
+OK so far so good.
+
+13:55.870 --> 13:57.640
+It says Welcome to users to sign up.
+
+13:57.670 --> 13:58.350
+So let's do that.
+
+13:58.360 --> 14:01.630
+We'll go to slash users enter.
+
+14:01.660 --> 14:03.200
+And now we get this please sign up here.
+
+14:03.220 --> 14:04.460
+Also looking pretty good.
+
+14:04.690 --> 14:11.530
+Let's make a really obvious first name so I'll say I'm new first or the first name that we when I look
+
+14:11.740 --> 14:17.380
+into this page as an administrator I can easily know that actually worked correctly.
+
+14:17.680 --> 14:28.220
+Last name I can say my last name and then email will say it works at whatever yahoo dot com we'll hit
+
+14:28.220 --> 14:28.820
+submit.
+
+14:30.010 --> 14:30.620
+And perfect.
+
+14:30.620 --> 14:34.160
+It took us back to the home page just like we thought it would.
+
+14:34.190 --> 14:35.800
+Now we can see that it also sent a post.
+
+14:35.810 --> 14:38.210
+So that's looking pretty good right now.
+
+14:38.210 --> 14:41.680
+Now let's go to the Admin site and make sure it all works.
+
+14:41.720 --> 14:43.130
+So go slash admin.
+
+14:43.190 --> 14:46.500
+And if you don't remember your username or password from Django level.
+
+14:46.730 --> 14:51.130
+Feel free to just use Python managed up high create super user number that command all you have does
+
+14:51.170 --> 14:55.880
+provide your username and email and type in your password twice.
+
+14:55.940 --> 15:01.400
+So hopefully I remember my password it was just test passwords something very simple and I use it and
+
+15:01.400 --> 15:03.310
+was able log in see if that works.
+
+15:03.350 --> 15:06.980
+Ok looks like I did not remember my password so I don't remember this.
+
+15:06.980 --> 15:09.620
+So let's actually create a new one.
+
+15:09.770 --> 15:11.340
+You probably are in the same boat as me.
+
+15:11.420 --> 15:20.230
+So we'll say Python managed up high create super user and then lets it Jose.
+
+15:20.630 --> 15:24.810
+Email address hello at gmail dot com doesn't really matter.
+
+15:24.860 --> 15:26.380
+And then the password just doesn't matter.
+
+15:27.190 --> 15:32.120
+We'll say test password test password and now is try this again.
+
+15:32.120 --> 15:40.270
+It will say Python managed the high run server we're going to refresh actual admin page and let's try
+
+15:40.270 --> 15:40.660
+this again.
+
+15:40.660 --> 15:46.460
+So Jose and then as password log in perfect.
+
+15:46.500 --> 15:50.320
+And now if I expand this I can see here I have two users.
+
+15:50.320 --> 15:55.480
+And as I mentioned a few times users may not be the best name because under authentication authorization
+
+15:55.750 --> 15:58.420
+you already have users but it's up to you.
+
+15:58.430 --> 15:59.350
+He doesn't mind.
+
+15:59.350 --> 16:01.230
+Right now everything is so simple and small.
+
+16:01.300 --> 16:02.800
+Shouldn't be much of a difference.
+
+16:02.830 --> 16:06.730
+So we'll click on users over here and we see we have a bunch of user objects.
+
+16:06.730 --> 16:10.270
+So if you ran the population script you'll also have a much easier objects.
+
+16:10.300 --> 16:13.660
+The most recent one should be the one at the top which is the one we just entered so as click on it
+
+16:14.320 --> 16:16.830
+and here it is I'm new first my last name.
+
+16:16.840 --> 16:18.300
+It worked at Yahoo dot com.
+
+16:18.310 --> 16:19.260
+Perfect.
+
+16:19.270 --> 16:24.580
+So now we can do whatever we want with this as a super user but basically we just showed that the user
+
+16:24.610 --> 16:30.160
+can input information and then we can access it in our models which connects to a database and that's
+
+16:30.160 --> 16:33.010
+the basic premise of using a model form.
+
+16:33.010 --> 16:39.400
+All right I hope you now really see the power in your mind the gears are working here and you can essentially
+
+16:39.400 --> 16:43.670
+realize that you now have the power to start making almost any website you want to make.
+
+16:43.720 --> 16:49.270
+You have the ability to gather information from the user save it and you also know how to return it
+
+16:49.270 --> 16:50.410
+back to the user.
+
+16:50.410 --> 16:54.210
+I'll be you know in very simple fashions but eventually the rest is just styling.
+
+16:54.490 --> 16:55.150
+OK.
+
+16:55.240 --> 16:58.060
+Hope you enjoyed the lecture and we'll see you at the next section of the course.
+
+16:58.060 --> 16:58.850
+Thanks everybody.

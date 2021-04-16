@@ -1,0 +1,904 @@
+WEBVTT
+
+00:05.230 --> 00:08.830
+Welcome everyone to part 12 of the social clone project.
+
+00:09.030 --> 00:13.750
+Now go ahead and try running our application our Web site and see if there's any debugging that we need
+
+00:13.750 --> 00:14.200
+to do.
+
+00:14.200 --> 00:15.920
+I'm sure we've made typos along the way.
+
+00:16.030 --> 00:17.920
+So let's see how we can actually fix those.
+
+00:17.920 --> 00:22.090
+We also need to make sure we do our migrations and double check our settings that PI file so that the
+
+00:22.090 --> 00:26.790
+applications that we just created groups and post are actually inside that setting that profile.
+
+00:26.980 --> 00:32.560
+Let's get started ok here and back at the editor and I want to open up our settings that py files under
+
+00:32.560 --> 00:33.850
+simple social project.
+
+00:33.910 --> 00:39.070
+Open up settings that pi and then I'm going to scroll down to the installed apps and I want to make
+
+00:39.070 --> 00:47.040
+sure that we add in the groups app that we've made as well as the Post's app.
+
+00:47.200 --> 00:51.970
+So we will save that and I also want to make sure that we do the migrations so I'm going to clear my
+
+00:51.970 --> 00:59.200
+console or CLX if you're on Windows and then say Python managed up high so make sure and then the right
+
+00:59.200 --> 00:59.950
+one.
+
+01:00.100 --> 01:07.200
+See the two simple social Python managed at PI and then I'm going to type migrate it should complain
+
+01:08.380 --> 01:09.330
+and we'll run that.
+
+01:09.370 --> 01:09.940
+OK great.
+
+01:09.940 --> 01:10.700
+So it complains.
+
+01:10.720 --> 01:19.800
+So we're going to do say Python managed up-I make migrations and we'll start off with groups hit enter
+
+01:20.280 --> 01:27.790
+and then want to do Python manage that PI make migrations and then we'll do posts enter and then files
+
+01:27.800 --> 01:32.000
+say Python managed up PI migrate and then it's ready to go.
+
+01:32.250 --> 01:35.400
+So now it's actually try running this and see if we need to debug anything.
+
+01:35.400 --> 01:38.980
+I'll say Python managed up high run server.
+
+01:39.410 --> 01:40.370
+Ok it looks like it's running.
+
+01:40.380 --> 01:42.020
+Let's hop over to our browser.
+
+01:42.320 --> 01:44.990
+OK my browser everything's looking like it's functioning.
+
+01:44.990 --> 01:49.640
+So let's actually log in and see if we can create a new group and then create a new post in it.
+
+01:49.710 --> 01:51.060
+I will log in.
+
+01:51.060 --> 01:53.590
+Actually let's sign up just to make sure everything's working.
+
+01:53.640 --> 01:59.180
+So I will sign up as Jose my e-mail address will just be Jose at gmail dot com.
+
+01:59.310 --> 02:01.900
+That's not my real email address so don't bother.
+
+02:01.950 --> 02:09.690
+Whoever that Jose is will say yes password just password and then sign up.
+
+02:10.120 --> 02:17.290
+Ok now I'm going to log in username Jose password is test password log in and it says now we're logged
+
+02:17.290 --> 02:17.500
+in.
+
+02:17.500 --> 02:18.180
+Great.
+
+02:18.220 --> 02:19.540
+So I have this create group.
+
+02:19.570 --> 02:21.900
+So let's try creating a group on that.
+
+02:21.900 --> 02:26.220
+Actually we haven't linked that yet so we still need to on our actual navigation bar.
+
+02:26.230 --> 02:27.480
+Make sure that's working.
+
+02:27.490 --> 02:28.610
+So that's something we can add in.
+
+02:28.630 --> 02:31.850
+Let's go ahead and hop over to the editor and fix that.
+
+02:31.860 --> 02:37.900
+So back in the editor I will open up the base h team I'll file that's the one that actually has a navigation
+
+02:37.900 --> 02:43.510
+bar let me collapse my directory tree so based on age HTML where the navigation bar is remember I have
+
+02:43.510 --> 02:46.600
+all these kind of missing links so let's add those in.
+
+02:46.950 --> 02:56.720
+First the your URL for a post is just going to be your goal posts create and then for groups.
+
+02:56.760 --> 02:59.490
+It's going to be it's the template tag here.
+
+03:00.930 --> 03:08.090
+Dorel groups all and then four create groups.
+
+03:08.110 --> 03:09.160
+It's going to be
+
+03:12.350 --> 03:19.060
+groups create and then let's also fix this one so.
+
+03:19.070 --> 03:27.220
+Else we will say groups and that will be your el groups all.
+
+03:27.250 --> 03:28.680
+So the list of all the groups.
+
+03:28.720 --> 03:29.940
+OK save that.
+
+03:30.090 --> 03:34.250
+And now let's hop back over here and refresh this page.
+
+03:34.470 --> 03:37.980
+And I have a syntax error so it says groups create expected.
+
+03:37.990 --> 03:39.260
+Elif Elser and.
+
+03:39.300 --> 03:41.650
+Did you forget to register or load this tag.
+
+03:41.880 --> 03:48.780
+So let's make sure it was actually groups create for the groups creation page and a hop back over and
+
+03:48.780 --> 03:49.890
+make sure I fix that.
+
+03:50.100 --> 03:53.380
+So here am seeing groups create and looks like it for its Taipan.
+
+03:53.550 --> 03:54.810
+So not going to save that.
+
+03:54.850 --> 03:56.030
+It'll refresh again.
+
+03:57.010 --> 03:57.360
+OK.
+
+03:57.400 --> 04:00.270
+So it looks like post is not a registered namespace.
+
+04:00.280 --> 04:01.270
+So what does that actually mean.
+
+04:01.270 --> 04:05.590
+Well it says error during template rendering based on each T.M. line 29.
+
+04:05.590 --> 04:10.030
+So if I come over here it says posts create it's not valid.
+
+04:10.030 --> 04:12.100
+Let's make sure that you're not py file.
+
+04:12.090 --> 04:14.600
+I've actually defined posts as the app name.
+
+04:14.860 --> 04:16.210
+So hop back over here.
+
+04:17.140 --> 04:19.470
+Open up my directory Chewey under posts.
+
+04:19.510 --> 04:23.070
+I'll open up your All-Starr pie looks like my app name is registered.
+
+04:23.080 --> 04:25.810
+So now let's make sure we have create registered.
+
+04:25.870 --> 04:27.650
+It looks like that's working as well.
+
+04:27.790 --> 04:32.470
+Which means it may be an issue with the Urals that py file in the project level.
+
+04:32.470 --> 04:35.780
+So let's go over to your oles that pie at a project level.
+
+04:35.800 --> 04:40.690
+And if I scroll down here it looks like I still have the groups and post links so that's definitely
+
+04:40.690 --> 04:41.790
+something I need to add in.
+
+04:41.940 --> 04:45.760
+It's a good thing where the buggy now and hopefully this is kind of obvious to you as you kind of went
+
+04:45.760 --> 04:46.670
+along here.
+
+04:46.780 --> 04:52.960
+So I'll do Khama add in your l and now it's time to register post-soul say using regular expression
+
+04:54.000 --> 05:00.160
+curat posts and essentially just linking to the actual post-soul say include.
+
+05:00.480 --> 05:02.270
+And I'm going to include posts.
+
+05:02.770 --> 05:04.120
+Or else.
+
+05:04.180 --> 05:07.850
+And then let's give it a name space which is essentially what it was complaining about.
+
+05:08.950 --> 05:10.420
+So this was the era that we were getting.
+
+05:10.420 --> 05:13.160
+It wasn't complaining about the other posts.
+
+05:13.420 --> 05:15.920
+And let's add one more here for the groups.
+
+05:18.100 --> 05:27.940
+So we'll say Kurt groups forward slash then I'm going to include groups stop your else and then give
+
+05:27.940 --> 05:33.810
+a name space equal to groups and I will save that.
+
+05:34.070 --> 05:34.610
+OK.
+
+05:34.750 --> 05:35.470
+Perfect.
+
+05:35.530 --> 05:37.810
+Now try again you can see auto restarted for us.
+
+05:37.810 --> 05:41.490
+We'll come back over here refreshed the page says Now I'm logged in.
+
+05:41.530 --> 05:42.550
+It's looking good.
+
+05:42.550 --> 05:46.770
+Let's get on groups and it says welcome back at Jose that's looking good.
+
+05:46.870 --> 05:48.170
+Groups Welcome to the group's page.
+
+05:48.190 --> 05:52.230
+And then of that I'm noxious plus sign but it says create new group.
+
+05:52.240 --> 05:55.030
+Obviously we can add more CSSA styling to make that look better.
+
+05:55.030 --> 05:59.310
+Let's try getting create group here make sure that works so that works as well.
+
+05:59.320 --> 06:03.550
+I'm going to go back to space and make sure this button works as well and it looks like they're taking
+
+06:03.550 --> 06:05.290
+us to the same groups new.
+
+06:05.350 --> 06:06.850
+So that's looking good.
+
+06:06.860 --> 06:13.490
+I will say first group and description will be my first group.
+
+06:13.670 --> 06:14.780
+Then hit create.
+
+06:15.050 --> 06:15.690
+OK.
+
+06:15.860 --> 06:18.230
+Looks like we have an issue here says groups name.
+
+06:18.230 --> 06:19.380
+Reverse is not defined.
+
+06:19.460 --> 06:25.400
+So hopefully by now you kind of realize I probably forgot to import reverse somewhere so somewhere along
+
+06:25.400 --> 06:27.430
+the line I need a reverse call.
+
+06:27.430 --> 06:32.220
+I probably called it but didn't actually import it because it says name reverse is not defined.
+
+06:32.300 --> 06:38.320
+So let's go back and make sure in our group's file or we're actually having that create group view.
+
+06:38.420 --> 06:39.770
+We imported reverse.
+
+06:39.840 --> 06:41.160
+So welcome back.
+
+06:41.300 --> 06:47.940
+So coming back to my actual editor I can now see if I expand my command line here that I get this name.
+
+06:47.940 --> 06:50.400
+Err name reverse not defined in going up.
+
+06:50.400 --> 06:56.120
+It actually tells me where it's coming from it's coming from simple social groups models not by line
+
+06:56.120 --> 06:58.050
+30 and get absolute L.
+
+06:58.220 --> 06:59.580
+So that's probably where the issue is.
+
+06:59.580 --> 07:02.170
+So let's go ahead and find that models that py file.
+
+07:02.260 --> 07:05.730
+It's not in views so we're willing to scroll down a little bit.
+
+07:05.750 --> 07:10.990
+Come over to models PI and then over here we're actually going to see if we can fix that mistake.
+
+07:11.000 --> 07:13.910
+So over in line 30 it says if you scroll down.
+
+07:13.910 --> 07:15.120
+Return reverse.
+
+07:15.200 --> 07:17.820
+So it looks like we just forgot to import reverse.
+
+07:17.870 --> 07:27.190
+So now we'll come back up here and we'll save from jingo core your resolvers in poor reverse.
+
+07:27.560 --> 07:31.490
+OK so we will now save that and it looks like it's running again.
+
+07:31.490 --> 07:32.930
+Come back up here.
+
+07:33.170 --> 07:36.200
+Go back and then refresh this page.
+
+07:36.230 --> 07:44.860
+And let's try a second group and we'll labeled scription of second try create.
+
+07:44.900 --> 07:48.530
+All right so now back at the page after refreshing it looks like a group was created.
+
+07:48.530 --> 07:50.360
+Now the fonts actually really large here.
+
+07:50.480 --> 07:53.140
+That's because I'm zoomed in 200 percent so keep that in mind.
+
+07:53.270 --> 07:56.690
+A lot of the things that we do have bootstrap may look a little strange here just because I'm zoomed
+
+07:56.690 --> 08:01.940
+in so much to make sure you guys can see clearly but we have the second group member count is zero.
+
+08:01.940 --> 08:04.660
+Let's try to join this group and see if it works.
+
+08:04.670 --> 08:07.190
+I joined and now the member count is 1 and let's leave.
+
+08:07.190 --> 08:13.460
+See if that works and looks like we have a problem with leave so it says name models is not defined.
+
+08:13.700 --> 08:19.130
+So over here we're saying models not group member the object filter and that's in the views that py
+
+08:19.130 --> 08:20.690
+file of our groups.
+
+08:20.840 --> 08:26.180
+So looks like we forgot to import models or do something for actual views that py file inside a group
+
+08:26.180 --> 08:27.730
+slut's head over and mixture.
+
+08:27.830 --> 08:33.650
+We actually imported the group models will come back over here and this is the views that py file and
+
+08:33.650 --> 08:38.840
+what I need to do on is from the import models.
+
+08:38.840 --> 08:42.770
+Save that now let's head back and refresh this page.
+
+08:43.930 --> 08:45.870
+And looks like we're still getting leave.
+
+08:45.870 --> 08:48.300
+Group has KQ 0 6.
+
+08:48.490 --> 08:50.750
+Definitely misspelled something here that should have been a W.
+
+08:50.920 --> 08:56.140
+So again we'll come back over here and let's see if we can search for that K-Q.
+
+08:56.140 --> 08:56.730
+There you go.
+
+08:56.740 --> 08:58.770
+That should be KW args.
+
+08:58.810 --> 09:03.610
+Save that and make sure that there's double asterisks here as well and will come back.
+
+09:03.640 --> 09:09.380
+Refresh the page and number count 0 so try joining again and illustrate leaving again.
+
+09:09.500 --> 09:11.130
+It looks like it's working perfect.
+
+09:11.290 --> 09:12.850
+Now there's no post in this group.
+
+09:12.910 --> 09:20.740
+So try posting something I'll click on post and say this is my first test post exclamation point in
+
+09:20.740 --> 09:21.570
+under group.
+
+09:21.720 --> 09:24.680
+Just to assign this to second group post.
+
+09:24.700 --> 09:29.560
+All right now we get this error that says user posts object has no attribute post and the fact that
+
+09:29.560 --> 09:31.120
+it's saying has no attribute.
+
+09:31.220 --> 09:35.250
+You remember you call attributes with a dot or period meaning.
+
+09:35.260 --> 09:40.360
+Probably somewhere along the line I'm calling Post Office something where I really shouldn't be doing
+
+09:40.360 --> 09:40.840
+that.
+
+09:41.050 --> 09:45.990
+And it says right here it's under simple social post views that pie in line 28.
+
+09:46.030 --> 09:50.920
+So let's head back to views that pi and other posts views that pi.
+
+09:50.920 --> 09:51.990
+Here it is.
+
+09:52.060 --> 09:55.050
+I'm going to take a look at this on line 28.
+
+09:55.060 --> 10:00.820
+I can see here I'm saying try self-taught post thought user equals a user object.
+
+10:00.820 --> 10:03.220
+Really what it should have been doing is assigning this.
+
+10:03.220 --> 10:08.630
+So here I said self-taught post underscore user and that's actually what I meant to do.
+
+10:08.630 --> 10:09.650
+Inline 28.
+
+10:09.790 --> 10:15.130
+Basically creating this attribute object or editing this Ashby object of posts user.
+
+10:15.130 --> 10:19.150
+So now that I've saved that let's send it back over and refreshed the page.
+
+10:19.600 --> 10:20.950
+OK it looks like Jose.
+
+10:20.980 --> 10:26.450
+I can see this is my first test post and it just says delete here let's try that.
+
+10:27.330 --> 10:30.410
+Going to try to delete and looks like template does not exist.
+
+10:30.420 --> 10:32.570
+Post delete one post.
+
+10:32.580 --> 10:39.370
+Post based I aced team else so somewhere along the line we are getting a failure for post underscore
+
+10:39.460 --> 10:42.050
+Bass says this template doesn't exist.
+
+10:42.060 --> 10:44.540
+Let's head back and figure that out.
+
+10:44.720 --> 10:50.070
+Then hop back over and let's confirm that we do have a post underscore bass so that looks good meaning
+
+10:50.100 --> 10:51.640
+over here on the Confirm delete.
+
+10:51.720 --> 10:56.370
+Probably something is happening here that's wrong and it says X10 posts.
+
+10:56.400 --> 11:03.390
+Post a female looks like X only have double quotes there so let's delete those save it and then try
+
+11:03.390 --> 11:05.430
+again see if that fixes the issue.
+
+11:06.340 --> 11:07.000
+And there we go.
+
+11:07.160 --> 11:11.410
+So it was just an issue of accidently having double quotes there and that extents call.
+
+11:11.670 --> 11:13.550
+So it says Now are you sure you want to leave this post.
+
+11:13.550 --> 11:15.330
+Let's try to confirm delete.
+
+11:15.380 --> 11:16.970
+It looks like messages are not defined.
+
+11:16.970 --> 11:19.580
+That probably means I didn't import messages.
+
+11:19.580 --> 11:20.570
+So that's under it.
+
+11:20.570 --> 11:29.050
+Views that py inline 70 going head over posts of used up by line 17 if you take a look at it.
+
+11:29.180 --> 11:30.340
+Messages success.
+
+11:30.350 --> 11:31.720
+I forgot to import that.
+
+11:31.890 --> 11:40.240
+So save from Django and I believe from them contrib import messages save that come back here and I'm
+
+11:40.240 --> 11:44.320
+going to refresh this continue and it looks like it delete that post.
+
+11:44.320 --> 11:47.360
+Please try again to make sure that's working for US groups.
+
+11:47.380 --> 11:53.950
+I see all the groups all come to first group or join that group and then I'm going to post to first
+
+11:53.950 --> 11:55.250
+group this time.
+
+11:55.300 --> 12:01.500
+OK so let's see if this is working.
+
+12:01.680 --> 12:03.310
+Let's put this to first group.
+
+12:03.310 --> 12:04.030
+Post it.
+
+12:04.270 --> 12:07.870
+OK let's see it is working Jose and willing to delete this.
+
+12:07.870 --> 12:11.210
+Are you sure you want to please post let's see if it's working confirmed delete.
+
+12:11.290 --> 12:15.700
+It looks like deleted it now right now what's happening is the redirect is probably not working after
+
+12:15.700 --> 12:18.010
+delete so we should definitely check that as well.
+
+12:18.070 --> 12:22.560
+And if you notice off the posts it looks like the date or time stamp wasn't working as well.
+
+12:22.570 --> 12:26.700
+So if we come back to groups let me add a post here so I'm going to.
+
+12:26.700 --> 12:30.310
+Why not actually actually join it in this post.
+
+12:30.550 --> 12:35.060
+So just say blah blah group second group post.
+
+12:35.230 --> 12:39.160
+And now if I take a look at the groups I can see the second group has one post looks like the counting
+
+12:39.160 --> 12:43.040
+is working and then it says right here at this post.
+
+12:43.050 --> 12:48.480
+If I hit my Poso function I want to delete this.
+
+12:48.630 --> 12:49.680
+Looks like it's working.
+
+12:49.680 --> 12:52.070
+I'm going to cancel and see that it redirects here.
+
+12:52.140 --> 12:55.680
+OK so it looks like we're able to post but notice that we're not getting a lot of the functionality
+
+12:55.680 --> 13:00.660
+we thought we were going to get things like the date that the post was created that or my Jose isn't
+
+13:00.660 --> 13:05.520
+actually linking to my profile and it's probably because we forgot to put some things either on this
+
+13:05.520 --> 13:10.070
+particular template page or one of the templates It extends from or injects into.
+
+13:10.260 --> 13:18.300
+So let's go back to our editor and you'll notice that for this page that would have been the user post
+
+13:18.330 --> 13:20.160
+page or the Post confirmed.
+
+13:20.900 --> 13:23.190
+Fact if we go back this is post by Jose.
+
+13:23.190 --> 13:29.090
+Number three is actually the post detail page so posts underscore detail if we take a look at it essentially
+
+13:29.090 --> 13:30.990
+just in Jecks underscore posts.
+
+13:31.020 --> 13:31.860
+H m l.
+
+13:32.000 --> 13:34.750
+Meaning all the issues are probably within underscore posts.
+
+13:34.770 --> 13:35.520
+HTL.
+
+13:35.580 --> 13:40.630
+So again coming back here I'm getting some issues at Jose I expect that to be clicking.
+
+13:40.650 --> 13:43.840
+I expect this to probably say Jose instead of just Jose.
+
+13:44.040 --> 13:45.270
+I don't know what this is doing there.
+
+13:45.270 --> 13:47.090
+So there's still some problems here.
+
+13:47.100 --> 13:51.870
+Let's come back and this page is directly what we're looking at since there shouldn't be any problems
+
+13:51.870 --> 13:52.090
+here.
+
+13:52.110 --> 13:53.430
+Just about five lines of code.
+
+13:53.550 --> 13:59.040
+It's probably all an underscore post that takes him out so we'll go to underscore postdates HTML and
+
+13:59.040 --> 14:00.330
+add some stuff in here.
+
+14:00.420 --> 14:01.980
+The collapse is their victory tree.
+
+14:02.160 --> 14:08.680
+It looks like we actually forgot to add in the text for these anchor tags which was probably a big oversight.
+
+14:08.820 --> 14:10.450
+So let's do that now.
+
+14:10.530 --> 14:15.080
+Underneath media heading these anchor tags should probably have something since they're linking to something.
+
+14:15.270 --> 14:19.750
+So we will say at and then this will be the username.
+
+14:19.790 --> 14:27.440
+So I will say postop user the user name save that let's go back and see if that affected something.
+
+14:27.730 --> 14:27.970
+OK.
+
+14:27.970 --> 14:33.080
+So there you see Jose and I don't really want this double Jose there so we'll come back here.
+
+14:33.310 --> 14:36.610
+And then let's get rid of this so post user post username.
+
+14:36.640 --> 14:40.810
+I'm going to just comment that out because I feel like I don't really need it now.
+
+14:40.810 --> 14:42.580
+There we go so let's look looking a little better.
+
+14:42.580 --> 14:43.670
+Come back up here.
+
+14:43.810 --> 14:48.140
+And looks like the time isn't actually posting so let's do something there as well.
+
+14:48.220 --> 14:54.250
+Insert here or inject post created at.
+
+14:54.250 --> 14:59.680
+Remember those that property over time was created that save it and then I'm going to refresh.
+
+14:59.950 --> 15:00.550
+OK.
+
+15:00.550 --> 15:03.290
+Looks like we have creation Jose.
+
+15:03.410 --> 15:04.390
+That's looking good.
+
+15:04.390 --> 15:07.120
+We see that we still have this weird esque floating around there.
+
+15:07.180 --> 15:09.490
+And if I refresh this page it's still there.
+
+15:09.540 --> 15:11.440
+I can see it it's after the delete button.
+
+15:11.590 --> 15:16.200
+So I try to confirm that it's an underscore post or if it's actually in the user post list.
+
+15:16.240 --> 15:25.450
+So coming back here if I type something outside of this this is outside underscore post save that and
+
+15:25.450 --> 15:28.860
+then refresh this page looks like that happens.
+
+15:28.870 --> 15:34.300
+So outside underscore post which means this s is not part of the injection itself.
+
+15:34.580 --> 15:38.290
+So that means the problem is not actually an underscore postdated demo.
+
+15:38.390 --> 15:41.740
+So I'll save that and it should have been under user post list.
+
+15:41.750 --> 15:47.720
+So clicking on user posts list I can see include and whip's looks like S was right here the whole time.
+
+15:47.720 --> 15:48.730
+Delete that s.
+
+15:48.800 --> 15:49.880
+Save this.
+
+15:49.880 --> 15:50.960
+Come back here.
+
+15:50.960 --> 15:51.840
+Refresh the page.
+
+15:51.860 --> 15:54.170
+And now the S has gone looking good.
+
+15:54.170 --> 15:58.910
+If I come back to start social that takes me to walk on the start social I can see a list of groups
+
+15:58.940 --> 16:04.820
+first group second group and it looks like everything is working let's try creating a new user going
+
+16:04.820 --> 16:08.310
+through all the actions and then verifying that everything is working.
+
+16:08.360 --> 16:11.300
+So I will log out says Thanks for visiting come back soon.
+
+16:11.310 --> 16:16.390
+Let's sign up actually before we do that let's see if we can view the groups without being logged in.
+
+16:16.550 --> 16:17.270
+That's looking good.
+
+16:17.270 --> 16:20.240
+First group no post in this group yet hit the groups over here.
+
+16:20.240 --> 16:22.880
+There's one post and second group and there's the post itself.
+
+16:22.910 --> 16:26.740
+OK that's looking pretty good then I'm going to sign up.
+
+16:26.990 --> 16:28.420
+Will sign up as new.
+
+16:28.420 --> 16:33.050
+Underscore user new shemale dot com.
+
+16:33.080 --> 16:34.750
+This will be a test password.
+
+16:36.120 --> 16:37.910
+Test password.
+
+16:37.940 --> 16:38.970
+Sign up.
+
+16:39.290 --> 16:45.080
+OK so I have new underscore user and I the same phosphorus Joses will just log in.
+
+16:45.230 --> 16:52.220
+Ok now it says I'm logged in perfect and going to try to create a group and this will take me to my
+
+16:52.460 --> 16:53.370
+new groups.
+
+16:53.390 --> 16:58.100
+Make it really obvious brand new create.
+
+16:58.130 --> 17:00.960
+Ok so my new group member count no posts in this group yet.
+
+17:01.000 --> 17:04.850
+Then again I am pretty zoomed in here so that's why it looks a little weird.
+
+17:04.880 --> 17:08.240
+I'm going to join my own group and Elosha posting it.
+
+17:08.570 --> 17:18.110
+So this is the first post in the group and then I'll go to my new group post and there it is.
+
+17:18.110 --> 17:24.130
+This is the first post a new group new user interface a new user takes me to the same page.
+
+17:24.140 --> 17:25.340
+So let's try exploring.
+
+17:25.340 --> 17:32.630
+If I go to groups the second group that had a post buy at Home sales try looking at Jose and I can see
+
+17:32.780 --> 17:37.730
+Jose's profile essentially it's like his profile or Twitter feed and I can see whatever post that this
+
+17:37.730 --> 17:38.830
+person has done.
+
+17:38.900 --> 17:39.520
+Perfect.
+
+17:39.560 --> 17:43.940
+So it looks like all our functionality is working up coming up next.
+
+17:43.950 --> 17:45.950
+We have to do is set up our CSSA files.
+
+17:45.950 --> 17:50.000
+Kind of give this a nicer look OK we'll do that in the next lecture.
+
+17:50.000 --> 17:50.660
+I'll see you there.

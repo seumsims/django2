@@ -1,0 +1,61 @@
+WEBVTT
+
+00:05.580 --> 00:07.290
+Hello everyone and welcome back.
+
+00:07.290 --> 00:11.120
+It's time for a challenge lecture to put your new skills to the test.
+
+00:11.930 --> 00:17.120
+We've learned enough now that before we continue to learn more about your Ehle mappings we should challenge
+
+00:17.120 --> 00:19.670
+you to make sure you can test out your new skills.
+
+00:20.450 --> 00:22.840
+A watch to complete the following tasks.
+
+00:22.930 --> 00:30.190
+First create a new Gengel project and call it something like pro to or project to then create a new
+
+00:30.190 --> 00:31.610
+Gengel application.
+
+00:31.820 --> 00:37.300
+You can call it app to or application too and this will go inside that new jingle project that I want
+
+00:37.300 --> 00:42.940
+you to create an index view inside of that new Django application and I want you to have it return this
+
+00:42.940 --> 00:43.760
+line.
+
+00:43.780 --> 00:47.050
+My second app wraps in emphasis tags.
+
+00:47.230 --> 00:49.900
+So note that this is actual HVM Melk code.
+
+00:49.900 --> 00:53.920
+The reason I'm asking you to do this is because I want you to explore what happens when you actually
+
+00:54.250 --> 01:01.610
+a string of HLL code instead of just a normal string that I want you to link that you'd that your stock
+
+01:01.630 --> 01:07.780
+price file and run your server to make sure it actually returned that new index you created.
+
+01:09.100 --> 01:13.120
+Then the next lecture were going to go through the steps of this challenge task.
+
+01:13.120 --> 01:14.030
+Best of luck.
+
+01:14.080 --> 01:19.060
+I know you already have all the knowledge needed to complete this task but in case you get stuck on
+
+01:19.060 --> 01:24.550
+anything you can refer back to the previous lectures or you can view the upcoming solutions lecture.
+
+01:24.550 --> 01:26.580
+Thanks everyone and I'll see you at the next lecture.

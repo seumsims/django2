@@ -1,0 +1,730 @@
+WEBVTT
+
+00:05.420 --> 00:09.390
+Hello everyone and welcome to part nine of the social club project.
+
+00:09.570 --> 00:14.910
+Now we're going to jump over to the Post's application and set up our views that PI filed there a lot
+
+00:14.910 --> 00:19.530
+of the views will require extra methods to ensure that certain privileges are connected correctly to
+
+00:19.530 --> 00:22.510
+the logged in user and selected group.
+
+00:22.680 --> 00:27.360
+But we're also going to need to do is install a library called Django that braces and you can do that
+
+00:27.360 --> 00:31.950
+at your command line with Pippin's Telecinco dash braces and this allows us to access some convenient
+
+00:31.950 --> 00:34.380
+mixdowns to use with class based views.
+
+00:34.380 --> 00:39.660
+All right let's up over to the editor because the Post's fuse up high file get started already here
+
+00:39.660 --> 00:44.250
+and at my posts views that PI file is going to collapse the directory tree to give us a little more
+
+00:44.250 --> 00:44.910
+room.
+
+00:44.920 --> 00:47.660
+I'm going to start off by doing a couple of imports.
+
+00:47.760 --> 00:56.690
+We're first going to say from jingo talk contrib off the Nixons in poor loggin required Nixon.
+
+00:56.790 --> 01:01.110
+That way we know someone has to be logged in to actually do a lot of these post actions such as creating
+
+01:01.110 --> 01:02.320
+a new post.
+
+01:02.520 --> 01:10.980
+Then we're also going to save from Jingo the core the Yoro resolvers import reverse lazy so that in
+
+01:10.980 --> 01:14.710
+case some wants to delete a post we have that reversely is a call which you can use later.
+
+01:14.910 --> 01:18.280
+And then we also are going to be using some generic class based views.
+
+01:18.490 --> 01:26.460
+I will say from Jingo the views import generic and there we're also going to be using HTP 404.
+
+01:26.460 --> 01:36.060
+That way we can return for a four page later on so will say from jingo HTP import HTP 404.
+
+01:36.180 --> 01:45.580
+Save that and then finally we'll save from Brace's views in poor select related mixin.
+
+01:45.580 --> 01:50.140
+Now remember that you have to install braces as we just discussed in the slides and you can do that
+
+01:50.140 --> 01:51.840
+just by going to your command line.
+
+01:51.960 --> 01:57.820
+And that your command line instead of your virtual environment just say Pipp install Shingo dash braces
+
+01:57.970 --> 01:59.610
+enter and then let them install.
+
+01:59.620 --> 02:04.360
+Now my requirements are already satisfied because I've already installed it before this lecture.
+
+02:04.360 --> 02:06.660
+OK so now we have Brace's ready to go.
+
+02:06.700 --> 02:12.340
+And then I'm also going to say from the import models so that smacks role models for the post and then
+
+02:12.340 --> 02:14.920
+later on we're actually going to create a form for the post.
+
+02:14.980 --> 02:20.530
+So we'll say from the import forms although we haven't actually created the forms up high file yet although
+
+02:20.530 --> 02:22.160
+we'll do that later on.
+
+02:22.940 --> 02:32.490
+And then I will say from Jingo that contrib a th import get user model and that's going to be a function
+
+02:32.490 --> 02:38.970
+that allows me to set a user object equal to get user model and then I call it user model.
+
+02:38.970 --> 02:43.860
+Basically what that means is when some is logged into a session I'm going to be able to use this user
+
+02:43.860 --> 02:47.080
+object as the current user and then call things off of that.
+
+02:47.130 --> 02:51.370
+So let's start off with probably the simplest view here and that's going to be the post list view.
+
+02:51.420 --> 02:56.910
+So when you select a person you can see a list of all their posts or once you select a group you can
+
+02:56.910 --> 02:58.760
+see a list of all the posts for that group.
+
+02:58.950 --> 03:02.950
+So we'll start off with the post list class.
+
+03:02.980 --> 03:07.780
+And that's going to be lists of posts belonging to a group so we're going to say pass and the selected
+
+03:07.790 --> 03:15.470
+related mixin as well as call this a generic list view and then let's give a couple more lines here
+
+03:15.800 --> 03:18.910
+all the way back up and inside of this post list.
+
+03:18.930 --> 03:25.250
+All we're going to do is connect it to a model the Olby models that post to our post model that we created
+
+03:25.280 --> 03:31.520
+earlier and then I'm also going to have this method or attribute selected underscore related which is
+
+03:31.520 --> 03:37.130
+just the mixin that allows us to provide a tuple of related models so basically the foreign keys for
+
+03:37.130 --> 03:37.960
+this post.
+
+03:38.000 --> 03:44.470
+Now that's going to be the user that the post belongs to and the group that the post belongs to.
+
+03:44.500 --> 03:50.980
+I'm saving that and up next we're going to create another class for user posts and that's just going
+
+03:50.980 --> 03:55.320
+to be a generic list view and let's give ourselves some more room here.
+
+03:55.330 --> 04:01.510
+Don't forget that colon and then this is going to be the generic view for the user posts so we'll connect
+
+04:01.510 --> 04:04.610
+this with model models.
+
+04:04.680 --> 04:11.540
+Post and then we'll give it the template name so the template name is going to be called to post slash
+
+04:11.600 --> 04:15.140
+user underscore post underscore list.
+
+04:15.200 --> 04:17.470
+HTL OK.
+
+04:17.540 --> 04:21.380
+Now we're going to have to add a few more methods in here to make sure that all works correctly when
+
+04:21.380 --> 04:23.270
+a user is logged in.
+
+04:23.270 --> 04:31.150
+So we're going to have a method called Get underscore queries set past and self and we're going to do
+
+04:31.160 --> 04:31.940
+inside this method.
+
+04:31.940 --> 04:39.860
+We're going to first try to say self post the user so check if self-oust self-taught post-flight user
+
+04:40.190 --> 04:41.810
+is equal to x.
+
+04:41.870 --> 04:42.730
+This is really a check.
+
+04:42.740 --> 04:51.050
+This is an assignment so assign user to objects and then we're going to call prefetch underscore related
+
+04:52.610 --> 04:53.820
+posts.
+
+04:53.850 --> 04:59.990
+Remember we can say these different methods or attributes can call off objects as is another one.
+
+04:59.990 --> 05:04.930
+There's a giant list of them in the documentation and then off of this we're going to say get.
+
+05:05.470 --> 05:15.530
+And we will say get the username underscore exact underscore or excuse me equals self-taught keyword
+
+05:15.560 --> 05:22.410
+args that gets in print C's user name and that's it.
+
+05:22.410 --> 05:24.730
+So we're going to first try to do this whole giant life.
+
+05:24.750 --> 05:26.750
+So let's explain what's going on here.
+
+05:26.760 --> 05:30.490
+Here we're going to try to get the queries set.
+
+05:30.490 --> 05:34.840
+So basically when you call user post that list view what does it actually going to attempt to do here
+
+05:34.840 --> 05:37.710
+is going to try to set postop user.
+
+05:37.840 --> 05:44.620
+That is the user that belongs to this particular post equal to user that users objects are going to
+
+05:44.620 --> 05:46.570
+prefetch related posts.
+
+05:46.750 --> 05:52.210
+And then this user name should be a double underscore as I described before in previous lectures we
+
+05:52.210 --> 05:56.400
+can call these double underscores and you can see how the syntax highlighting changes.
+
+05:56.530 --> 06:02.440
+And then we're going to get the user name is exactly equal to the user name of whatever is user logged
+
+06:02.470 --> 06:05.240
+in or whatever user you happen to click on.
+
+06:06.110 --> 06:11.460
+So we're going to try to do that and then we're going to match this try call with an accept call tool
+
+06:11.470 --> 06:19.530
+say except and we'll say except this the user does not exists for some reason the user got deleted.
+
+06:19.730 --> 06:28.110
+So say either it does not exist and this is just an attribute I will raise HTP four or four and we don't
+
+06:28.110 --> 06:35.560
+have to actually call that you just raise it and then else I'm going to return self post underscore
+
+06:36.630 --> 06:38.240
+user posts.
+
+06:38.280 --> 06:41.370
+The law Okay and we'll save that.
+
+06:41.400 --> 06:47.310
+Now this is basically just to make sure that when you call the query for the user post that these are
+
+06:47.310 --> 06:53.100
+actually exists and then you're able to fetch the posts that are related to that user using this check
+
+06:53.100 --> 06:53.530
+right here.
+
+06:53.540 --> 06:58.930
+I exact continuing on what we're going to do one more method here.
+
+06:58.990 --> 07:04.600
+The ref also underscore context data that's going to be self.
+
+07:04.630 --> 07:06.340
+And then some keyword arguments
+
+07:10.240 --> 07:20.320
+and then we'll say context is equal to super underscore context data and then passing keyword arguments
+
+07:21.690 --> 07:30.350
+and then we'll say context post underscore user is equal to self-taught poster's core user.
+
+07:30.790 --> 07:36.970
+And then I'm finally going to return that context that way I'm just returning the context data object
+
+07:37.620 --> 07:43.210
+essentially connected to whoever actually posted that that specific user OK.
+
+07:43.390 --> 07:47.820
+Moving along we have a couple of more classes these are much simpler than this one is probably the most
+
+07:47.820 --> 07:50.670
+complicated class that we had to deal with just connecting this post.
+
+07:50.670 --> 07:53.730
+The users actually want to do it just to post the tail.
+
+07:53.970 --> 08:03.160
+So I'll say post detail and that's going to take in that select related mixin as well as a generic detailed
+
+08:03.160 --> 08:08.730
+view essentially this is the detail view and you click on a singular post and what happens is we just
+
+08:08.730 --> 08:15.980
+connect this model's up post and then we'll say select related and we're going to connect it with some
+
+08:15.980 --> 08:16.980
+foreign keys.
+
+08:17.120 --> 08:24.140
+And this is just going to be the user and the group that this post belongs to.
+
+08:24.180 --> 08:37.090
+And then after this we're going to say E-F get the queries set self and then I'll say queery set is
+
+08:37.090 --> 08:45.810
+equal to super get super thoughts gets queery set and we'll explain all this in just a second.
+
+08:47.100 --> 08:53.840
+And then we will say return the queery set and we're going to filter it.
+
+08:53.850 --> 08:54.950
+So what are we going to filter this.
+
+08:54.960 --> 09:08.240
+We want to check that the user's user name is exactly equal to where self keyword arguments get that
+
+09:08.250 --> 09:09.430
+user name.
+
+09:09.600 --> 09:13.270
+Kind of similar to what we were doing before with this get queery set.
+
+09:13.320 --> 09:18.960
+So again all we're doing here is we're saying OK get the query set for the actual post and then I want
+
+09:18.960 --> 09:20.960
+you to filter where the user name.
+
+09:21.000 --> 09:26.210
+We're going to passen as you go to the user name and have to be exactly the user's username.
+
+09:26.250 --> 09:29.160
+Centrally just that username off that model's object.
+
+09:29.160 --> 09:31.600
+And I know the sort of syntax can be really strange.
+
+09:31.620 --> 09:38.720
+First those double underscores and the sort of object model that object relation model that Django has.
+
+09:38.730 --> 09:43.350
+But definitely check out the documentation that can help a lot essentially just go through those examples
+
+09:43.400 --> 09:48.420
+of really well-written documentation there go through it and this will become clear and clear as you
+
+09:48.420 --> 09:50.070
+see more and more examples of this.
+
+09:50.070 --> 09:55.950
+It's definitely really weird at first the sort of customized get query calls OK.
+
+09:56.120 --> 10:01.610
+Moving on we have two more classes we want to create for those views and that is a create Post and a
+
+10:01.610 --> 10:03.130
+delete post.
+
+10:03.140 --> 10:09.590
+So for the create class or create post we're going to say create a post and this will have a log in
+
+10:09.590 --> 10:17.260
+required of mixin a select required mixin or select related Mixner I should say and then generic create
+
+10:17.270 --> 10:24.450
+view then it gives some extra lines here inside of this we'll start off by saying fields.
+
+10:24.540 --> 10:30.740
+So the fields to want someone to be able to edit is just the message of the actual post and then the
+
+10:30.740 --> 10:41.790
+group that the post belongs to and then the model can be models the post and we just want to check that
+
+10:41.800 --> 10:42.790
+the form is valid.
+
+10:42.790 --> 10:52.490
+So we'll say DPF form underscore valid as a method and it has taken self and the form and then this
+
+10:52.490 --> 10:58.880
+will be self object as equal to form that's safe and we're going to set commit equal to false
+
+11:01.530 --> 11:07.500
+and then say self object user and set that equal to the request user.
+
+11:07.590 --> 11:09.780
+So the actual user that's at the request.
+
+11:09.960 --> 11:14.030
+And then we will say self object save.
+
+11:14.100 --> 11:19.290
+And essentially what this is just to connect the actual post to the user itself and then once for those
+
+11:19.350 --> 11:29.870
+that will say return super form the form score valid Pessin form save.
+
+11:29.950 --> 11:37.530
+And then finally we have to delete post which will be the other class called Delete post and that's
+
+11:37.530 --> 11:43.310
+going to be logged and acquired a mixin a select related mixin and another generic view.
+
+11:43.320 --> 11:51.590
+In this case the delete view get some more lines and here come back up and we'll connect this to a model
+
+11:51.590 --> 12:01.300
+so they'll be models that post then we will also say select related and set equal to the user and group
+
+12:01.330 --> 12:05.800
+as we've just been doing before and he's to be in a string.
+
+12:06.050 --> 12:11.540
+And then we're going to say success you're ill and that's going to be reversed lazy and that's going
+
+12:11.540 --> 12:12.800
+to go to post.
+
+12:13.160 --> 12:15.170
+All so you can use that your template tagging.
+
+12:15.170 --> 12:19.850
+So basically what that means is once you delete a post well what's the success you or else if you hit
+
+12:20.150 --> 12:21.520
+Yes I confirmed delete.
+
+12:21.590 --> 12:22.630
+It should take you back somewhere.
+
+12:22.640 --> 12:25.850
+Reverse lazy and we'll just go back to all the posts.
+
+12:26.180 --> 12:29.860
+Then we're going to say the F A.
+
+12:29.880 --> 12:35.420
+Get queries set self.
+
+12:35.460 --> 12:44.730
+And then we'll say the queries set of this is equal to super get queries set and then I'm going to return
+
+12:45.180 --> 12:54.530
+queries set that I just made that variable then going to filter out the user ID is equal to self request
+
+12:56.120 --> 12:58.230
+user ID.
+
+12:58.250 --> 13:03.740
+OK so that's the parameter and for the filter and then finally I'm going to have a delete method on
+
+13:03.740 --> 13:17.670
+this self arx keyword arguments and that's going to be the messages success and will say self-taught
+
+13:18.450 --> 13:28.980
+request and will send and post deleted and then we're going to return super delete and you can look
+
+13:28.980 --> 13:34.410
+up a lot of these kind of convention calls in the documentation for a delete view.
+
+13:34.440 --> 13:39.340
+A lot of these things are really just chosen by the convention that delete views to delete you.
+
+13:39.360 --> 13:43.520
+Kind of expects if you want to mess around with what happens after you click delete.
+
+13:43.820 --> 13:46.610
+It has a delete method for it or get queries set.
+
+13:46.650 --> 13:50.850
+So a lot of these things were not actually making up the terms or methods or variables.
+
+13:50.850 --> 13:54.660
+To use a lot of them just come with the class based views.
+
+13:54.720 --> 13:55.960
+We've already seen a couple of them.
+
+13:56.100 --> 14:01.830
+Things like model are success you are all methods like Duleep are just on top of that kind of thing.
+
+14:02.740 --> 14:03.230
+OK.
+
+14:03.480 --> 14:09.240
+So that should be everything we need for actual views not pie and what we need to do next is linked
+
+14:09.330 --> 14:12.270
+up to our Urals in our postop pi.
+
+14:12.300 --> 14:16.020
+So let's come over to the posts folder.
+
+14:16.020 --> 14:23.940
+Open up your Olsdorf pie here and then fill out the Euros we need we'll say from jingo CNF for configuration
+
+14:24.030 --> 14:33.240
+you Elle's import euro and then I'm also going to save from the import views and let's give this app
+
+14:33.300 --> 14:37.360
+a name of posts that we can use that in our template tags.
+
+14:37.710 --> 14:42.780
+Then we will say you are all patterns is equal to and essentially now it's just time to make all the
+
+14:42.780 --> 14:47.670
+list of your old patterns and I'm going to collapse the directory tree to get a little more room here
+
+14:48.280 --> 14:50.230
+and also offer further expression.
+
+14:50.240 --> 14:56.660
+So for the actual If you just go to your domain name dot com slash posts will say dollar sign.
+
+14:56.970 --> 15:07.190
+And this would just give views post list as underscore view and I will just give this the name all so
+
+15:07.250 --> 15:09.950
+simple view they're the next Euro.
+
+15:10.020 --> 15:13.150
+We can do for a new post if someone wants to make any post.
+
+15:13.240 --> 15:20.150
+Those just go to post slash new dollar sign and then this will be the Create post so views dot create
+
+15:20.150 --> 15:26.910
+post as a view and the name is equal to.
+
+15:27.160 --> 15:30.490
+Then after that we're going to do is for the user post.
+
+15:30.490 --> 15:35.340
+So when you click on a user you can see a list of all their posts and then we all need to do the post
+
+15:35.380 --> 15:36.710
+detail and delete posts.
+
+15:36.880 --> 15:46.100
+So start with that user post so say your all in here again regular expression and this will be by or
+
+15:46.170 --> 15:51.240
+honestly whatever you want to call that and then we'll use some regular expressions here which is just
+
+15:51.240 --> 15:53.320
+going to look similar to what we just used in the past.
+
+15:53.400 --> 16:01.890
+Question Mark P and then open tag username clothes tag and then we'll use another regular expression
+
+16:01.980 --> 16:08.780
+minus backslash w plus sensuousness matches up the user name.
+
+16:08.780 --> 16:15.650
+So when you go to your domain name that compote slash by Slash who's every user name then we can actually
+
+16:15.650 --> 16:25.590
+have buse dot user posts as you and we'll give this the name for user.
+
+16:25.910 --> 16:31.750
+So I believe that's what we've been using and the templates will say for underscore user.
+
+16:31.890 --> 16:36.760
+And then we want just one more or two more actually the post detail.
+
+16:36.780 --> 16:41.850
+So it's actually going to look really similar to this as far as regular expressions are going to copy
+
+16:41.850 --> 16:44.840
+this entire string.
+
+16:45.020 --> 16:46.980
+And this shows all the user posts.
+
+16:47.030 --> 16:53.140
+So then we're going to do one more slash and we're going to copy and paste this actually let's just
+
+16:53.150 --> 16:55.130
+write it out so we can see more detail here.
+
+16:55.250 --> 16:56.480
+We'll see princes.
+
+16:56.630 --> 17:00.580
+Question mark p. open tag.
+
+17:00.670 --> 17:03.810
+P.K. close to backslash.
+
+17:03.830 --> 17:07.900
+The plus forward slash dollar sign.
+
+17:09.590 --> 17:16.410
+Views post the tail as a view and will give this the name single
+
+17:21.090 --> 17:27.750
+and the last one is just if you want delete something it will be delete and then we want it to connect
+
+17:27.750 --> 17:32.670
+to the actual primary key here because we already know it's going to be that user itself that is going
+
+17:32.670 --> 17:39.870
+to be able to delete them so I'll say delete the primary key and then dollar sign and then use that
+
+17:39.870 --> 17:50.130
+delete post as a view but the name is equal to delete perfect So those are the URLs we need so we definitely
+
+17:50.130 --> 17:53.130
+did a lot here and has a lot of new stuff that we haven't actually seen yet.
+
+17:53.140 --> 17:55.980
+Whoops let me make sure that says From there we go.
+
+17:55.980 --> 17:58.050
+So let's quickly review everything we just did.
+
+17:58.080 --> 18:00.950
+We'll start off with the views so imposed views not pi.
+
+18:00.960 --> 18:05.340
+We ended up doing is essentially a bunch of imports that were going to use later and we start off a
+
+18:05.340 --> 18:06.120
+very simple one.
+
+18:06.120 --> 18:11.550
+Just the post list but remember before that we wanted user equal to get user model so we could play
+
+18:11.550 --> 18:13.050
+around and pass that in if needed.
+
+18:14.100 --> 18:15.720
+So Clast post list.
+
+18:15.990 --> 18:22.250
+So this shows a list of the posts related to either the user or the group or both of them really since
+
+18:22.260 --> 18:23.820
+post model has that.
+
+18:24.060 --> 18:29.030
+Then we have the user post so that's the list view for a specific users post and then we have this get
+
+18:29.040 --> 18:34.810
+queries sent method which essentially just checks where the username is exactly equal to the get user
+
+18:34.810 --> 18:39.970
+name of who's ever logged in right now so you can see here that user object that we set up.
+
+18:39.970 --> 18:41.040
+They get user model.
+
+18:41.040 --> 18:42.120
+This is where we could use it.
+
+18:42.120 --> 18:42.880
+So let's see.
+
+18:42.960 --> 18:49.770
+Or am that Gengel provides that object relational model or mapper then we have the context data which
+
+18:49.770 --> 18:54.000
+allows us to grab that post-Easter and then return the contex dictionary for that.
+
+18:54.000 --> 18:56.840
+Then we have the post details when you select a particular post.
+
+18:56.850 --> 18:58.220
+There is a detail view on it.
+
+18:58.290 --> 19:02.290
+Again just connected to the post model and select related that should be in a string.
+
+19:02.490 --> 19:03.660
+So good catch there.
+
+19:03.690 --> 19:09.930
+Save that and then we have the Create post and again that's just when you want to create a post the
+
+19:09.930 --> 19:14.030
+message in the group and then we check to the form is valid and then we had delete posts.
+
+19:14.040 --> 19:19.830
+Very simple thing except we added a little more on this delete method to actually return something saying
+
+19:19.830 --> 19:21.000
+the post was deleted.
+
+19:21.390 --> 19:27.210
+OK so finally after that we said you Elle's that pi and just matched up all the Euro patterns that we
+
+19:27.210 --> 19:28.690
+just created.
+
+19:28.710 --> 19:32.010
+Definitely check out the documentation for a lot of these class based views.
+
+19:32.040 --> 19:37.470
+If you are having trouble with some of these methods such as the get context data or get query set the
+
+19:37.470 --> 19:39.890
+documentation really explains those thoroughly.
+
+19:39.900 --> 19:42.990
+Those are methods you're going to use as you get more advanced in Jingo.
+
+19:43.110 --> 19:47.070
+A lot of the class based views you can use them without these additional methods.
+
+19:47.070 --> 19:48.740
+In fact we've seen that already in the past.
+
+19:48.780 --> 19:53.460
+So with that group's application it's only when you start getting more advanced or want certain functionality
+
+19:53.650 --> 19:56.640
+that you'll end up adding on with extra methods.
+
+19:56.760 --> 20:00.180
+A lot of the functionality you'll be using for a lot of your own projects probably at the start are
+
+20:00.180 --> 20:02.850
+going to work just fine with class based views.
+
+20:03.180 --> 20:05.570
+OK thanks everyone and I'll see you at the next lecture.

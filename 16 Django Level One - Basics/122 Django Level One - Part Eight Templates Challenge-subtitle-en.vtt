@@ -1,0 +1,76 @@
+WEBVTT
+
+00:05.460 --> 00:10.750
+Hello everyone and welcome back in this lecture you have a challenge and it's a jingle template challenge.
+
+00:11.620 --> 00:13.720
+Templates is a big leap forward for us.
+
+00:13.750 --> 00:18.330
+So it's a good time to quickly get some practice using them and we're going to be using your older pro
+
+00:18.330 --> 00:21.530
+to project they you created for the previous Shingo challenge.
+
+00:21.670 --> 00:23.190
+If you don't have that project anymore.
+
+00:23.230 --> 00:28.360
+Just quickly recreate it using the creating project commands and accreting application commands that
+
+00:28.360 --> 00:30.340
+we've learned in previous lectures.
+
+00:30.340 --> 00:34.110
+Once you have that set up you want to go ahead and complete the following tasks.
+
+00:35.100 --> 00:41.010
+Create a template character and connect it to the settings that py file of that new second project.
+
+00:41.010 --> 00:44.680
+Then create a new view called help and use.
+
+00:44.670 --> 00:49.290
+You are all mapping to render it for any page with the extension slash help.
+
+00:49.290 --> 00:54.630
+So again you're going to go to your second project folder create that second new application create
+
+00:54.660 --> 00:55.460
+a new view.
+
+00:55.470 --> 00:59.970
+So the function within that views that py file and use that you are all mapping that we've learned to
+
+00:59.970 --> 01:03.790
+actually create a rendering for any page of the extension slash help.
+
+01:03.900 --> 01:08.470
+And then I want you to use template tags to return help page.
+
+01:08.520 --> 01:13.830
+So in the templates directory that you made create a new folder and within that folder there should
+
+01:13.830 --> 01:18.930
+be something like help that H T.M. and then that should have template and template tags that basically
+
+01:18.930 --> 01:20.460
+returns help page.
+
+01:20.520 --> 01:25.290
+So just get everything connected so that it's clear that you understand how to use templates to connect
+
+01:25.290 --> 01:31.100
+to a view and actually inject code into the template HTL.
+
+01:31.110 --> 01:31.440
+All right.
+
+01:31.440 --> 01:33.450
+Best of luck with that and the next lecture.
+
+01:33.450 --> 01:35.530
+We will briefly code through the solution.
+
+01:35.550 --> 01:37.120
+Thanks everyone and I'll see you there.

@@ -1,0 +1,553 @@
+WEBVTT
+
+00:05.300 --> 00:05.990
+Hello everyone.
+
+00:05.990 --> 00:09.410
+Welcome back to Part 9 of the blog clone project.
+
+00:09.410 --> 00:13.970
+We've already finished quite a few templates such as the base that H Tim L which is going to be extended
+
+00:14.240 --> 00:18.460
+to every other template has the nav bar all the SS and Javascript calls.
+
+00:18.620 --> 00:24.090
+Then we also did the template view that simple about that HTL page where we just had two basic lines.
+
+00:24.110 --> 00:29.380
+We also did the post list which is going to be the list of all the blog titles in the comments et.
+
+00:29.480 --> 00:30.650
+The Xs or home page.
+
+00:30.650 --> 00:35.770
+And then once you click on those blog titles or the comments it takes that post detail page where that's
+
+00:35.780 --> 00:38.030
+the actual blog content.
+
+00:38.030 --> 00:40.880
+So let's now continue by filling out the rest of the templates.
+
+00:40.880 --> 00:45.500
+Now we're going to start off by doing the post form so if you're want to edit or create a new post you're
+
+00:45.500 --> 00:48.140
+going to be taken to the post form that each time template.
+
+00:48.230 --> 00:49.580
+So that's where we'll start.
+
+00:49.630 --> 00:52.410
+And let's hop over to the editor and get started.
+
+00:52.450 --> 00:52.730
+OK.
+
+00:52.730 --> 00:57.410
+Here you have the post form that each team is all ready to go and have the extends and the block content
+
+00:57.440 --> 00:58.760
+plus the end block.
+
+00:59.030 --> 01:03.560
+And let's just put a header in here will say Heading 1 I'll say something like.
+
+01:03.650 --> 01:04.970
+New Post.
+
+01:05.270 --> 01:09.910
+And we're going to create a form here so we'll call form we'll give it a class.
+
+01:09.910 --> 01:15.020
+Post dush form in case we ever want to have a class that does something like this doesn't really in
+
+01:15.020 --> 01:16.910
+action because reason Gengel for that.
+
+01:17.030 --> 01:18.460
+And then the method should be post.
+
+01:18.470 --> 01:22.350
+I always like having it in capital letters just because that makes it more clear to me.
+
+01:22.370 --> 01:27.520
+So I'll put that in and then if any form as we know we need a C SRF token.
+
+01:27.770 --> 01:38.370
+So we shall say whip's C S R F underscore tokin and that is going to inject the actual form Daut as
+
+01:38.400 --> 01:39.130
+P.
+
+01:39.280 --> 01:43.950
+And remember back in the form page we had that which is attribute which is going to let me have classes
+
+01:43.950 --> 01:45.470
+to individual elements here.
+
+01:45.480 --> 01:49.890
+So in case I never really need to use post form I already have the class set up where I can actually
+
+01:50.070 --> 01:53.530
+grab particular elements or widgets from that form.
+
+01:53.880 --> 01:55.410
+And then finally we're going to need a button.
+
+01:55.500 --> 01:59.630
+So we'll create a button there'll be type submit so we can actually submit this.
+
+01:59.730 --> 02:06.280
+And let's give it a class that kind of goes with the look and feel of bootstraps so we'll say Well to
+
+02:06.300 --> 02:13.350
+give it the same class in case we ever want to effect this particular button and we'll say between between
+
+02:13.680 --> 02:14.560
+default.
+
+02:14.760 --> 02:18.220
+So you probably notice I'm kind of creating classes like go along that templates.
+
+02:18.330 --> 02:20.940
+Some of these I'll use some of these I will ever use.
+
+02:20.940 --> 02:26.280
+But what's nice about these classes is if I ever need to actually do some CSSA editing on this particular
+
+02:26.280 --> 02:31.260
+button it already has its own class call which I can add some more submit buttons.
+
+02:31.290 --> 02:35.580
+And what's also nice is just reading the sample itself makes it a lot easier to understand what's going
+
+02:35.580 --> 02:36.590
+on these classes.
+
+02:36.630 --> 02:38.370
+Regardless if I use them or not.
+
+02:38.910 --> 02:42.660
+So let me collapse this directory tree get ourselves a little more room.
+
+02:42.660 --> 02:46.390
+The nameless but we actually don't need to have a name so I'll believe that.
+
+02:46.470 --> 02:49.160
+And let's just have this be save.
+
+02:49.230 --> 02:51.800
+And then that's the end of the form just form the token.
+
+02:51.810 --> 02:53.130
+And then the button itself.
+
+02:53.280 --> 02:55.460
+And here is where I'm going to call script.
+
+02:55.470 --> 03:02.880
+So you remember back to when we were exploring the medium Ed. page I'm going to call script here and
+
+03:02.880 --> 03:04.780
+basically follow along of what they said.
+
+03:04.860 --> 03:08.570
+So you can check back on that video or on that demo page.
+
+03:08.580 --> 03:15.870
+But what they said to do is create this editor variable here on the page and then set it equal to a
+
+03:15.870 --> 03:18.870
+new medium.
+
+03:19.060 --> 03:27.160
+Editor object and then have it grab the edible at the will.
+
+03:27.170 --> 03:34.940
+However you would say that and then save this and remember that this edible class is attached here as
+
+03:34.940 --> 03:36.490
+a widget.
+
+03:36.580 --> 03:39.910
+So if you go back to the actual models or forms.
+
+03:39.910 --> 03:44.970
+So it's come back to models or actually it was under forms come back here.
+
+03:45.000 --> 03:45.740
+There it is.
+
+03:45.750 --> 03:50.560
+So here there are post forms remember were added to this and this edible class for the text itself.
+
+03:50.570 --> 03:56.780
+So that central is going to help us link when we're working with the post form page here.
+
+03:57.090 --> 04:00.610
+This medium editor and whip's had too many EEs there.
+
+04:00.840 --> 04:04.770
+OK so save that now we should be good to go there.
+
+04:04.800 --> 04:06.510
+So that's our post form page.
+
+04:06.510 --> 04:11.120
+Now let's create a post draft list so maybe you haven't published this yet.
+
+04:11.340 --> 04:13.560
+In which case you have the list of all your drafts.
+
+04:13.560 --> 04:15.630
+So this one also going to be quite simple.
+
+04:15.750 --> 04:19.770
+We're going have a for loop that's just going to go for the posts and then give some sort of creation
+
+04:19.770 --> 04:20.560
+date.
+
+04:20.610 --> 04:27.280
+So let's do that say four posts and posts
+
+04:30.070 --> 04:32.050
+and then we need an end to four here.
+
+04:33.940 --> 04:41.350
+And four and then one I'm going to do is add in a div so we'll call this the post class again.
+
+04:41.380 --> 04:44.290
+May or may not use this but can help us read along here.
+
+04:44.320 --> 04:49.650
+We'll have a paragraph tag give that give that the class I think we're calling them dates.
+
+04:49.870 --> 04:58.480
+Now we'll say created and then we're going to inject here postop created underscore dates and we've
+
+04:58.480 --> 05:09.220
+seen before I can added this template filter where we all say dates Elisha's have it be the wups dash
+
+05:09.220 --> 05:19.480
+y ok and then we're going to do next is let's have a heading one with an anchor tag where the ref will
+
+05:19.490 --> 05:21.670
+take you to that actual post detail page.
+
+05:21.710 --> 05:31.980
+So we'll go you are all post the detail the primary key being equal to the post-up primary key.
+
+05:33.220 --> 05:36.650
+And this will just be the post-Idol.
+
+05:36.750 --> 05:40.540
+So the post-Idol will take you to that post e-tail page which kind of makes sense.
+
+05:40.540 --> 05:45.940
+Clopton that victory tree get a little more room and then we'll have the actual post texts all eject
+
+05:45.940 --> 05:46.630
+button as well.
+
+05:46.630 --> 05:54.150
+Post that text and I'm going to use another filter called truncate characters which is just going to
+
+05:54.150 --> 05:56.250
+help this as far as formatting.
+
+05:56.250 --> 05:58.830
+Not necessary but kind of up to you.
+
+05:59.780 --> 06:04.220
+So how truncate C H R C H R S 200.
+
+06:05.570 --> 06:09.210
+OK so that's it for the draft list.
+
+06:09.210 --> 06:13.590
+Basically it's going to do is go through all the posts in the post and then say when it was created
+
+06:13.650 --> 06:18.260
+and if you click on the link I'll take you to the post detail page and all truncate some characters
+
+06:18.260 --> 06:19.140
+so you don't see everything.
+
+06:19.140 --> 06:20.670
+So we'll save that.
+
+06:20.970 --> 06:23.270
+And now we have our post-draft list ready to go.
+
+06:23.610 --> 06:25.450
+Let's start with this view.
+
+06:25.500 --> 06:27.570
+So we have this post confirmed delete.
+
+06:27.600 --> 06:29.030
+That's actually a really simple.
+
+06:29.160 --> 06:34.980
+Once you click on the delete view there needs to be some sort of a success you are all that will say
+
+06:35.010 --> 06:36.930
+hey do you want to delete this.
+
+06:36.960 --> 06:43.050
+So we'll create a form for the basic form doesn't need an action and we don't even really need to give
+
+06:43.050 --> 06:46.190
+it a class since it's essentially just a button here.
+
+06:46.490 --> 06:48.650
+An organ to do is inside this form.
+
+06:48.810 --> 06:51.330
+I'm going to create the C-s or token
+
+06:54.980 --> 06:57.980
+token and then we'll just have something like.
+
+06:58.070 --> 07:03.130
+Are you sure you want to delete questionmark.
+
+07:03.340 --> 07:07.450
+And let's actually inject object here.
+
+07:07.550 --> 07:12.410
+So this is something that delete view does automatically the object itself has that name or you want
+
+07:12.420 --> 07:18.170
+to lead it as we saw before when we were working a class based views and then we'll have an input and
+
+07:18.680 --> 07:26.940
+the type will be submit and let's give it a class and let's say between beats and danger which is always
+
+07:26.940 --> 07:30.180
+a good call when you're going to do it the view have it be danger.
+
+07:30.300 --> 07:34.680
+In our case where he won't be using his coloring eventually the loader will overwrite that coloring.
+
+07:34.710 --> 07:39.930
+But for your more basic sites where you're not have we don't have such funky CSSA calls with color changing
+
+07:40.220 --> 07:44.160
+a danger is a good call for the sort of the late buttons it doesn't need a name but let's give it a
+
+07:44.160 --> 07:48.740
+value or something like confirm or deletes or whatever you want.
+
+07:48.810 --> 07:51.660
+Save that and that's it for the post confirmed delete page.
+
+07:51.660 --> 07:55.250
+So really similar to what we've done in the past with the views.
+
+07:55.770 --> 08:00.700
+So that's it for that we have post form each time I'll read to go.
+
+08:00.840 --> 08:02.780
+Common form is something we haven't done yet.
+
+08:02.820 --> 08:10.130
+So that's going to be a really similar form to the draft or the post form excuse me and let's create
+
+08:10.280 --> 08:19.860
+H-1 and this will be a new comments and then all we're gonna do is say form and we can give it a class
+
+08:19.860 --> 08:22.600
+post form just so I can refer to it later.
+
+08:22.620 --> 08:24.550
+It doesn't need any sort of action call.
+
+08:25.110 --> 08:29.550
+And then all we're gonna do here is give it a C SRF token
+
+08:32.410 --> 08:39.420
+and then say form as the.
+
+08:39.620 --> 08:45.260
+Give it a button and this button will say it's a submit typed button doesn't need the name.
+
+08:45.260 --> 08:53.770
+Let's give it a class we'll give it the same class that we did earlier say between PTEN defaults and
+
+08:54.060 --> 08:56.140
+doesn't need a name so we'll take that out.
+
+08:57.080 --> 09:02.360
+But we will give it some text here that says something like post comments and that can be the end of
+
+09:02.360 --> 09:03.780
+the form.
+
+09:03.920 --> 09:10.870
+And since I want the form or the comment form itself to have the same capabilities of the medium editor
+
+09:11.210 --> 09:13.610
+I'll add in that script here as well.
+
+09:13.730 --> 09:18.890
+So kind of up to you whether you want the comments to have such flexibility but just so we explore what's
+
+09:18.890 --> 09:19.610
+possible here.
+
+09:19.650 --> 09:20.970
+And the same thing.
+
+09:21.170 --> 09:32.010
+So we say the variable editor has two new medium Ed. And then we'll adjust the class to be edible or
+
+09:32.120 --> 09:37.120
+editable and semi-colons and that.
+
+09:37.270 --> 09:41.350
+OK so let's open up all the templates and make sure we finished all of them we have the about page ready
+
+09:41.350 --> 09:42.000
+to go.
+
+09:42.160 --> 09:47.530
+We have a base that age you know rates ago comment forms ready post confirm deletes ready detail page
+
+09:47.530 --> 09:53.110
+in the post draft list ready post forums ready post list is ready and then we still have this log in
+
+09:53.110 --> 09:53.680
+each.
+
+09:53.740 --> 09:55.120
+That's also ready.
+
+09:55.150 --> 10:00.130
+Looks like we finished all our templates so let's come over here to blog that CSSA and finish just a
+
+10:00.130 --> 10:01.650
+couple of those CSSA calls.
+
+10:01.660 --> 10:06.370
+This is basically totally optional and this is where a lot of your personal choices will come into play
+
+10:06.730 --> 10:09.180
+as far as what you actually want the blog to look like.
+
+10:09.220 --> 10:11.870
+So don't worry too much about Oregon to be doing here.
+
+10:11.980 --> 10:16.000
+This is just so it lines up with the actual example code from the notes.
+
+10:16.570 --> 10:18.860
+So I've taken care of this tech font.
+
+10:19.000 --> 10:24.580
+That's the font that goes in that nav bar will have big brand that just makes it a little larger center
+
+10:24.580 --> 10:26.850
+stage just kind of centers things a little bit more.
+
+10:27.010 --> 10:35.810
+And then we have the loader so we create kind of loops something that says Here color changer.
+
+10:35.810 --> 10:39.790
+Below comment that out and add in some of my own classes.
+
+10:39.800 --> 10:49.310
+So something we also did was this postdates which I'm going to say text align center and some of the
+
+10:49.310 --> 10:54.320
+classes we made we won't be calling here so just keep that in mind and then I'm also going to create
+
+10:54.320 --> 10:55.720
+a post title.
+
+10:56.050 --> 11:04.970
+So post-Idol will give it the same font family as Rousseau one but maybe make the same font size a little
+
+11:04.970 --> 11:06.040
+bigger.
+
+11:06.200 --> 11:12.740
+So the actual title the post font family grew so on and then let's make the post-Idol like 3M just so
+
+11:12.740 --> 11:14.230
+it's quite a bit larger.
+
+11:14.420 --> 11:19.650
+And then we'll have the text align center so it's centered there.
+
+11:19.760 --> 11:21.290
+So that's the post title.
+
+11:21.560 --> 11:25.310
+And then for the actual post content itself.
+
+11:25.410 --> 11:34.200
+So how about post content class and then I'm going to give that the font family of well let's say that
+
+11:35.390 --> 11:36.420
+Monserrat.
+
+11:36.500 --> 11:46.460
+And then I will add in a font size that makes it the same font size as the post detail view.
+
+11:46.470 --> 11:50.780
+There we go that way when you're editing it or viewing it all isn't the same size.
+
+11:50.880 --> 11:54.550
+And I believe we already did something called center stage up here so that was good.
+
+11:54.840 --> 12:01.560
+And something else we want to maybe have those buttons so I think we created one called DTN comment
+
+12:01.560 --> 12:02.360
+button.
+
+12:03.510 --> 12:10.050
+To add in position so we absolute's and we'll see if this actually affects and we'll bring in all the
+
+12:10.050 --> 12:12.450
+weights of the right.
+
+12:12.510 --> 12:18.770
+I have zero pixels so that's just kind of the add comment and shifting all the way to the right.
+
+12:18.770 --> 12:20.660
+And we already have big brand ready to go.
+
+12:20.660 --> 12:22.050
+I believe we scroll up.
+
+12:22.160 --> 12:23.680
+OK big brands where did it go.
+
+12:23.930 --> 12:25.260
+So we finished off the CSA.
+
+12:25.340 --> 12:27.490
+And the race the rest of the templates.
+
+12:27.680 --> 12:31.020
+So we should be mostly good to go it might need to do a quick review.
+
+12:31.040 --> 12:36.740
+Do any bug finding but we finished basically like 99 percent of the site.
+
+12:37.010 --> 12:37.470
+OK.
+
+12:37.640 --> 12:40.790
+So coming up next we're going to kind of wrap everything up and see if everything worked.
+
+12:40.790 --> 12:42.450
+Maybe de-bug a little bit.
+
+12:42.530 --> 12:43.690
+I'll see it the next lecture.

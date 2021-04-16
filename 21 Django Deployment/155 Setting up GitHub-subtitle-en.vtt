@@ -1,0 +1,607 @@
+WEBVTT
+
+00:05.020 --> 00:06.280
+Hello everyone.
+
+00:06.280 --> 00:11.950
+Before we actually begin work in Python anywhere it's the pleasure site to talk about it and a version
+
+00:11.950 --> 00:17.660
+control when we think about deploying our project will probably be useful to have all our code posted
+
+00:17.660 --> 00:19.010
+somewhere online.
+
+00:19.040 --> 00:24.300
+This way we can easily call it from the virtual server hosting service we are using.
+
+00:24.310 --> 00:30.160
+So before we actually do that let's talk about what is gets in what gets hub a really common misconception
+
+00:30.160 --> 00:33.320
+for beginners is that get and get a hub or the same thing.
+
+00:33.430 --> 00:40.500
+They are NOT get is a version control system that helps keep track of changes in your code gets hub
+
+00:40.770 --> 00:47.520
+is a company and the Web site helps manage it and host your files on their site gets is an open source
+
+00:47.520 --> 00:54.000
+totally free version control system gets hub is a company that utilizes that and adds extra tools on
+
+00:54.000 --> 00:58.380
+top of that and host your files your code on their site.
+
+00:58.380 --> 01:01.130
+They offer extra tools for collaboration and things of that manner.
+
+01:01.970 --> 01:08.180
+So the main idea for us is that you can have one repository with various historic checkpoints that you
+
+01:08.180 --> 01:13.250
+can always refer back to it with a history of any changes and that is what is known as a version control
+
+01:13.560 --> 01:20.230
+a different control over all the various versions of the particular file you had is one of the most
+
+01:20.230 --> 01:25.810
+popular code hosting sites on the web and it allows you to easily get a version control and keep copies
+
+01:25.810 --> 01:27.110
+of the code on the web.
+
+01:28.000 --> 01:32.480
+And the first step is free to go to get home and create a free account then will download get to our
+
+01:32.480 --> 01:35.610
+computer and upload our project repository to get help.
+
+01:35.780 --> 01:40.760
+If you're already a student that knows how to get Herb and create an upload to a repository just upload
+
+01:40.760 --> 01:45.230
+your project folder to the people you make and skips to the next lecture for everyone else it's good
+
+01:45.230 --> 01:49.440
+to get help dotcom explore how to use it and get everything set up online.
+
+01:49.590 --> 01:51.070
+You at hub dot com.
+
+01:51.470 --> 01:56.770
+OK so here I am at get hub basically offers two levels of service.
+
+01:56.780 --> 02:03.260
+One is free and the free level of service basically works almost exactly the same as the paid version
+
+02:03.560 --> 02:06.800
+except for the paid version you get to keep your files private.
+
+02:06.800 --> 02:10.530
+If you're not paying and it's free then you have to publicly host everything.
+
+02:10.550 --> 02:12.230
+So anyone can see your code.
+
+02:12.290 --> 02:16.880
+Obviously if you're a corporation or a company or you want to keep your code hidden from other people
+
+02:16.880 --> 02:21.790
+because it has proprietary knowledge you would have to pay get hub to host your stuff on there.
+
+02:21.800 --> 02:24.650
+Right now we'll just focus on the free get held account.
+
+02:24.860 --> 02:30.350
+So were you going to do is if you don't have one yet click sign up and then sign up for a hub you'll
+
+02:30.350 --> 02:36.530
+set up a personal account username email address password choose your plan will be a free plan and then
+
+02:36.530 --> 02:37.540
+step 3.
+
+02:37.610 --> 02:40.310
+Some tailor your experience stuff so don't worry about that.
+
+02:40.790 --> 02:43.970
+All right so once you sign up then go ahead and sign in.
+
+02:43.970 --> 02:45.170
+I'm going to sign in right now.
+
+02:46.540 --> 02:51.140
+And you'll get something that looks similar to this you probably won't have everything that I have here.
+
+02:51.190 --> 02:55.750
+You can see that with dot com you can collaborate if other people show their changes.
+
+02:55.750 --> 03:01.540
+So for example here's a constructor of mine and there's his account and he's working on a project with
+
+03:01.540 --> 03:02.200
+me.
+
+03:02.200 --> 03:07.120
+So if I click on this I'll take me to the project we're working on and I can actually view the changes.
+
+03:07.120 --> 03:12.280
+So in green is what is currently there and in red is what was removed or deleted.
+
+03:12.280 --> 03:14.800
+So that's basically the way we can collaborate people and get a job.
+
+03:14.980 --> 03:20.710
+And it's also really nice because pretty much every major open source project is now being hosted on
+
+03:20.860 --> 03:26.020
+Hub's if you ever want to contribute to Django or any other open source project you can do it with your
+
+03:26.020 --> 03:26.800
+account.
+
+03:26.860 --> 03:29.710
+But we're going to be doing is setting up a repository.
+
+03:30.010 --> 03:36.280
+So we will click right here on your repository and you'll give this a repository name so something short
+
+03:36.370 --> 03:37.550
+and memorable.
+
+03:37.840 --> 03:50.950
+So we will call this jingo cash deployments bash example you can give a description so we'll say repo
+
+03:50.970 --> 04:00.930
+for our jingo deployments example and then I can set this private or public because I actually pay for
+
+04:00.930 --> 04:01.920
+an account here.
+
+04:02.250 --> 04:06.570
+Obviously I'll set it public because that's what you're going to be doing and whether or not you want
+
+04:06.570 --> 04:08.280
+to initialize it Fareed me is up to you.
+
+04:08.280 --> 04:09.920
+We don't need one so we won't do it.
+
+04:10.260 --> 04:16.810
+And then we can also say add ignore which is files that you want to ignore and it's version control.
+
+04:16.830 --> 04:18.350
+We also don't really need to worry about that.
+
+04:18.380 --> 04:20.190
+So let's just create the repository for now.
+
+04:23.810 --> 04:25.750
+So then we have the quick set up.
+
+04:25.760 --> 04:30.410
+So if you've done this kind of thing before which I assume you haven't there's a quick way to set up
+
+04:30.410 --> 04:34.520
+this repository onto your desktop.
+
+04:34.540 --> 04:39.460
+Now there are many ways to do this but we're going to be focusing on using the command line to do this
+
+04:39.460 --> 04:42.470
+so we can interact with this in the Adam text editor.
+
+04:42.490 --> 04:47.410
+There's a lot of other ways including a full desktop application that comes with get how free.
+
+04:47.620 --> 04:54.670
+Or they can use actually visualizes process or you can just quickly S-sh or use HTP here.
+
+04:54.670 --> 05:01.240
+Well we're going to do is use the command line at our terminal or a command prompt but in order to do
+
+05:01.240 --> 05:03.710
+that we actually need to download it itself.
+
+05:03.940 --> 05:06.170
+So far we've only set up our account on hub.
+
+05:06.310 --> 05:08.370
+We actually download get to our computer.
+
+05:08.380 --> 05:13.740
+So the way we do that is you come to this Web site and this is if you just google search gets there
+
+05:13.780 --> 05:15.730
+should be one of the first things that comes up.
+
+05:16.070 --> 05:19.200
+It gets as CNN.com.
+
+05:19.220 --> 05:26.910
+That's I-T bash as CNN.com and this is where it gets the free and open source version control system.
+
+05:27.040 --> 05:28.890
+It's hosted so you can download it.
+
+05:28.990 --> 05:33.730
+You're going to do is depending whether you're on Windows or Mac etc. you're going to download it.
+
+05:33.730 --> 05:38.380
+So if you're on a Mac it means you may already have it on your computer so make sure to check for that.
+
+05:38.410 --> 05:41.820
+The way to check is if you go to your command prompt.
+
+05:42.160 --> 05:48.280
+So for instance here I just popped up my command prompt or if you're on your Mac your terminal or terminal
+
+05:48.280 --> 05:50.770
+for Linux is well to check if you already have it.
+
+05:50.770 --> 05:55.150
+Go get dash dash version enter.
+
+05:55.210 --> 06:00.580
+And if you get something out that means you actually already have get installed and you don't need to
+
+06:00.580 --> 06:05.380
+worry about this doesn't really matter what version really any version should work that's been downloaded
+
+06:05.380 --> 06:07.860
+in the past Um no three years.
+
+06:07.990 --> 06:10.780
+But let me walk through the actual download process for you.
+
+06:10.840 --> 06:16.500
+Especially if you're on a Windows computer that can be a little confusing maybe but if you're a beginner
+
+06:16.510 --> 06:21.100
+so going to click download for Windows says Downloading starting and then it's going to download that
+
+06:21.100 --> 06:21.990
+for me.
+
+06:22.030 --> 06:26.250
+So it's about 30 megabytes going forward in time for this download to finish.
+
+06:27.650 --> 06:33.710
+And then once you've downloaded either the DNG or an executable whatever for your format go ahead and
+
+06:33.710 --> 06:34.440
+click on it.
+
+06:34.640 --> 06:37.420
+Make sure you downloaded the correct 32 or 64 bit
+
+06:40.230 --> 06:41.920
+allow it to make changes on your computer.
+
+06:41.920 --> 06:48.060
+Sorry if I went black there for a second and then we're going to do is say next except that license.
+
+06:48.070 --> 06:54.320
+Go ahead and save it to get and then you can add some additional stuff to this.
+
+06:54.480 --> 06:58.860
+And I would just accept all default options so just keep everything default.
+
+06:59.160 --> 07:02.370
+Click next and then click Next again.
+
+07:02.960 --> 07:08.540
+And here's where we have three options especially if you're on Windows the one you need to make sure
+
+07:08.900 --> 07:11.390
+is that it actually adds to the path.
+
+07:11.450 --> 07:16.090
+So this one right here it says Use get from the windows command prompt says adding it to your path.
+
+07:16.100 --> 07:17.090
+That's exactly what you need.
+
+07:17.090 --> 07:20.740
+Because if it's not added to your path you won't be able to call it from the command line.
+
+07:20.900 --> 07:23.030
+So then you can click next.
+
+07:23.060 --> 07:28.050
+Then there's the check out either Windows style as is or other Cheka options.
+
+07:28.280 --> 07:32.870
+You may not see this tab if you're on a Mac or Linux so don't worry about it but we'll just select the
+
+07:32.870 --> 07:35.540
+default again next.
+
+07:35.550 --> 07:40.120
+Again you can hit any of these that we'll continue.
+
+07:41.760 --> 07:47.210
+And then we can just again go to defaults and then you can hit install.
+
+07:47.240 --> 07:51.250
+So once you hit we'll begin installing it onto your computer.
+
+07:53.410 --> 07:57.500
+So I'm going to forward in time until the installation is finished.
+
+07:58.440 --> 08:02.790
+So once this is done we can just say don't worry about doing the release notes for a launch you get
+
+08:02.790 --> 08:07.890
+bashed to it finished and then go back to your command prompt either in Adam or by itself where you're
+
+08:07.890 --> 08:08.940
+terminal.
+
+08:08.940 --> 08:13.030
+So once you've completed that installation and have finished you can go back to your command prompt
+
+08:13.040 --> 08:14.210
+or your terminal.
+
+08:14.220 --> 08:17.850
+Sometimes you have to restart your computer in order for this to take effect.
+
+08:17.900 --> 08:24.330
+They should be able to now type gets dash dash version version enter and see the same version of whatever
+
+08:24.330 --> 08:25.440
+you just downloaded.
+
+08:25.440 --> 08:28.790
+In my case it was version 2.1 2.0.
+
+08:28.800 --> 08:35.160
+Again if you're seeing something that says get not recognized as a command try restarting your computer
+
+08:35.280 --> 08:38.320
+and then entering this again if you're still having issues.
+
+08:38.430 --> 08:44.640
+Go ahead and post the Q&amp;A forums but definitely search the Q&amp;A forums for any specific questions that
+
+08:44.640 --> 08:45.490
+you may have.
+
+08:45.690 --> 08:51.080
+It's most likely the questions already been answered about this.
+
+08:51.220 --> 08:55.980
+All right now that I'm here at Adam one and going to do is inside Gengel lectures or wherever you so
+
+08:55.980 --> 08:56.820
+choose.
+
+08:56.820 --> 09:02.460
+I'm going to add a new folder and this will be the folder that's going to contain a subdirectory of
+
+09:02.460 --> 09:04.500
+our actual get repository.
+
+09:04.500 --> 09:12.530
+So you can call this folder whatever you want I'll call it my underscore base.
+
+09:12.580 --> 09:14.200
+It really doesn't matter what you call it.
+
+09:14.200 --> 09:20.290
+But then where you're going to do is CD into my underscore base and this is where we're actually going
+
+09:20.290 --> 09:26.740
+to initialize our get repository and all the commands we're going to be running our right here on this
+
+09:26.830 --> 09:29.010
+create a new repository on the command line.
+
+09:29.050 --> 09:32.470
+You don't actually need to worry about this first command that's just going to create a read me for
+
+09:32.470 --> 09:33.040
+you.
+
+09:33.070 --> 09:37.200
+We don't really care about that so it will do instead is an going to collapses.
+
+09:37.210 --> 09:40.010
+We see a little more room start with this.
+
+09:40.160 --> 09:42.920
+And it's so we'll say get in it.
+
+09:44.570 --> 09:48.580
+G I t in its enter.
+
+09:48.870 --> 09:53.060
+And this is going to initialize an empty get repository right at my base.
+
+09:53.130 --> 09:57.310
+And then what I'm going to do is you don't actually need to do the add.
+
+09:57.350 --> 10:01.390
+And so what we'll do is copy and paste one of our projects here.
+
+10:01.800 --> 10:06.910
+So open up the directory tree and that any of the projects we've been working on is totally fine.
+
+10:07.110 --> 10:10.720
+I will copy the learning templates project from Gengel level floor.
+
+10:10.740 --> 10:12.570
+Again you can do anything.
+
+10:12.570 --> 10:19.260
+So we will copy this and then anoint to put it into my base so we'll say paste.
+
+10:19.260 --> 10:23.560
+So now I have learning templates and then when I'm going to do is do get at it.
+
+10:23.570 --> 10:32.520
+And instead of the read me the M.D. That's related to this ongoing same gets added and then just a period.
+
+10:32.520 --> 10:35.500
+And that basically means add everything.
+
+10:35.700 --> 10:36.080
+Right.
+
+10:36.090 --> 10:44.830
+So now we have some couple of warnings here about wine and things things like that pie files.
+
+10:45.050 --> 10:47.730
+For now you don't need to worry about these line endings.
+
+10:47.780 --> 10:49.190
+That's totally fine.
+
+10:49.220 --> 10:51.870
+So if you get a bunch of warnings like that that's totally OK.
+
+10:53.130 --> 10:56.920
+All right so now that we've added everything we're going to need to commit everything.
+
+10:56.950 --> 11:01.150
+And the way you can do a commit it's also shown right here on this get commit.
+
+11:01.260 --> 11:03.830
+First commit you could you could just copy and paste that line.
+
+11:04.050 --> 11:09.670
+But all right it out and say gets the minutes and I will say dots.
+
+11:09.750 --> 11:16.030
+Everything that we just added say dash am and then a single quote.
+
+11:16.380 --> 11:18.100
+First single quote.
+
+11:18.390 --> 11:23.340
+Basically this message right here of first can be interchange for any message that you will want to
+
+11:23.340 --> 11:25.750
+see on it so you can say something like oh.
+
+11:25.800 --> 11:31.450
+Added learning templates project or fixed issue on this file or whatever.
+
+11:31.530 --> 11:35.030
+As long as it's just in quotes as a string that's going to be the commit message.
+
+11:35.250 --> 11:40.840
+So will enter and now it's going to be committed and you should see something like it's creating a bunch
+
+11:40.840 --> 11:41.390
+of modes.
+
+11:41.470 --> 11:48.940
+That's exactly what you want and then the next thing is to say this line get remote at origin and then
+
+11:49.000 --> 11:55.540
+the actual Your L Sugoi to this when I am going to just directly copy and paste it going to copy this
+
+11:55.750 --> 12:00.340
+and then right click here paste it and then hit Enter.
+
+12:00.340 --> 12:01.480
+That's all I need to do.
+
+12:01.570 --> 12:06.880
+And then what next line is is the string here get push that you orig. master.
+
+12:06.880 --> 12:13.370
+So copy that paste it and you can always pause the video in case you need time to write these lines
+
+12:13.370 --> 12:15.140
+then enter.
+
+12:15.170 --> 12:18.750
+This should push all the changes that we just made to get a hub.
+
+12:18.770 --> 12:19.850
+This might take a little while.
+
+12:19.860 --> 12:25.170
+The pending on your internet connection and you may also be prompted to log in so you see here.
+
+12:25.220 --> 12:26.610
+I was prompted to log in.
+
+12:26.660 --> 12:32.310
+You may be prompted to log in at your actual terminal reata provide your email and password.
+
+12:32.330 --> 12:38.610
+I have a Windows desktop server so I can just log in here I'm going to do that now.
+
+12:38.810 --> 12:41.860
+So I just logged in and now it's going to do it for me.
+
+12:41.870 --> 12:45.030
+Most likely you'll be asked to log in at the actual command prompt.
+
+12:45.050 --> 12:51.260
+If you don't have those settings like I do but everything should have been pushed to see it's writing
+
+12:51.290 --> 12:55.870
+the objects and sending them on line so everything should have been pushed to the actual repository.
+
+12:55.910 --> 12:57.390
+So let's come back here.
+
+12:57.680 --> 13:04.220
+We can expand this window and then click on whatever happens to call your an example here.
+
+13:04.250 --> 13:08.040
+Now I see learning templates and it was pushed by Portsea.
+
+13:08.240 --> 13:11.860
+Right now that's actually my personal Gebe account.
+
+13:11.930 --> 13:14.600
+That's my dog Frankie sleeping there.
+
+13:14.930 --> 13:20.910
+But anyways you should be able to see the files and that's all we need to do for now.
+
+13:21.020 --> 13:23.320
+So it looks like there's a commit message first.
+
+13:23.330 --> 13:24.940
+Again you could call that whatever you want.
+
+13:25.010 --> 13:27.720
+Well I can see the delays commit it was 2 minutes ago.
+
+13:27.830 --> 13:28.430
+Perfect.
+
+13:28.490 --> 13:32.190
+That's all we need to do and we are ready to go.
+
+13:32.360 --> 13:35.930
+If you have any questions on any of these steps feel free to post the Kewney forums.
+
+13:35.930 --> 13:40.480
+Make sure to search the Kewney forums to see if your question has been answered.
+
+13:40.520 --> 13:45.730
+This is a really common place where XLE mistyping a character not following the instructions exactly.
+
+13:45.920 --> 13:49.510
+Or maybe just getting lucky if the install can cause hiccups.
+
+13:49.520 --> 13:50.210
+Don't worry about it.
+
+13:50.240 --> 13:54.800
+I'm always here to help out but make sure you search first because your old question has probably already
+
+13:54.800 --> 13:55.830
+been asked before.
+
+13:55.850 --> 13:58.070
+All right thanks everybody and I'll see you at the next lecture.

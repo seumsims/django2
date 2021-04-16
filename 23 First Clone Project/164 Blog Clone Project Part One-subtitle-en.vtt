@@ -1,0 +1,256 @@
+WEBVTT
+
+00:05.140 --> 00:09.060
+Hello everyone and welcome to part one of the blog clone project.
+
+00:09.340 --> 00:13.060
+Now we're going to start off in this short lecture just setting up our jingle project.
+
+00:13.060 --> 00:18.400
+The application is going to be a single application project blog and then we'll also just do an initial
+
+00:18.400 --> 00:20.080
+run make sure everything's working.
+
+00:20.140 --> 00:25.660
+After that we'll set up a few files within our application a couple of your pie forms up-I those typical
+
+00:25.660 --> 00:28.320
+files that we're going to need for larger scale projects.
+
+00:28.510 --> 00:33.590
+OK let's shift to the editor and get started here and at the Adam text editor before we get started.
+
+00:33.610 --> 00:36.660
+Anything I want to make sure we set up some sort of virtual environment.
+
+00:36.790 --> 00:41.440
+This is optional if you don't have any plans on actually uploading this Web site to the Web and you're
+
+00:41.440 --> 00:42.390
+just working locally.
+
+00:42.400 --> 00:45.130
+But it is a good idea to have the virtual environment.
+
+00:45.130 --> 00:49.130
+I'm going to be activating the one we've always been using which is my jingo E.A..
+
+00:49.300 --> 00:51.490
+Feel free to create a new environment for each project.
+
+00:51.490 --> 00:54.350
+In fact that's what I would encourage you as a best practice.
+
+00:54.510 --> 00:54.800
+OK.
+
+00:54.820 --> 00:58.450
+So I can see what the prince sees my jingle envy is ready to go.
+
+00:58.630 --> 01:04.300
+So I'm going to CD into a folder that I just made called Blog project and you can actually see it up
+
+01:04.300 --> 01:05.530
+here and there jingle lectures.
+
+01:05.530 --> 01:07.880
+We have those other king levels in here.
+
+01:07.990 --> 01:16.360
+Jingo blog project and this we're all called Django dash admen say start project and then whatever you
+
+01:16.360 --> 01:17.670
+want to call the project.
+
+01:17.710 --> 01:21.850
+Don't call this project blog because that's actually going to be the name of our application within
+
+01:21.850 --> 01:22.770
+the project.
+
+01:22.780 --> 01:28.130
+So usually you want to call your project some sort of nickname that corresponds to the site itself.
+
+01:28.150 --> 01:33.760
+For instance if you were making an Instagram clone you would call your project insta or Instagram or
+
+01:33.820 --> 01:38.770
+Instagram project kind of thing you wouldn't want to call it something like pictures or messaging.
+
+01:38.770 --> 01:44.500
+So here we're going to do is just call it the most basic nickname can do which is my site so I'll say
+
+01:44.500 --> 01:52.000
+start project my site and then we're going to CD into my site and if I expand this over here on the
+
+01:52.000 --> 01:57.400
+left hand tab I should see my site and then my site number we get this kind of dual folders and we also
+
+01:57.400 --> 02:04.300
+have managed up-I so within my site I'm also going to start my application so we can call it Shingo
+
+02:04.330 --> 02:09.700
+that admen and you can actually do this with Python managed pi as well but I like doing it through jingo
+
+02:09.700 --> 02:14.800
+admen just to make sure I'm doing everything correctly and then the only application will have is the
+
+02:14.800 --> 02:18.930
+main blogging application that's going to be able to accept posts and comments for the blog.
+
+02:19.060 --> 02:23.910
+So we'll just call it blog and that's sort of the reason we don't want you to actually call the project
+
+02:23.910 --> 02:26.850
+itself blog because the main application is called Blog.
+
+02:27.250 --> 02:27.770
+OK.
+
+02:28.570 --> 02:30.520
+So here we have blog ready to go.
+
+02:30.550 --> 02:34.390
+I'm going to expand blog and there's a couple of more files that I want in here.
+
+02:34.390 --> 02:38.250
+I want a URLs that PI file because eventually I'm going to need that.
+
+02:38.290 --> 02:45.480
+So say a new file within blog called you URLs not pi and then I also plan to create some forms.
+
+02:45.490 --> 02:51.330
+So again inside a blog all say new file and call it forms thought pi.
+
+02:51.460 --> 02:52.750
+OK that's really all we need for now.
+
+02:52.750 --> 02:57.790
+Later on we'll add some template folders etc. but whenever you add in a new application you always want
+
+02:57.790 --> 03:01.000
+to make sure that you come to settings that apply come down.
+
+03:01.030 --> 03:06.370
+Scroll down to where it says install apps and make sure that the application that you just created is
+
+03:06.370 --> 03:07.120
+there.
+
+03:07.850 --> 03:12.330
+And if you ever get some errors with this whenever you're running your server make sure that your format
+
+03:12.330 --> 03:17.850
+is the same as mine to notice here that I have logged project my site and then under my site I have
+
+03:17.850 --> 03:18.900
+two folders.
+
+03:18.900 --> 03:23.280
+The blog all the applications the project folder and then you're managed up high.
+
+03:23.340 --> 03:28.050
+Sometimes a little confusing that you have two folders a set the rectory at the exact same name as its
+
+03:28.050 --> 03:29.160
+parent there victory.
+
+03:29.160 --> 03:32.910
+That's basically how Django does this automatically so just keep an eye out for that.
+
+03:32.910 --> 03:35.390
+Make sure you're in the right my site folder.
+
+03:35.890 --> 03:40.620
+OK once you've done that let's do it we should always do which is called Peifer managed up-I and migrate
+
+03:40.650 --> 03:41.720
+everything.
+
+03:41.760 --> 03:46.500
+So say Python managed up-I migrate.
+
+03:46.920 --> 03:49.720
+Enter is going to run all those migrations.
+
+03:49.890 --> 03:51.740
+Looks like everything's working well.
+
+03:51.780 --> 03:54.390
+And then we also want to set up perhaps location.
+
+03:54.390 --> 04:00.530
+So I'll say Python make migrations and then call the application we want which is blog.
+
+04:00.590 --> 04:11.860
+Whoops I need to say Python mintage stop py make migrations and then called blog OK no changes to an
+
+04:11.860 --> 04:12.600
+app blog.
+
+04:12.640 --> 04:15.440
+As expected I don't actually have any new models there.
+
+04:15.520 --> 04:19.960
+We'll take care of that later on because here we have a empty models but it's always a good idea to
+
+04:19.960 --> 04:23.300
+do that and you probably heard me say this a million times by now.
+
+04:23.590 --> 04:28.970
+I always like to just run migrate one more time just to check that it says no change is detected.
+
+04:29.140 --> 04:30.670
+And it says no migration to apply.
+
+04:30.670 --> 04:31.310
+Perfect.
+
+04:31.330 --> 04:33.420
+So let's make sure this actually all works out.
+
+04:33.760 --> 04:40.880
+I'll call Python managed to apply and run the server OK looks like we have no errors there.
+
+04:40.880 --> 04:46.420
+I'm going to copy this and bring over my browser and then bring in over my browser page.
+
+04:46.430 --> 04:46.940
+Here it is.
+
+04:46.940 --> 04:47.330
+It worked.
+
+04:47.330 --> 04:49.740
+Congratulations on your first Django power page.
+
+04:49.880 --> 04:55.340
+That's exactly what we want and hopefully by now this whole process of setting up your projects the
+
+04:55.340 --> 05:00.800
+applications a couple of files are going to need do the migrations and running the actual server.
+
+05:00.850 --> 05:02.780
+They should all be really familiar to you.
+
+05:02.810 --> 05:07.460
+And honestly by now you probably have these steps memorized if you don't I would encourage you to run
+
+05:07.460 --> 05:10.970
+through his homework time on your own completely until you have the steps memorized because this is
+
+05:10.970 --> 05:15.100
+what you're going to be doing basically every time you start a python Django project.
+
+05:15.350 --> 05:16.370
+That's it for this lecture.
+
+05:16.370 --> 05:20.390
+Pretty short on just getting everything set up in the next couple of lectures will start actually filling
+
+05:20.390 --> 05:21.820
+out some of these files.
+
+05:21.860 --> 05:23.390
+So everyone I'll see at the next lecture.

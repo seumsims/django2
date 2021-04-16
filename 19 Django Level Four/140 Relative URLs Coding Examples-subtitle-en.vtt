@@ -1,0 +1,895 @@
+WEBVTT
+
+00:05.110 --> 00:10.120
+Hello everyone and welcome to the Urals with templates code examples lecture this lecture.
+
+00:10.130 --> 00:14.040
+We're going to be coding through everything we just discussed in the previous lecture.
+
+00:14.440 --> 00:19.390
+As a quick note the project for this lecture and the Project for the entire section can be found under
+
+00:19.390 --> 00:23.160
+the Gengel level four folder in your notes and it's called template project.
+
+00:23.170 --> 00:24.450
+All right let's get started.
+
+00:24.670 --> 00:29.350
+I'm going to start the project entirely from scratch and Adam text editor I think it's always great
+
+00:29.350 --> 00:34.300
+practice to get through the workflow of starting up your project setting up your settings up high file
+
+00:34.300 --> 00:34.960
+ex cetera.
+
+00:35.170 --> 00:39.400
+You can skip ahead if you don't want to go through that process if you just want to meet me at where
+
+00:39.400 --> 00:41.470
+you would start at the template project.
+
+00:41.490 --> 00:44.470
+OK let's hop over to Adam editor and get started.
+
+00:44.470 --> 00:44.790
+All right.
+
+00:44.800 --> 00:49.000
+So I have a folder called Jingle level 4 that is totally anti-right.
+
+00:49.000 --> 00:54.310
+Now what I'm going to do is after setting up my virtual environment that's optional of course I'm going
+
+00:54.310 --> 01:05.630
+to CD into it so I'll say CD into Django level 4 and then I'm going to say Django dash Addleman start
+
+01:05.770 --> 01:13.090
+project and then we'll call this project learning underscore templates and sets going to be what we're
+
+01:13.090 --> 01:16.270
+doing in the section the course learning templates saw.
+
+01:16.340 --> 01:20.800
+I'll enter make sure that all sets up automatically and then after that we'll also set up our basic
+
+01:20.800 --> 01:21.780
+application.
+
+01:21.820 --> 01:24.130
+This will just be a one application project.
+
+01:24.690 --> 01:24.990
+OK.
+
+01:25.000 --> 01:27.870
+So I can see here have learning underscore templates ready to go.
+
+01:28.120 --> 01:35.550
+So then again what I'm going to do is say CD into the learning templates and then I'm going to say Django
+
+01:36.030 --> 01:43.700
+ash admen star app and we'll just call this basic underscore app and enter.
+
+01:43.740 --> 01:45.930
+And that creates our application perfect.
+
+01:45.930 --> 01:49.650
+We have basic app and learning templates and incited this.
+
+01:49.650 --> 01:58.020
+I'm also going to create a new folder called templates and then inside of that let's create an actual
+
+01:58.560 --> 02:01.140
+other folder that matches the name of our application.
+
+02:01.140 --> 02:05.460
+In this case it's basic app perfect.
+
+02:05.460 --> 02:09.710
+Now let's go to settings up pine and make sure that our setting's is aware of our templates directory
+
+02:09.750 --> 02:12.040
+and the fact that we have a basic application here.
+
+02:12.360 --> 02:19.710
+So as always we come here and set up template underscored the are equal to OS path that join and then
+
+02:19.710 --> 02:24.860
+I join my based directory with templates and hopefully the search field really naturality.
+
+02:24.870 --> 02:26.590
+You don't have to keep looking this up.
+
+02:26.670 --> 02:31.110
+I know when I was first starting out I constantly had to look up this exact line of code that as you
+
+02:31.200 --> 02:37.530
+get used to started the project over and over again this becomes really natural to again installed apps
+
+02:37.530 --> 02:40.730
+we want to make sure application is in there.
+
+02:40.730 --> 02:46.520
+So we say basic app save that and then coming down to our actual templates let's add in our templates
+
+02:46.520 --> 02:55.720
+directory and then what we're going to do is say template the error save that and that should be all
+
+02:55.720 --> 02:57.150
+we need to do for now.
+
+02:57.160 --> 02:59.410
+You can always master all of this other stuff later.
+
+02:59.770 --> 03:00.340
+OK.
+
+03:00.340 --> 03:05.890
+So let's come back to basic app and we're going to be discussing here is how to use those relative URLs
+
+03:07.500 --> 03:11.940
+in order to actually show all that though we need a couple of HVM files that we're actually going to
+
+03:11.940 --> 03:13.170
+be linking to.
+
+03:13.170 --> 03:20.880
+So under templates under basic app let's create a couple of files will say create based HVM L and we're
+
+03:20.880 --> 03:23.180
+actually not going to do anything with this file for now.
+
+03:23.280 --> 03:29.040
+We'll do that in a subsequent lecture but we'll keep it in for an hour or also create a new file called
+
+03:29.070 --> 03:31.060
+index the HTL.
+
+03:31.080 --> 03:33.060
+They'll be our home page.
+
+03:33.290 --> 03:40.820
+And then again under basic app we'll create in other file and we'll call this other HVM L and this will
+
+03:40.820 --> 03:45.810
+just be a quote unquote other page to link to using the relative Your else.
+
+03:45.890 --> 03:50.360
+And then finally let's create a page that's actually going to have all our information about relative
+
+03:50.410 --> 03:53.610
+your templates so you can call this file whatever you want.
+
+03:53.630 --> 03:58.020
+I'm going to give it a really obvious name so I understand what it's about.
+
+03:58.100 --> 03:58.930
+I'll call it relative.
+
+03:58.940 --> 04:02.840
+Underscore Yoro underscore templates.
+
+04:02.900 --> 04:03.710
+H Tim L.
+
+04:03.710 --> 04:08.380
+A really long ugly name but that way there's no mistake of what's going on in this age HTML file.
+
+04:08.610 --> 04:13.420
+Ok so I'm going to work with everything right now but base team L.
+
+04:13.460 --> 04:15.950
+You can feel free to close Bastet h t m l.
+
+04:15.980 --> 04:20.400
+We'll talk about this file again when we talk about template inheritance and then we need to we can
+
+04:20.480 --> 04:23.080
+clogger settings that py file Donelly the Wacom guide.
+
+04:23.260 --> 04:27.540
+So all relative your templates save that other.
+
+04:27.590 --> 04:32.590
+Let's put in some Each T.M. code save that and then index H-2A now.
+
+04:32.600 --> 04:33.440
+Save that.
+
+04:33.730 --> 04:34.070
+OK.
+
+04:34.100 --> 04:39.290
+So in all of this let's add a heading in that way once we actually visit the page with jingo we know
+
+04:39.290 --> 04:40.780
+what's going on.
+
+04:40.850 --> 04:46.560
+So I'll say welcome to index save that in other.
+
+04:46.700 --> 04:56.520
+I'm going to make a heading one that says welcome to other and then relative your all templates will
+
+04:56.540 --> 05:05.800
+say H-1 welcome to relative your old templates and this is where we're actually going to be messing
+
+05:05.800 --> 05:11.790
+around those template tags that we just learned about in the previous lecture to actually show all these
+
+05:11.790 --> 05:17.580
+pages we need to set up the views so let's come to our basic app come to views that pi and set that
+
+05:17.580 --> 05:18.650
+all up.
+
+05:18.660 --> 05:22.050
+So again all we're going to be using is the render function these are going to be really simple views
+
+05:22.050 --> 05:24.240
+we're not creating any forms or any models.
+
+05:24.240 --> 05:27.230
+So we're just essentially going to return to the actual pages we'll say.
+
+05:27.360 --> 05:36.430
+Index taken that request and then I'm going to return render passen that actual request for the page
+
+05:36.550 --> 05:42.940
+and then just a path to it under templates so under templates all of these are under the basic app folder.
+
+05:42.940 --> 05:48.550
+And then for the index page just index that each T.M. now we're going to do a really similar thing for
+
+05:48.550 --> 05:55.580
+the other ones so for the other page and it's kind of a general name so maybe when you're creating your
+
+05:55.580 --> 05:58.300
+own web applications don't create such a general render.
+
+05:58.310 --> 06:00.860
+Or excuse me it's such a general other page.
+
+06:00.890 --> 06:02.780
+It's kind of probably a bad name for it.
+
+06:03.200 --> 06:10.380
+And then we're all say basic app slash other than each T.M. and then the other view we'll just call
+
+06:10.380 --> 06:12.730
+it relative.
+
+06:12.910 --> 06:17.030
+And this is going to be the page that has those examples of how to actually create relative paths so
+
+06:17.050 --> 06:23.300
+say return render pass in the request and then pasan.
+
+06:23.350 --> 06:33.220
+In this case basic app slash and that kind of ugly name it is relative your el templates.
+
+06:35.490 --> 06:36.200
+Lits.
+
+06:36.240 --> 06:38.530
+H Timo OK.
+
+06:38.850 --> 06:39.500
+Save that.
+
+06:39.540 --> 06:41.480
+And now we have our views ready to go.
+
+06:41.520 --> 06:44.430
+Now we need to set up our Urals to actually point to these views.
+
+06:44.430 --> 06:48.870
+And this is where we have to make sure we set up the orals correctly to actually use the template tagging
+
+06:48.870 --> 06:49.950
+correctly.
+
+06:49.980 --> 06:54.430
+So let's start off with the your elves for the project itself.
+
+06:54.480 --> 06:59.110
+So coming to learning underscore templates remember the name of our project will come to you or else
+
+06:59.110 --> 07:02.250
+that PI file scroll all the way down.
+
+07:02.400 --> 07:04.820
+And here we can see the link to the admin page.
+
+07:04.980 --> 07:09.780
+Let's create the links to the other pages so that means we import the views from our application.
+
+07:10.080 --> 07:19.980
+So we'll say from our basic app import views and then what I'm going to do here is set up the actual
+
+07:19.980 --> 07:20.370
+import.
+
+07:20.370 --> 07:23.370
+So we'll call your l.
+
+07:23.570 --> 07:33.080
+And then I need to use regular expressions here will say your L carat dollar sign and I'm going to pasan
+
+07:33.620 --> 07:41.950
+for the index page views dot index and then give it the name index.
+
+07:41.950 --> 07:44.660
+Remember that's one way we could do this.
+
+07:44.710 --> 07:50.620
+If you want kind of a Southern directory so for instance that your configuration we can do something
+
+07:50.620 --> 07:51.570
+like this.
+
+07:51.760 --> 08:01.240
+You are el regular expression carrot and let's say anything that starts with basic app slash and then
+
+08:01.240 --> 08:02.560
+we'll call include
+
+08:05.760 --> 08:10.180
+all say basic app or else.
+
+08:10.210 --> 08:10.990
+All right save that.
+
+08:10.990 --> 08:17.860
+So again just to reiterate what this is doing with the oral patterns when we use this function of views.
+
+08:17.860 --> 08:20.220
+That means we're directly calling it from the function.
+
+08:20.470 --> 08:21.990
+So using this regular expression.
+
+08:22.000 --> 08:28.760
+If someone just comes to your domain page that's that 1 2 7 0 0 slash 8000.
+
+08:29.320 --> 08:34.570
+Ill just say OK go to views grabbed the index and show it to this person on the home page then if someone
+
+08:34.570 --> 08:37.880
+goes to our Web page slash basic app.
+
+08:37.930 --> 08:44.080
+So again carot symbols anything before that slash basic app and then the name of the actual page or
+
+08:44.080 --> 08:48.050
+the view such as basic app slash relative or basic apps.
+
+08:48.130 --> 08:56.110
+Other basic apps flash etc. then we tell it OK go to the basic app Urals page for the subsequent views
+
+08:56.110 --> 09:03.100
+to show or the subsequent mapping of the Oreilles which means we come over here to our basic app right
+
+09:03.100 --> 09:08.280
+click on the basic app folder create a new file called your L's not.
+
+09:08.760 --> 09:11.860
+And now we have the urls that pi file for application.
+
+09:12.220 --> 09:14.700
+And this is where we need to make sure we set stuff up correctly.
+
+09:14.710 --> 09:17.190
+There's going to be a namespace that we need to set up.
+
+09:17.530 --> 09:25.260
+So right now inside your application you're going to say from jingo Siona for configuration that you
+
+09:25.290 --> 09:29.790
+else import your L and then we're also going to need to save from.
+
+09:30.280 --> 09:37.210
+And this is where you have many options you can just say from DOT in poor use I just from habit like
+
+09:37.210 --> 09:40.350
+to say from basic app import views.
+
+09:41.650 --> 09:45.160
+Definitely check the Pepp on what your official styling should be.
+
+09:45.160 --> 09:49.810
+But I like doing this from a teaching perspective just because it's really clear where the CS is coming
+
+09:49.810 --> 09:52.000
+from instead of saying that dot.
+
+09:52.000 --> 09:57.100
+So again some of my styling here is really tuned more towards teaching this topic versus what you would
+
+09:57.100 --> 10:01.030
+actually do for a full on Project.
+
+10:01.160 --> 10:01.550
+Right.
+
+10:01.560 --> 10:05.670
+So this is what I was referring to as far as like setting that namespace whenever you're going to be
+
+10:05.670 --> 10:07.180
+using template tagging.
+
+10:07.620 --> 10:11.930
+So this is for template tagging what we need to do.
+
+10:12.020 --> 10:18.450
+Zoom in here is set a variable name a global name called app underscore name and jingoes going to automatically
+
+10:18.450 --> 10:19.470
+look for this.
+
+10:19.470 --> 10:24.690
+And then you need to set this equal to whatever the name of re-application is app name is equal to basic
+
+10:24.720 --> 10:26.740
+app as a string.
+
+10:26.820 --> 10:31.830
+And this is what's going to allow us to use that template tagging to actually tell Django OK look under
+
+10:31.830 --> 10:35.130
+the basic app and then find that you are all that matches.
+
+10:35.550 --> 10:38.690
+And then we have our you all patterns list here.
+
+10:40.100 --> 10:41.230
+And that's all I can say.
+
+10:41.240 --> 10:50.870
+Your El and we'll use regular expressions again and we'll say for relative slash and then we can say
+
+10:50.870 --> 10:59.330
+dollar sign for anything after elative we will call views dó relative and we can give it the name equal
+
+10:59.330 --> 11:02.180
+to relative.
+
+11:02.210 --> 11:05.270
+Now let's create another view or excuse me another link.
+
+11:06.090 --> 11:14.900
+For the other of you that other that each time I'll pitch a slash dollar sign here and we can say viewers
+
+11:14.910 --> 11:21.050
+stop other name is equal to other all right.
+
+11:21.160 --> 11:21.980
+Save that.
+
+11:22.210 --> 11:27.040
+So basically what this is saying is OK if you're coming to your project page and you see something that
+
+11:27.040 --> 11:34.460
+says home pay domain dot com slash basic app slash then you're going to come over here go to basic appier
+
+11:34.540 --> 11:41.770
+URLs and then say OK domain name dot com slash basic app slash relative gives you the relative view
+
+11:42.610 --> 11:48.780
+domain name dot com slash basic app slash other comes and gives you the other view and later on we're
+
+11:48.790 --> 11:49.630
+dealing with clones.
+
+11:49.630 --> 11:55.030
+We'll talk about how to continue on a regular expression here to show pages for specific users and all
+
+11:55.030 --> 11:55.990
+that kind of stuff.
+
+11:55.990 --> 11:59.710
+But right now just focusing on templates and your all templates.
+
+11:59.710 --> 12:00.200
+Okay.
+
+12:00.430 --> 12:01.870
+So this should all be set up.
+
+12:01.870 --> 12:07.110
+Now let's come over here to our relative underscore your underscore templates on each table.
+
+12:07.200 --> 12:09.990
+And let's show you how to actually implement those templates.
+
+12:10.030 --> 12:12.740
+Everything we've been talking about haven't shown yet.
+
+12:13.990 --> 12:15.780
+So we'll call an anchor tag here.
+
+12:16.770 --> 12:21.440
+And the big part of an attack is the trick for you actually are telling it to go to a file.
+
+12:21.720 --> 12:28.350
+And we've seen before that we usually do something like this basic app slash other HTL and then we say
+
+12:28.410 --> 12:33.830
+this links to the other page or something like that.
+
+12:33.960 --> 12:38.710
+So we want to replace this so that it's relative and we don't have this actual pathway here.
+
+12:39.360 --> 12:41.720
+And that is relative to the actual application.
+
+12:42.030 --> 12:43.360
+So can find it.
+
+12:43.740 --> 12:49.170
+So since we're going to be inputting actual essentially tags and code we use a percent sign here for
+
+12:49.170 --> 12:55.010
+that template and then we use the keyword you are el and then inside of this instead of single quotes
+
+12:55.430 --> 12:57.430
+is the name of that allocation.
+
+12:57.470 --> 13:00.410
+So I'll say basic app Colin.
+
+13:00.460 --> 13:03.150
+And then that name of what you want to show.
+
+13:03.280 --> 13:10.150
+So if we come back to you remember your L's that PI file I have at name basic app this basic app is
+
+13:10.150 --> 13:14.470
+what needs to match over here that's where this is from basic app.
+
+13:14.500 --> 13:15.620
+It's not from the folder name.
+
+13:15.670 --> 13:17.550
+It's from this app name right here.
+
+13:17.860 --> 13:22.370
+And then this other name is what we're going to look for for the second part of this.
+
+13:22.540 --> 13:24.640
+So we'll say other.
+
+13:25.030 --> 13:30.340
+And that's all you need to do for the your all template tagging and this is the way it's going to be
+
+13:30.340 --> 13:32.220
+used in the future for Django 2.0.
+
+13:32.260 --> 13:35.340
+The other ways will eventually go away.
+
+13:35.380 --> 13:39.220
+And this is going to be the way of the future and obviously you can see that it's actually pretty simple.
+
+13:39.220 --> 13:41.710
+The key thing to note here is a naming convention.
+
+13:41.710 --> 13:45.960
+So you need to set up an app name inside your applications your pie file.
+
+13:46.030 --> 13:47.180
+That's the first part of this.
+
+13:47.200 --> 13:51.660
+On the left hand side of this colon in on the right hand side of the colon is a name it looks for.
+
+13:51.670 --> 13:55.430
+So over here on your PI that's the name is looking for.
+
+13:55.480 --> 13:58.140
+OK so we will save that.
+
+13:58.140 --> 13:59.730
+And let's see if this all worked.
+
+13:59.730 --> 14:01.710
+Make sure they don't forget anything.
+
+14:01.710 --> 14:10.580
+I'm going to say under learning templates Python managed to apply and I will say run server.
+
+14:10.680 --> 14:13.900
+And let's hope this all worked out and we don't have to debug anything.
+
+14:15.030 --> 14:16.730
+Ok looks like I'm forgetting something.
+
+14:17.510 --> 14:19.070
+And I forgot to include.
+
+14:19.070 --> 14:25.430
+OK so says here I include is not defined so it's come back to your Allsopp pie over here.
+
+14:25.460 --> 14:28.660
+Forgot to do this include save that.
+
+14:28.670 --> 14:29.750
+Let's try it again.
+
+14:30.560 --> 14:30.860
+All right.
+
+14:30.890 --> 14:34.270
+Now looks like we are getting something running so let's copy this.
+
+14:34.280 --> 14:35.150
+Bring in the browser.
+
+14:35.150 --> 14:36.170
+See if it works.
+
+14:38.470 --> 14:39.360
+So far so good.
+
+14:39.370 --> 14:41.200
+Looks like it says welcome to index.
+
+14:41.200 --> 14:43.430
+Now it's time to really test this out.
+
+14:43.690 --> 14:53.220
+I'm going to go to basic underscore app slash relative enter and out says Welcome to the relative your
+
+14:53.230 --> 14:53.870
+all templates.
+
+14:53.880 --> 14:58.680
+And remember we have to use this slash basic app slash relative because that's what we're doing in the
+
+14:58.680 --> 14:59.350
+project.
+
+14:59.380 --> 15:02.290
+Or else that py file and the project is up high file.
+
+15:02.310 --> 15:09.240
+I'm saying right here if something starts of basic app go to basic app or else to get the next piece
+
+15:09.240 --> 15:15.120
+of it and then basically you him saying OK if it says basic apps like relative then bring back that
+
+15:15.180 --> 15:21.130
+relative view which is the views that read to which links to this h tim l file.
+
+15:21.390 --> 15:26.940
+OK so let's see if this template actually worked for the link coming back to the browser here it is
+
+15:26.940 --> 15:27.420
+again.
+
+15:27.420 --> 15:29.100
+So it says here at the other page.
+
+15:29.130 --> 15:32.150
+Let's hit the link and it says welcome to other.
+
+15:32.160 --> 15:32.630
+Perfect.
+
+15:32.640 --> 15:37.680
+And this we can see right here is basic app slash other and that's what you have to do for your template
+
+15:37.680 --> 15:38.790
+tagging.
+
+15:38.790 --> 15:42.880
+It may have seemed like a complicated process at first but it's really actually not so bad.
+
+15:42.900 --> 15:48.570
+All you had to do was set up that app namespace and then set up the name set up the mapping and you're
+
+15:48.570 --> 15:49.840
+good to go basically.
+
+15:49.920 --> 15:54.020
+Now you can easily call the URL template tags.
+
+15:54.240 --> 15:58.520
+OK so we covered the very basics of how to use your template tagging.
+
+15:58.530 --> 16:04.050
+Let's show a few more examples for sites or pages that you typically don't have within your own custom
+
+16:04.050 --> 16:05.010
+application.
+
+16:05.130 --> 16:10.320
+Things like the index page are things like the admin page but a quick note before we get started on
+
+16:10.320 --> 16:10.880
+that.
+
+16:10.950 --> 16:17.220
+A really common bug or error that will be a head scratcher is if you accidentally leave an extra line
+
+16:17.220 --> 16:24.660
+here in the string either before you have this or after you have that what happens is Django ends up
+
+16:24.660 --> 16:25.830
+looking for space.
+
+16:25.830 --> 16:29.750
+Basic app as a string instead of just basic app as a string.
+
+16:29.760 --> 16:32.970
+Or they use the name other blank or a space there.
+
+16:32.970 --> 16:39.480
+So make sure that the actual quotes end up touching that that can be a really tricky error to solve
+
+16:39.780 --> 16:43.190
+because when it prints it out it says oh I can't find the name other.
+
+16:43.220 --> 16:47.370
+And then you'll look over here and your spine you say no I really do have the name of what's going on
+
+16:47.370 --> 16:47.850
+here.
+
+16:48.030 --> 16:49.610
+So definitely be careful of this one.
+
+16:49.620 --> 16:53.960
+That's a really common error and it happens to me sometimes and it's a big head scratcher.
+
+16:54.000 --> 16:55.610
+So keep an eye out for that.
+
+16:55.880 --> 16:56.300
+OK.
+
+16:56.490 --> 17:02.640
+Let's move along to show you how you could add something like the admin page as a anchor tax will say
+
+17:02.940 --> 17:12.150
+ref per percent sign and then for this again you call your L and in this case you're going to call admen
+
+17:14.060 --> 17:15.310
+index.
+
+17:15.320 --> 17:19.970
+So basically what's going on is if you go to settings that pine your project you'll notice that not
+
+17:19.970 --> 17:24.900
+only is your basic app a application but also jingle that.
+
+17:25.100 --> 17:27.720
+Adamant and we don't actually have that open.
+
+17:27.740 --> 17:32.730
+But if you wanted to you could open up the jingle source code or just check out the application admin.
+
+17:32.750 --> 17:36.280
+That's something that always gets imported as an installed application.
+
+17:36.290 --> 17:39.610
+But inside of that in it's own Urals not py file.
+
+17:39.740 --> 17:45.680
+There is an adamant application with an index named view that it will take you to something to note
+
+17:45.770 --> 17:51.080
+here is that in order for this to work sometimes you have to make the migration just because admin wants
+
+17:51.080 --> 17:51.670
+it that way.
+
+17:51.710 --> 17:53.570
+So we can go ahead and do that.
+
+17:54.350 --> 18:04.870
+So it can say Python managed up-I migrate it enter it will run all the migrations for everything that's
+
+18:05.200 --> 18:16.800
+a default application and then we can actually say Python managed up-I run server enter and then we
+
+18:16.800 --> 18:22.460
+can bring in the browser page and here I have it on welcome to index.
+
+18:22.480 --> 18:28.050
+Let's take it to a basic app slash relative.
+
+18:28.330 --> 18:31.010
+And now actually forgot to put some text in there.
+
+18:31.120 --> 18:31.840
+The anchor tag.
+
+18:31.840 --> 18:32.950
+So let me do that first.
+
+18:32.950 --> 18:37.080
+So if you notice I have my maker Tag but I picked up that text in there.
+
+18:37.090 --> 18:41.340
+So let's bring that in and let's make this a link to like come here.
+
+18:41.380 --> 18:48.650
+Link to Addleman and we'll save that see if that gets updated as I refresh the page.
+
+18:48.790 --> 18:49.030
+OK.
+
+18:49.040 --> 18:50.670
+So I just refresh the page are here.
+
+18:50.780 --> 18:54.880
+You can see I refreshed it and now it is linked to oddments unethically linked to admin.
+
+18:55.010 --> 18:57.780
+It takes me to the admin page so we can expand on that.
+
+18:57.920 --> 19:00.890
+And we see jingo administration username and password.
+
+19:01.010 --> 19:04.580
+I could hit back if I hit the other page it takes me to the other page.
+
+19:04.580 --> 19:05.080
+OK.
+
+19:05.270 --> 19:09.710
+Let me show you one more example of how to get to the index page which is also a little different because
+
+19:09.710 --> 19:11.600
+it's not in your own application.
+
+19:11.600 --> 19:15.740
+I'll move this aside show it to you here for this it's actually even simpler.
+
+19:15.740 --> 19:23.190
+All you have to do is create an anchor tag and the ref again it's the block.
+
+19:23.210 --> 19:29.480
+But in this case it's your L and just straight up index again to make sure that there's no spaces before
+
+19:29.480 --> 19:31.450
+or after index in that string.
+
+19:31.730 --> 19:41.810
+So we can save that and let's say linked to index and let's refresh my page and says OK welcome to other
+
+19:41.820 --> 19:43.250
+let's go back here.
+
+19:43.290 --> 19:47.420
+Refresh this and it says the other page link to admin linked index.
+
+19:47.460 --> 19:48.810
+And there's my index page.
+
+19:48.960 --> 19:49.650
+OK.
+
+19:49.650 --> 19:53.810
+So those are three main examples that you're going to be using your own application view.
+
+19:54.000 --> 19:56.840
+Know the admin index view and then just the home view.
+
+19:56.940 --> 20:02.490
+And again keep in mind with these spaces that could really trip you up hopefully saw this is a pretty
+
+20:02.490 --> 20:05.940
+simple process if you have any questions feel free to post the Q&amp;A forums.
+
+20:05.940 --> 20:10.440
+I'm always happy to help out but this is a great way to use relative your Ural and the power of templates
+
+20:10.530 --> 20:11.880
+in your Gengel project.
+
+20:11.880 --> 20:12.870
+I'll see you at the next lecture.

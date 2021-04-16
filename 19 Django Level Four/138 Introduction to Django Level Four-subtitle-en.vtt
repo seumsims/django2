@@ -1,0 +1,55 @@
+WEBVTT
+
+00:05.230 --> 00:11.230
+Hello everyone and welcome to Genger level for We've learned a lot so far and yet there's still so much
+
+00:11.230 --> 00:15.700
+more that Django can offer you with it's pre-built and tools and in general before we're going to be
+
+00:15.700 --> 00:21.500
+focusing on learning a lot more about templates and template tagging so far we've only used templates
+
+00:21.500 --> 00:26.600
+as a way of injecting simple pieces into our ASTM files and maybe doing simple operations like a for
+
+00:26.600 --> 00:32.090
+loop through stuff in our database or in our models and bringing it into the H T.M. But templates are
+
+00:32.090 --> 00:33.940
+actually capable of a lot more than that.
+
+00:35.020 --> 00:40.210
+For example so far we've been manually creating everything individually for each HVM l file of our web
+
+00:40.210 --> 00:42.080
+application or web page.
+
+00:42.220 --> 00:47.370
+However we can actually use templates to have a base template and inherit that template in the team
+
+00:47.470 --> 00:48.800
+files.
+
+00:48.820 --> 00:53.380
+This saves you a lot of time and will help create a unified look and feel across every page of your
+
+00:53.380 --> 00:59.290
+web site and then templates can also be used to solve issues of relative paths and work of other variables.
+
+00:59.900 --> 01:06.080
+So for instance templates can be used to help solve issues by avoiding hardcoded paths and they can
+
+01:06.080 --> 01:10.940
+also come with built in filter capabilities so you can adjust variables on the actual individual page
+
+01:11.270 --> 01:13.440
+of a particular view.
+
+01:13.500 --> 01:18.750
+OK let's get started on all these topics about templates by first starting out with relative Your else
+
+01:18.950 --> 01:21.530
+and how we can use templates to solve those issues.
+
+01:21.530 --> 01:23.300
+Thanks and I'll see at the next lecture.

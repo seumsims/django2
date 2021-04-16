@@ -1,0 +1,667 @@
+WEBVTT
+
+00:05.740 --> 00:09.080
+Welcome back everyone to part two of the social clone project.
+
+00:09.460 --> 00:13.960
+Now that we have the very basic set up let's dive in into actually creating account functionality for
+
+00:13.960 --> 00:14.850
+our Web site.
+
+00:14.950 --> 00:19.810
+And as we're doing that we're also going to begin to set up some basic template HCM help files things
+
+00:19.810 --> 00:24.190
+like our base h him file and the index page to him file for the home page.
+
+00:24.190 --> 00:27.580
+All right let's hop over to the Adam text editor and get started.
+
+00:28.030 --> 00:33.130
+OK here I am at Adam and we're going to start off doing is creating some basic template files that we
+
+00:33.130 --> 00:37.180
+know we're always going to be using such as a base template and a home page template.
+
+00:37.450 --> 00:42.590
+That means I will come over to templates and I'm going to create a new file under my templates directory
+
+00:42.610 --> 00:43.700
+that's the top level.
+
+00:43.910 --> 00:48.740
+I will create a base HVM l file that's where our actual base templates going to need to go.
+
+00:48.880 --> 00:55.050
+And then I also create a new file here called index thought Tim ELB for our actual home page.
+
+00:55.210 --> 00:58.040
+And I want to going to do here is type H T M L.
+
+00:58.390 --> 01:00.890
+And I will just set up some very basic home page.
+
+01:00.890 --> 01:04.390
+So let's just say something like here in our Cotterell body.
+
+01:04.580 --> 01:07.350
+Let's create a heading 1 and say something like.
+
+01:07.720 --> 01:15.730
+Welcome to star social exclamation point and then right at the top of this what I can do is I know I'm
+
+01:15.730 --> 01:18.250
+already going to be extending from base C.M..
+
+01:18.490 --> 01:22.480
+So let's do that as well so I'll say extends from base.
+
+01:22.640 --> 01:25.890
+Tim L and then I also put the.
+
+01:26.110 --> 01:29.770
+Actually since I nomic something from basically T.M. I'll put everything inside a block.
+
+01:29.770 --> 01:35.810
+So let's see let's get rid of all this since I know I'm going to have a content block.
+
+01:35.870 --> 01:39.940
+Say a block and then content and I'll put.
+
+01:39.940 --> 01:43.440
+Welcome to our social inside of this content block.
+
+01:43.690 --> 01:48.100
+Now that I have that that actually means I need to go back to my HMO file or based on each HTML file
+
+01:48.370 --> 01:50.080
+and set up a few things there.
+
+01:50.560 --> 01:54.730
+Since I'm going to be extending from baseplate him l i need to make sure that this is actually kind
+
+01:54.730 --> 01:56.430
+of a normal looking age HTML file.
+
+01:56.680 --> 01:57.920
+So I'll keep that right now.
+
+01:57.970 --> 02:01.850
+And then inside the body when I'm going to do is set up that actual block.
+
+02:01.930 --> 02:06.160
+So will say block and then it's called content.
+
+02:06.160 --> 02:10.420
+So I will save that for now there's still a lot more we can add in here that we are going to add in
+
+02:10.810 --> 02:14.180
+such as a navigation bar or links to see SS etc..
+
+02:14.200 --> 02:18.670
+But for right now keep it simple and we'll just keep it as it is right now.
+
+02:19.120 --> 02:23.650
+So that's all I want to do for based on age T.M. and in order to actually connect the base each team
+
+02:23.720 --> 02:27.930
+the index age female to my actual web application or web site.
+
+02:28.030 --> 02:34.180
+What I need to do is come over to your Olsdorf pie under simple social and under this I'm also going
+
+02:34.180 --> 02:41.230
+to create a new file called these up high and basically create a really simple view for our home page
+
+02:41.320 --> 02:45.100
+and then link it to the URLs for the entire page.
+
+02:45.160 --> 02:55.300
+So I'm going to say from Jingo the views that generic import and I will import the template view that
+
+02:55.300 --> 02:58.120
+way I can just return back that template view.
+
+02:58.430 --> 03:06.760
+So class home page and this is going to inherit from template view and then I'm just going to say whoops
+
+03:06.910 --> 03:13.750
+template name my template name is equal to index h T.M. they can say I have a lot of autocomplete help
+
+03:13.750 --> 03:17.010
+there because I'm using a jingle plugin packed for Adam.
+
+03:17.350 --> 03:20.130
+So that save that I have home page template name index.
+
+03:20.170 --> 03:21.500
+Now that's looking good.
+
+03:21.500 --> 03:26.110
+And now I need to come over to your Olsdorf pie and make sure that actually link is here so let's scroll
+
+03:26.110 --> 03:34.690
+down and then I will say not just you URL but also include from jingo CNF configuration that you URLs
+
+03:35.200 --> 03:39.650
+and then I'm also seeing from DOT import views.
+
+03:39.700 --> 03:45.180
+So it just says go to the current directory which is simple social and then grab views from there.
+
+03:45.590 --> 03:51.520
+Well let's add it in to your old patterns and we'll see your own and then using regular expressions
+
+03:51.520 --> 03:58.990
+I will say our hat we're care dollar sign basically the home page so when someone just goes to your
+
+03:58.990 --> 04:04.230
+local host or whatever it happens to be the very first home page is going to be view.
+
+04:04.240 --> 04:08.160
+What's the use the home page.
+
+04:08.160 --> 04:12.980
+And remember for class based views we need to say as you call that method off of it.
+
+04:13.360 --> 04:14.830
+And then I will assign this name
+
+04:18.260 --> 04:22.250
+OK save that there's still a lot more to add to this but let's just make sure that we actually made
+
+04:22.250 --> 04:24.910
+that connection correctly and if not we can debug.
+
+04:25.020 --> 04:30.290
+I will run the server and let's hop over slide refresh this.
+
+04:30.330 --> 04:33.580
+Now it says Welcome to our social great so we link up our home page.
+
+04:33.680 --> 04:36.740
+And that should have been pretty straightforward given everything that we've already learned so far
+
+04:36.740 --> 04:37.850
+on this course.
+
+04:37.910 --> 04:42.980
+Now it's actually jump over and start with our AD accounts application.
+
+04:43.370 --> 04:46.270
+So I will come over to accounts.
+
+04:46.300 --> 04:47.240
+Let me close these.
+
+04:47.240 --> 04:48.410
+Don't get confused on anything.
+
+04:48.410 --> 04:54.170
+So now everything I'm doing is over on accounts and under models that pie.
+
+04:54.380 --> 05:00.980
+I want to create a simple model for accounts and I'm actually going to use jingoes built in models for
+
+05:00.980 --> 05:01.760
+this.
+
+05:01.760 --> 05:04.010
+OK now inside this model is that PI file.
+
+05:04.010 --> 05:13.070
+What I'm going to do is import from Django contrib in poor 88 for authorization.
+
+05:13.070 --> 05:18.200
+So a lot of these authorization tools for accounts they're actually built into Django that way we don't
+
+05:18.200 --> 05:22.220
+have to mess around creating our own models for users cetera.
+
+05:22.250 --> 05:24.240
+So I was going to say a class user.
+
+05:24.550 --> 05:32.750
+And I'm going to inherit from our models the user and then I'm also going to inherit from models the
+
+05:33.110 --> 05:42.050
+permissions mixin and then inside of this class I'm just going to have a very simple string representation
+
+05:42.050 --> 05:48.920
+of the object and want is going to do here is say if you want the string representation of a user do
+
+05:48.920 --> 05:49.550
+the following.
+
+05:49.550 --> 05:52.890
+I will say at such as the at symbol.
+
+05:52.940 --> 06:00.600
+Kind of like a Twitter handle and then using the format expression and Voisey's self-taught username.
+
+06:00.770 --> 06:03.900
+Now you may be wondering well where is username where is that defined.
+
+06:03.920 --> 06:07.320
+So that's actually an attribute that comes built in with that user.
+
+06:07.370 --> 06:11.420
+So all the models that user has the main attributes and you took up.
+
+06:11.450 --> 06:14.900
+You can check out the documentation for more information on this but basically it comes of what you
+
+06:14.900 --> 06:16.250
+would expect it to come with.
+
+06:16.250 --> 06:22.340
+It has first name last name email username and then maybe one more field where we're going to do is
+
+06:22.670 --> 06:27.650
+use this to automatically set up a form so that when someone is signing up for our actual Web site to
+
+06:27.650 --> 06:32.240
+become a user on it jingles essentially going to take care of all that on the back and forth.
+
+06:32.240 --> 06:37.940
+So let me save that and then let's continue on by creating a view for this.
+
+06:38.080 --> 06:44.270
+So I don't want to create a view and we're going to need to connect this to a forum later on.
+
+06:44.490 --> 06:45.740
+But I will do the following.
+
+06:45.750 --> 06:46.860
+I will say from
+
+06:49.990 --> 07:03.510
+jingo Jingo the core your L resolvers import reverse lazy so reverse lazy remember we're using that
+
+07:03.600 --> 07:11.570
+in case someone is logged in or logged out where they should actually go and then I will say from DOT
+
+07:11.810 --> 07:13.890
+import forms.
+
+07:14.180 --> 07:19.190
+So what I'm going to do is now that I have forms here I will create a format that PI file that will
+
+07:19.190 --> 07:24.290
+connect my forms for logging in or signing up to this actual views.
+
+07:24.290 --> 07:28.310
+So before I continue here I will say just class.
+
+07:28.310 --> 07:36.010
+Sign up and this is going to be a create view which means I need to import that will say from jingled
+
+07:36.030 --> 07:37.090
+up views.
+
+07:37.160 --> 07:41.600
+Generic import a create view.
+
+07:41.600 --> 07:46.810
+So this is for creating a new user and then here I'm just going to say pass because I want to do all
+
+07:46.880 --> 07:48.590
+my forms file first.
+
+07:48.590 --> 07:55.800
+So inside of accounts I'll send you file and then I'll create a Forms up high file and it's kind of
+
+07:55.800 --> 07:57.430
+create the forms for signing up.
+
+07:57.450 --> 08:03.120
+So I was actually again going to be relatively straightforward given that Django kind of doing a lot
+
+08:03.120 --> 08:08.010
+of the heavy lifting for us which is kind of the whole point of Django that it does all this stuff right
+
+08:08.010 --> 08:10.750
+out of the box becomes batteries included.
+
+08:10.770 --> 08:15.220
+So a couple of things I need to import here from Jim with that country of off import.
+
+08:15.540 --> 08:20.760
+Get user model so that returns a user model that's currently active in this project.
+
+08:21.120 --> 08:31.490
+And then I say from Zingo that contrib THYR forms imports and then it going to import a user creation
+
+08:31.490 --> 08:32.690
+for.
+
+08:32.720 --> 08:37.880
+So as you can see there's already user creation forum built into authorization package.
+
+08:37.880 --> 08:42.230
+So a lot of the stuff we're going to be using just comes from this particular package which also has
+
+08:42.230 --> 08:43.730
+excellent documentation.
+
+08:43.730 --> 08:49.500
+So again basically a documentation page shows you how to create user accounts admin accounts etc. as
+
+08:49.550 --> 08:54.610
+a whole basically huge page that goes through an entire process of doing this.
+
+08:54.620 --> 08:58.280
+So if you ever get confused on this or want some more reference check out the documentation.
+
+08:58.280 --> 08:59.850
+It's actually really good for this.
+
+08:59.900 --> 09:04.170
+So it was a jingle that contrib from forms import a user creation form.
+
+09:04.190 --> 09:06.320
+This is essentially going to be kind of a sign a page.
+
+09:06.350 --> 09:13.620
+So when someone wants to create a user and they all say user create form and I will inherit from the
+
+09:14.100 --> 09:15.340
+user creation form.
+
+09:15.510 --> 09:21.240
+Well you want to be careful of is make sure that your class that's inheriting from this user creation
+
+09:21.240 --> 09:24.420
+form is not the exact same name as user creation forms.
+
+09:24.420 --> 09:29.460
+So here you say user create form and then user creation form we can also say this as user sign up for
+
+09:29.460 --> 09:32.470
+him etc. but you don't want these to share the exact same name.
+
+09:32.610 --> 09:37.600
+Otherwise sometimes Python will have an error with a self-reference call like that.
+
+09:37.650 --> 09:38.620
+So we'll see.
+
+09:38.650 --> 09:44.550
+In here and I'm going to create my metaclasses tree actually kind of seen before remember I can call
+
+09:44.610 --> 09:48.570
+the field attribute inside of this and then put a tuple of fields.
+
+09:48.570 --> 09:53.380
+Now these fields are actually already available for me from contrib off.
+
+09:53.820 --> 10:01.670
+So the fields that I'm going to have a user fill out is the username their email and then password.
+
+10:01.750 --> 10:12.650
+I put in as a string password one and then also has a string password too.
+
+10:12.750 --> 10:18.120
+So that comes with the authorization user model and it's basically just to confirm your password.
+
+10:18.120 --> 10:20.840
+So put in your password once and then confirm it with password too.
+
+10:21.030 --> 10:25.450
+So those are the fields I want someone to put in as my Morefield if you wanted to but right now we'll
+
+10:25.470 --> 10:28.680
+just keep those basic default fields from authorization.
+
+10:29.040 --> 10:30.770
+And then this is kind of the most important part.
+
+10:30.780 --> 10:37.750
+We say model is equal to get user model which allows us to use right here to get the current model of
+
+10:37.750 --> 10:45.620
+who's ever accessing that Web site and then we will say if it's and we're going to initialize this with
+
+10:45.640 --> 10:54.420
+self args keyword arguments and this is essentially we're I wouldn't expect you to memorize this but
+
+10:54.420 --> 10:57.870
+instead reference the documentation for this particular thing.
+
+10:57.870 --> 11:07.650
+So what I'm going to do here say create super and then initialize that with args and keyword arguments
+
+11:10.660 --> 11:23.460
+and then here we'll just say self-taught fields user name that label is equal to the display name.
+
+11:23.460 --> 11:25.050
+So what is this actually doing.
+
+11:25.050 --> 11:29.760
+Well basically what's going to happen is when the user comes in and they're ready to sign up we're going
+
+11:29.760 --> 11:35.580
+to call user creation form from authorization forms and then we set up the middle class basically saying
+
+11:35.640 --> 11:40.520
+OK these are the fields that they want a user to be able to access when they're signing up.
+
+11:40.530 --> 11:43.950
+So whenever we're connected to our models or database this is what they're going to have access to the
+
+11:43.950 --> 11:47.430
+username to email and then set up and confirm their password.
+
+11:47.430 --> 11:52.960
+Now if I actually want labels on that form in that template but I can do here under the in it.
+
+11:52.980 --> 11:58.080
+After calling this superclass what you end up doing is saying self-taught fields almost like a dictionary
+
+11:58.170 --> 12:03.350
+user name label and then you can set up the label for that actual field.
+
+12:03.450 --> 12:07.540
+So that's the same thing as setting up a label on a form HVM page.
+
+12:07.560 --> 12:10.870
+Except here we're going to set it from the actual forms that PI view.
+
+12:11.070 --> 12:15.420
+And then finally I want self-taught fields email
+
+12:18.120 --> 12:18.860
+label.
+
+12:19.080 --> 12:25.740
+I will say this just call the email address so it's a quick note you don't really need to do this.
+
+12:25.740 --> 12:28.230
+This is kind of just for your own customization labels.
+
+12:28.230 --> 12:31.170
+In case you had a specific thing that you wanted to show.
+
+12:31.170 --> 12:33.250
+So for example say you're trying to make a Twitter clone.
+
+12:33.360 --> 12:37.770
+Maybe instead of user name you could say something here such as display name say something like Twitter
+
+12:37.770 --> 12:39.380
+account handle or etc..
+
+12:39.720 --> 12:44.750
+If you are doing something that's kind of specific or customize your Web site where you don't want no
+
+12:44.820 --> 12:50.710
+user name just to say user instead wanted to say my Twitter account handle on the actual form that way
+
+12:50.780 --> 12:54.720
+when a user's using your web site they have a better understanding what username will actually stand
+
+12:54.720 --> 12:55.410
+for.
+
+12:55.410 --> 12:57.530
+This is where you would actually do that.
+
+12:57.570 --> 13:03.690
+You would say self-taught fields access whatever field you want it to that's available to you in forms.
+
+13:03.720 --> 13:05.700
+Usually it's just your first and last name.
+
+13:05.700 --> 13:10.890
+Use name email and password and then you call that label attribute off of that and then set it as your
+
+13:10.890 --> 13:11.490
+display name.
+
+13:11.490 --> 13:14.620
+So that's actually all we need to do here informs up-I.
+
+13:14.760 --> 13:18.420
+And now that we have that ready to go we can come back to have used a pie and set that up.
+
+13:18.570 --> 13:26.480
+So I'll come back to that pie over here and now instead of St pass let's start filling in.
+
+13:26.500 --> 13:33.720
+So this is going to take a form class class object attribute and it's just going to be forms the user
+
+13:33.730 --> 13:38.170
+create form and note here I'm not instantiating the class so I won't put parentheses.
+
+13:38.200 --> 13:39.530
+I'll just leave it like that.
+
+13:39.550 --> 13:44.380
+So my form class is actually equal to this form class just sitting this attribute equal to that class
+
+13:44.380 --> 13:51.180
+that we just created and then I'm going to have a success u r l be equal to reverse.
+
+13:51.370 --> 13:52.330
+Lazy.
+
+13:52.900 --> 13:56.040
+And then I'll say loggin.
+
+13:56.130 --> 13:57.500
+So what does that actually mean.
+
+13:57.510 --> 14:04.560
+It means once someone has signed up for actual web site then in on a successful Sign-Up I will reverse
+
+14:04.560 --> 14:06.100
+them back to the logon page.
+
+14:06.120 --> 14:11.020
+But remember it's reverse lazy because they don't want this to actually execute until they've hit submit.
+
+14:11.040 --> 14:14.080
+All that Sign-Up button otherwise is just a normal reverse.
+
+14:14.100 --> 14:16.910
+It would kind of automatically reverse without letting him sign up.
+
+14:17.010 --> 14:21.620
+That's why I have reversely there and then I need to finally say the template name for this.
+
+14:21.890 --> 14:29.030
+So a template name is going to be called two accounts slash Sign-Up h T.M..
+
+14:29.040 --> 14:30.480
+So let me save that.
+
+14:30.630 --> 14:35.780
+And now let's actually work with templates on our accounts.
+
+14:35.790 --> 14:44.310
+So underneath the accounts folder I'm going to create a new folder called templates to make sure that's
+
+14:44.370 --> 14:44.670
+there.
+
+14:44.670 --> 14:51.320
+So templates and then under that remember we kind of follow this app templates app directory scheme
+
+14:51.720 --> 14:56.500
+so under templates I will create something called the Count's directory there.
+
+14:56.670 --> 15:01.440
+And then finally under here is where I'm going to have to template files a log in each T.M. template
+
+15:01.710 --> 15:03.540
+and a sign up bloodies html template.
+
+15:03.930 --> 15:12.980
+So I'll say new file log in that is T.M. and then will say and you file Sign-Up.
+
+15:13.000 --> 15:15.350
+H tim L. OK.
+
+15:15.770 --> 15:20.990
+So that's it for now in the next section or next lecture I should say.
+
+15:20.990 --> 15:26.000
+We're going to do is kind of keep continuing filling out these HMO files and then connecting the views
+
+15:26.000 --> 15:26.660
+to your else.
+
+15:26.670 --> 15:29.200
+But let's quickly go over what we just did.
+
+15:29.290 --> 15:35.810
+So over here in accounts we ended up doing was from models not pie inside the accounts.
+
+15:35.870 --> 15:38.660
+We basically created this really simple user model.
+
+15:38.660 --> 15:40.260
+Technically it's not that simple.
+
+15:40.280 --> 15:41.670
+Our job is simple.
+
+15:41.870 --> 15:46.950
+The heavy lifting is being done by Django by just importing these two things models that user models
+
+15:46.950 --> 15:51.980
+that permission Nixon and then we're also doing is coming over to the use of Pi and creating a very
+
+15:51.980 --> 15:55.400
+simple Sign-Up create view that's essentially creating a new user.
+
+15:55.400 --> 15:57.820
+And then we need to connect that to a user create form.
+
+15:57.950 --> 16:03.620
+So we create a new file called forms up-I and we use this user create form and then you also notice
+
+16:03.620 --> 16:07.570
+that we kind of set up our own custom labels for the user name and email.
+
+16:07.580 --> 16:11.810
+These are technically not mandatory You don't have to set up your own custom labels but in case you
+
+16:11.810 --> 16:12.950
+ever needed to do that.
+
+16:12.950 --> 16:13.980
+That's how you can do it.
+
+16:14.240 --> 16:14.850
+All right.
+
+16:14.870 --> 16:20.030
+Coming up next we're going to kind of mess around for your old pie make the connections and also set
+
+16:20.030 --> 16:22.730
+up these log in and sign up that age e-mail templates.
+
+16:22.730 --> 16:27.030
+OK thanks everyone and I'll see you at the next lecture where we continue working with accounts.

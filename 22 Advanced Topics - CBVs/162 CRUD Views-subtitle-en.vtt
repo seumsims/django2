@@ -1,0 +1,1102 @@
+WEBVTT
+
+00:05.260 --> 00:10.310
+Hello everyone and welcome to this final lecture we're going to be discussing credit.
+
+00:10.340 --> 00:14.810
+Now you may have heard of this term credit before in web development but what does it actually mean
+
+00:15.230 --> 00:17.390
+contrary to what you might think it means.
+
+00:17.390 --> 00:24.770
+It really stands for create retrieve update and delete and this process of creating retrieving updating
+
+00:24.770 --> 00:27.640
+and leading is inherent to almost every Web site.
+
+00:27.830 --> 00:33.830
+Pretty much any web site with users has the ability for a user or an administrator to create content
+
+00:34.100 --> 00:39.020
+retrieve prior content update that content or delete that content.
+
+00:39.020 --> 00:44.180
+Now we pretty much already know how to retrieve things by using the connection between the Urals the
+
+00:44.180 --> 00:46.390
+models and the views the PI file.
+
+00:46.580 --> 00:51.530
+But we're going to be learning about here is more on creating updating and deleting information from
+
+00:51.530 --> 00:52.780
+our web application.
+
+00:54.410 --> 00:59.630
+Whenever you work of models and databases you'll need to perform those four basic actions and luckily
+
+00:59.870 --> 01:03.880
+Django has class based views to simplify this entire process for you.
+
+01:05.170 --> 01:08.610
+We'll start off by exploring how to use the Create view class.
+
+01:08.710 --> 01:14.230
+Now a quick note while we are using this create view class in the programming section of this lecture
+
+01:14.590 --> 01:20.070
+we will purposefully induce a few errors to clarify where certain variable names are coming from.
+
+01:20.110 --> 01:22.600
+So I'm not making mistakes as I'm coding along.
+
+01:22.720 --> 01:27.340
+I will actually be inducing those errors on purpose and I'll remind you of that as we continue programming
+
+01:28.780 --> 01:33.550
+once we've worked through the create a view class working with the update view and delete the classes
+
+01:33.550 --> 01:36.270
+will be very straightforward.
+
+01:36.460 --> 01:40.570
+In other quick note there's going to be a lot of interaction between your Urals not pi.
+
+01:40.690 --> 01:44.850
+The used up high end models not pi file as well as all your template files.
+
+01:44.920 --> 01:50.320
+If you ever get stuck on an error I want you to triple check that your code has matching the notes exactly.
+
+01:50.340 --> 01:54.880
+Or is matching what I've shown you here in the video lecture.
+
+01:54.990 --> 01:59.460
+The nature of the interaction between all the files is going to make it almost impossible for me to
+
+01:59.460 --> 02:01.420
+give you good help on this topic.
+
+02:01.500 --> 02:02.860
+In the Q&amp;A forums.
+
+02:03.000 --> 02:05.680
+So if you ever get stuck on anything and you're really stuck.
+
+02:05.730 --> 02:09.040
+Make sure that you're actually following along with the video Exactly.
+
+02:09.060 --> 02:13.160
+Or just go ahead and download the associated files for this lecture.
+
+02:13.170 --> 02:14.520
+All right let's get started.
+
+02:14.520 --> 02:16.540
+Hop over to the Adam text editor.
+
+02:16.830 --> 02:22.730
+OK here I am at the Adam text editor and over on the right I also have a browser open to the page so
+
+02:22.730 --> 02:25.490
+you've been working with throughout this entire section of the course.
+
+02:25.560 --> 02:30.480
+I have the home page and we learned how to connect templates and also inject content into this home
+
+02:30.480 --> 02:31.090
+page.
+
+02:31.140 --> 02:36.240
+I can click on schools see a list of all the schools select first school and then come to the school
+
+02:36.240 --> 02:40.550
+detail page and then I can always click on admin to go to the admin page as well.
+
+02:40.770 --> 02:44.760
+Let's go back to schools and we'll see a list of schools here.
+
+02:44.760 --> 02:50.850
+The first thing I want to do is show you how we could possibly create a new school using create you
+
+02:51.330 --> 02:52.150
+in order to do that.
+
+02:52.200 --> 02:59.550
+Let's hop over to our views that py file under basic app and I'm going to create a new class that as
+
+02:59.580 --> 03:04.420
+you may have guessed is going to be called School create view.
+
+03:04.560 --> 03:06.940
+So I will collapse this directory for a second.
+
+03:07.090 --> 03:11.750
+And before we actually get started with this let's import the views we're going to be using.
+
+03:11.970 --> 03:15.270
+Right now we're importing a view template view list view.
+
+03:15.360 --> 03:20.510
+Now what I can do is put these in multiple lines is have some parentheses here.
+
+03:20.730 --> 03:24.550
+And anything wrapped inside is print seis and then go on multiple lines.
+
+03:24.550 --> 03:29.110
+So when importing view template view list view detail view we're already familiar those.
+
+03:29.280 --> 03:40.240
+And then I'm also going to be importing create view update view and then delete view.
+
+03:40.600 --> 03:45.550
+And basically what these views are going to do and help us out with is create you will help us create
+
+03:45.790 --> 03:51.140
+new additions to our models update is going to take an existing entry in your model and a light update
+
+03:51.140 --> 03:55.260
+it and then delete view will take something that exists there and delete it.
+
+03:55.510 --> 04:00.010
+So let's start off with create a view which is going to allow us to essentially create a new school
+
+04:00.130 --> 04:01.410
+easily.
+
+04:01.670 --> 04:06.220
+I will scroll down over here and underneath school detail to you.
+
+04:06.500 --> 04:16.480
+I will say something like class school create view and then we'll just pass and create view will inherit
+
+04:16.510 --> 04:17.310
+from that.
+
+04:17.740 --> 04:26.720
+And then what I'm going to do under the Create view is I will say model is equal to models dot school
+
+04:27.920 --> 04:32.540
+and then I will save that and whenever we creative you want to make sure that it's linked to some sort
+
+04:32.540 --> 04:33.730
+of your l.
+
+04:33.800 --> 04:40.010
+So I'll bring back my directory tree and come over to the Urals PI file of my actual application and
+
+04:40.010 --> 04:43.400
+I'm going to add another line there for you.
+
+04:43.730 --> 04:46.680
+So let's actually edit this a little bit.
+
+04:46.730 --> 04:51.800
+Right now I have this sort of regular expression and I going to simplify this instead of having this
+
+04:51.800 --> 04:52.590
+in brackets here.
+
+04:52.610 --> 04:55.450
+Let's just make the say digit plus.
+
+04:55.580 --> 05:00.150
+And basically what this is doing is taking the primary key of the school as the display.
+
+05:00.200 --> 05:03.210
+And what I want to do is create a new york Airlink here
+
+05:06.250 --> 05:13.350
+and this will take in as a regular expression just create forward slash dollar sign.
+
+05:13.350 --> 05:19.920
+So what this says is if someone goes to the domain page slash basic app slash create it's going to allow
+
+05:19.920 --> 05:31.370
+us to create a new school and here we'll save views dot school create view dot as View member we have
+
+05:31.370 --> 05:36.560
+to do that for class based views and we'll go ahead and give it a name and the name we're going to give
+
+05:36.560 --> 05:39.590
+it is just create so we can reference it later.
+
+05:39.800 --> 05:44.500
+And since they added a new item to this list I want to make sure that they're separated by commas.
+
+05:44.850 --> 05:45.370
+OK.
+
+05:45.470 --> 05:50.210
+So just to expand this a little bit so he can see this in a tiny bit more detail here.
+
+05:50.210 --> 05:55.490
+I've just added your L create views at school create as View name as create.
+
+05:55.520 --> 06:02.130
+We're going to save that and then what we're going to do is check it out over here and we will get some
+
+06:02.130 --> 06:06.270
+errors but I'm going to walk you through them so we can get a better understanding of why we're getting
+
+06:06.270 --> 06:07.730
+these errors.
+
+06:07.850 --> 06:12.720
+So I will come back to schools refresh and then I'll click on first school.
+
+06:12.720 --> 06:14.490
+It's the walk of the school detail page.
+
+06:14.490 --> 06:14.850
+All right.
+
+06:14.880 --> 06:15.980
+So far so good.
+
+06:16.170 --> 06:25.310
+I'll come back up here to where it says basic app and I'm going to try to go to create enter and note
+
+06:25.310 --> 06:26.330
+what happens here.
+
+06:26.360 --> 06:33.500
+It says improperly configured at basic app create using model for mixin based classes school create
+
+06:33.510 --> 06:37.170
+view without the fields attribute is prohibited.
+
+06:37.440 --> 06:40.260
+So that's the error I want you to learn how to read.
+
+06:40.320 --> 06:42.260
+In case you ever encounter it.
+
+06:42.450 --> 06:48.930
+So basically what this is saying is hey you want to create a view but you didn't specify what fields
+
+06:49.170 --> 06:51.750
+are prohibited and what fields are allowed.
+
+06:51.750 --> 06:53.130
+Well that's easy enough to fix.
+
+06:53.130 --> 07:00.060
+We'll come back to the used up high and over here under create just like we did back when we're working
+
+07:00.060 --> 07:01.090
+with models.
+
+07:01.110 --> 07:06.960
+We're going to find the fields that will allow a user to create.
+
+07:07.030 --> 07:11.520
+So the school had three main fields the name the principal and location.
+
+07:11.590 --> 07:13.990
+And this almost acts like a security measure.
+
+07:14.050 --> 07:20.890
+Maybe you don't want someone to edit the location of a school or the name of the school etc. we'll just
+
+07:20.890 --> 07:22.730
+pass in all the fields for now.
+
+07:24.460 --> 07:35.010
+Principal and then location and I'm going to save this and as I refreshed this page I should see probably
+
+07:35.010 --> 07:36.820
+another error.
+
+07:36.990 --> 07:39.080
+And there it is so template does not exist.
+
+07:39.090 --> 07:43.700
+Well that makes sense I never actually created a template for the school creation page.
+
+07:43.710 --> 07:50.100
+But what's interesting here is it tells you that it's looking for basic app school form.
+
+07:50.100 --> 07:57.220
+And basically what that means is that Django that create view is automatically creating a default HVM
+
+07:57.220 --> 08:03.600
+l template that it's expecting and it's expecting it to be in the format of all lowercase.
+
+08:03.630 --> 08:04.520
+The model name.
+
+08:04.560 --> 08:09.250
+In our case at school underscore and then form so let's that in.
+
+08:09.390 --> 08:12.820
+And I would always suggest that you use the defaults there.
+
+08:13.070 --> 08:19.830
+So underneath templates basic app I will create a new file and I will call it what it was looking for
+
+08:19.830 --> 08:26.640
+school underscore form that each TNL and it makes sense that we need some sort of form for the editor
+
+08:26.880 --> 08:34.540
+or user to come in and create a new school and let's show you how we can create the school form page.
+
+08:34.560 --> 08:43.680
+First things first though I want to say extends from the basic app slash and then the basic app base
+
+08:43.680 --> 08:48.270
+which was basic app underscore based but each T.M..
+
+08:48.780 --> 08:55.260
+OK so that's going to allow me to extend that template and then let's have in our body block tool called
+
+08:55.260 --> 08:59.990
+block body underscore block.
+
+09:00.100 --> 09:05.780
+And since I have a block I will say and block as well.
+
+09:06.590 --> 09:06.930
+All right.
+
+09:06.960 --> 09:11.790
+Now it's actually put some thing here and this is what the user is going to see when they actually try
+
+09:11.790 --> 09:14.280
+to create a new school.
+
+09:14.440 --> 09:21.380
+And I'm going to essentially think ahead and know that I am also going to add an update view later on.
+
+09:21.400 --> 09:23.530
+So keep that in mind as I'm working here.
+
+09:23.530 --> 09:26.920
+Usually you wouldn't just know this off the top of your head.
+
+09:26.920 --> 09:31.670
+And then this header or heading one on point to use some logic.
+
+09:31.840 --> 09:42.660
+Have an if statement and my template tagging and I will say if Knot's form the instance dot piqué and
+
+09:42.660 --> 09:45.320
+we'll explain what that means in a little bit.
+
+09:45.480 --> 09:48.420
+I will say create school
+
+09:51.530 --> 09:56.480
+and then since I know I'm also going to add an update view later on meaning update a school that already
+
+09:56.480 --> 09:57.070
+exists.
+
+09:57.080 --> 09:58.130
+I will say else
+
+10:00.670 --> 10:11.550
+update school and then since I haven't if I always need to and if so do these lines actually mean.
+
+10:11.550 --> 10:18.150
+Well basically what I'm saying is the following I am going to extend from basic app have the body block
+
+10:18.510 --> 10:25.050
+and the heading of this form page that create page is going to check if the instance of the primary
+
+10:25.050 --> 10:27.570
+key exists or not.
+
+10:27.570 --> 10:31.260
+If it does not exist that means this is a new school.
+
+10:31.290 --> 10:33.930
+Now we're going to create the school.
+
+10:33.930 --> 10:37.650
+Otherwise we're updating a school that currently exists.
+
+10:38.460 --> 10:42.440
+And this will make more sense as we actually developed the update view.
+
+10:42.560 --> 10:45.230
+Hopefully you get the basic idea that I'm checking first.
+
+10:45.320 --> 10:48.200
+There's a primary that's here that school exists.
+
+10:48.300 --> 10:51.180
+Well in that case if it doesn't exist I'm creating a school.
+
+10:51.220 --> 10:55.120
+Else if it already does exist then I'm updating the school.
+
+10:55.240 --> 11:01.000
+And then finally to actually update school we need to take in a form some information and we actually
+
+11:01.000 --> 11:03.150
+just need to specify the method is post.
+
+11:03.160 --> 11:05.350
+We don't need to have a class or action here.
+
+11:05.350 --> 11:09.430
+You could have a class with this bootstraps stuff we've been learning about but we'll keep it simple
+
+11:09.430 --> 11:10.380
+for now.
+
+11:10.480 --> 11:18.120
+As always of any form we need to have our C S R F tokin C S or of Tokin and this should be underscore
+
+11:19.470 --> 11:19.920
+tokin
+
+11:23.410 --> 11:33.860
+and then we're going to inject our form as we've seen earlier as P and then finally we'll say input.
+
+11:34.010 --> 11:38.050
+The type is going to be a submit button and let's give it a class.
+
+11:38.060 --> 11:41.700
+So it looks a little nicer since we are working a bootstrap.
+
+11:41.720 --> 11:46.470
+We'll say it's a BT and B 10 cash primary.
+
+11:46.660 --> 11:54.290
+Always nice to flex those bootstrap muscles and let's give it a value of Samit we'll save that and hopefully
+
+11:54.290 --> 11:55.900
+that worked out this error.
+
+11:55.940 --> 12:00.680
+Remember that was the school for that age T.M. and it's really important that you have the ability to
+
+12:00.740 --> 12:06.230
+read these sort of errors throughout the course we've been kind of avoiding errors to begin with but
+
+12:06.530 --> 12:10.170
+now I really want you to get familiar and be able to read oh template does not exist.
+
+12:10.200 --> 12:13.370
+Well that means I need to check out with templates expecting.
+
+12:13.400 --> 12:18.310
+All right let's refresh this and perfec we see create a school.
+
+12:18.320 --> 12:20.710
+Now let's try to actually create a school.
+
+12:20.760 --> 12:28.940
+We'll give it the name of the school my brand new school the principal will be I don't know someone
+
+12:28.940 --> 12:34.100
+named Larry and the location will say it's in.
+
+12:34.420 --> 12:40.810
+I don't know Panama will say submit and boom we have another problem.
+
+12:40.850 --> 12:47.660
+It says improperly configured at basic at underscore app create and it says has no your L to read direct
+
+12:47.660 --> 12:50.680
+to either provided your l or.
+
+12:50.700 --> 12:57.380
+And what we're going to be doing the define a get underscore absolute underscore your L method on the
+
+12:57.380 --> 12:58.210
+model.
+
+12:58.550 --> 13:02.220
+So let's follow those directions and actually do it.
+
+13:02.400 --> 13:09.430
+OK so I'm going to come over to the models and I'm going to look for school and it told me that I should
+
+13:09.430 --> 13:15.270
+define a get absolute Your L method for this model so as follows instructions.
+
+13:15.280 --> 13:24.150
+I'll say if I get absolute's underscore you are l or pasand self.
+
+13:24.450 --> 13:31.500
+And then we're going to do is basically reverse and tell it what primary key we want this school to
+
+13:31.500 --> 13:33.250
+be created with.
+
+13:33.260 --> 13:40.080
+So here it is actually import reverse from your resolvers which we have seen before.
+
+13:40.370 --> 13:46.240
+Say from Jingo that Corda you are l resolvers.
+
+13:46.540 --> 13:57.750
+Import loops reverse and that means I can use it down here where I will just return reverse and what
+
+13:57.750 --> 14:05.590
+I am going to do here is called Basic underscore app the detail view not the detail viewers and the
+
+14:05.590 --> 14:09.860
+importing but the actual detail and the views that py file.
+
+14:10.040 --> 14:17.360
+And then we need to add some keyword arguments as a parameter and the keyword argument in past here
+
+14:17.600 --> 14:29.040
+is Piquet for primary key and the value for that is just self-taught P.K..
+
+14:29.100 --> 14:30.850
+So let's save that.
+
+14:30.870 --> 14:35.410
+And again learning how to kind of read and roll the punches on some of these error codes so it does
+
+14:35.420 --> 14:36.780
+get absolutely oral method.
+
+14:36.780 --> 14:38.160
+We did that already.
+
+14:38.160 --> 14:40.140
+Let's refresh this.
+
+14:40.140 --> 14:41.660
+It may ask us to continue.
+
+14:41.700 --> 14:42.680
+That's fine.
+
+14:42.990 --> 14:46.680
+Says Walk to School detail page school details my brand new school.
+
+14:46.680 --> 14:48.340
+Larry in Panama.
+
+14:48.600 --> 14:50.460
+So what was actually going on here.
+
+14:50.700 --> 14:56.510
+Basically what happened is after we created that view we never told Django where it should go to.
+
+14:56.520 --> 15:02.640
+We never said oh go do something after you created the view which is why Gyngell was requesting for
+
+15:02.640 --> 15:04.430
+a get absolute Your L.
+
+15:04.560 --> 15:11.010
+And basically what we said is OK go back and reverse and figure out that you should go to the detail
+
+15:11.010 --> 15:15.300
+page or whatever the primary key is of the school you just made.
+
+15:15.300 --> 15:20.850
+In our case this is basic app for your number maybe different however and that's the very basics of
+
+15:21.300 --> 15:22.500
+having a create view.
+
+15:22.500 --> 15:28.010
+So if I go back to the list of schools I can see I have my brand new school in my brand new school.
+
+15:28.230 --> 15:33.480
+So the reason it's inserted twice here is because we basically did it twice while we were kind of fixing
+
+15:33.480 --> 15:34.790
+some of those errors.
+
+15:34.860 --> 15:37.840
+But don't worry we'll fix that when we learn how to delete views.
+
+15:38.040 --> 15:41.030
+But first let's learn how to work with up few.
+
+15:41.370 --> 15:46.200
+And a lot of the work is actually have already been done for us since we did a lot of stuff we were
+
+15:46.200 --> 15:48.060
+doing the Create view.
+
+15:48.060 --> 15:50.930
+So school of the view should actually be quite simple as well.
+
+15:51.180 --> 16:02.160
+Let's come over to views that pi and I will create a new class called school up view.
+
+16:02.410 --> 16:04.330
+And I would recommend that you name your classes.
+
+16:04.330 --> 16:10.180
+Basically the way I'm doing it with the model name and then create your view or detail view etc. and
+
+16:10.180 --> 16:13.540
+then I'm going to inherit from up the view.
+
+16:13.570 --> 16:15.280
+And this one's quite simple.
+
+16:15.280 --> 16:19.500
+Again we're going to specify what fields we want to be updated.
+
+16:19.510 --> 16:24.610
+Now this is where maybe you can think about OK who's going to be updating this.
+
+16:24.610 --> 16:30.090
+What kind of user permissions will they have and also what makes sense for updating a school.
+
+16:30.190 --> 16:32.740
+Does it make sense to up the school's principal.
+
+16:32.740 --> 16:33.800
+Well yeah that makes sense.
+
+16:33.800 --> 16:37.390
+Principals can change because it makes sense to update the school's name.
+
+16:37.450 --> 16:38.200
+Maybe.
+
+16:38.350 --> 16:39.640
+What about the location of school.
+
+16:39.640 --> 16:45.590
+Well probably not schools usually don't move around that much so let's just say you can only update
+
+16:45.610 --> 16:48.170
+the name and the principal of a school.
+
+16:49.390 --> 16:53.960
+Obviously your own situations are going to be unique and you'll have to make that call.
+
+16:54.220 --> 16:59.460
+And what we're going to do here is once we have this we'll just connected to the model will say models
+
+16:59.470 --> 17:03.660
+equal to models thought and in our case it's the school model.
+
+17:03.670 --> 17:10.740
+We'll save this and then we're going to do is come back to your Allsopp pie and actually set up a your
+
+17:10.820 --> 17:19.490
+L for our updating inside this your PI file for application 1 I'm going to do is copy this detail view
+
+17:20.760 --> 17:26.870
+paste that again and this is basically the same view I want except I want to clarify some sort of update
+
+17:26.870 --> 17:27.960
+extension.
+
+17:28.310 --> 17:34.250
+So basically if I go to basic underscore app slash up they slash and then the number of the primary
+
+17:34.250 --> 17:35.550
+key of the school.
+
+17:35.550 --> 17:42.220
+It will let me update that school so I need to change this from detail view to update view as View.
+
+17:42.560 --> 17:45.800
+And then it will change the name to detail.
+
+17:46.840 --> 17:55.080
+To update and then let me save that and the next thing we have to do is actually edit the HTML file
+
+17:55.080 --> 17:58.820
+or the template file that relates the school detail page.
+
+17:58.830 --> 18:06.010
+So let's hop over to that and right now this is our detail page and it just says for the information
+
+18:06.010 --> 18:09.630
+of school to students etc. and what we will do.
+
+18:10.620 --> 18:18.120
+Is outside of this fact let's put it outside this div but before the end block I'll create a new div
+
+18:18.780 --> 18:20.610
+inside its own container.
+
+18:20.980 --> 18:29.730
+It'll just be a paragraph with an anchor tag inside of it and this will be your template and this will
+
+18:29.730 --> 18:40.410
+be a template that takes you to the basic underscore app was the name of the and will pass in an argument.
+
+18:41.150 --> 18:52.420
+P.K. school underscore detail that Piquet and let's actually give this a class so it looks a little
+
+18:52.420 --> 18:53.080
+nicer.
+
+18:54.130 --> 19:02.310
+Will say this is class of her bootstrap we can say between will give it warning you give it success
+
+19:02.310 --> 19:05.410
+whatever you want but maybe awarning makes sense to update something.
+
+19:05.400 --> 19:10.850
+It's kind of a yellow hue by original nature and then we actually want to have some sort of texture
+
+19:10.860 --> 19:12.940
+that tells you what you're going to update this.
+
+19:12.960 --> 19:17.300
+All right let's save this and will refresh this page and see what happens.
+
+19:19.180 --> 19:24.400
+So now if I scroll down a little bit I see this update button and we can always zoom out so it's a little
+
+19:24.400 --> 19:25.210
+more clear.
+
+19:25.210 --> 19:28.060
+So now on the detail page I can see the update button.
+
+19:28.090 --> 19:30.930
+You may have to scroll down depending on how zoomed in you are.
+
+19:31.030 --> 19:36.940
+If I click on it I get the form and the option to update the school and only the fields that I specify
+
+19:37.240 --> 19:38.850
+the name and principal.
+
+19:38.860 --> 19:41.580
+So let's try to change the name of the school.
+
+19:41.590 --> 19:50.190
+Actually this is change the principal to something really obvious like Mr. obvious I should be really
+
+19:50.190 --> 19:55.190
+obvious change will submit it and it takes back to that school's detail page.
+
+19:55.320 --> 20:01.620
+That's what we were working with when we said here on the ref your L basic app update and then Piquet's
+
+20:01.620 --> 20:02.680
+school detail.
+
+20:02.710 --> 20:03.450
+OK.
+
+20:03.600 --> 20:08.020
+That allows us to link whatever school we're actually updating with.
+
+20:08.050 --> 20:12.040
+So what the school page I can see now for school has principal Mr Obvious.
+
+20:12.040 --> 20:17.740
+And if I come back to schools click on for school I can see that that change has been permanently done
+
+20:18.280 --> 20:19.010
+great.
+
+20:19.150 --> 20:22.920
+So now you learn how to create views and how to update views.
+
+20:22.930 --> 20:26.470
+The last thing they need to do is figure out how we can delete views.
+
+20:26.470 --> 20:33.280
+So let's go back to our actual editor our bringing back my directory tree and what I'm going to do is
+
+20:33.280 --> 20:43.430
+come over here to the views up high and we'll create our last and final view which is the school Dilley
+
+20:43.580 --> 20:51.340
+view we'll have delete view here and this is going to be slightly different from everything we've done
+
+20:51.340 --> 20:52.420
+so far.
+
+20:52.510 --> 20:56.450
+As far as updating and creating views that it's actually not so bad.
+
+20:58.150 --> 21:02.070
+First we have to do is say model is equal to models.
+
+21:02.170 --> 21:06.860
+School connect the models that makes sense as far as what we're going to delete.
+
+21:07.000 --> 21:14.260
+And then the next thing I have to add in is a success your L variable or attribute I should say because
+
+21:14.260 --> 21:18.720
+this is a class so will create an attribute called success.
+
+21:18.720 --> 21:25.080
+Underscore your L and what we're going to do is use the reverse underscore lazy function.
+
+21:25.140 --> 21:28.560
+So I need to go up and import that and I'll explain what it is.
+
+21:28.560 --> 21:36.280
+Right after I import it we'll say from jingo dot core dot.
+
+21:36.370 --> 21:42.870
+You are all resolvers and it's actually from the same place we imported reverse from so we can import
+
+21:42.870 --> 21:47.560
+reverse or reverse underscore lazy.
+
+21:47.710 --> 21:52.540
+And if you're familiar of programming you may have heard of the term lazily evaluated and what we're
+
+21:52.540 --> 21:57.820
+going to do is all the way down here and it's actually telling us we need to still finish that off where
+
+21:57.820 --> 22:07.200
+it says success you IRL we will call reverse underscore lazy and passen that we want to go to the basic
+
+22:07.200 --> 22:10.560
+app and the list view.
+
+22:10.560 --> 22:13.990
+So what does success means is all right.
+
+22:14.100 --> 22:20.100
+Once you successfully deleted a school I want you to go back to the list page of the basic app and show
+
+22:20.100 --> 22:24.870
+all the schools and theoretically once you're done deleting that school should no longer be on that
+
+22:24.870 --> 22:25.890
+list.
+
+22:25.890 --> 22:32.210
+The reason we use reverse lazy is that we don't want this evaluated completely when running our PI file.
+
+22:32.250 --> 22:36.380
+We only wanted to wait until it's actually called as a success.
+
+22:36.600 --> 22:40.830
+And as with all the other views we've been working with we need to go ahead and add a Oreilles that
+
+22:40.830 --> 22:44.120
+PI that actually matches with this particular view.
+
+22:44.190 --> 22:49.530
+So we'll come back here to your Elle's that pie and let me collapses to see a little more room.
+
+22:49.620 --> 22:52.370
+And again this is going to look really similar to update.
+
+22:52.500 --> 22:57.830
+Instead of updating something though we're going to be deleting it so we'll hit enter and I'm going
+
+22:57.830 --> 23:01.730
+to change this name from Update to delete.
+
+23:02.150 --> 23:07.340
+I'll change this update to daily as well.
+
+23:07.410 --> 23:10.530
+And then here it says update will change that to delete.
+
+23:10.800 --> 23:16.170
+So I should be able to go to basic app slash delete and then any primary key and start getting some
+
+23:16.170 --> 23:18.370
+options for deleting stuff.
+
+23:18.630 --> 23:22.860
+But in order to do that I should have some sort of HTL file.
+
+23:23.100 --> 23:26.500
+So will go ahead and go with the default H-2 him Al file that's expected.
+
+23:26.500 --> 23:27.600
+We'll add it in right now.
+
+23:27.600 --> 23:29.630
+We don't see those errors anymore.
+
+23:30.060 --> 23:39.200
+Now all we do is we say school underscore confirm underscore delete that H Tim L and this is going to
+
+23:39.200 --> 23:41.300
+be the page that's actually shown.
+
+23:41.390 --> 23:45.440
+When someone tries to manually delete something from the database
+
+23:48.380 --> 23:58.260
+we'll say extends and we're going to go from the basic slash basic app underscore based studies Tim
+
+23:58.260 --> 23:59.620
+Ehle file that I have here
+
+24:03.140 --> 24:05.060
+and the start our block
+
+24:08.720 --> 24:12.010
+will have our body block.
+
+24:12.180 --> 24:14.250
+Now if any block we need to and the block
+
+24:19.330 --> 24:27.060
+and where we're going to have here is basically just says H-1 and we'll say delete and it will automatically
+
+24:27.060 --> 24:33.360
+pass in a context object called school or whatever the lowercase version of your model is.
+
+24:33.360 --> 24:37.680
+Remember we previously covered how to create your own context object names.
+
+24:37.740 --> 24:40.950
+You come back here to views and scroll up a little bit.
+
+24:40.980 --> 24:43.700
+We talked about it here context object name.
+
+24:43.830 --> 24:49.530
+The basic one for detail that I encouraged each use default is the lowercase version of your model.
+
+24:49.530 --> 24:56.330
+So we use that we expect school to be here and we're going to call off of it is the name and say questionmark.
+
+24:56.400 --> 25:03.210
+So this is going to show is a heading that says hey delete that school's name Question Mark and then
+
+25:03.210 --> 25:05.240
+we'll just have a simple form.
+
+25:05.450 --> 25:14.760
+The simple form is just going to say method is post with any form we always need a C SRF token
+
+25:18.510 --> 25:20.100
+and it's going to have an input.
+
+25:20.100 --> 25:28.220
+The input would just be submit and now it can kind of play the classes of bootstrap.
+
+25:28.340 --> 25:32.630
+And I've been waiting to use this a long time but we can finally use the danger button.
+
+25:33.820 --> 25:38.730
+We don't actually give this a name but we should give it a value that way it says something we'll just
+
+25:38.730 --> 25:43.380
+have it say delete and below this.
+
+25:43.400 --> 25:44.440
+If you don't want to delete.
+
+25:44.450 --> 25:48.880
+We should have some sort of link that goes back to cancel or at least some sort of text.
+
+25:48.880 --> 25:52.880
+You can have this be a button in other form whatever you want are you going to have it be an anchor
+
+25:52.880 --> 25:56.090
+tag with the word cancel inside of it.
+
+25:57.640 --> 26:04.210
+And for the ref will have it take us back to that school's detail page.
+
+26:04.330 --> 26:11.800
+So I have a template here that goes to basic app whatever the name of your application is detail that
+
+26:11.800 --> 26:12.460
+your URL.
+
+26:12.520 --> 26:20.090
+And then we'll say P.K. is equal to school dot primary key.
+
+26:20.100 --> 26:25.110
+So again we're grabbing the primary key off that school context object that's returned just the same
+
+26:25.110 --> 26:32.340
+way we grabbed that name because remember that detail your L if we go back to your Elle's that pie over
+
+26:32.340 --> 26:39.270
+here under the term detail we're expecting some sort of primary key to be inserted which is why we then
+
+26:39.270 --> 26:43.820
+having to pass it in as an argument in these HTL template files.
+
+26:44.220 --> 26:52.160
+Ok so let's save this and we'll refresh our schools page and let's go ahead and try to delete school
+
+26:52.190 --> 26:54.970
+number four because I have a duplicate there.
+
+26:55.340 --> 27:04.050
+So up here in the your L I will say basic app deletes forward slash for enter and it says delete my
+
+27:04.050 --> 27:05.190
+brand new school.
+
+27:05.320 --> 27:10.410
+And I can see here we can click Cancel which is going to take us back to that detail page of that particular
+
+27:10.410 --> 27:13.410
+school or I can hit delete so.
+
+27:13.830 --> 27:14.580
+We'll hit delete.
+
+27:14.670 --> 27:16.290
+And there you go.
+
+27:16.380 --> 27:17.940
+That school has now been deleted.
+
+27:17.940 --> 27:20.190
+Let's try one more time make sure it's actually working.
+
+27:20.310 --> 27:25.710
+Try and that other brand new school and we actually need to enter this manually later on you can add
+
+27:25.710 --> 27:26.900
+links if you want.
+
+27:26.910 --> 27:33.270
+Obviously you should be very careful adding delete links all over the place the here and delete slash
+
+27:33.270 --> 27:36.450
+3 delete my brain new school and we'll hit delete.
+
+27:36.820 --> 27:37.210
+OK.
+
+27:37.230 --> 27:37.620
+Perfect.
+
+27:37.620 --> 27:38.700
+That's all working.
+
+27:38.700 --> 27:44.730
+Later on we'll also learn how to use slugs instead of just primary keys where slugs are essentially
+
+27:44.790 --> 27:49.680
+the name of objects lower lowercase with dashes in between any spaces.
+
+27:49.680 --> 27:53.220
+And if you're familiar for development at all you've probably heard that term before.
+
+27:53.550 --> 27:54.120
+OK.
+
+27:54.270 --> 28:00.150
+I hope you enjoyed learning about updating creating and deleting views and I hope that this makes your
+
+28:00.150 --> 28:05.090
+life a lot easier as you find yourself programming of larger projects and Django.
+
+28:05.160 --> 28:07.470
+You're going to be using those views all the time.
+
+28:07.560 --> 28:11.940
+And that's basically the whole point of Django to make your life a little easier as you try to focus
+
+28:11.940 --> 28:14.950
+on what's really important developing your own web site.
+
+28:14.970 --> 28:16.650
+Thanks and I'll see it the next lecture.

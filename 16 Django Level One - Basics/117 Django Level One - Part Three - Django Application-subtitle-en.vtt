@@ -1,0 +1,505 @@
+WEBVTT
+
+00:05.280 --> 00:10.080
+Hello everyone and welcome back in this lecture we're going to be discussing how to create our first
+
+00:10.140 --> 00:16.860
+Django application with a very simple view so far we've been able to use run server to test our installation
+
+00:16.860 --> 00:17.880
+of Django.
+
+00:17.880 --> 00:20.920
+Now let's move on to actually creating our first Django application.
+
+00:20.940 --> 00:22.770
+We'll learn about views and how to use them.
+
+00:23.910 --> 00:28.950
+Let's get some terminology straight though before we continue the Gengel project is a collection of
+
+00:28.950 --> 00:34.830
+applications and configurations that when combined together is going to make up the full web application
+
+00:34.860 --> 00:38.360
+or Web site that's your complete Web site running with Django.
+
+00:38.460 --> 00:43.860
+A lot of times people use the term Web application to describe a Web site so try not to get it confused
+
+00:43.920 --> 00:45.630
+with a single application.
+
+00:46.400 --> 00:53.370
+A Django application is created to perform a particular functionality for your entire web application.
+
+00:53.390 --> 01:00.020
+So for example you could have a registration Gengel application or a pulling Gengel application comments
+
+01:00.010 --> 01:01.150
+jingo application.
+
+01:01.310 --> 01:03.550
+So pulling app comments et cetera.
+
+01:04.160 --> 01:09.830
+These Django apps are Jinggoy applications can then be plugged into other Django projects so you can
+
+01:09.830 --> 01:10.420
+reuse them.
+
+01:10.430 --> 01:14.670
+Or more importantly use other people's Gengel applications.
+
+01:14.720 --> 01:20.930
+This process of being able to take a single application and plug it into another Django project Leitz
+
+01:20.960 --> 01:25.130
+the terminology of pluggable Django applications.
+
+01:25.190 --> 01:30.270
+Ok let's continue on by creating a simple application with the following command.
+
+01:30.320 --> 01:32.640
+We'll go back and use that managed up-I File.
+
+01:32.660 --> 01:38.400
+We're going to be using it a lot throughout the course and I will say Python managed up Pie star app
+
+01:38.480 --> 01:40.240
+and then first underscore app.
+
+01:40.280 --> 01:44.070
+So within a Django project we're creating a Django application.
+
+01:44.180 --> 01:46.580
+We're going to jump to Adam to get started.
+
+01:46.590 --> 01:46.870
+All right.
+
+01:46.880 --> 01:53.630
+Here I am back at the Adam text editor and right now I'm located under the first project directory that
+
+01:53.630 --> 01:55.130
+top level directory.
+
+01:55.130 --> 01:59.210
+And you notice you also get this D-B sequel lights 3.
+
+01:59.570 --> 02:04.380
+When we ran our server from last time we can just let it be for now and ignore it.
+
+02:04.430 --> 02:11.060
+We want to do is we offer a virtual environment activated actually create that first simple Django application.
+
+02:11.800 --> 02:17.020
+So I'm going to type is python managed not pie.
+
+02:17.370 --> 02:23.240
+And then the keyword here is start at and then whatever you want to call this first application since
+
+02:23.240 --> 02:29.210
+you're doing something really basic like a hello world type app I'm just going to say first underscore
+
+02:29.680 --> 02:37.400
+app hit enter and you'll notice that we now get this first app inside of our first project directory.
+
+02:37.410 --> 02:39.960
+So this is a Django application.
+
+02:39.960 --> 02:44.780
+You'll see that it looks kind of similar to what we had when we actually ran our first project.
+
+02:44.910 --> 02:51.410
+Well we get some different files here we get views test models apps admen and in it lets discuss what
+
+02:51.450 --> 02:59.260
+all of these files stand for and how they all work to jump back to the presentation.
+
+02:59.300 --> 03:02.810
+OK so we created all those files with that start app command.
+
+03:02.840 --> 03:05.230
+Now lets discuss what all these files are for.
+
+03:06.100 --> 03:11.560
+Here we have another in it that PI file not serving the exact same purpose as we discussed previously
+
+03:11.600 --> 03:17.020
+is the blank Python script that due to its special name lets Python know that the rectory can be treated
+
+03:17.020 --> 03:20.940
+as a package then we have the admin pie.
+
+03:21.140 --> 03:25.850
+And this is where you can register your models so that you can benefit from some Gengel machinery that
+
+03:25.850 --> 03:32.180
+basically creates an adamant interface for you and later on will see how fantastic the built in admin
+
+03:32.180 --> 03:33.800
+features of Django are.
+
+03:33.800 --> 03:41.270
+Its a really powerful tool and its all built into Django and we have the apps that py file that essentially
+
+03:41.270 --> 03:47.700
+provides a place for any application specific configuration that we have the models not pie.
+
+03:47.810 --> 03:52.040
+And this is going to be a place to store your applications data models and that's where you're going
+
+03:52.040 --> 03:57.110
+to specify the entities and relationships between the data and don't make a lot more sense when we actually
+
+03:57.110 --> 03:58.850
+begin to play with that file.
+
+03:59.670 --> 04:04.590
+Then we have the test PI file and this is where you can store a series of functions to test out your
+
+04:04.590 --> 04:10.830
+applications code then we have views up high which is where you can store a series of functions that
+
+04:10.830 --> 04:14.790
+handle requests and return responses.
+
+04:14.810 --> 04:20.240
+Then finally we have that migrations directory or migrations folder and this directory stores database
+
+04:20.240 --> 04:23.860
+specific information as it relates to the models.
+
+04:23.930 --> 04:30.200
+So the used up PI and the models that pie are the two files you're going to be using for any given application
+
+04:30.770 --> 04:37.430
+and the form part of that main architectural design pattern employed by jingo is the model view template
+
+04:37.460 --> 04:38.010
+pattern.
+
+04:38.060 --> 04:43.220
+And you can check out the official Gengel documentation to see how models views and templates all relate
+
+04:43.220 --> 04:45.360
+to each other in a lot more detail.
+
+04:45.370 --> 04:49.790
+So before we get started with any of this we actually need to tell Django that we just created this
+
+04:49.880 --> 04:56.060
+application we need to let it know that first underscore app actually exists so it will do is go back
+
+04:56.060 --> 05:02.930
+to the settings that py file of our project and add in that first app then once Shingo knows about the
+
+05:02.930 --> 05:08.220
+application's existence we can learn the process of creating a view and mapping it to our your l.
+
+05:08.240 --> 05:13.760
+To complete this entire process let's jump back to the Adam text editor and do all of these tasks.
+
+05:14.080 --> 05:20.210
+OK here and back Adam text editor and what I want to do is check out this setting up PI that was created
+
+05:20.210 --> 05:21.740
+when we first created our project.
+
+05:21.740 --> 05:25.910
+And again these are the jingoes settings for the first project project.
+
+05:25.940 --> 05:28.950
+If we scroll down we'll see a bunch of variables.
+
+05:29.000 --> 05:35.150
+The one we're looking for is called installed apps and here they are we see installed apps and it's
+
+05:35.270 --> 05:41.690
+essentially what a list is with some string application definitions and what we need to do is add in
+
+05:41.690 --> 05:42.740
+our own application.
+
+05:42.740 --> 05:49.070
+This first underscore that you can see here that Django automatically adds its own default apps like
+
+05:49.160 --> 05:52.360
+authorization administration apps messages etc..
+
+05:52.490 --> 05:56.220
+Static files all of which are going to be discussing in future lectures.
+
+05:56.220 --> 06:04.340
+Right now let's add in as a string that application we just created which is first underscore app and
+
+06:04.340 --> 06:10.370
+then what we will do is save this I can just do control S. to save that and that's saved.
+
+06:10.390 --> 06:15.190
+Adam what's nice is we'll be a little blue dot here to let you know that you haven't saved it yet to
+
+06:15.190 --> 06:17.080
+make sure all of this actually worked.
+
+06:17.080 --> 06:21.630
+We're just going to run the server again one more time and make sure we have no errors.
+
+06:21.760 --> 06:31.360
+So I will say Python space managed up pine and then selects that run server command center.
+
+06:31.410 --> 06:35.360
+And as long as I don't get any errors then everything should be working fine.
+
+06:35.380 --> 06:37.940
+I can just copy and paste this into a browser.
+
+06:37.940 --> 06:41.470
+Whoops looks like I did control C which makes sense.
+
+06:41.470 --> 06:42.550
+Let's run that again.
+
+06:43.280 --> 06:50.710
+And I should Right-Click this so I like the copy and I'm going to put it into a browser and make sure
+
+06:50.770 --> 06:55.240
+it's working and you can see here that I have put it into a browser on my other screen and to drag it
+
+06:55.240 --> 06:57.880
+over real quick and we see that everything is still working.
+
+06:57.970 --> 07:05.740
+Good that means the first app is working fine on the installed apps so I will do Control-C to exit out
+
+07:05.740 --> 07:07.400
+of that.
+
+07:07.590 --> 07:11.320
+The next step that we want to do is actually create a view.
+
+07:11.320 --> 07:17.310
+So now that our first app application has been created Well we can do is create a simple view and for
+
+07:17.310 --> 07:22.180
+a very first few We're going to just send some back some simple tasks like a hello world.
+
+07:22.180 --> 07:26.360
+We won't concern ourselves of actually using models or templates just yet.
+
+07:26.380 --> 07:28.760
+We're going to discuss that in a future lecture.
+
+07:28.900 --> 07:36.770
+So what you'll do is open up the views of Pi right here and this is under our meat.
+
+07:36.910 --> 07:39.340
+Minimize this is under application folders.
+
+07:39.340 --> 07:44.090
+We have used up PI and it says from Jingo that shortcuts import render.
+
+07:44.470 --> 07:47.330
+Well we need to do is add in a little bit of code here.
+
+07:47.380 --> 07:59.200
+We also need to save from jingo dot h t t p import h TTP response
+
+08:03.220 --> 08:09.970
+and then I'm going to create a function called index and that's going to take in request
+
+08:13.390 --> 08:23.370
+and then it's going to return HTP response and I'm just going to pass in a stream here that says Hello
+
+08:23.370 --> 08:23.880
+world.
+
+08:25.670 --> 08:29.220
+OK so let's discuss line by line what's actually happening here.
+
+08:29.230 --> 08:37.420
+First we had to import HTP response object from the Django that HTP module and then each new for this
+
+08:37.420 --> 08:43.310
+application is going to exist within that used up PI file as its own individual function.
+
+08:43.330 --> 08:49.500
+And in this instance we just created one view called index with that index function in each view is
+
+08:49.540 --> 08:51.760
+also going to take in at least one argument.
+
+08:52.020 --> 08:57.470
+And for that HTP request object since it lives inside that Shango HTP module.
+
+08:57.490 --> 09:03.430
+By convention we usually call this the request but again you could actually just call this whatever
+
+09:03.430 --> 09:04.030
+you want.
+
+09:04.030 --> 09:05.640
+This could be Jil-Lee.
+
+09:05.680 --> 09:07.590
+As a variable it really wouldn't matter.
+
+09:07.630 --> 09:10.010
+But by convention we call it request.
+
+09:10.360 --> 09:16.480
+And you'll notice that regardless of what is passed into this function it returns X to T-P response
+
+09:16.540 --> 09:18.440
+and then this text Hello world.
+
+09:18.730 --> 09:23.100
+So each view must return in HTP response object.
+
+09:23.230 --> 09:28.690
+And this very simple response object just is going to take in a string parameter representing the content
+
+09:28.690 --> 09:29.680
+of the page.
+
+09:29.680 --> 09:37.300
+So what I can also do is pasand some ASTM L in there which will show later on in order for us to actually
+
+09:37.300 --> 09:39.640
+see this view when we're running our server.
+
+09:39.650 --> 09:45.520
+But we have to do is map this view to the your Elle's dot py file.
+
+09:45.790 --> 09:53.530
+So I will open up here first underscore project and jump here to the your dot PI and open that up and
+
+09:53.530 --> 09:57.120
+you see here it tells you some information and actually tells you what to do.
+
+09:57.140 --> 10:02.560
+So you want to add an import you say from my app import views which is exactly what we're going to do
+
+10:02.590 --> 10:05.860
+except in this case it's not my app it's first app.
+
+10:06.130 --> 10:11.890
+So I'm going to scroll down here and you'll notice a what is essentially looking like a list of function
+
+10:11.890 --> 10:21.080
+calls to your L and I'm going to add in one more over here and I will say call this your function and
+
+10:21.080 --> 10:25.070
+this is where it's going to look a little weird because we're using some regular expressions so you
+
+10:25.070 --> 10:27.520
+may want to review those as we go along.
+
+10:27.530 --> 10:31.290
+They'll just say are single process free.
+
+10:31.310 --> 10:39.950
+There are single quote and then that little Carrot's symbol or Chevron it's also called and then another
+
+10:39.950 --> 10:44.050
+single quote and sometimes Adam will automatically posted the quote there.
+
+10:44.060 --> 10:45.240
+So just delete it.
+
+10:45.290 --> 10:46.410
+So that's the first argument.
+
+10:46.430 --> 10:49.600
+It's a regular expression and we'll explain what that actually means in a second.
+
+10:49.700 --> 11:03.340
+And then when you pass in the views index what what I need to do is say this from first app import views.
+
+11:03.520 --> 11:07.030
+So is it actually doing it saying OK from that first that folder.
+
+11:07.030 --> 11:10.050
+Import this views up PI.
+
+11:10.120 --> 11:17.560
+And that means here I can say views dots and then call that index function which remember that index
+
+11:17.560 --> 11:21.240
+function is inside here used up high.
+
+11:21.250 --> 11:23.310
+So that's exactly what's happening here I'm just saying.
+
+11:23.360 --> 11:23.680
+OK.
+
+11:23.680 --> 11:28.990
+From that first that folder grab views and then from views I can call index.
+
+11:28.990 --> 11:30.890
+And then I will name this.
+
+11:31.050 --> 11:39.550
+That's the third argument I'll just say name is equal to index and remember to put in a comma here to
+
+11:40.120 --> 11:41.400
+finish off that list.
+
+11:42.280 --> 11:50.260
+So what this is doing is it's actually mapping that applications view to this your son going to save
+
+11:50.260 --> 11:53.130
+this OK with that saved.
+
+11:53.160 --> 11:57.110
+Let's actually test that to see if this worked by running our server again.
+
+11:57.210 --> 12:01.560
+And then after that in the next lecture we're going to discuss your cell mapping in a lot more detail
+
+12:01.800 --> 12:03.210
+and other ways of doing it.
+
+12:03.510 --> 12:09.770
+So I'm going to come back up here and say Python managed PI run server.
+
+12:09.960 --> 12:11.270
+Enter.
+
+12:11.460 --> 12:17.950
+And then in my browser is going to jump back to this you are all going to just copy this.
+
+12:18.010 --> 12:23.280
+Put it in my browser and then let's see if it work then you should be doing the same thing and hopefully
+
+12:23.280 --> 12:27.690
+if everything worked correctly for you if I bring in my browser you should see something that says hello
+
+12:27.690 --> 12:32.910
+world or whatever text you happen to put into that particular view.
+
+12:32.910 --> 12:33.630
+All right.
+
+12:33.630 --> 12:37.730
+So we just created our first Django application very simple hello world.
+
+12:37.800 --> 12:44.910
+But we were able to create that application create that view and actually map it to the U R L into your
+
+12:44.920 --> 12:46.260
+Alstom pie file.
+
+12:46.450 --> 12:47.250
+OK.
+
+12:47.310 --> 12:53.610
+So coming up next we're going to discuss a lot more about your Elle's pie a little more about your mapping
+
+12:53.730 --> 12:58.290
+and some other ways to do it that are going to be a little more efficient and a little better.
+
+12:58.290 --> 13:00.270
+Thanks everyone and I will see you in the next lecture.

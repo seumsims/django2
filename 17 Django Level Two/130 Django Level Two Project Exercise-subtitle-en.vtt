@@ -1,0 +1,112 @@
+WEBVTT
+
+00:05.020 --> 00:09.970
+Hello everyone talking to jingle level to project exercise we've learned a lot.
+
+00:09.970 --> 00:13.840
+But setting up models templates and views and it's time for you to get some practice.
+
+00:13.870 --> 00:17.180
+We're going to be using the same approach to projects from jingle level one.
+
+00:17.230 --> 00:22.030
+So if you don't have that you can download it from the jingle level on folder notes or if you want.
+
+00:22.030 --> 00:23.870
+You can also start from a fresh project.
+
+00:23.890 --> 00:25.470
+It's up to you.
+
+00:25.600 --> 00:28.910
+Here's what you have to do starting from a project with an application.
+
+00:29.080 --> 00:33.210
+I want you to add a new model called a user and this model should have these fields.
+
+00:33.370 --> 00:39.890
+A first name field for the user class named character field for the user and then an email field and
+
+00:39.890 --> 00:44.390
+make sure to make the migrations as we showed earlier in the section of the course and then create a
+
+00:44.390 --> 00:49.640
+script that will populate your database with fake users then confirm that the populating worked through
+
+00:49.640 --> 00:51.960
+the admin interface.
+
+00:51.970 --> 00:56.930
+Once you've done that then create a view for your web site for the domain extension slash users.
+
+00:56.930 --> 01:02.530
+This slash user's page will bring him a list of the user names and emails which means if someone goes
+
+01:02.530 --> 01:07.710
+to your main web page that index page they'll just see some heading whatever you want to show.
+
+01:07.720 --> 01:12.730
+But when they go to the expense and slash users they'll actually see NHT analysis of the usernames and
+
+01:12.760 --> 01:17.380
+emails and then you're going to be using template tags actually generate this content from the user
+
+01:17.380 --> 01:18.390
+model.
+
+01:18.760 --> 01:24.100
+And remember to change your or else PI file to actually deal the changes to the user's extension both
+
+01:24.190 --> 01:28.780
+in your actual application and in your project to get a quick look at what the final page should actually
+
+01:28.780 --> 01:30.170
+look like.
+
+01:30.170 --> 01:30.490
+All right.
+
+01:30.490 --> 01:34.990
+So upon launching your web site you should see something like this on the home index page says welcome
+
+01:35.440 --> 01:37.590
+to users to see the list of user information.
+
+01:37.600 --> 01:44.740
+So then when you start typing slashy users enter you should see a generated list where you have numbers
+
+01:44.750 --> 01:50.050
+saying user info and then inside there's a nested list with the first name last name and then the email
+
+01:50.440 --> 01:55.800
+and all these first names last names and emails have been randomly generated with the faker library.
+
+01:55.840 --> 01:58.210
+So they may not match the first name or last name.
+
+01:58.210 --> 01:59.400
+That's totally OK.
+
+01:59.500 --> 02:01.750
+It's basically just totally fake data.
+
+02:01.990 --> 02:02.200
+Right.
+
+02:02.200 --> 02:03.250
+So this is what it should look like.
+
+02:03.250 --> 02:07.640
+Remember we are dynamically generating this content from the actual models.
+
+02:07.660 --> 02:09.960
+If you have any questions feel free to post the Q&amp;A forums.
+
+02:09.970 --> 02:10.970
+But other than that.
+
+02:11.020 --> 02:14.730
+Best of luck and in the next lecture we'll be cutting out through an example solution.
+
+02:14.810 --> 02:15.560
+I'll see it there.

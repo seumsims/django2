@@ -1,0 +1,472 @@
+WEBVTT
+
+00:04.930 --> 00:08.890
+Hello everyone and welcome to the populating models lecture.
+
+00:09.050 --> 00:13.160
+It's usually a good idea to create some sort of script that will populate your models with some dummy
+
+00:13.160 --> 00:15.010
+data that is fake data.
+
+00:15.290 --> 00:19.910
+Let's show you how you can use the faker library to create this sort of script going to hop over to
+
+00:19.910 --> 00:21.200
+the editor now.
+
+00:21.210 --> 00:21.460
+OK.
+
+00:21.470 --> 00:27.230
+So here I am open at the editor and the first thing we need to do is to actually install the faker library
+
+00:27.710 --> 00:31.520
+and you can do that with a simple Pip install and make sure you're in the correct virtual environment
+
+00:32.090 --> 00:32.950
+before you do this.
+
+00:32.960 --> 00:38.620
+But you'll say Pipp install them for capital F A K E R enter.
+
+00:38.660 --> 00:42.300
+And this should be installed the figure Python library for you.
+
+00:45.410 --> 00:48.150
+And it's a pretty quick download so it shouldn't take that much time.
+
+00:50.390 --> 00:50.930
+All right.
+
+00:50.960 --> 00:52.850
+Looks like it's finished installing for me.
+
+00:52.850 --> 00:54.470
+So that's all we need to do for that.
+
+00:54.680 --> 00:58.580
+OK let me quickly show you what the documentation for faker looks like.
+
+00:58.610 --> 01:05.210
+You can just come to Baker read the docs the IO and then check out the master link here.
+
+01:05.270 --> 01:07.640
+It just shows you the basic usage of faker.
+
+01:07.660 --> 01:09.360
+I can kind of zoom in here.
+
+01:09.710 --> 01:15.560
+Basically what you're doing is after you Pip install F.A. you say from faker import factory or from
+
+01:15.600 --> 01:16.860
+fake or import faker.
+
+01:16.880 --> 01:18.240
+That's what we were going to do it.
+
+01:18.410 --> 01:23.870
+And then you just say fake is an instance of fake or class and you can call different methods off of
+
+01:23.870 --> 01:28.140
+it create a fake name create a fake address create some fake text et cetera.
+
+01:28.340 --> 01:29.620
+And they have tons of methods here.
+
+01:29.630 --> 01:34.580
+So you can check out the documentation for all the various methods you click down here on providers.
+
+01:34.700 --> 01:40.090
+It shows you things like fake credit card fake date time fake Internet address person python files et
+
+01:40.090 --> 01:40.920
+cetera.
+
+01:41.360 --> 01:46.790
+So let's show you how you can use this library faker to actually create some fake data to populate our
+
+01:46.790 --> 01:54.320
+models with so inside of my top level first project folder I'm going to right click and create a new
+
+01:54.320 --> 01:55.210
+file.
+
+01:55.520 --> 01:58.290
+And it's kind of up to you where you want to save the population script.
+
+01:58.310 --> 02:01.370
+I usually save it on the top level file.
+
+02:01.400 --> 02:02.390
+So again it's up to you.
+
+02:02.390 --> 02:11.360
+But we'll call it populates underscore first underscore at that pie and we'll have it open here.
+
+02:11.370 --> 02:17.430
+Let's minimize some of this stuff so we get a little more room to read this and then I'm going to say
+
+02:17.790 --> 02:23.770
+import O S and then I'm going to need to configure the settings for the project.
+
+02:23.770 --> 02:31.980
+Now I actually need to run this before I call any code so I need to say OS environed for the environment.
+
+02:32.110 --> 02:36.910
+And I'm going to set the default and then I'm going to pass in all caps.
+
+02:36.950 --> 02:49.210
+Jingo settings underscore module and then set it equal to or passen as a second parameter first underscore
+
+02:49.450 --> 02:52.330
+project settings.
+
+02:52.630 --> 02:56.500
+And basically what this is doing is just configuring the settings for the project they need to do this
+
+02:56.500 --> 03:05.210
+before you start manipulating the actual models that are from here we can import Django and then set
+
+03:05.210 --> 03:13.620
+it up so I can say jingoes set up and this is set up and configured the project settings from here on.
+
+03:13.640 --> 03:21.540
+Next is our sake pop scripts are fake population scripts so they import a couple of things or import
+
+03:21.540 --> 03:35.890
+random and then I also say from me from first app the models import will do access record web page and
+
+03:35.980 --> 03:37.490
+copeck.
+
+03:37.700 --> 03:44.540
+And then finally the library we just downloaded will say from thicker import with a capital F. Saker
+
+03:45.080 --> 03:48.300
+the naming convention isn't so great there but that's the way to do it.
+
+03:49.500 --> 03:56.370
+Then we create an instance of that faker object or call it fake Jennifer fake generation and then we'll
+
+03:56.370 --> 04:02.930
+call Flaker close parentheses and then I'm going to just make a list of topics or remember the topics
+
+04:02.940 --> 04:04.920
+that was a very simple model.
+
+04:04.950 --> 04:07.350
+So I'll just create those manually.
+
+04:07.350 --> 04:12.000
+I'll have one topic of Web sites search on topic of Web sites.
+
+04:12.000 --> 04:14.280
+Be social in other one.
+
+04:14.280 --> 04:17.580
+Be a market place type site.
+
+04:17.970 --> 04:26.130
+And then finally we'll have news in games so various topics for different Web sites then we'll create
+
+04:26.130 --> 04:33.060
+a function that can actually add topics so say add topic and this is going to look really similar to
+
+04:33.060 --> 04:34.420
+using those shell commands.
+
+04:34.420 --> 04:40.090
+I'll say T is equal to topic objects.
+
+04:40.310 --> 04:48.440
+And in this case I'm going to call the Getz underscore or creates and what this does is it's either
+
+04:48.440 --> 04:55.290
+going to retrieve the topic if it already exists in the model or create it and I'm going to pass on
+
+04:55.620 --> 05:07.180
+top name is equal to and I'll say random choice the random choice method from the top X list and then
+
+05:07.180 --> 05:13.610
+I grab here a zero because of the way this is formatted back and to discuss this sort of formatting
+
+05:13.610 --> 05:16.760
+from get recreate a little more is the general format.
+
+05:16.940 --> 05:22.940
+It's essentially a tuple that returns object and then something that's created and the first element
+
+05:22.940 --> 05:29.570
+in the tuple object is a reference to the model instance that this get or create method creates the
+
+05:29.570 --> 05:35.360
+data it base century wasn't found and then the entry is created using the parameters that you pass here.
+
+05:35.450 --> 05:42.320
+In this case I'm just saying pick one of these topics as a random choice and you can check out the official
+
+05:42.320 --> 05:46.200
+jingle documentation if you want more information about this or create method.
+
+05:46.310 --> 05:51.380
+But the basic idea here it's going to return a tuple and I just want to grab the first object in that
+
+05:51.380 --> 05:54.620
+tuple which is that reference to the model instance.
+
+05:54.620 --> 05:58.020
+So that's why I have to add an additional index of 0 here.
+
+06:00.400 --> 06:09.440
+Then once I've done that I'm going to say teeth that save as we've done before and I will then return
+
+06:09.440 --> 06:11.900
+to the.
+
+06:12.050 --> 06:14.000
+So that's my simple add topic.
+
+06:14.030 --> 06:19.620
+Now let's show you kind of the more complicated ways for populating access record and web page which
+
+06:19.660 --> 06:23.080
+aren't just a simple one word.
+
+06:23.270 --> 06:33.060
+So I will say the and we'll just call this populate and we'll have a default and to populate with.
+
+06:33.070 --> 06:36.520
+So the user can then later change that or provide it.
+
+06:36.530 --> 06:39.390
+We could also make it some sort of command line parameter.
+
+06:39.390 --> 06:48.590
+You can pasan right now we'll keep it as let's say Nickols 5 and we're going to do say four entry in
+
+06:48.590 --> 07:03.430
+range and Herse we need to do is get the topic for the entry so say top is equal to add topic
+
+07:06.290 --> 07:13.050
+and then I want to create the fake data for that entry.
+
+07:13.160 --> 07:21.610
+So I create a fake your L objects like call fake Jeon which is the instance of faker and the method
+
+07:21.610 --> 07:28.600
+for your L is just u r l then any that creates fake dates for that.
+
+07:28.600 --> 07:35.280
+And that's just again fake Jan and we call date offer that the date method.
+
+07:35.290 --> 07:43.120
+And then I need to get a fake name for this Web site like a fake company name so I can call fake.
+
+07:43.190 --> 07:46.780
+Jen dots and then call a company office.
+
+07:46.780 --> 07:51.700
+There are a ton of different more or a lot more methods you can call off of this like fake first name
+
+07:51.700 --> 07:54.570
+fake last name fake credit card etc..
+
+07:54.580 --> 07:57.180
+Again you can explore the documentation if you're interested in those.
+
+07:57.340 --> 07:59.450
+Right now that's really all we need.
+
+07:59.470 --> 08:08.530
+So then I'll create the new web page entry and I'll create a variable w e.
+
+08:08.610 --> 08:15.980
+The PGE for short for Web page and only web page the objects.
+
+08:16.060 --> 08:18.420
+And then I'm going to use that get or create again.
+
+08:19.260 --> 08:27.880
+And then I will specify that for this web page the topic is equal to top your L is equal to that fake
+
+08:27.880 --> 08:36.670
+your all generated and the name of it is equal to that fake name I generated.
+
+08:36.770 --> 08:40.190
+Again I need to grab the first object in that tuple that's.
+
+08:41.220 --> 08:47.280
+So keep that and then I want to create a fake access record.
+
+08:49.480 --> 08:52.490
+Or that web page.
+
+08:52.610 --> 09:00.460
+So I will say A.S.C. underscore R-S.C. is equal to access record.
+
+09:00.830 --> 09:14.840
+Again objects get create and also apply that the name was the web page and then date is equal to sake
+
+09:14.860 --> 09:17.270
+underscore dates.
+
+09:17.350 --> 09:23.320
+And again I just want that first object so no this is going to be a little different on this first parameter
+
+09:23.410 --> 09:28.240
+because if you remember back to the actual models look like they click here for Web page.
+
+09:28.240 --> 09:31.150
+The topic was the foreign key topic.
+
+09:31.210 --> 09:33.860
+So when I'm actually generating that fake data.
+
+09:33.910 --> 09:40.950
+Notice that instead of passing just some fake topic name I'm actually grabbing a topic object so if
+
+09:41.020 --> 09:47.650
+we go back here I'm returning see from AD topics I'm actually returning a topic object which is why
+
+09:47.650 --> 09:52.620
+I'm passing it here when I'm saying get or create and it's the same thing for access records.
+
+09:52.690 --> 09:58.510
+Come back here for access record it's foreign key for the name is web page so actually belongs here.
+
+09:58.730 --> 10:04.960
+The web page means I'm going to pass an entire Web page here so that web page that I just created and
+
+10:04.960 --> 10:08.390
+passing it in to the access record because it was a foreign key.
+
+10:08.440 --> 10:09.310
+So keep that in mind.
+
+10:09.310 --> 10:13.690
+You can't just pass on a string here if you have it as a foreign key in the models
+
+10:16.800 --> 10:17.380
+OK.
+
+10:17.530 --> 10:26.170
+Next finally at the end of all this thing I'm going to say if main name is equal to Main here I'm going
+
+10:26.170 --> 10:30.170
+to print some command like Papilio scripts
+
+10:34.340 --> 10:39.800
+and then we can say populate and here you can actually pass in whatever number you want number the default
+
+10:39.800 --> 10:40.970
+was 5.
+
+10:41.160 --> 10:43.190
+We could change it to be 20 if we wanted to.
+
+10:43.250 --> 10:44.620
+That should be no problem.
+
+10:44.690 --> 10:54.380
+And then once that's done we'll say something like population or we'll say populating complete save
+
+10:54.380 --> 10:54.880
+that.
+
+10:54.970 --> 10:58.990
+And now it's time to actually test to see if we got this all right.
+
+10:58.990 --> 11:06.980
+So I come back up here and then I'm going to clear my Consul and let's make sure I'm in the right place
+
+11:06.990 --> 11:18.090
+they should be under first project and I will call Python wups we'll call him right Python.
+
+11:19.540 --> 11:27.380
+Populate underscore first underscore at that pi enter populating the script you see kind of a bunch
+
+11:27.390 --> 11:30.550
+stuff here happening with D-B sequel like that.
+
+11:30.630 --> 11:35.340
+The higher end value you provide the more time it will take to generate all that fake data.
+
+11:35.370 --> 11:36.410
+So keep that in mind.
+
+11:36.630 --> 11:37.850
+It looks like it all works.
+
+11:37.860 --> 11:40.340
+So now its actually tested.
+
+11:40.590 --> 11:42.050
+Let's run our Web site.
+
+11:42.120 --> 11:53.760
+I will say now Python managed up-I run server is going to run the server and let me grab the URL and
+
+11:53.760 --> 11:56.730
+put it in my browser and bring that browser up.
+
+11:56.760 --> 12:02.490
+So here's the browser and then let's say slash admin.
+
+12:02.680 --> 12:06.730
+And if we take a look at this let's check out the web pages we have.
+
+12:06.730 --> 12:10.930
+And now here I can see I have a bunch of fake web pages that I just generated and populated.
+
+12:10.930 --> 12:11.950
+Pretty cool.
+
+12:11.990 --> 12:14.110
+Come back to access records.
+
+12:14.180 --> 12:18.130
+You have a bunch of fake access records and you could have limited the access record dates.
+
+12:18.130 --> 12:22.050
+It doesn't really matter for our use case but we see that we're able to click on one.
+
+12:22.050 --> 12:23.590
+Check it out has a name.
+
+12:23.590 --> 12:29.470
+We can also reassign the name but now you have a better idea of what a fuller database actually looks
+
+12:29.470 --> 12:29.920
+like.
+
+12:30.130 --> 12:35.470
+So here web pages again here are the topics from the topics or just a few topics but I could click on
+
+12:35.470 --> 12:36.550
+social change.
+
+12:36.550 --> 12:37.370
+Cetera.
+
+12:37.740 --> 12:38.380
+OK.
+
+12:38.530 --> 12:41.200
+That's all we need to know now for population scripts.
+
+12:41.200 --> 12:44.350
+Hopefully you'll find them useful when you're working if your own web sites.
+
+12:44.350 --> 12:46.590
+We won't touch on them too often in the future.
+
+12:46.600 --> 12:51.560
+But keep in mind that we can use them and that faker libraries hopefully really useful to you.
+
+12:51.850 --> 12:52.290
+Thanks.
+
+12:52.330 --> 12:53.440
+And I'll see you at the next lecture.

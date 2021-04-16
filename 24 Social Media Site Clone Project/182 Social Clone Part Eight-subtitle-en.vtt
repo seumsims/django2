@@ -1,0 +1,196 @@
+WEBVTT
+
+00:05.440 --> 00:10.860
+Welcome to partake of the social cloning project now we're going to do is connect the views that we've
+
+00:10.860 --> 00:13.120
+already created in groups to some murals.
+
+00:13.140 --> 00:17.910
+We still have two more views to create in the group's application but we'll worry about those later
+
+00:17.910 --> 00:18.510
+on.
+
+00:18.510 --> 00:22.770
+Right now we're just going to connect the user created to some Urals and we're also going to register
+
+00:22.770 --> 00:26.650
+the group models that we previously created to the admin that PI file.
+
+00:26.880 --> 00:28.830
+Let's hop over to Adam and get started.
+
+00:28.830 --> 00:29.070
+All right.
+
+00:29.070 --> 00:33.700
+Here I am at the text editor I have the model's views and the various templates are created.
+
+00:33.840 --> 00:36.750
+What I want to do now is go to your not pie.
+
+00:36.810 --> 00:43.500
+This is the groups your URLs up py file and here's where I'm going to basically connect all the views
+
+00:43.500 --> 00:44.730
+I just made.
+
+00:44.850 --> 00:53.250
+So we will say from Django figuration your Elle's import your L and then I'm also going to save from
+
+00:53.250 --> 00:59.130
+Daut import views to actually access the views we just created specifically those class based views
+
+00:59.760 --> 01:06.580
+and then we'll get this app name group so we can reference it later on with your template tagging.
+
+01:06.590 --> 01:13.880
+Now I'm going to make a list of your all patterns and we're going to say the first pattern is just going
+
+01:14.420 --> 01:18.180
+to be the very basic groups page and that will be the list groups page.
+
+01:18.180 --> 01:21.090
+So we'll actually just call it carot dollar sign.
+
+01:21.260 --> 01:26.030
+So when someone actually goes to your Web site dot com slash groups it shows you the list of all the
+
+01:26.030 --> 01:34.150
+groups so say views list groups start as a view and then we'll give the name we can just keep it all
+
+01:36.300 --> 01:43.290
+and then we're also going to say your L and for this one this is going to be the Create page so you
+
+01:43.290 --> 01:50.380
+can either call it slash create or call it slash new and then we're going to say views and that will
+
+01:50.380 --> 01:53.150
+be the create group as a view.
+
+01:54.240 --> 01:55.730
+And then we'll see name is create
+
+01:58.840 --> 02:03.900
+it will create in other Euro function this is going to be for the actual detail view and it is going
+
+02:03.900 --> 02:04.980
+to be a little more complicated.
+
+02:04.980 --> 02:11.280
+We're going to do is say PPOs slash and slash and then this will actually be the group and we're going
+
+02:11.280 --> 02:14.760
+to use regular expressions to plug in the slug there.
+
+02:14.770 --> 02:15.270
+So it goes.
+
+02:15.270 --> 02:22.880
+Question mark capital P and then open tag close tag with slug.
+
+02:23.310 --> 02:25.940
+And then in brackets here we'll say minus backslash.
+
+02:25.980 --> 02:33.780
+There'll be you know we'll say plus And after all of that forward slash dollar sign and Bisco it's just
+
+02:33.990 --> 02:41.160
+going to say post in and then it's going to slug ify the actual group name and then that will lead to
+
+02:41.580 --> 02:44.280
+the actual single group there.
+
+02:44.280 --> 02:53.250
+So there will be views dots and we called that single group will say as a view and we'll give the name
+
+02:53.310 --> 02:59.370
+and collapses this we get a little more room which is called This single and save we still have two
+
+02:59.370 --> 03:03.300
+more Uriel's and two more views to make about Leni leaving and joining groups.
+
+03:03.300 --> 03:06.900
+But right now we don't really worry about them we'll take care of that when we actually create those
+
+03:06.900 --> 03:08.030
+views blessing.
+
+03:08.180 --> 03:14.430
+I want to do in this particular lecture is assigned the admin file for the models created so remember
+
+03:14.430 --> 03:18.500
+previously we created the group model as well as the group member model.
+
+03:18.510 --> 03:24.860
+So let's set that up in our admin that pie going to open that up and then go to Evan that pie from jingo.
+
+03:24.870 --> 03:28.290
+And then I also want to say from datt import models.
+
+03:28.370 --> 03:37.750
+So I want to register these models with the abdomen and I will say Adam in site thought register and
+
+03:37.750 --> 03:45.130
+then I just passen models group and then the other thing I want to do is a little special with a tabular
+
+03:45.220 --> 03:52.090
+inline and the inline class that we're going to be using basically allows us to utilize the admin interface
+
+03:52.090 --> 03:56.790
+and or Gengel Web site with the ability to edit models on the same page as the parent model.
+
+03:56.950 --> 04:02.620
+So our group member basically has a bit of a parent model with group and what we can do is we can use
+
+04:02.650 --> 04:07.710
+a tabular inline class so that when we visit the admin page I can click on group and then see the group
+
+04:07.780 --> 04:09.440
+members and edit those as well.
+
+04:09.450 --> 04:10.840
+So let's see how we can do that.
+
+04:10.870 --> 04:20.420
+All I need to do is say class group member and then I'm going to say in line then I call in tabular
+
+04:20.420 --> 04:29.180
+in line and then I just do the assignment of model is equal to models group member and then I don't
+
+04:29.180 --> 04:35.720
+actually have to register it because now the group member model is in line here and we'll see what that
+
+04:35.720 --> 04:40.280
+looks like with more detail when we actually it is the Adamant site and that's all we're going to do
+
+04:40.280 --> 04:41.090
+for this lecture.
+
+04:41.090 --> 04:45.350
+Just connecting the views we've previously created in our Urals the py file which you can reference
+
+04:45.350 --> 04:51.590
+in the notes as well as set up our registration for the models so the group model is just typical registration.
+
+04:51.590 --> 04:55.730
+And then here we did a type inline which you're going to see later on when we actually visit the admin
+
+04:55.730 --> 04:56.380
+page.
+
+04:56.550 --> 04:57.160
+OK.
+
+04:57.350 --> 04:58.880
+So much shorter than the last one.
+
+04:58.880 --> 05:00.340
+So take your time with this.
+
+05:00.350 --> 05:04.760
+Definitely a lot of stuff to type out and you can always copy and paste from the notes.
+
+05:04.790 --> 05:06.590
+Thanks everyone and I'll see you at the next lecture.

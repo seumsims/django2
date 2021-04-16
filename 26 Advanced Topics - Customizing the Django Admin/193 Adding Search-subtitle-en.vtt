@@ -1,0 +1,133 @@
+WEBVTT
+
+00:05.640 --> 00:06.700
+Welcome back everyone.
+
+00:06.750 --> 00:11.850
+In this lecture will show you how to add search on your and view pages.
+
+00:11.950 --> 00:17.270
+So we currently only have a few entries in our models just a few movie titles a few customers but with
+
+00:17.350 --> 00:21.760
+a more realistic project ends up having hundreds or even thousands of entries.
+
+00:21.790 --> 00:25.400
+It's going to be hard to just quickly scroll through and find what you're looking for.
+
+00:25.570 --> 00:30.610
+We can add a search in the Admin Page to quickly and easily find what entry we're looking for and Gengel
+
+00:30.610 --> 00:32.380
+actually makes this incredibly easy.
+
+00:32.380 --> 00:35.880
+It's essentially just one Ashmit you add into a class.
+
+00:36.100 --> 00:38.820
+So let's hop over to the editor and show you how to do that.
+
+00:39.160 --> 00:43.780
+OK I'm back here at the editor and on your abdomen up Paey file remember these classes recreated created
+
+00:43.780 --> 00:47.020
+or we could add in fields or the ordering of fields.
+
+00:47.040 --> 00:54.010
+We can also do is add in an attribute called Search underscore fields and you can set that equal to
+
+00:54.040 --> 00:59.380
+a list of fields you want to actually search in the search box that jingoes going to automatically create
+
+00:59.380 --> 01:00.520
+for us.
+
+01:00.520 --> 01:04.140
+So for instance for movies you probably just want to search the title.
+
+01:04.300 --> 01:08.860
+You can imagine that if there was a description of this movie you may want to search that as well.
+
+01:08.860 --> 01:13.750
+Now the more terms or field you add in here in the search field that means the longer it's going to
+
+01:13.750 --> 01:14.800
+take to search something.
+
+01:14.800 --> 01:20.380
+However it's relatively quick so it shouldn't be a big deal to add in more fields here.
+
+01:20.380 --> 01:26.050
+However we probably don't want to add fields like length unless you intend to search for length in the
+
+01:26.050 --> 01:26.990
+search box.
+
+01:27.010 --> 01:29.510
+So I'm going to save this so you can see what this actually looks like.
+
+01:29.660 --> 01:33.030
+Let me bring in my abdomen page.
+
+01:33.310 --> 01:35.120
+So here's my ADD admin page.
+
+01:35.170 --> 01:38.590
+And we added a search field to movies so we click on movies Lotusphere.
+
+01:38.590 --> 01:43.660
+Now we get this nice little search box and what I can do is I can begin typing something like Indiana
+
+01:44.860 --> 01:50.600
+and then hit search and it's going to return anything where Indiana happened to be in that title.
+
+01:50.880 --> 01:51.410
+OK.
+
+01:51.670 --> 01:57.010
+Now if I'd search something like 1 to 3 or let's say 120 and hit search right now 0 movies pop up because
+
+01:57.010 --> 02:01.770
+it's not searching at the length of movies it's only searching the title of movies.
+
+02:01.780 --> 02:07.480
+So let's edit that so we can see the effect and I hope that over here and then let's go ahead and say
+
+02:07.540 --> 02:09.830
+length is something we can search as well.
+
+02:10.090 --> 02:11.460
+Save this.
+
+02:11.680 --> 02:13.960
+I'm going to refresh this come back.
+
+02:13.960 --> 02:15.780
+The videos come back to movies.
+
+02:16.000 --> 02:21.370
+And now I'm going to search for let's say 120 hit search and I see Jurassic Park shows up because remember
+
+02:21.580 --> 02:24.340
+now I can search for the link for movies if I click on dress park.
+
+02:24.400 --> 02:26.530
+That was the link for that movie.
+
+02:26.530 --> 02:27.060
+OK.
+
+02:27.130 --> 02:31.490
+That's really it for adding search as he saw it's incredibly easy and incredibly powerful.
+
+02:31.510 --> 02:36.130
+All you need to do is inside one of these classes add in the search mute search underscore fields and
+
+02:36.130 --> 02:39.790
+then add in a list of fields you want to search or remember to register.
+
+02:39.850 --> 02:41.540
+Along with the model.
+
+02:41.860 --> 02:44.140
+OK thanks everyone and I'll see at the next lecture.

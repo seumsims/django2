@@ -1,0 +1,1009 @@
+WEBVTT
+
+00:05.140 --> 00:10.630
+Hello everyone and welcome to Gengel level 2 project exercise solutions lecture and this lecture will
+
+00:10.630 --> 00:15.540
+be coding through the project exercise solutions and showing you how to do it from scratch.
+
+00:15.550 --> 00:19.760
+Meaning will actually start a project and create an application from the very beginning.
+
+00:19.900 --> 00:24.370
+And the reason for this is that you can later on use this lecture as a reference for everything we've
+
+00:24.370 --> 00:27.990
+covered not just in Gengel level but single level 1 as well.
+
+00:28.210 --> 00:32.670
+OK let's hop over to the editor and get started.
+
+00:32.680 --> 00:35.560
+OK so here I am at my editor and to get started.
+
+00:35.560 --> 00:39.230
+I'm going to actually activate my virtual environment.
+
+00:39.320 --> 00:45.010
+You want to know what your virtual environment sorry you can go to Canada info dash dash and VS and
+
+00:45.010 --> 00:46.480
+this is totally optional.
+
+00:46.480 --> 00:50.640
+As I mentioned back when we're discussing virtual environments you don't need to use a virtual environment.
+
+00:50.650 --> 00:56.710
+It's definitely a good idea especially if you plan to actually use this Web site or application and
+
+00:56.740 --> 00:58.140
+host it somewhere online.
+
+00:58.180 --> 00:59.930
+Then you definitely want to have a virtual environment.
+
+01:00.040 --> 01:04.360
+But if you plan on just playing with things locally it's not a big deal to not use one.
+
+01:04.360 --> 01:04.640
+All right.
+
+01:04.660 --> 01:07.570
+So then I see my Tingo Ian V.
+
+01:07.570 --> 01:08.710
+That's what I want.
+
+01:08.710 --> 01:12.560
+So I will say activates my jingo.
+
+01:12.940 --> 01:18.270
+Ian V and this is the environment that's using Python 3 and also has Shingo installed.
+
+01:18.370 --> 01:24.520
+And then what I'm going to do is actually under Django lecture's the folder I'm in I have a folder called
+
+01:24.520 --> 01:25.730
+Gengel level 2.
+
+01:25.840 --> 01:32.290
+So I will see the two Django level two and I'm just using tabbed to autocomplete there and then I'm
+
+01:32.290 --> 01:33.550
+going to create my project.
+
+01:33.560 --> 01:39.530
+And remember we can create a project with the Django Addleman command line tool and that basically allows
+
+01:39.530 --> 01:47.750
+us to just say Django dash admin and then call the start project command and then whatever you want
+
+01:47.750 --> 01:53.900
+to name the project I'll try to keep the name similar to what the actual Gengel level one secondary
+
+01:53.930 --> 01:54.860
+project was.
+
+01:54.860 --> 02:00.560
+It was Pro-Tools so will keep that to enter and then it may take a couple of seconds for it to actually
+
+02:00.800 --> 02:01.990
+create the project files.
+
+02:02.000 --> 02:03.490
+But it's going to create those files.
+
+02:03.500 --> 02:04.610
+Here they are.
+
+02:04.610 --> 02:10.040
+And then we have to go to settings or else and then manage top high.
+
+02:10.130 --> 02:16.010
+So now it's actually create an application and we do that with the python managed up high commands.
+
+02:16.250 --> 02:21.890
+So will CD into Pro-Tools get access to that actual managed up file.
+
+02:21.890 --> 02:29.530
+Now that I'm in the same directory as I will call Python managed up PI and then I'm going to call the
+
+02:29.530 --> 02:35.110
+command start app and then the name of my application in this case we'll just call it something simple
+
+02:35.410 --> 02:36.690
+like app too.
+
+02:36.700 --> 02:41.360
+But again you can call it whatever you want and you'll probably want to choose better names and on choosing
+
+02:41.360 --> 02:41.770
+here.
+
+02:41.810 --> 02:46.030
+Since I'm doing very generic names so we can kind of tell each single step.
+
+02:46.190 --> 02:52.190
+And now I have my project my application and everything's ready to go as I continue along.
+
+02:52.200 --> 02:57.960
+I'm going to need to add something to the settings that py file to let it know where my application
+
+02:57.960 --> 02:58.340
+is.
+
+02:58.500 --> 03:02.780
+But I also want to add a template folder and we can also later on add a static folder.
+
+03:02.940 --> 03:05.340
+I'm going to just do this manually.
+
+03:05.400 --> 03:13.320
+So the way I can do this is right click on the Pro 2 and say new folder and I will call this one templates
+
+03:15.160 --> 03:21.420
+and then inside of templates I'm going to create another folder called app too.
+
+03:21.910 --> 03:26.890
+And then hearing won't have any templates that relate to application to and for the case of our project
+
+03:26.920 --> 03:32.590
+exercise it's going to be two templates the index each team l page the home page and then the actual
+
+03:32.590 --> 03:33.880
+users page.
+
+03:33.910 --> 03:42.040
+So I create a new file and we'll call that users h T.M. OK and we'll deal with actually editing these
+
+03:42.040 --> 03:42.820
+much later.
+
+03:42.940 --> 03:44.590
+So I can close them for now.
+
+03:44.590 --> 03:50.500
+Just make sure they actually created and then I want to go to setting up my file at my next step is
+
+03:50.500 --> 03:55.180
+to actually make sure that it knows where the templates are so create that template directory and add
+
+03:55.180 --> 04:01.050
+it and also add that the application to that I made to the settings that py file.
+
+04:01.060 --> 04:07.230
+So let's walk through that again for the template directory I just say template underscored the I are
+
+04:08.120 --> 04:13.710
+and we do a very similar process when you have the static directory go and say oh stop paff join or
+
+04:13.710 --> 04:15.940
+remember we want to use relative path names.
+
+04:16.290 --> 04:21.510
+And then I'm going to call the base directory and then add on to it templates.
+
+04:21.530 --> 04:25.990
+So all I'm saying is OK go to the base their victory and then a subdirectory that is this templates
+
+04:26.000 --> 04:32.750
+folder I just made so I can save that and then I'm going to scroll down here to that templates list
+
+04:32.750 --> 04:34.670
+with a dictionary inside of it.
+
+04:34.670 --> 04:37.200
+Here it is and here and there directories.
+
+04:37.370 --> 04:44.090
+I want to let it know that the variable template underscored the A-R is what I'm referencing.
+
+04:44.090 --> 04:52.610
+So we'll save that and I always add in a comma just in case and then scrolling back up we can see we
+
+04:52.610 --> 04:58.700
+have installed apps listed and I want to make sure that it also knows the application I just made is
+
+04:58.700 --> 05:04.550
+there Telsey app to and we can save that.
+
+05:04.620 --> 05:07.020
+All right settings that applies should now be good to go.
+
+05:07.020 --> 05:08.820
+So let's continue.
+
+05:08.820 --> 05:13.100
+The first thing I like to do is start off with the actual models.
+
+05:13.320 --> 05:21.610
+So I will come to app to open up the models and create them here so I'll create a user class.
+
+05:21.690 --> 05:29.090
+And we always inherit from models Top Model and then we do the class object attributes which are the
+
+05:29.090 --> 05:31.540
+fields so we have a first name field.
+
+05:32.040 --> 05:39.260
+And that's going to be models dots and we'll have that be a character field and we'll give this a max
+
+05:39.260 --> 05:43.160
+length constraints of 128.
+
+05:43.350 --> 05:49.430
+Again up to you whatever you want the constraints to be last name is also going to be essentially the
+
+05:49.430 --> 05:55.170
+exact same thing max length will set that equal to 128.
+
+05:55.300 --> 06:02.740
+And then finally we have the email field and hopefully you are able to figure out that email field is
+
+06:02.740 --> 06:03.740
+available to you.
+
+06:04.830 --> 06:07.600
+And we'll give this a maximum length of a little longer.
+
+06:07.630 --> 06:09.560
+Let's just say 2 6 4.
+
+06:10.020 --> 06:16.880
+And also all the emails to be unique and the logic behind that is sometimes people share the same first
+
+06:16.880 --> 06:18.580
+and last name if it's a really common.
+
+06:18.710 --> 06:23.740
+So something like John Smith can be a really common first and last name we want to make sure that least
+
+06:23.800 --> 06:25.460
+Leister emails are unique.
+
+06:25.460 --> 06:28.640
+Otherwise we may have a duplicate in the user base.
+
+06:29.600 --> 06:30.950
+OK so save that.
+
+06:30.950 --> 06:32.930
+Now we have our models done.
+
+06:33.140 --> 06:36.550
+Up next I want to make sure that I actually have the views for this.
+
+06:36.590 --> 06:44.450
+So I'll come to app to use that pi and at first we're using HTP response but now we can just use the
+
+06:44.450 --> 06:46.140
+Arend their function.
+
+06:46.140 --> 06:53.350
+Remember I need to actually say from app to stop models and import my model.
+
+06:53.420 --> 06:54.710
+That way I can use it.
+
+06:55.040 --> 06:56.330
+So now it's time to create a view.
+
+06:56.330 --> 07:02.340
+Right now we've only known about function views later on we'll learn about class based views so we have
+
+07:02.340 --> 07:10.400
+def index that takes a request is going to be the home page and I'm just going to return render taken
+
+07:10.440 --> 07:18.140
+the request and then find other templates apt to slash indexed.
+
+07:18.190 --> 07:26.520
+H T.M. and we will save that then the next thing I want to do is actually create the view for that user's
+
+07:26.520 --> 07:36.370
+page so that's going to be the users that takes in a request and we're going to have a user list object
+
+07:36.820 --> 07:45.450
+which is just going to call the user grab all those objects and then we can also call order by on them
+
+07:46.120 --> 07:49.380
+an order by the first name.
+
+07:49.400 --> 07:53.070
+You can also just grab all of them but it's always nice to order them somehow.
+
+07:53.390 --> 07:54.950
+Especially given we're going to be doing.
+
+07:54.950 --> 08:01.190
+And we'll talk a lot more about the actual sort of commands of grabbing objects or sees models for your
+
+08:01.190 --> 08:01.840
+views.
+
+08:01.880 --> 08:03.660
+Right now keep things simple.
+
+08:03.860 --> 08:10.390
+And then finally you want to create that context dictionary and here we'll keep it to say users is the
+
+08:10.390 --> 08:11.400
+key.
+
+08:12.130 --> 08:21.500
+And then the actual value is user list that I'm going to return and I'll return the render command or
+
+08:21.500 --> 08:33.270
+render function and here that's going to be up to users that HVM El and then also want to up first argument
+
+08:33.270 --> 08:34.660
+should be requests.
+
+08:34.740 --> 08:35.560
+Almost forgot.
+
+08:35.670 --> 08:36.460
+Ok request.
+
+08:36.480 --> 08:38.690
+Now attached to users e-mail.
+
+08:39.300 --> 08:45.970
+And then for the context I'll set it equal to that dictionary we just created user underscore at the
+
+08:46.020 --> 08:52.700
+ICC save that and now we have our views credos we have the home page view and the actual users view
+
+08:52.780 --> 08:57.530
+to the user view right now it's going to grab all the objects from user order them by their first name
+
+08:57.840 --> 08:59.090
+and it sets up that dictionary.
+
+08:59.120 --> 09:03.940
+Users for this user list so we can actually return that and then grab stuff from it.
+
+09:04.100 --> 09:06.890
+So we're ready to go on this front.
+
+09:07.010 --> 09:09.940
+Up next what we have to do is actually set up the your files.
+
+09:09.950 --> 09:15.500
+So let's actually underneath our app to create the Oreilles that PI file will be using.
+
+09:15.500 --> 09:19.680
+So create a new file under app to your stop pie.
+
+09:19.760 --> 09:24.710
+Remember we have your L's for the actual application and then your Elle's across the entire project.
+
+09:24.980 --> 09:30.250
+So this is what it looks like across the entire project and then that's what it looks like in the application.
+
+09:30.260 --> 09:38.800
+So right now the application your or else is going to be quite simple We'll just say from Django config.
+
+09:39.540 --> 09:48.210
+Or else import your el and then from app to import those views.
+
+09:51.250 --> 09:59.140
+That will create a neural patterns list and here we will just call your function.
+
+09:59.500 --> 10:04.150
+And then using regular expressions like say Kara.
+
+10:04.180 --> 10:11.790
+And then the dollar sign and we will call use users and we will sign it.
+
+10:11.790 --> 10:16.130
+The name users we can call it later.
+
+10:16.380 --> 10:18.060
+And I've been using the word users a lot.
+
+10:18.060 --> 10:22.820
+So maybe in your own applications you don't want to have so many names doubled up but for something
+
+10:22.930 --> 10:28.950
+simple we have users that each HTML directly related to the user's view here and then I'm naming this
+
+10:28.950 --> 10:29.910
+users.
+
+10:30.150 --> 10:35.020
+That's OK for now since it's pretty simple and straight forward not a whole lot of applications or views
+
+10:35.070 --> 10:39.340
+but later on you may want to hone in on unique names if you come back to us later.
+
+10:39.420 --> 10:40.690
+It makes more sense to you.
+
+10:40.960 --> 10:41.440
+OK.
+
+10:41.550 --> 10:47.850
+So that's actually a time to edit the Urals in the project and they get Remember there's kind of three
+
+10:47.850 --> 10:51.620
+distinct ways to do this right now we haven't learned about class based VBA.
+
+10:51.750 --> 10:54.310
+We have know about function views so a way to do that.
+
+10:54.530 --> 10:54.860
+Well sure.
+
+10:54.870 --> 11:05.480
+The simplest way you just say from app to poor views and then what we can do here for instance for the
+
+11:05.480 --> 11:14.680
+home page is say you are el and that's going to be the home page of say carit dollar sign then called
+
+11:14.680 --> 11:18.220
+views index.
+
+11:18.460 --> 11:25.660
+And then we say the name index here comma and then the other way is using this include function that
+
+11:25.660 --> 11:26.740
+we haven't imported into.
+
+11:26.770 --> 11:32.110
+Let's actually do that first so we can import include as another way to do this and we'll do that for
+
+11:32.110 --> 11:33.270
+the users.
+
+11:33.280 --> 11:44.180
+So say you are el and then we'll say regular expression here your users slash and anything slash users
+
+11:44.180 --> 11:52.380
+comes here and then I call include and then passen app to your or else
+
+11:55.430 --> 11:56.270
+save that.
+
+11:56.420 --> 11:58.000
+And then we should be good to go.
+
+11:59.240 --> 12:05.240
+OK let's check to see if we actually get everything working correctly by migrating the models to actual
+
+12:05.240 --> 12:06.420
+databases.
+
+12:06.740 --> 12:16.980
+So here we're going to call wups Python managed up PI and then call Mike we will enter and here we can
+
+12:16.980 --> 12:19.360
+see the migration happening so that looks good.
+
+12:19.860 --> 12:23.780
+And then we need to register those changes to our application.
+
+12:23.940 --> 12:32.050
+So say Python managed up high make migrations and then the actual application name.
+
+12:32.260 --> 12:34.230
+In our case it's app 2.
+
+12:34.620 --> 12:37.640
+So we'll run that as well and it looks like it created the model user.
+
+12:37.660 --> 12:44.920
+And then finally we need to rerun those migrations or say manage manage to apply migrate one more time
+
+12:45.540 --> 12:49.900
+enter to applying those changes and where we should be good to go.
+
+12:49.990 --> 12:55.630
+Now if you actually want to use the admin interface with this model we need to tell the admin that it's
+
+12:55.630 --> 12:56.640
+there.
+
+12:56.770 --> 13:04.750
+So I'm going to go to my admin py file right now there's nothing there but when I'm going say is from
+
+13:05.350 --> 13:06.220
+my app.
+
+13:06.240 --> 13:11.200
+So in this case it's app to that models import and then I'm going to import.
+
+13:11.230 --> 13:15.930
+In this case the only model I have user and then say Addleman site
+
+13:18.190 --> 13:24.920
+register and I will register that model with the admin interface.
+
+13:24.960 --> 13:28.120
+Ok so we should have everything ready to go.
+
+13:28.200 --> 13:29.140
+Let's make sure.
+
+13:29.220 --> 13:31.530
+And we'll actually try running the server here.
+
+13:31.710 --> 13:39.330
+So I'll say Python managed up by run server.
+
+13:39.330 --> 13:43.030
+Enter now let's see if we actually get everything working OK.
+
+13:43.080 --> 13:47.660
+So I'm going to copy and paste this put in my browser and bring it over.
+
+13:47.820 --> 13:50.640
+If you just ran that you should have a blank page.
+
+13:50.640 --> 13:53.290
+So that's actually pretty good.
+
+13:53.550 --> 13:58.010
+Let's make sure that it's working by calling admin off this.
+
+13:58.080 --> 13:59.380
+And here we have admen.
+
+13:59.400 --> 14:03.850
+So that's also working but we haven't actually created a super user for the admin.
+
+14:03.900 --> 14:05.560
+So let's do that now.
+
+14:06.030 --> 14:10.710
+But it looks like the basics is working and we can do control to kill that.
+
+14:10.710 --> 14:15.120
+Let's create a super user and actually put something in the index page.
+
+14:15.210 --> 14:21.760
+So do that first all type H Tim L on this index page and then give a Heading 1
+
+14:24.520 --> 14:26.770
+just say working though it's not totally blank.
+
+14:26.800 --> 14:30.970
+And I know something is there that everything is actually connecting and then let's add in that super
+
+14:30.970 --> 14:32.600
+user.
+
+14:32.720 --> 14:35.930
+And I remember again we do this is to manage that PI file.
+
+14:35.930 --> 14:40.100
+Like I said we're calling manage that PI file a lot whenever working with Django.
+
+14:40.580 --> 14:47.890
+And then I'm going to create super user should ask me for my user name will say Jose is my user name
+
+14:49.110 --> 14:54.040
+anything you want for the email address is fine just make sure you remember these.
+
+14:54.050 --> 14:56.550
+Otherwise you have to create another super user.
+
+14:56.670 --> 15:04.970
+And then finally I'm going to put a weak password in test password test password.
+
+15:05.420 --> 15:09.050
+OK super superuser created successfully looks like everything's good.
+
+15:09.240 --> 15:14.480
+OK now that I've created the super user of the admin Let's actually make sure everything has been registered.
+
+15:14.520 --> 15:19.690
+So it's called Python managed by migrate.
+
+15:20.120 --> 15:21.970
+Enter no migration to apply.
+
+15:21.970 --> 15:22.940
+So that's good.
+
+15:23.190 --> 15:23.440
+All right.
+
+15:23.430 --> 15:27.760
+Now that we've created the super user and check those migrations again we should be able to run the
+
+15:27.760 --> 15:28.460
+server.
+
+15:28.690 --> 15:37.950
+So it's called Python managed up up-I run server run it and then bringing in my browser with this.
+
+15:38.040 --> 15:40.100
+So I'm going to bring that in.
+
+15:40.110 --> 15:41.340
+Looks like it's working.
+
+15:41.430 --> 15:51.360
+So we'll go to slash admin enter enter your username and whatever your password was log in and here
+
+15:51.360 --> 15:54.230
+a see under app to expand this a little bit.
+
+15:54.230 --> 15:56.610
+I have users like it come here to users.
+
+15:56.690 --> 16:02.810
+I have zero users zero users kind of a poor choice here because it's already on their authentication
+
+16:02.810 --> 16:03.760
+and authorization.
+
+16:03.770 --> 16:09.320
+Now the site admin page does separated out the application so you don't have to worry about mixing your
+
+16:09.770 --> 16:13.610
+users that user Web site versus these users in this application.
+
+16:13.880 --> 16:16.780
+But again keep mine probably call them something else.
+
+16:16.950 --> 16:25.370
+I want to add a user can click add here like even the first name is St. John Smith has a last name and
+
+16:25.370 --> 16:35.580
+then an e-mail can say Jay Smith at yahoo dot com or whatever and then lushest saved this person.
+
+16:35.710 --> 16:37.160
+Now we have one user object.
+
+16:37.160 --> 16:38.860
+They're great.
+
+16:38.860 --> 16:41.120
+So now what I'm going to do is zoom out a little bit.
+
+16:41.200 --> 16:43.360
+I'm going to log out.
+
+16:43.360 --> 16:45.680
+Thanks for spending some quality time with today.
+
+16:45.730 --> 16:51.560
+And let's close this and then do Control-C to shut down that server.
+
+16:51.610 --> 16:53.550
+Looks like everything is working so far.
+
+16:53.560 --> 16:56.000
+Let's actually populate the database though.
+
+16:57.080 --> 17:03.680
+So what I'm going to do is under pressure to create a population script I'm going to create a new file
+
+17:03.740 --> 17:09.800
+and we will call it populates underscore users not pi.
+
+17:09.950 --> 17:11.810
+And there's a couple of things we need to do first.
+
+17:11.810 --> 17:18.120
+First need import os here and then I need to configure the settings for this project so I need say OS
+
+17:18.590 --> 17:25.280
+da environed for environment set defaults and then I need to actually set the default jingoes settings
+
+17:25.280 --> 17:25.740
+module.
+
+17:25.760 --> 17:36.630
+So that's going to be Django settings module and then pointed to wherever my project settings file is
+
+17:36.640 --> 17:39.320
+in this case it's just pro to setting up PI.
+
+17:39.340 --> 17:44.230
+So here I just say to die.
+
+17:44.820 --> 17:47.260
+Septic's OK.
+
+17:47.500 --> 17:49.090
+Once that set up as a default.
+
+17:49.090 --> 17:51.550
+So again that's configuring the settings for the project.
+
+17:51.550 --> 18:00.250
+I can just import Django itself and then call jingoes dot setup and that's what's going to allow sexually
+
+18:00.260 --> 18:02.400
+go in and populate the database.
+
+18:03.240 --> 18:07.430
+Next thing going to import actually in a Leavell been random.
+
+18:07.440 --> 18:08.680
+That's fine.
+
+18:08.830 --> 18:18.630
+We'll say from app to top models import the user model that class and then I'm also going to say from
+
+18:18.630 --> 18:19.350
+F.A.
+
+18:22.800 --> 18:37.030
+in poor faker or create a fake giant object equal to faker and then let's begin this.
+
+18:37.210 --> 18:44.210
+I will start off by creating a function called Def populate has some value takes in.
+
+18:44.260 --> 18:55.230
+Let's put the default as 5 al-Sayed for entry in range and let's kind of minimize this a little bit
+
+18:55.230 --> 18:56.900
+so we have a little more space to code.
+
+18:56.940 --> 19:01.370
+Now I'm going to collapse the directory just for now create a couple of more lines here.
+
+19:02.230 --> 19:07.770
+So again for entry in range and I'm going to create the fake data.
+
+19:07.840 --> 19:16.750
+So start off by creating a fake name which we can just say off a fake Jeon dot name and then I'm going
+
+19:16.750 --> 19:17.680
+to split that name.
+
+19:17.680 --> 19:23.140
+So it's a string of words and I want to split it on the whitespace and that way the first thing I get
+
+19:23.140 --> 19:35.380
+out which is the fake first name is equal to fake name 0 and then similarly we can say fake last name
+
+19:36.650 --> 19:38.710
+is equal to the fake name.
+
+19:42.640 --> 19:47.050
+Then finally it's create a fake email for this user that's going to be fake.
+
+19:47.050 --> 19:52.050
+Jan email.
+
+19:52.250 --> 20:04.700
+Now we create a new entry in our actual database create user call user objects get underscore or create
+
+20:06.360 --> 20:15.790
+and here I just passen the first name is equal to that fake first name I just made fake first name.
+
+20:15.790 --> 20:16.910
+There it is.
+
+20:17.470 --> 20:27.480
+And then it's the last name is going to be equal to the fake last name I just made and then finally
+
+20:27.690 --> 20:28.680
+the e-mail.
+
+20:28.720 --> 20:32.300
+Let's actually put this on some your lines.
+
+20:35.570 --> 20:39.990
+That e-mail is going to be equal to that fake e-mail.
+
+20:40.170 --> 20:48.360
+But I just made and then remember this returns a object so I need to grab from zero to do that kind
+
+20:48.360 --> 20:50.260
+of tuple unpacking packing.
+
+20:50.430 --> 21:01.960
+And at the end of all this will just say if almost had it if name is equal to mean going to Prince populating
+
+21:01.990 --> 21:12.260
+data bases and let's actually run popularly we can leave it with let's say it was just past 20.
+
+21:12.320 --> 21:15.320
+So we get some values there and then we'll Prince
+
+21:18.110 --> 21:26.100
+completes save that and let's hope we didn't make any mistakes here and actually run this soul say Python
+
+21:27.370 --> 21:37.660
+and then we're going to say populates users by Tiriel It's it's this runs to populate databases and
+
+21:37.660 --> 21:38.500
+it's complete.
+
+21:38.500 --> 21:38.880
+Great.
+
+21:38.890 --> 21:42.420
+So now it's actually run that server again and make sure it's all working.
+
+21:42.430 --> 21:47.220
+Called Python managed up high run server.
+
+21:47.370 --> 21:49.140
+After reading my browser
+
+21:52.200 --> 22:00.710
+and then in my browser will go to the Admin site so I'll say slash admin log in
+
+22:04.510 --> 22:05.430
+to users.
+
+22:05.480 --> 22:11.270
+And here I can see I have a bunch of user objects perfect so I didn't actually give any names.
+
+22:11.270 --> 22:15.180
+These are objects that we see we have first name last name and email.
+
+22:15.200 --> 22:15.930
+That's all we need.
+
+22:15.950 --> 22:17.090
+So we're going to log out
+
+22:20.350 --> 22:25.100
+close this and finally we have to do the template tagging.
+
+22:25.140 --> 22:26.490
+Actually get those lists in there.
+
+22:26.490 --> 22:27.580
+Control-C here.
+
+22:28.610 --> 22:31.020
+And then come to index such a symbol.
+
+22:31.040 --> 22:42.300
+Working is fine let's just say H to go to slash users to see the user list save and then their users
+
+22:42.300 --> 22:43.470
+that age T.M..
+
+22:43.500 --> 22:46.700
+This is where we're going to be using the template tagging.
+
+22:46.840 --> 22:53.330
+All right so let's get started and let's say users is the title of this and you're probably sick of
+
+22:53.330 --> 22:58.340
+even seeing the word users so feel free to change it to whatever you want and I'll create a heading
+
+22:58.430 --> 23:03.840
+saying here are your users of this application.
+
+23:04.920 --> 23:11.080
+Well say for app to and then now it's time for the template tags.
+
+23:11.130 --> 23:14.610
+And again don't let this confuse your intimidate you.
+
+23:14.640 --> 23:21.180
+First we need to check if users and that's going to check if there's even a user's key in that dictionary.
+
+23:21.180 --> 23:27.810
+So if I come back to views here it's going to check the user dictionary that I'm passing in this context.
+
+23:27.820 --> 23:30.810
+If it has this key that actually do something.
+
+23:30.970 --> 23:37.650
+So that kind of back to users that age T.M. if users and it's always nice to whenever you say and if
+
+23:37.710 --> 23:38.760
+right away.
+
+23:38.760 --> 23:39.070
+Right.
+
+23:39.090 --> 23:39.550
+It's.
+
+23:39.570 --> 23:44.880
+And if so you make sure not to forget that and this is all going inside the body.
+
+23:44.900 --> 23:46.440
+Let me collapse this a little bit.
+
+23:47.960 --> 23:55.440
+So we're saying if users we have it's END-IF already and then we're going to do is if that exists we'll
+
+23:55.440 --> 23:55.780
+have it.
+
+23:55.800 --> 24:12.970
+Oh well here and I will say we'll create a for loop that says for person in users create a list and
+
+24:12.970 --> 24:21.000
+say user info and then inside of this list will be in an ordered list.
+
+24:21.010 --> 24:23.670
+We have a nested list and then we have the list items.
+
+24:23.980 --> 24:30.890
+So will be a first name and then here we using template tagging to call person dot and then the actual
+
+24:30.890 --> 24:40.160
+field we want this case you want the first name field and then we'll call a last name or him or I'm
+
+24:40.160 --> 24:44.930
+just using this template tagging of double sets of curly brackets because this is essentially just injecting
+
+24:44.930 --> 24:46.070
+text.
+
+24:46.270 --> 24:49.640
+So I'll say last names not actually any sort of logic.
+
+24:50.060 --> 24:57.800
+And finally we'll say email or say person the email.
+
+24:57.800 --> 24:58.490
+Save that.
+
+24:58.490 --> 24:59.840
+And remember I have a 4.
+
+24:59.900 --> 25:05.330
+So we're going to do this for and choose the appropriate location which is going to be after all these
+
+25:05.330 --> 25:08.060
+list commands for these an ordered list.
+
+25:08.060 --> 25:09.330
+So let's try that out.
+
+25:10.830 --> 25:17.730
+We'll say and for save that and then let's run our server again and make sure that page actually is
+
+25:17.730 --> 25:18.340
+working.
+
+25:18.370 --> 25:23.670
+It's Python managed up up-I run server enter.
+
+25:23.910 --> 25:29.810
+Read that page and it looks like this is working so it's actually try to go to users.
+
+25:29.810 --> 25:32.910
+Now CVS that's connected.
+
+25:33.690 --> 25:37.500
+And here they are here users for your app we have Brittany Daniels et cetera.
+
+25:37.550 --> 25:42.180
+Sheryl all these e-mails dynamically generated based off the model.
+
+25:42.450 --> 25:44.540
+And that's what you had to do for project 2.
+
+25:44.640 --> 25:49.860
+And hopefully this served as a great review of everything we've done so far in the Shingo section's
+
+25:49.860 --> 25:55.950
+course we learn how to create a project create the application lengthy Oreilles create the models create
+
+25:55.950 --> 25:59.230
+the views do the template tagging and make everything work together.
+
+25:59.280 --> 26:03.590
+And so far this is everything you can do with the model's templates and views.
+
+26:03.780 --> 26:09.090
+Coming up in the next couple of levels for Django We'll talk about using template tagging in better
+
+26:09.090 --> 26:11.010
+ways and then also talking about form.
+
+26:11.010 --> 26:16.230
+So actually getting user inputs of some things if someone visits your Web site how can they save information
+
+26:16.530 --> 26:17.720
+through forms.
+
+26:17.730 --> 26:21.300
+All right thanks everyone and I'll see you at the next level of Jingo.

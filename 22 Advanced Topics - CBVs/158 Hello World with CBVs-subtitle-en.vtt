@@ -1,0 +1,559 @@
+WEBVTT
+
+00:05.450 --> 00:11.020
+Hello everyone and welcome to this hello world class based view lecture Well we're going to be doing
+
+00:11.050 --> 00:16.120
+this lecture is just converting a simple hello world function view into a class based view to get to
+
+00:16.120 --> 00:18.620
+the idea of how they relate to each other.
+
+00:18.730 --> 00:22.440
+But we're also going to be doing is using the simplest available Django view class.
+
+00:22.510 --> 00:24.990
+Later on we'll learn about more complex classes.
+
+00:25.000 --> 00:30.220
+But right now keep it basic and essential we're going to be doing interviews that py file is importing
+
+00:30.250 --> 00:37.500
+this view object which is going to come from jangled up use that generic You will also have to slightly
+
+00:37.500 --> 00:43.170
+change the way we call a class based view in the Urals top pie file of our project.
+
+00:43.200 --> 00:48.080
+What we need to do is add in a thought as underscore a view method call off of the class.
+
+00:48.120 --> 00:51.700
+And this is an inherited method from the view that we mentioned earlier.
+
+00:51.810 --> 00:55.440
+If that doesn't make a whole lot of sense to you right now don't worry we'll all be very clear when
+
+00:55.440 --> 00:56.960
+we actually program this all out.
+
+00:57.120 --> 01:03.140
+Let's hop over to the editor started Project and get started OK here I am at the Adam text editor and
+
+01:03.140 --> 01:07.100
+as you can see here I'm already activated my virtual environment so you can go ahead and do that.
+
+01:07.100 --> 01:13.110
+You don't have to do if you already have a one point 1 0 version of Django in your normal environment.
+
+01:13.180 --> 01:20.780
+We're going to do is create a new folder scenery folder and I'm going to call this advanced underscore
+
+01:20.780 --> 01:27.650
+section doesn't really matter what you call it then I'm going to say CD into that advanced section and
+
+01:27.650 --> 01:29.920
+here's what I'm going to call the Django admin.
+
+01:30.220 --> 01:36.620
+I will say Django bash admin and let's start a project you call this project whatever you want or call
+
+01:36.620 --> 01:40.070
+it something simple like the CBD.
+
+01:40.070 --> 01:45.680
+So advanced class space views enter and let that start the project and then will also create a simple
+
+01:45.680 --> 01:46.710
+application.
+
+01:46.730 --> 01:51.650
+Eventually we're going to be doing this project and later lectures of this section is creating models
+
+01:51.650 --> 01:57.870
+that kind of show a student within a class or a school I should say OK.
+
+01:58.070 --> 02:06.740
+So we have the advance section let's CD into the CBB and then what we're going to do now is actually
+
+02:06.740 --> 02:08.780
+expand this when I should see it.
+
+02:08.780 --> 02:17.960
+So here I am in my project folder let's say Django dash admen and let's say Star app and I'm going to
+
+02:17.960 --> 02:20.640
+call this basic underscore app.
+
+02:20.750 --> 02:22.360
+You can really call it whatever you want.
+
+02:22.400 --> 02:26.450
+We're just going to be using one simple application for this project.
+
+02:26.470 --> 02:26.960
+OK.
+
+02:27.140 --> 02:33.920
+So I have my basic app and I have my advanced CBB project what I'm going to do is come over to settings.
+
+02:34.040 --> 02:37.120
+Open that up and make sure that everything's linked as it should be.
+
+02:37.190 --> 02:42.100
+Later on we'll also be creating templates in this so will show you different ways of doing that things
+
+02:42.110 --> 02:43.290
+so we haven't seen before.
+
+02:44.050 --> 02:51.630
+But if I scroll down to install baps I want to add in my basic underscore app there put a common case.
+
+02:51.650 --> 02:54.180
+Install any more apps and then let's save that.
+
+02:54.180 --> 02:54.990
+Perfect.
+
+02:55.320 --> 03:00.050
+And then while we're here we're actually going to add in the templates as well.
+
+03:00.150 --> 03:04.790
+Like I mentioned later on we're going to show you a slightly different way of ordering your templates.
+
+03:04.800 --> 03:07.180
+Right now we'll keep it the same as we've been doing.
+
+03:07.200 --> 03:12.170
+I will say template underscored the R is equal to OS not path.
+
+03:12.210 --> 03:16.430
+Join then join to join that bastes victory with templates.
+
+03:16.440 --> 03:22.690
+Remember we have to create templates and then coming all the way down to where it says templates that
+
+03:22.700 --> 03:26.420
+character I want to pass and here is template underscored.
+
+03:26.880 --> 03:29.020
+So nothing new we haven't seen before.
+
+03:29.850 --> 03:37.200
+And at the same level as my project in my application I will click Create a new folder and I will call
+
+03:37.200 --> 03:42.900
+it templates to match up that directory they just linked to perfect.
+
+03:43.120 --> 03:50.470
+And then what I will also do is inside of this templates folder is create a new file and we will call
+
+03:50.470 --> 03:51.560
+this index.
+
+03:51.680 --> 03:52.880
+H t m l.
+
+03:52.960 --> 03:54.190
+This is going to be our home page.
+
+03:54.190 --> 03:55.860
+That's the first thing we're going to be showing.
+
+03:55.910 --> 03:58.650
+And let's kind of practice using template inheritance.
+
+03:58.660 --> 04:04.090
+So create another file and we'll call this based HTL.
+
+04:04.150 --> 04:09.130
+So in the base that each T.M. all of these two HTL files and then we're going to do it later on show
+
+04:09.130 --> 04:14.500
+you class based views we actually want to talk about but actually show of you we need something to show
+
+04:14.620 --> 04:16.020
+the index that it's come up.
+
+04:16.090 --> 04:20.200
+And the base that each team out page and we're going to be playing with these files later on in future
+
+04:20.200 --> 04:21.090
+elections the section.
+
+04:21.130 --> 04:28.380
+So let's just give them a nice title say Let's call this base that it's apparent what we're doing here.
+
+04:28.450 --> 04:42.210
+And then inside this body let's say let's create the block or call block we'll call it body block and
+
+04:42.210 --> 04:45.720
+then we're going to outside of this call and the block
+
+04:49.540 --> 04:55.130
+and remember since I'm going to extend this in other files essentially anything outside of this is also
+
+04:55.130 --> 04:56.150
+going to be called.
+
+04:56.270 --> 04:59.150
+So something no be can be into call is bootstrap.
+
+04:59.390 --> 05:03.950
+And instead of copying and pasting all the files I'm just going to copy and paste the link.
+
+05:03.980 --> 05:07.180
+So as always you can just grab this at get bootstrap that.
+
+05:07.820 --> 05:09.310
+Version 3 is what I'm using here.
+
+05:09.310 --> 05:10.950
+You should be able to use version 4 as well.
+
+05:10.970 --> 05:12.280
+No problems.
+
+05:12.280 --> 05:18.950
+You know what I'm going to do is also put everything inside a container class I will say div container
+
+05:20.120 --> 05:21.390
+obviously on your own web sites.
+
+05:21.410 --> 05:25.450
+You'll have to judge whether putting everything in a container like this is a good idea.
+
+05:25.550 --> 05:27.910
+But what we're doing kind of makes sense.
+
+05:27.980 --> 05:29.030
+So we'll save this.
+
+05:29.030 --> 05:33.870
+And then in my index page when I'm going to do is extend from that they studied email but I just made.
+
+05:34.070 --> 05:40.300
+So we will say extends and then pass in quotes based that age HTML that file.
+
+05:40.880 --> 05:49.680
+And then we're going to call the body block we'll call IPs block first I can spell this right and embody
+
+05:49.710 --> 05:50.570
+underscore.
+
+05:50.640 --> 05:59.700
+BLOCK And then we will call and the block and finally the actual content we want in this case let's
+
+05:59.710 --> 06:05.950
+just put something like hello world in next page home.
+
+06:05.950 --> 06:09.230
+Something really obvious that we're at the index or similar home page.
+
+06:09.250 --> 06:10.080
+Perfect.
+
+06:10.090 --> 06:12.370
+Now let's get to kind of the whole point of this lecture.
+
+06:12.370 --> 06:16.900
+The views of Pi file and the Oreilles that my file will start off just by creating a basic function
+
+06:16.900 --> 06:19.810
+view and that will translate that into a class based view.
+
+06:19.870 --> 06:24.510
+So underneath my basic app on buse up high right now there's no BS in it.
+
+06:24.520 --> 06:25.830
+So let's actually create one.
+
+06:25.840 --> 06:27.920
+We'll start off with the original function type view.
+
+06:28.000 --> 06:39.560
+We've been using which is the Death Index request and then return render passen requests and lushest
+
+06:39.560 --> 06:46.310
+passen that index that Steimle page and save that and then we'll come over to our project your PI file
+
+06:46.310 --> 06:51.890
+we won't create a PI file for a function folder yet or excuse me our application folder yet.
+
+06:52.010 --> 06:54.700
+So here in the project your files up my file.
+
+06:54.710 --> 07:01.550
+So BCBG your URLs that PI come down here and let's add in the pattern.
+
+07:01.670 --> 07:09.250
+I'll say from the basic app or whatever you happen to call your application import these.
+
+07:09.500 --> 07:14.340
+And then here I will call your L English to set it up for the home page.
+
+07:14.360 --> 07:16.560
+So for that it's just the domain page itself.
+
+07:16.560 --> 07:21.770
+So indexing or regular expression wise just that curious simple dollar sign.
+
+07:21.770 --> 07:23.650
+And then we'll call these dot.
+
+07:23.660 --> 07:26.750
+And the only function in there is the Index which exactly we want.
+
+07:26.900 --> 07:28.520
+Let's save that.
+
+07:28.550 --> 07:33.050
+So I'm going to come back down to my terminal and before I run the server I want to make sure I make
+
+07:33.050 --> 07:41.690
+my migrations I'll call Python managed up high and say migrate enter should see some stuff coming on
+
+07:41.690 --> 07:43.400
+the screen just a little bit.
+
+07:43.400 --> 07:46.450
+You can see here that some sequela databases are being created.
+
+07:46.500 --> 07:49.350
+That what we want that's working just fine.
+
+07:49.860 --> 07:57.640
+And then once that is complete I always like say Python managed up high and we'll call make migrations
+
+07:57.820 --> 08:01.130
+on our application which in this case is basic underscore app.
+
+08:01.210 --> 08:06.550
+Now we haven't actually added any models or anything so Ill say no changes that I'm a little paranoid
+
+08:06.550 --> 08:08.590
+about that so I just do it anyways.
+
+08:08.680 --> 08:13.400
+And then like I mention I'm just a little paranoid so then I just say migrate again.
+
+08:13.460 --> 08:15.280
+Mixtura thing is right.
+
+08:15.280 --> 08:18.530
+So once we see no migrations to apply we should be ready to go.
+
+08:18.540 --> 08:20.920
+So let's see if we actually can make this work.
+
+08:21.010 --> 08:26.890
+So I will say Python managed up high and I'm going to ask it to run the server and hopefully see that
+
+08:26.890 --> 08:27.910
+you are all pop up.
+
+08:27.910 --> 08:28.650
+There it is.
+
+08:28.840 --> 08:34.670
+Let's copy and paste this and make sure that our home page is working and then bringing in my browser
+
+08:34.700 --> 08:35.350
+over here.
+
+08:35.390 --> 08:38.840
+It says hello world index page home in a nice container.
+
+08:38.840 --> 08:39.680
+Looks good.
+
+08:39.680 --> 08:40.260
+Perfect.
+
+08:40.430 --> 08:43.060
+So we know our function base view is working.
+
+08:43.070 --> 08:47.200
+Now let's kind of turn it into a class based view which is actually pretty simple.
+
+08:47.300 --> 08:49.260
+Let me show you what we can do.
+
+08:49.290 --> 08:52.080
+I'll come back to my views that PI file.
+
+08:52.350 --> 08:56.650
+Ok so back here at the views that PI file have this index view function.
+
+08:56.670 --> 09:05.100
+What I'm going to do is replace this with a class based view and I will say from Jingo that used generic
+
+09:06.860 --> 09:07.520
+import.
+
+09:07.580 --> 09:09.160
+The most basic view class.
+
+09:09.170 --> 09:18.740
+You can call whip's is just view so capital-T view and then I'm going to delete all of this and instead
+
+09:18.740 --> 09:24.330
+of actually calling the index let each team L5 file what I'm goin to do is just give a very basic HTP
+
+09:24.350 --> 09:28.790
+response not something you'll be doing often but I want to show you the most basic class based we can
+
+09:28.790 --> 09:29.750
+possibly do.
+
+09:29.900 --> 09:30.530
+So here we're going.
+
+09:30.530 --> 09:32.970
+Class is object oriented programming.
+
+09:33.110 --> 09:39.620
+So if this is confusing to you review those lectures and then I'm going to inherit from view and here
+
+09:39.710 --> 09:47.130
+ongoing say DMF get self because it's a method inside this class.
+
+09:47.410 --> 09:52.540
+And then I will take in the requests and then what I'm going to do is return and HTP response.
+
+09:52.540 --> 10:04.010
+So in order to do that I will say from Jingo that HTP import HTP response.
+
+10:04.050 --> 10:08.730
+So when we're dealing with class based views lectures later on this course we actually won't be doing
+
+10:08.730 --> 10:11.600
+this we'll be doing something that's actually much simpler.
+
+10:11.610 --> 10:16.190
+But I kind of want to show you the are way or the more manual way of doing this.
+
+10:16.200 --> 10:24.010
+So I'll say return the response and then we'll say class based views are cool.
+
+10:24.760 --> 10:25.880
+Explanation.
+
+10:25.970 --> 10:27.570
+So what is actually happening here.
+
+10:27.610 --> 10:35.500
+Well when you are old file calls views index we actually need to change that instead of calling views
+
+10:35.500 --> 10:37.860
+on index since that function is no longer here.
+
+10:37.870 --> 10:40.160
+We need to call the Seabee view class.
+
+10:40.360 --> 10:41.890
+Let's do that.
+
+10:41.890 --> 10:46.570
+So in here I'm going to delete this line where it says use that index.
+
+10:46.570 --> 10:49.470
+And I'm still importing views from my basic app.
+
+10:49.660 --> 10:57.100
+What I need to do is add an these dots and then Seabee view which was the name of that class we just
+
+10:57.100 --> 10:57.510
+did.
+
+10:57.580 --> 11:04.150
+And the other thing you have to do is as underscore the view close parentheses and then let's have another
+
+11:04.150 --> 11:07.420
+set of princes to close off this your function.
+
+11:07.480 --> 11:10.870
+And this is the main method that you're going to see in the urls that py file.
+
+11:11.020 --> 11:15.780
+As we learn about other ways of creating class based views essentially in the year old up high five.
+
+11:15.790 --> 11:17.140
+This isn't going to change.
+
+11:17.140 --> 11:23.910
+You'll always say use the name of your class based view and then you'll say Dot as you close parentheses.
+
+11:23.980 --> 11:28.520
+And this basically tells Django OK grab that class and then show it as a view.
+
+11:28.570 --> 11:31.150
+So coming back here is going to grab this.
+
+11:31.180 --> 11:36.040
+And then what it's going to call Zill say get grab that request and just return this response class
+
+11:36.040 --> 11:41.080
+B's views are cool noticed or we're actually not even returning a template will show how to do that
+
+11:41.090 --> 11:42.150
+in the next lecture.
+
+11:42.160 --> 11:45.140
+But this is the most basic class based view you can possibly get.
+
+11:45.160 --> 11:51.590
+So let's save all our changes here big things to know is that we're using a class space view and we're
+
+11:51.590 --> 11:55.250
+calling this buse a class name as View.
+
+11:55.320 --> 12:00.590
+That's the main thing I should to get out of this lecture before we hit on the next one will say Python
+
+12:01.460 --> 12:04.960
+managed to apply run our server enter.
+
+12:05.060 --> 12:09.290
+Let's bring in that browser and I'm going to bring that in and here it is.
+
+12:09.290 --> 12:11.260
+Class based IIs are cool.
+
+12:11.300 --> 12:16.130
+This is just the most basic HTP response we usually won't be doing something like this but now you know
+
+12:16.220 --> 12:18.820
+how to make a very basic class based views.
+
+12:18.830 --> 12:23.870
+Now you might be thinking well it's not so great in fact class space views look a little more complicated
+
+12:23.870 --> 12:26.740
+to me than that older function based view.
+
+12:26.930 --> 12:30.810
+Well that's because we haven't talked about generic template based use.
+
+12:30.950 --> 12:34.730
+And those are going to be an awesome tool that is going to save you so much time.
+
+12:34.870 --> 12:39.200
+And it's kind of the main reason that people eventually don't use function based views at all and these
+
+12:39.200 --> 12:41.030
+class based views for everything.
+
+12:41.120 --> 12:43.580
+So if this doesn't convince you yet don't worry.
+
+12:43.580 --> 12:47.780
+I think the next lecture will really convince you to switch everything over the class based views which
+
+12:47.780 --> 12:49.690
+is essential we're going to be doing for the rest of the course.
+
+12:49.730 --> 12:51.040
+And those clone projects.
+
+12:51.200 --> 12:55.400
+Okay thanks everyone and I'll see you at the next lecture where we discuss those template views.

@@ -1,0 +1,439 @@
+WEBVTT
+
+00:05.320 --> 00:10.480
+Hello everyone and welcome back in this lecture we're going to be discussing creating your first Django
+
+00:10.480 --> 00:15.970
+project in the future lectures will actually discuss the difference between a Django project and a jingle
+
+00:15.970 --> 00:16.920
+application.
+
+00:17.050 --> 00:22.780
+But by the end of this lecture we should be able to actually run a jingle project a little server locally
+
+00:22.930 --> 00:25.370
+and see it in our browser.
+
+00:25.600 --> 00:28.570
+In case you haven't done so already you'll need to install Django.
+
+00:28.570 --> 00:33.940
+You can do that either with a condo install Django or for a normal Python distribution Pipp install
+
+00:34.030 --> 00:34.710
+Django.
+
+00:34.900 --> 00:39.850
+And remember if you're using a virtual environment you should activate the virtual environment before
+
+00:39.850 --> 00:45.210
+running any of the command lines commands that we actually do throughout this section of the course.
+
+00:45.980 --> 00:51.740
+So when you install Django It's actually also going to install a command line tool called Django that
+
+00:51.860 --> 00:57.950
+adman and this command line tool is just a useful feature for us to quickly run things straight from
+
+00:57.950 --> 01:03.650
+the command line so that we can do is create our first project and for that just go to your command
+
+01:03.650 --> 01:05.890
+prompt activate your virtual environment.
+
+01:05.900 --> 01:11.960
+If you haven't done so already and then say Django dash admin space start project space and then whatever
+
+01:11.960 --> 01:13.850
+you want your project to be called.
+
+01:13.850 --> 01:19.530
+In this case we will say first underscore project and then you're going to get something that looks
+
+01:19.530 --> 01:23.270
+like this and we'll explain all these files are in just a second.
+
+01:23.490 --> 01:29.370
+But before we do let's actually run this code I'm going to jump to the Adam text editor open up a command
+
+01:29.370 --> 01:31.650
+prompt and run through this.
+
+01:31.980 --> 01:38.660
+All right here I am at the Adam text editor what I will do is open up a new terminal or command prompt
+
+01:39.000 --> 01:45.910
+and I'm going to change directory to my desktop and actually making new folder.
+
+01:45.930 --> 01:50.020
+So I will say M-K d i r Let's make directory.
+
+01:50.040 --> 01:52.390
+Same for Mac or Windows users.
+
+01:52.530 --> 01:56.970
+And I'm just going to make a new folder on my desktop to contain all the jingle code that we're going
+
+01:56.970 --> 01:59.140
+to be working with for this particular section.
+
+01:59.140 --> 02:04.050
+Of course if you already have a folder like that you can just change directory into that folder.
+
+02:04.050 --> 02:14.400
+But what I will do is I will say my Django stuff so I will make that directory and then it will CD into
+
+02:15.300 --> 02:16.750
+my jingoes stuff.
+
+02:17.580 --> 02:18.390
+And there I have it.
+
+02:18.390 --> 02:25.500
+So I have a directory made and while I do now it's just add that to Adam so I will save file add a project
+
+02:25.500 --> 02:31.840
+folder go to my desktop my jingle stuff is there select that folder and I can see it here now.
+
+02:31.890 --> 02:32.640
+Great.
+
+02:32.670 --> 02:38.400
+So now let's actually create that first project using that Django dash adamant command line tool.
+
+02:38.400 --> 02:43.290
+Before we do that though I'm going to want to activate the virtual environment I created in the previous
+
+02:43.290 --> 02:43.960
+lecture.
+
+02:44.000 --> 02:46.380
+If you're not using a virtual environment that's OK.
+
+02:46.380 --> 02:49.580
+Just make sure you've installed Django.
+
+02:49.600 --> 02:56.280
+I will say activate member if using Mac or Linux you want to say Source activate and then the name of
+
+02:56.280 --> 03:01.460
+the jungle environment and that one was just called my Shingo ENP.
+
+03:02.120 --> 03:08.850
+Enter And now that's activated and then what am I going to do is it's the jing a command line tool oh
+
+03:08.910 --> 03:17.900
+say Jingle dash Addleman start project and then whatever you want to call this very first project or
+
+03:17.900 --> 03:24.290
+working on this case I'll keep it simple and just say first underscore project enter.
+
+03:24.370 --> 03:27.120
+And this is actually going to create that first project.
+
+03:27.130 --> 03:32.830
+So what you'll notice now is in this directory I've created my first project here and here I have the
+
+03:32.830 --> 03:38.080
+first project folder and you should have a nested folder of the same name and then a couple of files
+
+03:38.290 --> 03:44.340
+in it that PI file settings that PI Urals up-I there'll be less G-I and then managed top pi.
+
+03:44.560 --> 03:47.060
+Well we're going to do now is take a little bit of time to explain.
+
+03:47.110 --> 03:49.260
+Each of these files does.
+
+03:49.330 --> 03:51.070
+And you'll notice that one of them is empty.
+
+03:51.070 --> 03:52.700
+That's OK that's the way it should be.
+
+03:53.020 --> 03:57.160
+And what I want you to do is check out these various files as I go along.
+
+03:57.160 --> 04:03.510
+Back to the presentation and explain in very brief detail what all of these files actually are doing.
+
+04:03.520 --> 04:05.570
+Let's hop back the presentation.
+
+04:05.590 --> 04:10.990
+OK so here are the command lines we just initiated and after that we should get something like this.
+
+04:10.990 --> 04:14.260
+So let's take a little bit of time to explain what's actually going on here.
+
+04:15.240 --> 04:18.270
+Let's go first through that and get that PI file.
+
+04:18.300 --> 04:23.670
+So that underscore underscore it underscore underscore that PI file that's actually just a blank Python
+
+04:23.670 --> 04:31.470
+script and due to its special name it lets Python know that this directory can be treated as a package.
+
+04:31.650 --> 04:33.750
+Then we have these settings that py file.
+
+04:33.810 --> 04:38.140
+And this is where we're actually going to be storing all of our project settings.
+
+04:38.160 --> 04:43.110
+Then we have the Jor-El's that PI file and this is essentially a Python script that's going to store
+
+04:43.140 --> 04:48.330
+all the usual patterns for your project and that's basically going to relate to the different pages
+
+04:48.330 --> 04:52.530
+of your web application and how they should connect to the end user.
+
+04:52.530 --> 04:57.690
+Now keep in mind this particular file is really going to make a lot of use of regular expressions.
+
+04:57.690 --> 05:01.390
+So before tackling this you're stopped by file and feature lectures.
+
+05:01.440 --> 05:06.070
+Make sure you review the regular expressions lecture from the Python section of this course.
+
+05:06.880 --> 05:13.530
+Now we have that w SGI that py file and that's a Python script that acts as the web server Gateway Interface.
+
+05:13.650 --> 05:18.110
+And essentially what is going to help us with is later on when we actually want to deploy our web app
+
+05:18.160 --> 05:22.760
+to production on some online server that file's going to help us out there.
+
+05:23.650 --> 05:27.330
+Then we have the managed up pie and that's under that top directory.
+
+05:27.490 --> 05:30.080
+And this is a Python script that we're going to be using a lot.
+
+05:30.160 --> 05:37.700
+It's going to be associated with many of the commands we use as we build our web project and web application.
+
+05:37.700 --> 05:41.520
+OK so now let's actually use managed up high in your command line.
+
+05:41.520 --> 05:47.640
+What I want you to do is after activating your virtual environment of course type python space managed
+
+05:47.640 --> 05:50.560
+up pie space run server.
+
+05:50.610 --> 05:55.080
+So here what we can actually see what's happening is we're calling Python to run that managed up py
+
+05:55.080 --> 06:00.200
+file and off of that py file we actually want to specifically call that run server command.
+
+06:00.450 --> 06:04.260
+And what you're going to see is a bunch of stuff but at the bottom you should see something that looks
+
+06:04.260 --> 06:05.160
+like this.
+
+06:05.220 --> 06:08.450
+Your particular version of Django the settings you're using.
+
+06:08.520 --> 06:11.870
+And then it's starting a development server at a your l.
+
+06:11.870 --> 06:16.980
+Now what you will do is copy and paste that your URL into your browser and you should now see a very
+
+06:16.980 --> 06:19.900
+first web page being locally hosted on your computer.
+
+06:20.100 --> 06:25.980
+And that's a big congratulatory step because you now just ran your very first single project.
+
+06:25.980 --> 06:27.820
+Let me walk you through all of that.
+
+06:27.840 --> 06:30.570
+Back at the Adam text editor.
+
+06:30.680 --> 06:35.790
+All right we're back at the Adam text editor and before we run that Python managed up PI run server
+
+06:35.790 --> 06:36.350
+command.
+
+06:36.540 --> 06:40.850
+I want to make sure I'm in the right directory so that I can actually find that when I call it.
+
+06:40.860 --> 06:47.370
+So notice here that if I collapse that folder it's under my Gengel stuff under first project.
+
+06:47.370 --> 06:49.050
+The very first folder.
+
+06:49.260 --> 06:56.940
+So I will do here is CD to that verse project folder and here's where I'm going to call that actual
+
+06:56.940 --> 06:57.900
+command.
+
+06:57.960 --> 07:07.550
+I will say Python managed up PI run server and then hit enter and actually run this.
+
+07:07.790 --> 07:08.650
+OK.
+
+07:09.020 --> 07:14.840
+So you'll notice I get some outputs here and sometimes you'll actually get a warning in red coloring
+
+07:15.200 --> 07:20.480
+but here due to this newer version of Jingo it's not such a noticeable red warning but it will tell
+
+07:20.480 --> 07:25.770
+you that you have some un applied migrations and we'll talk about that in just a little bit.
+
+07:25.790 --> 07:30.780
+More importantly we see here that it's starting the development server at this particular your l.
+
+07:30.920 --> 07:36.350
+So what I want you to do is copy this just right click that and copy it or just type it straight into
+
+07:36.350 --> 07:39.440
+your browser and put it into your browser.
+
+07:39.440 --> 07:44.180
+All right so I jumped to my browser and I've typed then that your L and you'll get something that looks
+
+07:44.180 --> 07:44.540
+like this.
+
+07:44.540 --> 07:44.930
+It worked.
+
+07:44.930 --> 07:47.940
+Congratulations on your first jingle powered page.
+
+07:47.960 --> 07:48.870
+So this is pretty awesome.
+
+07:48.870 --> 07:53.690
+We actually have something running locally on our computer and it says welcome to Django as the title.
+
+07:53.900 --> 07:58.640
+And of course we haven't actually done any work yet but the next step is to actually start our first
+
+07:58.640 --> 08:01.100
+application by running something that looks like this.
+
+08:01.220 --> 08:03.070
+And we'll talk about that in just a second.
+
+08:03.260 --> 08:04.650
+But a quick little message.
+
+08:04.730 --> 08:08.620
+It'll say something like you're seeing this because you have debug is equal to true.
+
+08:08.810 --> 08:10.750
+So inner jingoes settings file.
+
+08:10.790 --> 08:14.820
+We actually have a debug option that we can set to True or false.
+
+08:14.960 --> 08:17.580
+And we'll talk about that later on in future lectures.
+
+08:17.690 --> 08:20.540
+And as we build our Web site we'll always have it to True.
+
+08:20.640 --> 08:25.100
+But will actually push something to production we'll make sure to turn it to false.
+
+08:25.100 --> 08:30.770
+So that way if an error arises the user doesn't have access to our debugging tools with Django.
+
+08:31.040 --> 08:31.850
+OK.
+
+08:32.180 --> 08:34.860
+Now what I want to talk about is that migrations warning.
+
+08:34.880 --> 08:42.860
+So if I minimize this and come back to right here in Adam we see we have 13 UN applied migrations.
+
+08:42.860 --> 08:47.720
+Let's take a little bit of time to discuss what migrations actually are and how they relate to that
+
+08:47.720 --> 08:49.740
+database when you're using Django.
+
+08:50.120 --> 08:55.190
+All right so as we just noted we have our very first Django powered application or project running locally
+
+08:55.190 --> 08:55.900
+in our computer.
+
+08:55.910 --> 08:58.960
+So a big congratulations to you pat yourself on the back.
+
+08:59.270 --> 09:04.040
+But as I mentioned we noticed that warning about migrations and this has to do with databases and how
+
+09:04.040 --> 09:05.890
+to connect them to Django.
+
+09:06.290 --> 09:12.200
+The question arises what is a migration will a migration that allows you to move databases from one
+
+09:12.200 --> 09:13.680
+design to another.
+
+09:13.820 --> 09:16.840
+And this is also reversible and that's why it's called the migration.
+
+09:16.880 --> 09:22.250
+Let's see you have a database and you want to edit a new field or add something like a new column.
+
+09:22.280 --> 09:26.650
+You can go ahead and migrate those changes over and you can actually reverse that as well.
+
+09:26.660 --> 09:28.370
+So you can migrate your database.
+
+09:28.430 --> 09:33.190
+We're going to touch back on the Slaters specialty actually talk about connecting jingo to a database.
+
+09:33.200 --> 09:35.410
+But for now you can ignore this warning.
+
+09:35.420 --> 09:40.850
+I know it says in that command prompt to run some sort of migrations command at the command line.
+
+09:40.850 --> 09:44.820
+Right now we'll just back off on this and keep it in the back of our minds.
+
+09:45.880 --> 09:49.180
+So that was it as far as the basics of getting started with Django.
+
+09:49.180 --> 09:50.800
+We started our first single project.
+
+09:50.800 --> 09:56.190
+But up next we're going to continue creating a very simple hello world change application.
+
+09:56.290 --> 10:00.880
+I hope you're excited because now we're actually going to get right into the nitty gritty of working
+
+10:00.880 --> 10:02.080
+with Django.
+
+10:02.080 --> 10:02.760
+Thanks everyone.
+
+10:02.770 --> 10:04.310
+And I will see you at the next lecture.

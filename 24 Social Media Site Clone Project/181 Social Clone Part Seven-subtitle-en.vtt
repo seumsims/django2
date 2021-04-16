@@ -1,0 +1,1156 @@
+WEBVTT
+
+00:05.460 --> 00:10.980
+Welcome everyone to part seven of the social club project what we're not going to do is focus on the
+
+00:10.980 --> 00:15.630
+group's application by creating the views for the group templates and then connecting the template files
+
+00:15.630 --> 00:19.680
+to those views using the or stop high file for group applications.
+
+00:19.680 --> 00:20.010
+All right.
+
+00:20.040 --> 00:23.190
+Let's hop over to the Adam text editor and get started.
+
+00:23.190 --> 00:28.600
+All right so by now I should already have your model's not pi file filled out for the group's application.
+
+00:28.680 --> 00:35.030
+Now we're going to open up views up PI under groups and start filling out some very basic views for
+
+00:35.030 --> 00:36.850
+our actual group's application.
+
+00:37.050 --> 00:39.290
+And we're going to do is couple of things first.
+
+00:39.430 --> 00:43.290
+A couple of imports I will say from Django contrib.
+
+00:43.730 --> 00:49.670
+Th for authorization mix ins and then ongoing to import.
+
+00:49.790 --> 00:56.500
+And I will import two mixes here the loggin required to mix in and then the permission required mixin.
+
+00:56.790 --> 01:00.500
+And if you want you can put these on multiple lines just by having parentheses.
+
+01:00.510 --> 01:06.570
+So something that's common to see is if you have really long import lines you can just use multiple
+
+01:06.570 --> 01:09.640
+lines with a print CS there and then.
+
+01:09.660 --> 01:15.060
+Well we're also going to do is a bunch of other imports we will say from Django core that you're all
+
+01:15.060 --> 01:25.800
+resolvers import reverse and then I will also say from Django views import and then I'm going to import
+
+01:25.800 --> 01:29.970
+those generic views and that's just the class based views that we've worked with before.
+
+01:29.970 --> 01:31.150
+OK let's get started.
+
+01:31.410 --> 01:36.830
+I'm going to say class and I will have a create group view.
+
+01:36.850 --> 01:40.600
+So if someone is logged into the site and they want to create their own group kind of like creating
+
+01:40.600 --> 01:42.970
+your own subset this will be the view for that.
+
+01:43.090 --> 01:51.350
+And it's going to take and the logging required mixin and it will also take in the create view and then
+
+01:51.350 --> 01:54.860
+here I just need to specify the fields I want them to be able to create.
+
+01:54.860 --> 01:59.630
+So we say field is equal to and I want them to be able to edit the name of the field or the name of
+
+01:59.630 --> 02:00.290
+the group.
+
+02:00.320 --> 02:05.640
+I should say and then the description and those are just directly linked to the model slot pi.
+
+02:05.660 --> 02:10.220
+So the name and the description I don't want them to be able to edit things like Slogger members because
+
+02:10.430 --> 02:11.920
+that really wouldn't make sense.
+
+02:11.960 --> 02:16.820
+So when they create a group it takes a generic view and then finally I just need to connect it to the
+
+02:16.820 --> 02:18.200
+actual model.
+
+02:18.200 --> 02:21.730
+So if I'm going to connect it to the group model that means I need to import it.
+
+02:21.830 --> 02:29.870
+So we'll say from groups or models and you can also say from that models import group and then group
+
+02:29.870 --> 02:33.300
+member that way you can call them throughout these class based views.
+
+02:33.300 --> 02:35.910
+So right now we have a very basic create view.
+
+02:36.080 --> 02:42.110
+So to actually connect this to a template we're going to need to later on our template underneath groups
+
+02:42.230 --> 02:46.970
+as well as are you're also not profile but let's continue on to create a detail view and a list view
+
+02:47.090 --> 02:49.870
+and then we'll actually mess around with those template files.
+
+02:50.090 --> 02:57.160
+So I will say class and let's just say single group and this is just going to be a generic detail view.
+
+02:57.240 --> 03:02.820
+So it's just the details of that specific group things like the post inside that group etc..
+
+03:03.120 --> 03:05.770
+And that's just going to be connected to a model called group.
+
+03:05.820 --> 03:07.710
+So pretty simple.
+
+03:07.710 --> 03:09.390
+And then we'll have a list groups.
+
+03:09.420 --> 03:14.310
+So when someone goes to like the list groups page to see a list of all the available groups kind of
+
+03:14.310 --> 03:19.710
+like selecting a list all subsets or something like that and then we'll say generic and that will be
+
+03:19.710 --> 03:24.700
+a list view and you can see already that class based views making our lives a lot simpler.
+
+03:25.140 --> 03:27.010
+And then we'll say models equal to group.
+
+03:27.030 --> 03:31.260
+So I'm going to say that looks like we have three main class based views.
+
+03:31.260 --> 03:35.930
+Now let's head over to the templates and actually create those template files that connect them.
+
+03:35.940 --> 03:39.450
+We already have group base group detail group form and group list.
+
+03:39.600 --> 03:41.350
+So we should be pretty good to go.
+
+03:41.520 --> 03:48.210
+Let's start off by saying group base and in the group base that each team T.M. I'm going to say extends
+
+03:48.690 --> 03:54.680
+from base thought HVM L and then I'm going to call block content.
+
+03:54.780 --> 03:59.250
+So that's going to extend from the actual baseline each team M-file that have already created underneath
+
+03:59.250 --> 04:00.910
+the project templates.
+
+04:01.170 --> 04:09.710
+And then I have my content here and I'm going to create a div container class and then I will say div
+
+04:09.830 --> 04:14.180
+class row K.S. need that for bootstrap purposes.
+
+04:14.300 --> 04:16.830
+And then I'm going to make three blocks here.
+
+04:16.850 --> 04:22.670
+I have a pretty group block a group content block and then a post group block that we'll see how we
+
+04:22.670 --> 04:23.800
+can use later on.
+
+04:23.810 --> 04:30.070
+So this block I will say is group we can actually just put it like this.
+
+04:30.100 --> 04:32.700
+It's a little more readable than in a copy and paste this.
+
+04:32.740 --> 04:38.530
+And then we will have a block that is the group contents group underscore content and then the post
+
+04:38.530 --> 04:39.120
+group.
+
+04:39.340 --> 04:43.840
+So we won't use all of these blocks in every template but in case we ever want to have something that
+
+04:43.840 --> 04:49.000
+goes before the group content we have group during the group content we have group content and then
+
+04:49.000 --> 04:50.720
+after that group content we have post group.
+
+04:50.950 --> 04:51.570
+OK.
+
+04:51.790 --> 04:53.830
+So that's always I will say that.
+
+04:54.250 --> 05:01.660
+And then we're going to continue on with the other templates so lets start off with the group detail
+
+05:01.660 --> 05:10.330
+page that will come over as a group detail that very next template and I will say extends from groups
+
+05:10.540 --> 05:18.010
+forward slash group underscore based to h tim L that H team all we were just working with and then let's
+
+05:18.010 --> 05:21.810
+put everything we want to occur before the group name.
+
+05:21.880 --> 05:29.060
+So I will call block and this will be my Prete group block and then a heading one I'm going to have
+
+05:29.060 --> 05:34.950
+the group name and I can call that using template syntax by saying group that name.
+
+05:35.090 --> 05:41.240
+So remember with those class based views there is actually a context dictionary that gets passed that
+
+05:41.240 --> 05:43.070
+holds everything that the model has.
+
+05:43.070 --> 05:50.450
+So since groups have names I can just call group name and this word group is the lowercase singular
+
+05:50.450 --> 05:53.480
+version of the actual models become models of Pi.
+
+05:53.540 --> 05:55.540
+This is the lower case model.
+
+05:55.610 --> 06:00.000
+G r o u p which is where that actual context dictionary comes from.
+
+06:00.050 --> 06:05.900
+And that just as we've told you before comes from class based views then heading to.
+
+06:06.160 --> 06:14.170
+I'm going to say member count and hearing and input another basically call to the context dictionary
+
+06:14.650 --> 06:18.550
+and enjoy group members so again come back to the model.
+
+06:18.550 --> 06:24.820
+Remember we have members here an offer that I'm actually going to call a method and I can call the count
+
+06:25.510 --> 06:27.490
+method or attribute off of that.
+
+06:27.530 --> 06:31.690
+And if you want a list of these you can check the documentation for various things you can call off
+
+06:31.780 --> 06:33.810
+of model objects.
+
+06:33.820 --> 06:39.190
+All right now the next step for the sexual group detail page is on that group detail page where it's
+
+06:39.190 --> 06:40.680
+actually listing the posts.
+
+06:40.690 --> 06:45.240
+If you're a member and you're logged in I want you to have a leave or join button there.
+
+06:45.250 --> 06:46.950
+So let's try to add that in.
+
+06:47.140 --> 06:53.560
+Inside this same Prigg group block I'm going to create div and I will call this content in case I ever
+
+06:53.560 --> 07:03.300
+want to edit this FC the SS and inside of this I'm going to say if and I will say if user in group members
+
+07:04.170 --> 07:14.400
+all so that means if this user happens to be inside this essentially an array or list of all the members
+
+07:14.850 --> 07:18.930
+inside that actual group model then I'm going to do the following.
+
+07:19.080 --> 07:28.200
+I'll have an anchor tag that has an H ref to your L and then groups leave.
+
+07:28.250 --> 07:34.640
+So we haven't actually created this view or Uriel's yet but later on in our Urals file for the actual
+
+07:34.640 --> 07:38.540
+groups we're going to be able to have the option to leave the group.
+
+07:38.750 --> 07:43.320
+So we only want that if the user is already in the group so we'll say OK the users are already in a
+
+07:43.320 --> 07:44.870
+group and visit to this page.
+
+07:44.870 --> 07:47.890
+They have the option to leave and they're going to be able to leave.
+
+07:47.900 --> 07:49.730
+We also have to define what slug.
+
+07:49.970 --> 07:53.810
+And that's just going to be equal to group thought slug.
+
+07:53.810 --> 07:55.160
+Now we'll kind of edit this later on.
+
+07:55.160 --> 08:00.950
+But let's actually make sure to see your template with those percent signs and then inside of this we're
+
+08:00.950 --> 08:05.270
+going to go ahead and give this a class to all say class when collapses.
+
+08:05.290 --> 08:06.890
+We get a little more room here.
+
+08:06.890 --> 08:08.050
+Class is equal to.
+
+08:08.060 --> 08:12.770
+We'll just have this be a normal button say between Actually let's make it a really large button.
+
+08:12.760 --> 08:15.570
+So it's kind of obvious I can start this on a new line.
+
+08:15.980 --> 08:22.150
+So it will say class Button but say button.
+
+08:22.220 --> 08:24.190
+LG for a large button.
+
+08:24.380 --> 08:28.160
+Fill out this button and then let's make it a warning button so it's like really obvious to the user
+
+08:28.160 --> 08:30.670
+that if they click that button they're going to leave.
+
+08:31.180 --> 08:31.590
+OK.
+
+08:31.610 --> 08:37.940
+And then we're also going to do is add in a span so we're going to use Cliffie icons or glyph icons
+
+08:38.390 --> 08:45.020
+and this will allow me to actually have an icon there instead of just like a word that says Leave group.
+
+08:45.040 --> 08:46.840
+So it's going to look like an exit sign or something.
+
+08:46.850 --> 08:51.920
+So we'll have it be a remove circle and that will be right next to the word leave.
+
+08:52.280 --> 09:01.500
+So we do this by creating a span and then inside that span we create a class and that class is going
+
+09:01.500 --> 09:12.480
+to be a glyph icon and then it's glyph icon dash remove dash circle and you can technically not really
+
+09:12.960 --> 09:13.820
+have the span.
+
+09:13.890 --> 09:15.890
+Just kind of an icon I want to put in there.
+
+09:15.950 --> 09:20.100
+You can check out the bootstrap documentation for all these codes and all the different icons they have
+
+09:20.100 --> 09:21.080
+available.
+
+09:21.510 --> 09:24.890
+And then I'm going to say leave OK.
+
+09:25.120 --> 09:30.160
+So we have this button that shows up if a group if a member is already in that group and then they can
+
+09:30.160 --> 09:34.780
+click on that button and they'll leave the group so that if that user is already in the group else we
+
+09:34.780 --> 09:37.320
+should probably give them the option to join the group.
+
+09:37.330 --> 09:37.780
+So we'll say.
+
+09:37.780 --> 09:38.890
+Else.
+
+09:39.280 --> 09:42.200
+And it's going to be a really similar thing we'll have h.
+
+09:42.490 --> 09:45.450
+And then let's just copy this because it's so similar.
+
+09:45.670 --> 09:50.730
+So I'm going to copy this entire anchor tag and then post it here.
+
+09:52.310 --> 09:56.240
+And then inside this anchor tag let's change what we want so else you're not going to leave it.
+
+09:56.250 --> 09:57.850
+And we know they're going to join it.
+
+09:58.040 --> 10:01.150
+So we'll make another view later on for Euro groups join.
+
+10:01.160 --> 10:06.110
+Same thing is going to be the slug and we can have the same thing as a button a warning you can change
+
+10:06.140 --> 10:09.460
+if you want but a warning or default et cetera for coloring.
+
+10:09.680 --> 10:15.980
+We will have instead of a remove circle I'm going to say OK circle and then we will say and sort of
+
+10:15.980 --> 10:19.260
+leave.
+
+10:19.310 --> 10:19.610
+All right.
+
+10:19.610 --> 10:20.900
+Again basic idea.
+
+10:20.900 --> 10:27.170
+We check that user who's currently visiting this page is in a group that members are all and then whether
+
+10:27.170 --> 10:29.420
+or not they're going to leave or join.
+
+10:29.420 --> 10:33.710
+All right now we're actually almost done with group detail that reached him L and then scroll down past
+
+10:33.800 --> 10:40.420
+this block and then I will start a new block and this is just going to be my group content here.
+
+10:41.210 --> 10:45.860
+And then what we will do is I don't want the group content that is the list of actual posts to take
+
+10:45.860 --> 10:46.990
+up the entire page.
+
+10:47.000 --> 10:48.590
+I kind of want them lined up a little bit.
+
+10:48.620 --> 10:55.750
+So what I'm going to do is say give class and I'll get this a class of call medium Dash 8.
+
+10:55.760 --> 11:03.050
+Those are those bootstrap formations and then we'll say if I'm going to say if group that postop count
+
+11:03.650 --> 11:05.630
+is equal to zero.
+
+11:05.870 --> 11:10.970
+And that basically means if the group doesn't actually have any posts in it yet what I will say is instead
+
+11:10.970 --> 11:17.840
+of listing something I'm just going to have a hit or two that says no post in this group yet let's make
+
+11:17.840 --> 11:19.010
+sure we spell it right.
+
+11:19.100 --> 11:20.700
+So no post in this group yet.
+
+11:21.490 --> 11:27.520
+And then if we don't have else actually let's say else else what else are going to do.
+
+11:27.520 --> 11:37.770
+We're going to say for four post in group posts all and then I'm going to just cycle through this.
+
+11:37.890 --> 11:46.180
+But when I'm going to do is say include and then we'll say posts forward slash underscore post-time
+
+11:46.260 --> 11:52.280
+h tim L and let me describe since we haven't really seen include yet what's going on there and other
+
+11:52.290 --> 11:57.060
+than that we're actually done with this page so it will take a little bit of time to kind of do a little
+
+11:57.060 --> 11:58.950
+description of 13:1.
+
+11:59.010 --> 12:05.070
+So all I'm doing here is I'm saying if the group currently has no post just have a heading to that says
+
+12:05.100 --> 12:06.310
+no post in this group yet.
+
+12:06.480 --> 12:09.650
+But the more likely situation where we actually already have posts in that groups.
+
+12:09.770 --> 12:13.180
+What I want to do is save for posts in groups of posts that all.
+
+12:13.290 --> 12:20.370
+And then I'm going to include now include is kind of a way of saying extends except you're going to
+
+12:20.370 --> 12:24.000
+essentially insert it right in the middle of an each team I'll file.
+
+12:24.150 --> 12:30.820
+So instead of actually extending and using blocks we can do is use the Include statement to inject in
+
+12:30.830 --> 12:31.960
+each team Al file.
+
+12:32.040 --> 12:35.220
+Sister is going to be so much stuff going off the posts themselves.
+
+12:35.220 --> 12:38.970
+A lot of HVM calls a lot of template calls I template tags.
+
+12:38.970 --> 12:42.240
+I don't want to include all of that in this group detail that is T.M..
+
+12:42.360 --> 12:46.680
+Instead what I will do is have that all taken care of in this post.
+
+12:46.710 --> 12:47.800
+A steam elf file.
+
+12:48.000 --> 12:53.160
+And since this is going to be injected to kind of signify that as a developer I had this underscore
+
+12:53.160 --> 12:54.200
+there.
+
+12:54.270 --> 12:56.430
+Now I technically don't need that underscore there.
+
+12:56.460 --> 13:01.050
+It's really more for me to understand that this particular piece of each team file is designed to be
+
+13:01.050 --> 13:04.190
+injected into other each team of files using include.
+
+13:04.200 --> 13:08.320
+So that's the kind of syntax that I'm going to be using to actually understand that.
+
+13:08.550 --> 13:13.500
+So that's it for the group detail page and we're going to do is finish off those other class based views
+
+13:13.890 --> 13:15.180
+that we just created.
+
+13:15.420 --> 13:20.940
+So we'll come back up here the next one we're going to do is the group list page so that should be pretty
+
+13:20.940 --> 13:21.550
+straightforward.
+
+13:21.570 --> 13:23.730
+Let's go to group list.
+
+13:23.880 --> 13:33.010
+Click on that and this is going to extend from groups slash group underscore based h Timo.
+
+13:33.010 --> 13:40.120
+Let's collapse that directory tree again and then I'm going to call a block for my pre content's or
+
+13:40.270 --> 13:49.390
+group content than hear what I will say is give this a class of call medium for a lot of these class
+
+13:49.390 --> 13:50.980
+calls and you can adjust them yourself.
+
+13:50.980 --> 13:53.350
+This is more for styling.
+
+13:53.520 --> 14:00.240
+And then we will say contents and what I want to do is check if a user is logged in and they're authenticated.
+
+14:00.240 --> 14:06.770
+I want to say a welcome back username and if not it's going to just say hey welcome to the group's page.
+
+14:06.770 --> 14:07.980
+Select the group.
+
+14:08.160 --> 14:09.690
+So let's try that out.
+
+14:09.750 --> 14:17.190
+We'll see if the user is underscore authenticated and I can use all these user template calls because
+
+14:17.280 --> 14:22.890
+of the Django authorization package basically takes care of all the heavy lifting to connect this on
+
+14:22.890 --> 14:29.780
+the backend so you can just say user that is authenticated and what I will do if they're authenticated.
+
+14:30.070 --> 14:35.660
+I'll have a heading to you on the web page it says Welcome back.
+
+14:35.680 --> 14:43.920
+And inside of this heading to I'm also going to have an anchor Ted and it's going to link to their actual
+
+14:43.950 --> 14:44.930
+profile.
+
+14:45.150 --> 14:53.490
+So I'll say you are el and pose for underscore user so that it actually links to their profile where
+
+14:53.490 --> 14:56.300
+it has a list of all their posts in case they ever want to see that.
+
+14:56.430 --> 14:59.260
+And then I also need to provide their username.
+
+14:59.580 --> 15:09.180
+So say a user name as equal to user dot whoops user thought user name and then inside of here and the
+
+15:09.180 --> 15:15.570
+actual anchor tag wasn't going to do is say at end with template tags.
+
+15:15.690 --> 15:22.430
+I need to inject this double say at user the user name so that basically has that kind of Twitter quality
+
+15:22.760 --> 15:26.900
+or basically any social network quality where it is user and authenticated.
+
+15:26.920 --> 15:28.050
+I'll say welcome back.
+
+15:28.170 --> 15:32.480
+There'll be a link here that says at user that username and if you click on that link it will take you
+
+15:32.480 --> 15:34.040
+to a list of all your posts.
+
+15:34.040 --> 15:38.410
+Now we're going to take care of that view later on when we're dealing with posts now.
+
+15:38.420 --> 15:45.290
+And if so for everyone though it will show the falling ill say groups heading to.
+
+15:45.350 --> 15:50.750
+And then I'll have a paragraph here it says Welcome to the group's page.
+
+15:50.750 --> 15:52.160
+Exclamation point.
+
+15:52.160 --> 15:57.860
+Save that and then the other thing I want to do is check that if a user is authenticated I should be
+
+15:57.860 --> 16:01.290
+able to kind of have a button that says Create newgroup.
+
+16:01.520 --> 16:02.510
+So we'll do that as well.
+
+16:02.510 --> 16:15.390
+We'll say if outside of this first attack if the user is underscore authenticated it will have an anchor
+
+16:15.390 --> 16:21.910
+tag here are again the anchor tag is linked to your el groups underscore creates.
+
+16:21.940 --> 16:23.230
+And there's a couple of ways you could have done this.
+
+16:23.230 --> 16:27.370
+You don't have to do exactly the same way I'm doing it but I'm going to do it for a simple button call
+
+16:28.090 --> 16:35.160
+between PTEN dash and the between dash will be 10 dash warning.
+
+16:35.170 --> 16:40.090
+Now remember from the navigation bar technically the user can already create a group from any page.
+
+16:40.090 --> 16:44.980
+There's a little link in the navigation but since you're on the group's page it might be nice to actually
+
+16:44.980 --> 16:47.670
+have it as a separate button as well on the actual group page.
+
+16:47.670 --> 16:49.390
+So that's why I'm adding this in.
+
+16:49.900 --> 16:57.100
+And then we will go ahead and add a span and use those glyph icons so in the span I will give it the
+
+16:57.100 --> 16:59.410
+class glyph.
+
+16:59.410 --> 17:06.970
+Let me make sure I spell that right Cliff icon glyph icon.
+
+17:07.020 --> 17:11.470
+I'm in trouble with this glyph icon dash plus dash sign.
+
+17:11.620 --> 17:16.250
+It looks like a little plus sign and we'll just have the text right next it.
+
+17:16.280 --> 17:20.920
+Create new group and then we need to end that if.
+
+17:20.990 --> 17:21.320
+All right.
+
+17:21.320 --> 17:24.790
+So that's it for that at the very top of the page.
+
+17:24.890 --> 17:28.020
+And so that will end the group block.
+
+17:28.040 --> 17:28.940
+So it just checks.
+
+17:28.940 --> 17:29.960
+Welcome back.
+
+17:29.960 --> 17:34.040
+And then says welcome to girls page has a little button there if you're authenticated to create a new
+
+17:34.040 --> 17:35.290
+group.
+
+17:35.300 --> 17:45.170
+Next we're going to do the actual group or content so we'll say have a new block group content and then
+
+17:45.280 --> 17:52.420
+couldn't give this one more division we'll say should be call dash media Dash 8.
+
+17:52.440 --> 17:59.400
+So this can take up everything and then we'll say div class I'll say list group in case we ever want
+
+17:59.400 --> 17:59.680
+to.
+
+17:59.700 --> 18:02.270
+This will see SS and now I'm going to have a for loop.
+
+18:02.280 --> 18:07.130
+So I'm going to say for group an object underscore list.
+
+18:07.170 --> 18:10.310
+And we'll talk about this object in your score list later on.
+
+18:11.280 --> 18:20.440
+So for group an object list and have an anchor tag and we'll give this you or I'll call.
+
+18:20.480 --> 18:32.430
+We'll say you're all groups single where the slug is equal to the group thoughts slug itself and I'm
+
+18:32.430 --> 18:40.530
+going to have this actually have a class will say this class will be list group item in case I ever
+
+18:40.530 --> 18:42.940
+want to add it or call it.
+
+18:43.200 --> 18:46.320
+And then let's kind of start this rest this anchor tag on a new line.
+
+18:46.530 --> 18:54.850
+And that is going to have let's say inside this anchor tag will have a heading three with a class of
+
+18:54.850 --> 18:55.910
+its own.
+
+18:56.230 --> 19:05.930
+And this class will say tidal list group item heading.
+
+19:05.930 --> 19:11.700
+So in case you ever want to edit that three you can do it in the SS and then I will say the group actual
+
+19:11.700 --> 19:15.090
+name.
+
+19:15.170 --> 19:21.360
+So that's the heading three and what is actually going on here is kind of briefly describe it.
+
+19:21.550 --> 19:28.110
+So so far I have for every group in my object list which is essentially going to be a list of the actual
+
+19:28.110 --> 19:29.530
+groups remember this is the group list.
+
+19:29.530 --> 19:30.370
+Each team L.
+
+19:30.540 --> 19:35.050
+And we're going to have an anchor tag that so far has a link to the group names.
+
+19:35.070 --> 19:40.020
+If you click on the group name Ill take it to the groups single page through this slug connection but
+
+19:40.020 --> 19:41.930
+there's still more I want to add here.
+
+19:42.320 --> 19:52.770
+I'm going to inside of the same anchor to create a div class and will say list group item I'm going
+
+19:52.770 --> 19:56.650
+to call it text and then say container fluids.
+
+19:56.670 --> 20:03.930
+That's a bootstrap a container called and then here is where I'm finally going to use that description.
+
+20:03.970 --> 20:09.420
+So I'll say it description underscore HVM L and then a pipe OPERATOR I'll say safe.
+
+20:09.430 --> 20:15.090
+So that allows me if you remember from the previous clone project that allows me to actually use the
+
+20:15.230 --> 20:21.610
+HTL code in a safe way so that if something is bold you actually see bold text instead of seeing bold
+
+20:21.700 --> 20:24.360
+template tags or bold HTL tags.
+
+20:25.640 --> 20:31.280
+Now what we want to do is right after this we're going to call another div and this is just going to
+
+20:31.280 --> 20:33.940
+be a row and I know there's a lot to type here.
+
+20:33.980 --> 20:38.030
+So if you want to just copy and paste this from the actual solution so you don't make any type of thing
+
+20:38.030 --> 20:41.240
+where it's really easy to make a typo here and I'm sure I'm making one right now which we're going to
+
+20:41.240 --> 20:50.930
+fix later and we'll create one more that says call medium for and we'll create a span and we will say
+
+20:50.990 --> 21:00.340
+this is a class and we'll get this a batch class and then we're going to do here is inside the span.
+
+21:00.660 --> 21:08.160
+I'll have group members counts and then inside of that I'm going to say
+
+21:11.030 --> 21:11.720
+member
+
+21:14.890 --> 21:26.610
+member and I will say group members count pluralize and later on we'll actually see what this does pluralize
+
+21:27.660 --> 21:34.700
+SRU I don't actually spell it wrong OK that's the end of this particular div and then we're going to
+
+21:34.700 --> 21:38.600
+start one more inside of the object suite div.
+
+21:38.620 --> 21:43.690
+And this is also going to be call M.D for in here again.
+
+21:43.720 --> 21:50.560
+Basically have the same thing span with the classes equal to badge.
+
+21:50.680 --> 22:00.650
+And then we'll call it group post counts and then outside of this we will have post template tagging.
+
+22:00.650 --> 22:07.240
+I'm going to inject group post counts and then we will call pluralize on that as well.
+
+22:08.680 --> 22:08.940
+OK.
+
+22:08.960 --> 22:14.380
+So a ton of div tags here and I promise we'll go over all this at the very end.
+
+22:14.480 --> 22:20.450
+But now we're going to do is basically scroll down and this make sure everything's lined up and we should
+
+22:20.450 --> 22:26.630
+have two div tags after the end four and then an anchor and three more tags before that and everything
+
+22:26.630 --> 22:31.460
+else should be lining up so if you don't have that you probably made a typo somewhere suggest a copy
+
+22:31.460 --> 22:32.660
+and paste from the solution.
+
+22:32.660 --> 22:34.790
+That's a lot easier than typing along with me.
+
+22:35.000 --> 22:37.160
+But let's actually go through this grouplets patients.
+
+22:37.170 --> 22:38.840
+There's a lot going on here.
+
+22:38.870 --> 22:44.060
+First off group all we're doing is checking these authenticated if they are we have a little thing that
+
+22:44.060 --> 22:48.960
+says welcome back at whoever the user is and it links to that user's post.
+
+22:49.100 --> 22:52.520
+So you log in you go to the groups page says welcome back Jose.
+
+22:52.670 --> 22:53.240
+Click on that.
+
+22:53.250 --> 22:56.060
+Then it takes a list of all jose's posts.
+
+22:56.060 --> 22:56.930
+Then it says END-IF.
+
+22:56.960 --> 22:59.310
+Now everybody would say welcome to the group page.
+
+22:59.360 --> 22:59.790
+We check.
+
+22:59.810 --> 23:03.950
+OK if is authenticated let's add a little button there so they can create a new group.
+
+23:03.950 --> 23:05.320
+There's also one of the navigation bar.
+
+23:05.330 --> 23:07.250
+But we should have one here as well.
+
+23:07.310 --> 23:09.410
+That's the end of the group block.
+
+23:09.680 --> 23:13.250
+Now it's the much more complicated group content block but it's actually not so bad.
+
+23:13.400 --> 23:17.360
+Basically what we're doing is we're saying OK for every group in this object list which is going to
+
+23:17.360 --> 23:21.290
+be a list of all the group objects we're going to have.
+
+23:21.290 --> 23:25.850
+And essentially you can kind of ignore these class calls or just CSSA and focus on what's really going
+
+23:25.850 --> 23:26.660
+on here.
+
+23:26.690 --> 23:28.590
+So here we're going say group name.
+
+23:28.700 --> 23:33.200
+And you can click on that group name and will take you to the single group page for that group detail
+
+23:33.200 --> 23:38.380
+page so we just created earlier and then the actual description we call a description underscore each
+
+23:38.430 --> 23:46.010
+hymnal and we call it safe that way and caster's any bold tags or it's hallux tags whatever they happen
+
+23:46.010 --> 23:47.570
+to be displayed correctly.
+
+23:47.840 --> 23:51.740
+And then we have these group members accounts and group post count.
+
+23:51.890 --> 23:56.210
+So on the actual page where it details the groups that are available it will say how many posts that
+
+23:56.210 --> 23:58.710
+group has and how many members that group has as well.
+
+23:58.740 --> 24:00.260
+That's basically all that's going on here.
+
+24:00.380 --> 24:04.230
+It's just the large amount of div class calls that kind of make it hard to read.
+
+24:04.310 --> 24:06.630
+But essentially it's just a pretty simple for loop.
+
+24:06.680 --> 24:08.380
+That's the splaying the group name.
+
+24:08.600 --> 24:11.450
+The number of members in that group and the number of posts that group.
+
+24:11.540 --> 24:15.210
+Then when you click the group name it will take you to that actual group detail page.
+
+24:15.210 --> 24:18.480
+That's all that's going on in groups list.
+
+24:18.500 --> 24:23.960
+Now finally what I want to fill out is let's say someone does click on Create a new group they're going
+
+24:23.960 --> 24:28.500
+to go to groups create and that's going to be created by that create view.
+
+24:28.610 --> 24:33.470
+So let's come over here and set that up with group underscore forum.
+
+24:33.530 --> 24:43.150
+So in this page I'm going to say extends groups slash group underscore based T.M. and then I'm also
+
+24:43.150 --> 24:48.950
+going to remember this is a form so I will load up bootstrap 3 to make the form look nice.
+
+24:50.940 --> 24:57.730
+Then we'll have block and then it will say group underscore content and here doesn't really matter what
+
+24:57.730 --> 24:58.660
+heading size you use.
+
+24:58.660 --> 25:07.570
+I'm just going to say create a new group and then we'll create a form here will say form loops for form
+
+25:08.410 --> 25:13.780
+and this form will have a class but it will have an action and the action will link back to
+
+25:17.060 --> 25:20.510
+your L groups underscore create.
+
+25:20.540 --> 25:27.080
+So basically linking to art create view and then we'll give this post method and will actually also
+
+25:27.080 --> 25:28.970
+give it an ID in case we ever want to edit it.
+
+25:28.990 --> 25:37.580
+S. SS Now I will say group form spicket group form of camel casing just so I know and inside of here
+
+25:37.580 --> 25:40.620
+since it's a forum we always need our CSR token.
+
+25:41.030 --> 25:43.930
+And then below that we're going to have the forum call.
+
+25:43.940 --> 25:49.820
+So if template whip's with template tagging will call bootstrap form as we saw before bootstrap underscore
+
+25:49.820 --> 25:51.560
+form in the past in the form.
+
+25:51.560 --> 25:54.530
+So this makes it look a lot nicer when using bootstrap 3.
+
+25:54.590 --> 26:01.320
+Which again you have Pipp install finally will have an input block and that will just be type submit.
+
+26:01.350 --> 26:03.220
+It'll save value says create.
+
+26:03.240 --> 26:09.810
+So it says create and then let's give this a class we don't need to give it a name globally between
+
+26:10.540 --> 26:15.190
+PTEN primary and then BATNA large.
+
+26:15.250 --> 26:18.790
+OK so definitely a lot of stuff here so let's quickly review.
+
+26:18.790 --> 26:24.080
+We finished off all the templates for groups as well as most of the views so let's quickly review.
+
+26:24.100 --> 26:29.560
+So what we did in this lecture was it came over to views that pie in the group's application.
+
+26:29.820 --> 26:34.900
+And we created three main views for creating a new group for looking at a single group and then the
+
+26:34.900 --> 26:40.210
+list groups and then we actually went to the templates and fill that out ourselves so the basic template
+
+26:40.270 --> 26:41.720
+just has these three blocks.
+
+26:41.810 --> 26:43.040
+What goes before the group.
+
+26:43.150 --> 26:44.470
+What the actual group conta is.
+
+26:44.500 --> 26:45.280
+And in the post group.
+
+26:45.310 --> 26:49.720
+That way we can easily separate them than we actually have the detail page of a group which just shows
+
+26:49.720 --> 26:50.610
+the group name.
+
+26:50.800 --> 26:56.380
+The number of members in that group and then it actually says if the users in that group there's a leave
+
+26:56.380 --> 27:00.880
+button if the user is not in that group there's a join button that we can't connect users to groups
+
+27:00.880 --> 27:01.630
+themselves.
+
+27:01.870 --> 27:06.030
+And here we just say OK if there's no post in the group just say no posts.
+
+27:06.130 --> 27:10.510
+If there are post though we're just going to kind of inject this underscore postdates TMail content
+
+27:10.810 --> 27:16.330
+that will work with later on in the future lecture then we actually went to the group list page which
+
+27:16.330 --> 27:21.190
+was a little complicated but essentially just shows Welcome back through the user says Welcome to the
+
+27:21.190 --> 27:22.190
+group page.
+
+27:22.270 --> 27:26.470
+If the user is authenticated we have a little button that says you can create a new group and then here
+
+27:26.470 --> 27:32.920
+we just actually list out every group with the link to the group and then the number of members and
+
+27:32.920 --> 27:34.360
+the number of posts that group.
+
+27:34.360 --> 27:39.640
+Finally for that create the we have group underscore forum or just create group and we have that forum
+
+27:39.640 --> 27:40.600
+that we just created.
+
+27:40.820 --> 27:41.260
+OK.
+
+27:41.440 --> 27:43.810
+We're actually still not done with all the views for groups.
+
+27:43.810 --> 27:46.260
+There's two more a little more complicated views.
+
+27:46.260 --> 27:47.750
+We're gonna do the next lecture.
+
+27:47.750 --> 27:53.800
+That's basically the views for joining a group and leaving a group so that's going to kind of require
+
+27:53.830 --> 27:57.940
+a little bit more of a code to actually make those work.
+
+27:58.060 --> 28:00.560
+Or if you have any questions feel free to post the Kewney forums.
+
+28:00.580 --> 28:05.370
+Definitely that a lot here and we only type the lot so if you're stuck on something or something that
+
+28:05.370 --> 28:08.890
+didn't seem quite right you can always just copy and paste from the provided notes.
+
+28:08.890 --> 28:11.090
+Thanks everyone and I'll see at the next lecture.
